@@ -1,9 +1,9 @@
 #labels demo
 #a demo for the pipeline
 
-= A simple example : (a + b) `*` c =
+= (a + b) `*` c `=` ?=
 
-This example show a simple application, (a + b ) `*` c
+This example show a simple application : (a + b ) `*` c
 
 This contain four step:
   # read a
