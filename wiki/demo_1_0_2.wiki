@@ -1,6 +1,6 @@
 #a demo for the pipeline
 
-= Use the simple example : (a + b) `*` c =
+= A simple example : (a + b) `*` c =
 
 This example show a simple application, (a + b ) `*` c
 
