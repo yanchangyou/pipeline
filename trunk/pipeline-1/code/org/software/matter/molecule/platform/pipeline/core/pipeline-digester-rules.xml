@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="pipeline-list">
+		<object-create-rule
+			classname="org.software.matter.molecule.platform.pipeline.core.PipelineConfig" />
+		<pattern value="import">
+			<call-method-rule methodname="dealImport" paramcount="0" />
+		</pattern>
+		<pattern value="pipeline">
+
+			<object-create-rule
+				classname="org.software.matter.molecule.platform.pipeline.core.Pipeline" />
+			<set-properties-rule />
+
+			<pattern value="comment">
+<!--				<set-next-rule methodname="setComment" paramcount="1" />-->
+			</pattern>
+			<pattern value="step">
+				<object-create-rule
+					classname="org.software.matter.molecule.platform.pipeline.core.Step" />
+				<set-properties-rule />
+
+				<pattern value="pipeline-reference">
+					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.PipelineReference">
+					</object-create-rule>
+					
+					<set-properties-rule/>
+					
+					<set-next-rule methodname="setPipelineReference"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.PipelineReference" />
+				</pattern>
+				<pattern value="step-reference">
+					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.StepReference">
+					</object-create-rule>
+					
+					<set-properties-rule/>
+					
+					<set-next-rule methodname="setStepReference"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.StepReference" />
+				</pattern>
+				
+				<pattern value="algorithm">
+					<object-create-rule
+						classname="org.software.matter.molecule.platform.pipeline.core.Algorithm" />
+					<set-properties-rule />
+					<set-next-rule methodname="setAlgorithm"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.Algorithm" />
+				</pattern>
+
+				<pattern value="input">
+					<object-create-rule
+						classname="org.software.matter.molecule.platform.pipeline.core.Input" />
+
+					<set-properties-rule />
+
+					<pattern value="local-param">
+						<object-create-rule
+							classname="org.software.matter.molecule.platform.pipeline.core.LocalParam" />
+						<set-properties-rule />
+						<set-next-rule methodname="addLocalParam"
+							paramtype="org.software.matter.molecule.platform.pipeline.core.LocalParam" />
+
+					</pattern>
+
+					<pattern value="global-param">
+						<object-create-rule
+							classname="org.software.matter.molecule.platform.pipeline.core.GlobalParam" />
+						<set-properties-rule />
+						<set-next-rule methodname="addGlobalParamNameIndexMap"
+							paramtype="org.software.matter.molecule.platform.pipeline.core.GlobalParam" />
+
+					</pattern>
+					<set-next-rule methodname="setInput"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.Input" />
+				</pattern>
+
+				<set-next-rule methodname="addStep" />
+			</pattern>
+			<set-next-rule methodname="addPipeline" />
+		</pattern>
+
+	</pattern>
+</digester-rules>
