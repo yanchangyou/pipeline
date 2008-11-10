@@ -3,7 +3,7 @@
 <pipeline-list>
 	<pipeline name="input-process-output">
 		<comment>
-			this is a simple test about pipe line (a + b) * c = ?
+			this is a demo about pipe line (a + b) * c = ?
 		</comment>
 		<step name="read a" share="readInt" output="a">
 			<algorithm className="org.software.matter.molecule.platform.pipeline.demo.AlgorithmLib" methodName="readInt" />
@@ -27,7 +27,7 @@
 		</step>
 	</pipeline>
 
-	<pipeline name="print" share="print">
+	<pipeline name="printMessage" share="print">
 		<step name="print a message">
 			<comment></comment>
 			<algorithm className="org.software.matter.molecule.platform.pipeline.demo.AlgorithmLib" methodName="println"
