@@ -6,6 +6,10 @@ import java.io.InputStreamReader;
 
 public class AlgorithmLib {
 
+	public static void println(String message) {
+		System.out.println(message);
+	}
+	
 	public static void println(Object obj) {
 		println(obj.toString());
 	}
