@@ -1,0 +1,90 @@
+#a demo for the pipeline
+
+= Use the simple example : (a + b) `*` c =
+
+This example show a simple application, (a + b ) `*` c
+
+This contain four step:
+  # read a
+  # read b
+  # calculate (a + b) `*` c
+  # print the result
+
+the pipeline configuration file show how to resolve the problem.
+This file show all the feature about the pipeline.
+
+The configuration file:
+{{{
+
+<pipeline-list>
+	<pipeline name="input-process-output">
+		<comment>
+			this is a demo about pipeline (a + b) * c = ?
+		</comment>
+		<step name="read a" share="readInt" output="a">
+			<algorithm className="org.software.matter.molecule.platform.pipeline.demo.AlgorithmLib" methodName="readInt" />
+		</step>
+		<step name="read b" output="b">
+			<step-reference name="readInt" />
+		</step>
+
+		<step name="(a + b) * c" output="result">
+			<comment></comment>
+			<algorithm className="org.software.matter.molecule.platform.pipeline.demo.AlgorithmLib" methodName="calculate"
+				methodParams="java.lang.Integer,java.lang.Integer,java.lang.Double" />
+			<input>
+				<global-param name="a" index="1" />
+				<global-param name="b" index="2" />
+				<local-param value="1.5" index="3" meaning="c" />
+			</input>
+		</step>
+		<step name="print">
+			<pipeline-reference name="print" />
+		</step>
+	</pipeline>
+
+	<pipeline name="print" share="print">
+		<step name="print a message">
+			<comment></comment>
+			<algorithm className="org.software.matter.molecule.platform.pipeline.demo.AlgorithmLib" methodName="println"
+				methodParams="java.lang.Object" />
+			<input>
+				<global-param name="result" index="1" />
+			</input>
+		</step>
+	</pipeline>
+
+</pipeline-list>
+}}}
+
+The code :
+{{{
+                String configFilePath = "org/software/matter/molecule/platform/pipeline/demo/input-process-output.pipeline.xml";
+		PipelineConfig pipelineConfig = new PipelineConfig(configFilePath);
+		String pipelineName = "input-process-output";
+		Pipeline aPipeline = pipelineConfig.getPipeline(pipelineName);
+		
+		aPipeline.deal();
+}}}
+
+The result :
+{{{
+org/software/matter/molecule/platform/pipeline/demo/input-process-output.pipeline.xml
+开始处理流水线(input-process-output)
+开始处理第1步(共4步) : read a
+1
+处理第1步结束
+开始处理第2步(共4步) : read b
+2
+处理第2步结束
+开始处理第3步(共4步) : (a + b) * c
+处理第3步结束
+开始处理第4步(共4步) : print
+开始处理流水线(printMessage)
+开始处理第1步(共1步) : print a message
+4.5
+处理第1步结束
+流水线(printMessage)处理完毕
+处理第4步结束
+流水线(input-process-output)处理完毕
+}}}
