@@ -5,19 +5,19 @@
 
 	<idea>
 		<core type="evolution">Idea + Pioneer + Pave + Open</core>
-		<core type="feel">Imaginative + Simple + Comfortabe + Wow</core>
+		<core type="feel">Imaginative + Simple + Comfortable + Wow</core>
 
 		<语言特性>
 			<流程控制>
 				<顺序结构 include="yes"></顺序结构>
-				<选择结构 inlcude="no"></选择结构>
+				<选择结构 include="no"></选择结构>
 				<循环结构 include="no"></循环结构>
 			</流程控制>
 			<高级特性>
 				<嵌套 include="no"></嵌套>
 				<引用 include="yes"></引用>
 				<继承 include="no"></继承>
-				<并发 inlcude="no"></并发>
+				<并发 include="no"></并发>
 			</高级特性>
 		</语言特性>
 	</idea>
