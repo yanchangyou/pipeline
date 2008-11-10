@@ -64,7 +64,7 @@ public class Pipeline extends NamedObject {
 		}
 		
 		Object ware = null;
-		System.out.println("开始处理流水线(" + this.getName() + ")\n");
+		System.out.println("开始处理流水线(" + this.getName() + ")");
 		for (int i = 0; i < stepList.size(); i++) {
 			Step step = (Step) stepList.get(i);
 			System.out.println("开始处理第" + (i + 1) + "步(共" + stepList.size()
@@ -93,9 +93,9 @@ public class Pipeline extends NamedObject {
 			if (step.getOutput() != null && !step.getOutput().trim().equals("")) {
 				addGlobalVariable(step.getOutput(), ware);
 			}
-			System.out.println("处理第" + (i + 1) + "步结束\n");
+			System.out.println("处理第" + (i + 1) + "步结束");
 		}
-		System.out.println("流水线(" + this.getName() + ")处理完毕\n");
+		System.out.println("流水线(" + this.getName() + ")处理完毕");
 
 		return ware;
 	}
