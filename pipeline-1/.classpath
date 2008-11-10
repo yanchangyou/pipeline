@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="code"/>
-	<classpathentry kind="src" path="forge"/>
+	<classpathentry kind="src" path="demo"/>
+	<classpathentry kind="src" path="train"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="src" path="doc"/>
 	<classpathentry kind="lib" path="lib/commons-beanutils-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/commons-digester-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.0.4.jar"/>
