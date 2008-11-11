@@ -1,5 +1,5 @@
+#summary a demo for the pipeline
 #labels demo
-#a demo for the pipeline
 
 = (a + b) `*` c `=` ?=
 
