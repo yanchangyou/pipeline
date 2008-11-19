@@ -1,0 +1,19 @@
+#summary pipeline2 的需求
+#labels Phase-Requirements
+
+= pipeline2 的需求 =
+
+1, 扩展性
+2, 独立性
+
+
+
+= Details =
+
+1, 扩展性
+   这一点, pipeline 在设计时考虑比较充分;
+   分为以下层次: root-->economy-->market-->supplier-->server-->service-->pipeline-->line|tree|loop-->step
+   根-->经济-->市场-->供应商-->服务器-->服务-->装配线-->结构-->步骤
+   这样应该可以涵盖当今的各种经济体系.
+2, 独立性
+   各种服务通过端口访问, 这样就能独立于各种平台和运行环境
