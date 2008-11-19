@@ -20,7 +20,7 @@
 				<meta>
 					<property name="age" value="万寿无疆" />
 				</meta>
-				<server name="测试服务器">
+				<server name="诺亚方舟服务器">
 					<meta>
 						<property name="host" value="10.201.1.28" />
 					</meta>
@@ -29,9 +29,9 @@
 							<property name="port" value="10016" />
 						</meta>
 						<request>
-							<input>
+							<string-input>
 								<![CDATA[<message>Hello World!</message>]]>
-							</input>
+							</string-input>
 						</request>
 						<response>
 							<output to="localhost.console"></output>
@@ -61,7 +61,11 @@
 						<property name="host" value="127.0.0.1"></property>
 						<property name="protocol" value="ftp"></property>
 					</meta>
-					<service name="output" port="10000"></service>
+					<service name="output">
+						<meta>
+							<property name="port" value="10001"></property>
+						</meta>
+					</service>
 				</server>
 			</supplier>
 		</market>
@@ -86,20 +90,17 @@
 						<meta>
 							<property name="count" value="1" />
 						</meta>
-						<request></request>
-						<response></response>
+						<request>
+							<string-input>
+								<![CDATA[Hello World!]]>
+							</string-input>>
+						</request>						
 						<pipeline>
 							<meta>
 								<property name="count" value="1" />
 							</meta>
 							<line>
-								<step>
-									<request>
-										<xml-input>
-											<![CDATA[<message>Hello World!</message>]]>
-										</xml-input>
-									</request>
-								</step>
+								<step primarayService="共产主义经济.自由市场.上帝.outputServer.output" standbyService="" />
 							</line>
 						</pipeline>
 					</service>

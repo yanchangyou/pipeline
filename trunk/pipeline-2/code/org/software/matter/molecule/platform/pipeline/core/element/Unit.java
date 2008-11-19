@@ -6,7 +6,17 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.atom.entity.commons.NameObject;
 
-public class Unit extends NameObject {
+public abstract class Unit extends NameObject {
+
+	private Root root;
+	
+	public Root getRoot() {
+		return root;
+	}
+
+	public void setRoot(Root root) {
+		this.root = root;
+	}
 
 	public Unit(String name) {
 	}
@@ -22,8 +32,14 @@ public class Unit extends NameObject {
 		unitList.add(unit);
 	}
 
+	public List getUnitList() {
+		return unitList;
+	}
+
 
 	public String toString() {
 		return new ToStringBuilder(this).toString();
 	}
+	
+	public abstract void deal(Request request, Response response) throws Exception ;
 }

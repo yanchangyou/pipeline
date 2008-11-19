@@ -1,51 +1,33 @@
 package org.software.matter.molecule.platform.pipeline.core.element;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.software.matter.molecule.platform.pipeline.core.Locator;
 
 public class Step extends Unit {
 
-	private String market;
+	private String primarayService;
 
-	private String supplier;
-
-	private String server;
-
-	private String service;
+	private String standbyService;
 
 	private Request request;
-	
+
 	private Response response;
-	
-	public String getSupplier() {
-		return supplier;
+
+	public String toString() {
+		return new ToStringBuilder(this).toString();
 	}
 
-	public void setSupplier(String supplier) {
-		this.supplier = supplier;
+	public String getPrimarayService() {
+		return primarayService;
 	}
 
-	public String getMarket() {
-		return market;
-	}
-
-	public void setMarket(String market) {
-		this.market = market;
-	}
-
-	public String getServer() {
-		return server;
-	}
-
-	public void setServer(String server) {
-		this.server = server;
-	}
-
-	public String getService() {
-		return service;
-	}
-
-	public void setService(String service) {
-		this.service = service;
+	public void setPrimarayService(String primarayService) {
+		this.primarayService = primarayService;
 	}
 
 	public Request getRequest() {
@@ -63,10 +45,38 @@ public class Step extends Unit {
 	public void setResponse(Response response) {
 		this.response = response;
 	}
-	
 
-	public String toString() {
-		return new ToStringBuilder(this).toString();
+	public String getStandbyService() {
+		return standbyService;
+	}
+
+	public void setStandbyService(String standbyService) {
+		this.standbyService = standbyService;
+	}
+
+	public void deal(Request request, Response response) throws Exception {
+		Service service = Locator
+				.locateService(this.getRoot(), primarayService);
+		Server server = Locator.locateServer(this.getRoot(), primarayService);
+
+		String host = server.getMeta().getProperty("host");
+		int port = Integer.parseInt(service.getMeta().getProperty("port"));
+
+		Socket socket = new Socket(host, port);
+		PrintWriter os = new PrintWriter(socket.getOutputStream());
+		
+		os.println(request.getInput().toXMLType());
+		os.flush();
+
+		if (response != null) {
+			BufferedReader is = new BufferedReader(new InputStreamReader(socket
+					.getInputStream()));
+			String responseData = is.readLine();
+			Output output = new Output(responseData);
+			response.setOutput(output);
+		}
+		
+		socket.close();
 	}
 
 }

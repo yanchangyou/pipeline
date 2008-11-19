@@ -1,7 +1,6 @@
 package org.software.matter.molecule.platform.pipeline.core.element;
 
-public class StringInput extends Input {
-
+public class JSON extends Input {
 
 	public byte[] toByteType() {
 		return data.getBytes();
@@ -12,12 +11,10 @@ public class StringInput extends Input {
 	}
 
 	public String toXMLType() {
-		// TODO Auto-generated method stub
 		return data;
 	}
 
 	public String toJSONType() {
-		// TODO Auto-generated method stub
 		return data;
 	}
 }
