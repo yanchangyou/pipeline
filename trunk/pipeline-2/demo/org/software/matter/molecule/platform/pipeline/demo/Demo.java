@@ -23,7 +23,7 @@ public class Demo {
 	
 	
 	public static void simpleTest() throws Exception {
-		final String VALIDATOR_XML = "org/software/matter/molecule/platform/pipeline/demo/request-response.pipeline.xml";
+		final String VALIDATOR_XML = "org/software/matter/molecule/platform/pipeline/demo/integration.pipeline.xml";
 		
 		Root aRoot = Root.config(VALIDATOR_XML);
 		
