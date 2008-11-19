@@ -1,6 +1,6 @@
 package org.software.matter.molecule.platform.pipeline.demo;
 
-import org.software.matter.molecule.platform.pipeline.core.element.Economy;
+import org.software.matter.molecule.platform.pipeline.core.element.Root;
 
 
 public class Demo {
@@ -25,9 +25,9 @@ public class Demo {
 	public static void simpleTest() throws Exception {
 		final String VALIDATOR_XML = "org/software/matter/molecule/platform/pipeline/demo/request-response.pipeline.xml";
 		
-		Economy aEconomy = Economy.configEconomy(VALIDATOR_XML);
+		Root aRoot = Root.config(VALIDATOR_XML);
 		
-		System.out.println(aEconomy);
+		System.out.println(aRoot);
 	}
 	
 }
