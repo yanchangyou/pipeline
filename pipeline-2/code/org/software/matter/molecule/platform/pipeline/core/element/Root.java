@@ -46,7 +46,7 @@ public class Root extends NameAndTypeAndMetaObject {
 		return (Root) digester.parse(new File(xmlUrl.getFile()));
 	}
 	
-	public void execute() {
+	public void execute() throws Exception {
 		Execute.execute(this);
 	}
 	
