@@ -1,14 +1,14 @@
 #summary pipeline2 的需求
 #labels Phase-Requirements
 
-= pipeline2 的需求 =
+=== pipeline2 的需求 ===
 
 1, 扩展性
 2, 独立性
 
 
 
-= Details =
+=== Details ===
 
 1, 扩展性
    这一点, pipeline 在设计时考虑比较充分;
