@@ -14,4 +14,8 @@ public class Meta {
 	public String getProperty(String name) {
 		return propertyMap.get(name).toString();
 	}
+	
+	public String toString() {
+		return propertyMap.toString();
+	}
 }
