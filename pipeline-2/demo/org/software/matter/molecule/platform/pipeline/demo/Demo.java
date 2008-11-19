@@ -10,9 +10,9 @@ public class Demo {
 	}
 	
 	public static void demo() throws Exception {
-		final String VALIDATOR_XML = "org/software/matter/molecule/platform/pipeline/demo/integration.pipeline.xml";
+		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/integration.pipeline.xml";
 		
-		Root aRoot = Root.load(VALIDATOR_XML);
+		Root aRoot = Root.load(PIPELINE_FILE_PATH);
 		
 		aRoot.execute();
 		
