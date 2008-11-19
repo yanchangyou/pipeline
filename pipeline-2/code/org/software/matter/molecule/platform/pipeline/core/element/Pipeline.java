@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NamedObject;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Pipeline extends NamedObject {
+public class Pipeline extends NameAndTypeAndMetaObject {
 
 	private List unitList = new ArrayList();
 	
