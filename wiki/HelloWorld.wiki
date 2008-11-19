@@ -1,0 +1,16 @@
+#labels Featured
+成功完成hello world!代码编写, 在这过程中
+1, 优化input 使input子类之间可以互相转换, 就像Number子类一样
+2, 添加json类型输入, 还没有进行真正处理
+3, 修正 line没有迭代执行的bug
+4, 为 pipeline, unit, line, tree, loop, step 定义了统一的接口
+   public void deal(Request request, Response response) throws Exception
+5, 所有request和response在service这一层面构造完成, 下面就直接使用
+6, 具有到step, 就涉及到与服务器交互, 这一层采用socket编程实现
+7, 增加Locator类, 专门用于在程序结构中定位, 可以通过 传递参数 Root root,
+String path 来定位到   Economy, Market, Supplier, Server, Service这些层面
+8, 补充Execute执行类, 使它可运行
+9, 修改相应的digester-rules文件, 并修复某些bug
+10, 完善hello的配置文件
+11, 编写充当输出服务器的类OutputServer(来自于网络一简易聊天程序,
+并做适当修改)
