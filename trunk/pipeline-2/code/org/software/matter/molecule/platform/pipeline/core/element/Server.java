@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NamedObject;
-import org.software.matter.atom.entity.commons.Typable;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Server extends NamedObject implements Typable {
+public class Server extends NameAndTypeAndMetaObject {
 	
 	private Meta meta;
 	

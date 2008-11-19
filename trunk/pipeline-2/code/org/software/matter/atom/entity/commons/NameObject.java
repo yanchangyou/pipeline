@@ -2,15 +2,15 @@ package org.software.matter.atom.entity.commons;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public abstract class NamedObject {
+public class NameObject implements Namable {
 
 	String name;
 
-	public NamedObject() {
+	public NameObject() {
 		
 	}
 	
-	public NamedObject(String name) {
+	public NameObject(String name) {
 		this.name = name;
 	}
 	public String getName() {

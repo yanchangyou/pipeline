@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NamedObject;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Economy extends NamedObject {
+public class Economy extends NameAndTypeAndMetaObject {
 
 	private Map marketMap = new HashMap();
 

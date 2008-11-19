@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NamedObject;
+import org.software.matter.atom.entity.commons.NameObject;
 
-public class Unit extends NamedObject {
+public class Unit extends NameObject {
 
 	public Unit(String name) {
 	}

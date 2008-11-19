@@ -3,9 +3,9 @@ package org.software.matter.molecule.platform.pipeline.core.element;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.software.matter.atom.entity.commons.NamedObject;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Supplier extends NamedObject {
+public class Supplier extends NameAndTypeAndMetaObject {
 
 	private Map serverMap = new HashMap();
 	/**

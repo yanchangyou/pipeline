@@ -1,10 +1,9 @@
 package org.software.matter.molecule.platform.pipeline.core.element;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NamedObject;
-import org.software.matter.atom.entity.commons.Typable;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Service extends NamedObject implements Typable {
+public class Service extends NameAndTypeAndMetaObject {
 
 	private Request request;
 
