@@ -13,11 +13,6 @@ public class Pipeline extends NameAndTypeAndMetaObject {
 	public void addUnit(Unit unit) {
 		unitList.add(unit);
 	}
-//	
-//	public void addUnit(Line line) {
-//		unitList.add(line);
-//	}
-	
 
 	public String toString() {
 		return new ToStringBuilder(this).toString() + "\nunitList : " + unitList;

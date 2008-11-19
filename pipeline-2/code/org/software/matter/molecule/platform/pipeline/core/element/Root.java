@@ -8,10 +8,11 @@ import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
+import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 import org.software.matter.molecule.platform.pipeline.core.Execute;
 import org.xml.sax.SAXException;
 
-public class Root {
+public class Root extends NameAndTypeAndMetaObject {
 
 	private Map economyMap = new HashMap();
 
