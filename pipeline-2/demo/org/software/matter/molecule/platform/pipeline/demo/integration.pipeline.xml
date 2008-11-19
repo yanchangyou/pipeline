@@ -29,19 +29,19 @@
 						</pipeline>
 					</service>
 				</server>
-				<server name="输出服务器">
+				<server name="inputServer">
 					<meta>
 						<property name="host" value="127.0.0.1"></property>
 						<property name="protocol" value="ftp"></property>
 					</meta>
-					<service name="print" port="10000"></service>
+					<service name="input" port="10001"></service>
 				</server>
-				<server name="输入服务器">
+				<server name="outputServer">
 					<meta>
 						<property name="host" value="127.0.0.1"></property>
 						<property name="protocol" value="ftp"></property>
 					</meta>
-					<service name="print" port="10000"></service>
+					<service name="output" port="10000"></service>
 				</server>
 			</supplier>
 		</market>

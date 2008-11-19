@@ -32,12 +32,12 @@ public class Root {
 		return (Economy) economyMap.get(economyName);
 	}
 
-	final static String VALIDATOR_RULES = "pipeline-digester-rules.xml";
+	final static String VALIDATOR_RULES = "org/software/matter/molecule/platform/pipeline/core/pipeline-digester-rules.xml";
 
 	public static Root load(final String PATH) throws IOException,
 			SAXException {
 
-		URL rulesUrl = Root.class.getResource(VALIDATOR_RULES);
+		URL rulesUrl = Root.class.getClassLoader().getResource(VALIDATOR_RULES);
 
 		URL xmlUrl = Economy.class.getClassLoader().getResource(PATH);
 		Digester digester = DigesterLoader.createDigester(rulesUrl);
