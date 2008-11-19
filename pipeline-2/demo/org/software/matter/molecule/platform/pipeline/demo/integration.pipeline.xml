@@ -65,7 +65,7 @@
 									</request>
 								</step>
 							</line>
-						</pipeline>						
+						</pipeline>
 					</service>
 				</server>
 			</supplier>

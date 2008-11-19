@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.matter.atom.entity.commons.NamedObject;
+import org.software.matter.molecule.platform.pipeline.core.Execute;
 import org.xml.sax.SAXException;
 
 public class Root extends NamedObject {
@@ -34,7 +35,7 @@ public class Root extends NamedObject {
 
 	final static String VALIDATOR_RULES = "pipeline-digester-rules.xml";
 
-	public static Root config(final String PATH) throws IOException,
+	public static Root load(final String PATH) throws IOException,
 			SAXException {
 
 		URL rulesUrl = Root.class.getResource(VALIDATOR_RULES);
@@ -43,6 +44,10 @@ public class Root extends NamedObject {
 		Digester digester = DigesterLoader.createDigester(rulesUrl);
 
 		return (Root) digester.parse(new File(xmlUrl.getFile()));
+	}
+	
+	public void execute() {
+		Execute.execute(this);
 	}
 	
 	public String toString() {
