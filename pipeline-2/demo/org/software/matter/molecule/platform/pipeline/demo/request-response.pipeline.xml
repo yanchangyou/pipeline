@@ -1,40 +1,74 @@
 <?xml version="1.0"?>
 
 
-<economy>
-	<market name="南方市场" region="">
-		<supplier name="软通">
-			<server name="邮件服务器">
-				<service name="main" type="public" port="10000">
-					<request>
-						<input>
-							<![CDATA[<message>Hello World!</message>]]>
-						</input>
-					</request>
-					<response>
-						<output to="localhost.console"></output>
-					</response>
-					<pipeline>
-						<line>
-							<step service="service" server="server" supplier="supplier"
-								market="market">
-								<request>
-									<xml-input>
-										<![CDATA[<message>Hello World!</message>]]>
-									</xml-input>
-								</request>
-							</step>
-						</line>
-					</pipeline>
-				</service>
-			</server>
-			<server name="printServer">
-				<meta>
-					<property name="host" value="127.0.0.1"></property>
-					<property name="protocol" value="ftp"></property>
-				</meta>
-				<service name="print" port="10000"></service>
-			</server>
-		</supplier>
-	</market>
-</economy>
+<root>
+	<economy name="共产主义经济">
+		<market name="自由市场" country="永恒国度">
+			<supplier name="上帝">
+				<server name="测试服务器">
+					<service name="main" type="public" port="10000">
+						<request>
+							<input>
+								<![CDATA[<message>Hello World!</message>]]>
+							</input>
+						</request>
+						<response>
+							<output to="localhost.console"></output>
+						</response>
+						<pipeline>
+							<line>
+								<step service="service" server="server"
+									supplier="supplier" market="market">
+									<request>
+										<xml-input>
+											<![CDATA[<message>Hello World!</message>]]>
+										</xml-input>
+									</request>
+								</step>
+							</line>
+						</pipeline>
+					</service>
+				</server>
+				<server name="输出服务器">
+					<meta>
+						<property name="host" value="127.0.0.1"></property>
+						<property name="protocol" value="ftp"></property>
+					</meta>
+					<service name="print" port="10000"></service>
+				</server>
+				<server name="输入服务器">
+					<meta>
+						<property name="host" value="127.0.0.1"></property>
+						<property name="protocol" value="ftp"></property>
+					</meta>
+					<service name="print" port="10000"></service>
+				</server>
+			</supplier>
+		</market>
+	</economy>
+	<economy name="main">
+		<market name="main">
+			<supplier name="main">
+				<server name="main">
+					<service name="main">
+						<request>
+						</request>
+						<response>
+						</response>
+						<pipeline>
+							<line>
+								<step>
+									<request>
+										<xml-input>
+											<![CDATA[<message>Hello World!</message>]]>
+										</xml-input>
+									</request>
+								</step>
+							</line>
+						</pipeline>						
+					</service>
+				</server>
+			</supplier>
+		</market>
+	</economy>
+</root>
