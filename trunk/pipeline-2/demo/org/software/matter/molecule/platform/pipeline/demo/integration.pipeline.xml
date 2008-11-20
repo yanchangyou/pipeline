@@ -61,9 +61,9 @@
 
 							<line>
 								<step primarayService="main.main.main.io-server.input" standbyService="">
-									<define>
+									<declare>
 										<define-param name="paramName">param value</define-param>
-									</define>
+									</declare>
 									<param-input>
 										<refer-param name="a" />
 										<refer-param name="b" />
@@ -149,32 +149,32 @@
 							<meta>
 								<property name="propertyName" value="propertyValue" />
 							</meta>
-							<define>
+							<declare>
 								<define-param name="paramName">param value</define-param>
-							</define>
+							</declare>
 							<line>
-								<define>
+								<declare>
 									<define-param name="paramName">param value</define-param>
-								</define>
+								</declare>
 								<unit>
-									<define>
+									<declare>
 										<define-param name="paramName">param value</define-param>
-									</define>
+									</declare>
 									<step>
-										<define>
+										<declare>
 											<define-param name="paramName">param value</define-param>
-										</define>
+										</declare>
 									</step>
 								</unit>
 							</line>
 							<tree>
-								<define>
+								<declare>
 									<define-param name="paramName">param value</define-param>
-								</define>
+								</declare>
 								<if>
-									<define>
+									<declare>
 										<define-param name="paramName">param value</define-param>
-									</define>
+									</declare>
 									<unit></unit>
 								</if>
 								<else-if>

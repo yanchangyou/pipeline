@@ -139,18 +139,108 @@
 								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline" />
 								<set-properties-rule />
 
+								<pattern value="declare">
+
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									<set-properties-rule />
+									<pattern value="define-param">
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										<set-properties-rule />
+										<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+									</pattern>
+									<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+								</pattern>
+
 								<pattern value="step">
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
 									<set-properties-rule />
-									<pattern value="request">
+									<pattern value="declare">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
 										<set-properties-rule />
+										<pattern value="define-param">
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-properties-rule />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										</pattern>
+										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									</pattern>
+
+									<pattern value="xml-input">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
+										<set-properties-rule />
+										<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
+									</pattern>
+									<pattern value="string-input">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.StringInput" />
+										<set-properties-rule />
+										<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
+									</pattern>
+									<pattern value="byte-input">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
+										<set-properties-rule />
+										<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
+									</pattern>
+
+									<pattern value="param-input">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
+										<set-properties-rule />
+
+										<pattern value="declare">
+
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+											<set-properties-rule />
+											<pattern value="define-param">
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												<set-properties-rule />
+												<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											</pattern>
+											<pattern value="refer-param">
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+												<set-properties-rule />
+												<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+											</pattern>
+											<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										</pattern>
+
+										<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
+									</pattern>
+									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
+
+								</pattern>
+
+								<pattern value="line">
+
+
+
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Line" />
+									<set-properties-rule />
+									<pattern value="declare">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-properties-rule />
+										<pattern value="define-param">
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-properties-rule />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										</pattern>
+										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									</pattern>
+									<pattern value="step">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
+										<set-properties-rule />
+
 										<pattern value="xml-input">
 
 											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
 											<set-properties-rule />
+											<call-method-rule methodname="setData" paramcount="0" />
 											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
 										<pattern value="string-input">
@@ -165,48 +255,32 @@
 											<set-properties-rule />
 											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
-										<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 
-									</pattern>
-									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
+										<pattern value="param-input">
 
-								</pattern>
-
-								<pattern value="line">
-
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Line" />
-									<set-properties-rule />
-
-									<pattern value="step">
-
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
-										<set-properties-rule />
-										<pattern value="request">
-
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
 											<set-properties-rule />
-											<pattern value="xml-input">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
+											<pattern value="declare">
+
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
 												<set-properties-rule />
-												<call-method-rule methodname="setData" paramcount="0" />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
+												<pattern value="define-param">
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+													<set-properties-rule />
+													<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												</pattern>
+												<pattern value="refer-param">
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+													<set-properties-rule />
+													<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+												</pattern>
+												<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
 											</pattern>
-											<pattern value="string-input">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.StringInput" />
-												<set-properties-rule />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
-											</pattern>
-											<pattern value="byte-input">
-
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
-												<set-properties-rule />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
-											</pattern>
-											<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
-
+											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
+
 										<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
 
 									</pattern>
@@ -218,13 +292,35 @@
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Tree" />
 									<set-properties-rule />
+									<pattern value="declare">
 
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-properties-rule />
+										<pattern value="define-param">
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-properties-rule />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										</pattern>
+										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									</pattern>
 								</pattern>
 
 								<pattern value="loop">
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Loop" />
 									<set-properties-rule />
+
+									<pattern value="declare">
+
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-properties-rule />
+										<pattern value="define-param">
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-properties-rule />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										</pattern>
+										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									</pattern>
 
 								</pattern>
 

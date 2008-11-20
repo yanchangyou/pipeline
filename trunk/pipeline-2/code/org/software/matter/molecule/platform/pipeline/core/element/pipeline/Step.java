@@ -7,6 +7,7 @@ import java.net.Socket;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.molecule.platform.pipeline.core.Locator;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Input;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Output;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
@@ -19,9 +20,25 @@ public class Step extends Unit {
 
 	private String standbyService;
 
-	private Request request;
+	private Input input;
+	
+	private Output output;
+	
+	public Input getInput() {
+		return input;
+	}
 
-	private Response response;
+	public void setInput(Input input) {
+		this.input = input;
+	}
+
+	public Output getOutput() {
+		return output;
+	}
+
+	public void setOutput(Output output) {
+		this.output = output;
+	}
 
 	public String toString() {
 		return new ToStringBuilder(this).toString();
@@ -33,22 +50,6 @@ public class Step extends Unit {
 
 	public void setPrimarayService(String primarayService) {
 		this.primarayService = primarayService;
-	}
-
-	public Request getRequest() {
-		return request;
-	}
-
-	public void setRequest(Request request) {
-		this.request = request;
-	}
-
-	public Response getResponse() {
-		return response;
-	}
-
-	public void setResponse(Response response) {
-		this.response = response;
 	}
 
 	public String getStandbyService() {
