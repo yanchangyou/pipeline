@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.atom.entity.commons.NameObject;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
-import org.software.matter.molecule.platform.pipeline.core.element.common.Request;
-import org.software.matter.molecule.platform.pipeline.core.element.common.Response;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
 public abstract class Unit extends NameObject {
 

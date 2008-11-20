@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.core.element.common;
+package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 
 public class JSONInput extends Input {
