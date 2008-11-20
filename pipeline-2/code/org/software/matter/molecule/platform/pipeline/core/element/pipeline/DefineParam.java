@@ -1,5 +1,7 @@
 package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
 
-public class DefineParam {
+import org.software.matter.molecule.platform.pipeline.core.element.common.Property;
 
+public class DefineParam extends Property {
+	
 }

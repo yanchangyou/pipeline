@@ -5,13 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
+import org.software.matter.molecule.platform.pipeline.core.element.common.NameAndTypeAndDeclareObject;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
-public class Pipeline extends NameAndTypeAndMetaObject {
+public class Pipeline extends NameAndTypeAndDeclareObject {
 
+	
 	private List unitList = new ArrayList();
 
 	public void addUnit(Unit unit) {
@@ -41,4 +42,5 @@ public class Pipeline extends NameAndTypeAndMetaObject {
 	public Root getRoot() {
 		return root;
 	}
+
 }
