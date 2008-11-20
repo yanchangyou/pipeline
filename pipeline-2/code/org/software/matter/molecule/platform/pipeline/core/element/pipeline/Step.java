@@ -7,9 +7,9 @@ import java.net.Socket;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.molecule.platform.pipeline.core.Locator;
-import org.software.matter.molecule.platform.pipeline.core.element.common.Output;
-import org.software.matter.molecule.platform.pipeline.core.element.common.Request;
-import org.software.matter.molecule.platform.pipeline.core.element.common.Response;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Output;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
+import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 import org.software.matter.molecule.platform.pipeline.core.element.soa.Server;
 import org.software.matter.molecule.platform.pipeline.core.element.soa.Service;
 

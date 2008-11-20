@@ -1,6 +1,5 @@
-package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
+package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
-import org.software.matter.molecule.platform.pipeline.core.element.common.Input;
 
 public class StringInput extends Input {
 

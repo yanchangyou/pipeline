@@ -9,238 +9,238 @@
 
 		<pattern value="meta">
 
-			<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+			<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 			<set-properties-rule />
 			<pattern value="property">
-				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 				<set-properties-rule />
-				<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+				<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 			</pattern>
-			<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+			<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 		</pattern>
 		<pattern value="economy">
 
-			<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Economy" />
+			<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.soa.Economy" />
 			<set-properties-rule />
 			<pattern value="meta">
 
-				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 				<set-properties-rule />
 				<pattern value="property">
-					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 					<set-properties-rule />
-					<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+					<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 				</pattern>
-				<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+				<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 			</pattern>
 			<pattern value="market">
 
-				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Market" />
+				<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.soa.Market" />
 				<set-properties-rule />
 				<pattern value="meta">
 
-					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 					<set-properties-rule />
 					<pattern value="property">
-						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 						<set-properties-rule />
-						<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+						<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 					</pattern>
-					<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+					<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 				</pattern>
 				<pattern value="supplier">
 
-					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Supplier" />
+					<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.soa.Supplier" />
 					<set-properties-rule />
 					<pattern value="meta">
 
-						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 						<set-properties-rule />
 						<pattern value="property">
-							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 							<set-properties-rule />
-							<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+							<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 						</pattern>
-						<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+						<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 					</pattern>
 					<pattern value="server">
 
-						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Server" />
+						<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.soa.Server" />
 						<set-properties-rule />
 						<pattern value="meta">
 
-							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 							<set-properties-rule />
 							<pattern value="property">
-								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 								<set-properties-rule />
-								<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+								<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 							</pattern>
-							<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+							<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 						</pattern>
 						<pattern value="service">
 							<pattern value="meta">
 
-								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 								<set-properties-rule />
 								<pattern value="property">
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 									<set-properties-rule />
-									<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Property" />
+									<set-next-rule methodname="addProperty" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Property" />
 								</pattern>
-								<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Meta" />
+								<set-next-rule methodname="setMeta" paramtype="org.software.matter.molecule.platform.pipeline.core.element.common.Meta" />
 							</pattern>
-							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Service" />
+							<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.soa.Service" />
 							<set-properties-rule />
 
 							<pattern value="request">
 
-								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 								<set-properties-rule />
 								<pattern value="xml-input">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.XMLInput" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
 									<set-properties-rule />
 									<call-method-rule methodname="setData" paramcount="0" />
-									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 								</pattern>
 								<pattern value="string-input">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.StringInput" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.StringInput" />
 									<set-properties-rule />
 									<call-method-rule methodname="setData" paramcount="0" />
-									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 								</pattern>
 								<pattern value="byte-input">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.ByteInput" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
 									<set-properties-rule />
 									<call-method-rule methodname="setData" paramcount="0" />
-									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+									<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 								</pattern>
-								<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+								<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 
 							</pattern>
 							<pattern value="response">
 
-								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Response" />
+								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Response" />
 								<set-properties-rule />
-								<set-next-rule methodname="setResponse" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Response" />
+								<set-next-rule methodname="setResponse" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Response" />
 								<pattern value="output">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Output" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Output" />
 									<set-properties-rule />
-									<set-next-rule methodname="setOutput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Output" />
+									<set-next-rule methodname="setOutput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Output" />
 								</pattern>
 
 							</pattern>
 							<pattern value="pipeline">
 
-								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Pipeline" />
+								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline" />
 								<set-properties-rule />
 
 								<pattern value="step">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Step" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
 									<set-properties-rule />
 									<pattern value="request">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 										<set-properties-rule />
 										<pattern value="xml-input">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.XMLInput" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
 											<set-properties-rule />
-											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
 										<pattern value="string-input">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.StringInput" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.StringInput" />
 											<set-properties-rule />
-											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
 										<pattern value="byte-input">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.ByteInput" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
 											<set-properties-rule />
-											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
-										<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+										<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 
 									</pattern>
-									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Unit" />
+									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
 
 								</pattern>
 
 								<pattern value="line">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Line" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Line" />
 									<set-properties-rule />
 
 									<pattern value="step">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Step" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
 										<set-properties-rule />
 										<pattern value="request">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 											<set-properties-rule />
 											<pattern value="xml-input">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.XMLInput" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.XMLInput" />
 												<set-properties-rule />
 												<call-method-rule methodname="setData" paramcount="0" />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 											</pattern>
 											<pattern value="string-input">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.StringInput" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.StringInput" />
 												<set-properties-rule />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 											</pattern>
 											<pattern value="byte-input">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.ByteInput" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
 												<set-properties-rule />
-												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Input" />
+												<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 											</pattern>
-											<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Request" />
+											<set-next-rule methodname="setRequest" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Request" />
 
 										</pattern>
-										<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Unit" />
+										<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
 
 									</pattern>
-									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Unit" />
+									<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
 
 								</pattern>
 
 								<pattern value="tree">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Tree" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Tree" />
 									<set-properties-rule />
 
 								</pattern>
 
 								<pattern value="loop">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.Loop" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Loop" />
 									<set-properties-rule />
 
 								</pattern>
 
-								<set-next-rule methodname="setPipeline" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Pipeline" />
+								<set-next-rule methodname="setPipeline" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline" />
 
 							</pattern>
 
-							<set-next-rule methodname="addService" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Service" />
+							<set-next-rule methodname="addService" paramtype="org.software.matter.molecule.platform.pipeline.core.element.soa.Service" />
 						</pattern>
-						<set-next-rule methodname="addServer" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Server" />
+						<set-next-rule methodname="addServer" paramtype="org.software.matter.molecule.platform.pipeline.core.element.soa.Server" />
 					</pattern>
-					<set-next-rule methodname="addSupplier" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Supplier" />
+					<set-next-rule methodname="addSupplier" paramtype="org.software.matter.molecule.platform.pipeline.core.element.soa.Supplier" />
 				</pattern>
-				<set-next-rule methodname="addMarket" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Market" />
+				<set-next-rule methodname="addMarket" paramtype="org.software.matter.molecule.platform.pipeline.core.element.soa.Market" />
 			</pattern>
-			<set-next-rule methodname="addEconomy" paramtype="org.software.matter.molecule.platform.pipeline.core.element.Economy" />
+			<set-next-rule methodname="addEconomy" paramtype="org.software.matter.molecule.platform.pipeline.core.element.soa.Economy" />
 		</pattern>
 	</pattern>
 </digester-rules>
