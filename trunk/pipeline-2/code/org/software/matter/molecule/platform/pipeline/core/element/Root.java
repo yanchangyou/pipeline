@@ -10,6 +10,7 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 import org.software.matter.molecule.platform.pipeline.core.Execute;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Economy;
 import org.xml.sax.SAXException;
 
 public class Root extends NameAndTypeAndMetaObject {

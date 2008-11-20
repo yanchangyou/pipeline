@@ -16,7 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.software.matter.molecule.platform.pipeline.core.element.Pipeline;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
 
 public class SOM {
 

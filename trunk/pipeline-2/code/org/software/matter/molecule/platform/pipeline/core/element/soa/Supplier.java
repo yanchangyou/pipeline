@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.core.element;
+package org.software.matter.molecule.platform.pipeline.core.element.soa;
 
 import java.util.HashMap;
 import java.util.Map;

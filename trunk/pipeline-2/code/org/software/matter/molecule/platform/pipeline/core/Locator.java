@@ -1,11 +1,11 @@
 package org.software.matter.molecule.platform.pipeline.core;
 
-import org.software.matter.molecule.platform.pipeline.core.element.Economy;
-import org.software.matter.molecule.platform.pipeline.core.element.Market;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
-import org.software.matter.molecule.platform.pipeline.core.element.Server;
-import org.software.matter.molecule.platform.pipeline.core.element.Service;
-import org.software.matter.molecule.platform.pipeline.core.element.Supplier;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Economy;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Market;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Server;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Service;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Supplier;
 
 public class Locator {
 

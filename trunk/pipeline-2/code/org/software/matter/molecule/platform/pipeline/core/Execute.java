@@ -1,10 +1,10 @@
 package org.software.matter.molecule.platform.pipeline.core;
 
-import org.software.matter.molecule.platform.pipeline.core.element.Pipeline;
-import org.software.matter.molecule.platform.pipeline.core.element.Request;
-import org.software.matter.molecule.platform.pipeline.core.element.Response;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
-import org.software.matter.molecule.platform.pipeline.core.element.Service;
+import org.software.matter.molecule.platform.pipeline.core.element.common.Request;
+import org.software.matter.molecule.platform.pipeline.core.element.common.Response;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
+import org.software.matter.molecule.platform.pipeline.core.element.soa.Service;
 
 public class Execute {
 

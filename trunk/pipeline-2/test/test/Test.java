@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.software.matter.molecule.platform.pipeline.core.element.Pipeline;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
 
 public class Test {
 

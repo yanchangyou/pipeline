@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.core.element;
+package org.software.matter.molecule.platform.pipeline.core.element.common;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
