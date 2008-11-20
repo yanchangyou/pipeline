@@ -14,6 +14,19 @@ public class Service extends NameAndTypeAndMetaObject {
 
 	private Pipeline pipeline;
 
+	private String port;
+	
+	public String getPort() {
+		if (port == null || port.length() == 0) {
+			port = this.getMeta().getProperty("port");
+		}
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
+
 	public Request getRequest() {
 		return request;
 	}

@@ -11,6 +11,9 @@ public class Meta {
 		propertyMap.put(property.getName(), property.getValue());
 	}
 	
+	public void addProperty(String name, String value) {
+		propertyMap.put(name, value);
+	}
 	public String getProperty(String name) {
 		return propertyMap.get(name).toString();
 	}

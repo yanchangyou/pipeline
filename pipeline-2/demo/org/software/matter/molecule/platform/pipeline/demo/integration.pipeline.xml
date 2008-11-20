@@ -3,7 +3,7 @@
 
 <root>
 	<meta>
-		<property name="user" value="ether" />
+		<property name="user" value="ether.anima" />
 		<property name="age" value="25" />
 		<property name="msn" value="isuifengi@hotmail.com" />
 	</meta>
@@ -20,88 +20,192 @@
 				<meta>
 					<property name="age" value="万寿无疆" />
 				</meta>
-				<server name="诺亚方舟服务器">
-					<meta>
-						<property name="host" value="10.201.1.28" />
-					</meta>
-					<service name="响应服务" type="public" port="10000">
-						<meta>
-							<property name="port" value="10016" />
-						</meta>
+				<server name="天堂" host="0.0.0.0">
+					<service name="感化" port="0">
 						<request>
 							<string-input>
-								<![CDATA[<message>Hello World!</message>]]>
+								<![CDATA[<message>pain</message>]]>
 							</string-input>
 						</request>
 						<response>
-							<output to="localhost.console"></output>
+							<string-output>
+								<![CDATA[<message>love</message>]]>
+							</string-output>
 						</response>
 						<pipeline>
 							<line>
-								<step service="service" server="server" supplier="supplier" market="market">
-									<request>
-										<xml-input>
-											<![CDATA[<message>Hello World!</message>]]>
-										</xml-input>
-									</request>
-								</step>
+								<step service="service" />
 							</line>
 						</pipeline>
-					</service>
-				</server>
-				<server name="inputServer">
-					<meta>
-						<property name="host" value="127.0.0.1"></property>
-						<property name="protocol" value="ftp"></property>
-					</meta>
-					<service name="input" port="10001"></service>
-				</server>
-				<server name="outputServer">
-					<meta>
-						<property name="host" value="127.0.0.1"></property>
-						<property name="protocol" value="ftp"></property>
-					</meta>
-					<service name="output">
-						<meta>
-							<property name="port" value="10001"></property>
-						</meta>
 					</service>
 				</server>
 			</supplier>
 		</market>
 	</economy>
 	<economy name="main">
-		<meta>
-			<property name="count" value="1" />
-		</meta>
 		<market name="main">
-			<meta>
-				<property name="count" value="1" />
-			</meta>
 			<supplier name="main">
-				<meta>
-					<property name="count" value="1" />
-				</meta>
 				<server name="main">
-					<meta>
-						<property name="count" value="1" />
-					</meta>
 					<service name="main">
+						<request>
+							<string-input>
+								<![CDATA[<message>pain</message>]]>
+							</string-input>
+						</request>
+						<response>
+							<string-output>
+								<![CDATA[<message>love</message>]]>
+							</string-output>
+						</response>
+						<pipeline>
+
+							<line>
+								<step primarayService="main.main.main.io-server.input" standbyService="">
+									<define>
+										<define-param name="paramName">param value</define-param>
+									</define>
+									<param-input>
+										<refer-param name="a" />
+										<refer-param name="b" />
+										<define-param name="paramName">param value</define-param>
+										<define-param name="paramName">param value</define-param>
+									</param-input>
+									<string-output name="">
+									</string-output>
+								</step>
+								<step primarayService="main.main.main.io-server.output" standbyService=""></step>
+							</line>
+						</pipeline>
+					</service>
+				</server>
+				<server name="io-server" host="127.0.0.1">
+					<service name="output" port="10001" />
+					<service name="input" port="10002" />
+				</server>
+				<server name="calculate-server">
+					<service name="add" port="11001"></service>
+					<service name="sub" port="11002"></service>
+					<service name="mul" port="11003"></service>
+					<service name="div" port="11004"></service>
+					<service name="exp" port="11005"></service>
+					<service name="c1" port="11006"></service>
+					<service name="c2" port="11007"></service>
+				</server>
+			</supplier>
+		</market>
+	</economy>
+
+	<economy name="economyName" type="economyType">
+		<meta>
+			<property name="propertyName" value="propertyValue" />
+		</meta>
+		<market name="marketName" type="marketType">
+			<meta>
+				<property name="propertyName" value="propertyValue" />
+			</meta>
+			<supplier name="supplierName" type="supplierType">
+				<meta>
+					<property name="propertyName" value="propertyValue" />
+				</meta>
+				<server name="serverName" type="public|default|private" host="IP address">
+					<meta>
+						<property name="propertyName" value="propertyValue" />
+					</meta>
+					<service name="serviceName" type="public|default|private" port="service port">
 						<meta>
-							<property name="count" value="1" />
+							<property name="propertyName" value="propertyValue" />
 						</meta>
 						<request>
 							<string-input>
-								<![CDATA[Hello World!]]>
-							</string-input>>
-						</request>						
+								<![CDATA[string data]]>
+							</string-input>
+							或者
+							<xml-input>
+								<![CDATA[xml data]]>
+							</xml-input>
+							或者
+							<json-input>
+								<![CDATA[json data]]>
+							</json-input>
+							或者
+							<byte-input>
+								<![CDATA[byte data]]>
+							</byte-input>
+						</request>
+						<response>
+							<string-output>
+								<![CDATA[string data]]>
+							</string-output>
+							或者
+							<xml-output>
+								<![CDATA[xml data]]>
+							</xml-output>
+							或者
+							<json-output>
+								<![CDATA[json data]]>
+							</json-output>
+						</response>
 						<pipeline>
 							<meta>
-								<property name="count" value="1" />
+								<property name="propertyName" value="propertyValue" />
 							</meta>
+							<define>
+								<define-param name="paramName">param value</define-param>
+							</define>
 							<line>
-								<step primarayService="共产主义经济.自由市场.上帝.outputServer.output" standbyService="" />
+								<define>
+									<define-param name="paramName">param value</define-param>
+								</define>
+								<unit>
+									<define>
+										<define-param name="paramName">param value</define-param>
+									</define>
+									<step>
+										<define>
+											<define-param name="paramName">param value</define-param>
+										</define>
+									</step>
+								</unit>
 							</line>
+							<tree>
+								<define>
+									<define-param name="paramName">param value</define-param>
+								</define>
+								<if>
+									<define>
+										<define-param name="paramName">param value</define-param>
+									</define>
+									<unit></unit>
+								</if>
+								<else-if>
+									<unit></unit>
+								</else-if>
+								<else>
+									<unit></unit>
+								</else>
+
+								或者
+
+								<switch>
+									<case>
+										<unit></unit>
+									</case>
+									<case>
+										<unit></unit>
+									</case>
+								</switch>
+							</tree>
+							<loop>
+								<for>
+									<unit></unit>
+								</for>
+
+								或者
+
+								<while>
+									<unit></unit>
+								</while>
+							</loop>
 						</pipeline>
 					</service>
 				</server>
