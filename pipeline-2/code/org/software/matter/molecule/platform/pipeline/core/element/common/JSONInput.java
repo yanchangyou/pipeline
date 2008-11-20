@@ -1,6 +1,7 @@
-package org.software.matter.molecule.platform.pipeline.core.element;
+package org.software.matter.molecule.platform.pipeline.core.element.common;
 
-public class JSON extends Input {
+
+public class JSONInput extends Input {
 
 	public byte[] toByteType() {
 		return data.getBytes();

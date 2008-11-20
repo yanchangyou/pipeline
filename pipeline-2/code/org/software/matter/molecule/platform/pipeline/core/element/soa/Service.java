@@ -1,7 +1,10 @@
-package org.software.matter.molecule.platform.pipeline.core.element;
+package org.software.matter.molecule.platform.pipeline.core.element.soa;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
+import org.software.matter.molecule.platform.pipeline.core.element.common.Request;
+import org.software.matter.molecule.platform.pipeline.core.element.common.Response;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
 
 public class Service extends NameAndTypeAndMetaObject {
 

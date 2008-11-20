@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.core.element;
+package org.software.matter.molecule.platform.pipeline.core.element.common;
 
 public class ByteInput extends Input {
 
