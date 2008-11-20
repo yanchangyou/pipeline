@@ -40,6 +40,10 @@ public abstract class Unit extends NameAndTypeAndDeclareObject {
 	}
 
 
+	public void setUnitList(List unitList) {
+		this.unitList = unitList;
+	}
+
 	public String toString() {
 		return new ToStringBuilder(this).toString();
 	}
