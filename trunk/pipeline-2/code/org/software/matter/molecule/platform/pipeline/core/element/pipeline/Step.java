@@ -64,24 +64,27 @@ public class Step extends Unit {
 				.locateService(this.getRoot(), primarayService);
 		Server server = Locator.locateServer(this.getRoot(), primarayService);
 
-		String host = server.getMeta().getProperty("host");
-		int port = Integer.parseInt(service.getMeta().getProperty("port"));
+		String host = server.getHost();
+		int port = Integer.parseInt(service.getPort());
 
 		Socket socket = new Socket(host, port);
-		PrintWriter os = new PrintWriter(socket.getOutputStream());
 		
-		os.println(request.getInput().toXMLType());
-		os.flush();
+//		while (socket.isConnected()) {
+			if (request != null) {
+				PrintWriter os = new PrintWriter(socket.getOutputStream());
+				
+				os.println(request.getInput().toXMLType());
+				os.flush();
+			}
 
-		if (response != null) {
-			BufferedReader is = new BufferedReader(new InputStreamReader(socket
-					.getInputStream()));
-			String responseData = is.readLine();
-			Output output = new Output(responseData);
-			response.setOutput(output);
-		}
-		
-		socket.close();
+			if (response != null) {
+				BufferedReader is = new BufferedReader(new InputStreamReader(socket
+						.getInputStream()));
+				String responseData = is.readLine();
+				Output output = new Output(responseData);
+				response.setOutput(output);
+			}
+//		}
 	}
 
 }

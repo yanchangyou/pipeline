@@ -12,6 +12,21 @@ public class Server extends NameAndTypeAndMetaObject {
 	private Meta meta;
 	
 	private Map serviceMap = new HashMap();
+	
+
+	private String host;
+	
+	public String getHost() {
+		if (host == null || host.length() == 0) {
+			host = this.getMeta().getProperty("host");
+		}
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
+	
 	/**
 	 * Ìí¼Óservice
 	 * @param service
