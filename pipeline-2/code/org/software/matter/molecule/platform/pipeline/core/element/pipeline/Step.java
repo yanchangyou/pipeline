@@ -16,6 +16,10 @@ import org.software.matter.molecule.platform.pipeline.core.element.soa.Service;
 
 public class Step extends Unit {
 
+	public Step(){ 
+		this.setUnitList(null);
+	}
+	
 	private String primarayService;
 
 	private String standbyService;

@@ -12,11 +12,11 @@ public class Declare {
 	private List referParamList = new ArrayList(5);
 
 	public void addDefineParam(DefineParam aDefineParam) {
-		defineParamMap.put(aDefineParam.getName(), aDefineParam.getValue());
+		defineParamMap.put(aDefineParam.getName(), aDefineParam);
 	}
 
 	public void addReferParam(DefineParam aDefineParam) {
-		defineParamMap.put(aDefineParam.getName(), aDefineParam.getValue());
+		defineParamMap.put(aDefineParam.getName(), aDefineParam);
 	}
 
 	public void addReferParam(ReferParam referParam) {

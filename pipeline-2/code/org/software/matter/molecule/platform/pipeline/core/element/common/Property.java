@@ -2,9 +2,9 @@ package org.software.matter.molecule.platform.pipeline.core.element.common;
 
 public class Property {
 
-	String name;
+	protected String name;
 
-	String value;
+	protected String value;
 
 	public String getName() {
 		return name;

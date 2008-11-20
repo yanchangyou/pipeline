@@ -58,20 +58,23 @@
 							</string-output>
 						</response>
 						<pipeline>
-
+							<declare>
+								<define-param name="paramName"> my param value </define-param>
+							</declare>
 							<line>
 								<step primarayService="main.main.main.io-server.input" standbyService="">
 									<declare>
-										<define-param name="paramName">param value</define-param>
+										<define-param name="paramName"> my param value </define-param>
 									</declare>
 									<param-input>
-										<refer-param name="a" />
-										<refer-param name="b" />
-										<define-param name="paramName">param value</define-param>
-										<define-param name="paramName">param value</define-param>
+										<declare>
+											<refer-param name="a" />
+											<refer-param name="b" />
+											<define-param name="paramName"> my param value </define-param>
+											<define-param name="paramName"> my param value </define-param>
+										</declare>
 									</param-input>
-									<string-output name="">
-									</string-output>
+									<string-output name=""></string-output>
 								</step>
 								<step primarayService="main.main.main.io-server.output" standbyService=""></step>
 							</line>
