@@ -1,4 +1,5 @@
 #summary 为pipeline创建上下文
+#labels Featured,Phase-Requirements,context
 
 如何为pipeline创建上下文?
 
