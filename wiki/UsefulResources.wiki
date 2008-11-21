@@ -1,0 +1,17 @@
+#summary 网上找到的一些对pipeline用于的资源
+#labels Featured,资料
+
+
+===分布式设计系统介绍===
+{{{
+目录
+Audience and Pre-Requisites
+The Basics
+So How Is It Done?
+Remote Procedure Calls
+Distributed Design Principles
+Exercises
+References
+}}}
+
+http://code.google.com/edu/parallel/dsd-tutorial.html#Audience
