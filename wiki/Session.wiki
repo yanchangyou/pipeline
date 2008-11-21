@@ -3,7 +3,7 @@
 
 ===session===
 
-  * session的建立
-  * session的释放
+  * session的创建
+  * session的销毁
 
 书到用时方恨少, 哎--------
