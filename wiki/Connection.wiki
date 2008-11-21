@@ -1,4 +1,4 @@
-#summary connection的创建
+#summary 处理connection
 #labels Featured,Phase-Requirements,connection
 
 ===connection===
