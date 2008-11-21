@@ -1,0 +1,8 @@
+#summary connection的创建
+#labels Featured,Phase-Requirements,connection
+
+===connection===
+  * 连接的建立
+  * 连接的释放
+
+书到用时方恨少,---------
