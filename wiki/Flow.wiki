@@ -1,0 +1,75 @@
+#summary 流程控制
+#labels Featured,Phase-Design,flow
+
+
+流程控制
+
+  # 顺序
+  # 分支
+  # 循环
+
+===说明===
+  * unit代表了一个流程执行单元, 是 顺序,分支,循环和step这四类中的一类, 提出它是为了便于表达可以嵌套的概念
+  * `*` 代表零个或多个, 来源于正则表达式中`*`的意思
+
+===顺序===
+使用 line 代表
+{{{
+<line>
+    <unit></unit>*
+</line>
+}}}
+
+===分支===
+
+使用 tree 代表
+if-else形式
+{{{
+<tree>
+	<if>
+		<unit></unit>*
+	</if>
+	<else-if>
+		<unit></unit>*
+	</else-if>
+	<else>
+		<unit></unit>*
+	</else>
+<tree>
+}}}
+
+Switch-case形式
+{{{
+<tree>
+	<switch>
+		<case>
+			<unit></unit>*
+		</case>*
+	</switch>
+<tree>
+}}}
+
+===循环===
+使用 loop 代表
+
+for形式
+{{{
+<loop>
+	<for>
+		<unit></unit>*
+	</for>
+</loop>
+}}}
+
+while 形式
+{{{
+<loop>
+	<while>
+		<unit></unit>*
+	</while>
+</loop>
+}}}
+
+
+===属性===
+属性还在构想当中
