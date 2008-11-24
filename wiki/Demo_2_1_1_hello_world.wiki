@@ -10,44 +10,51 @@
 <?xml version="1.0"?>
 
 <root>
-	<economy name="main">
-		<market name="main">
-			<supplier name="main">
-				<server name="main">
-					<service name="main">
-						<pipeline>
-							<line>
-								<step primarayService="main.main.main.io-server.output">
-									<param-input>
-										<declare>
-											<define-param name="input-data">hello world</define-param>
-										</declare>
-									</param-input>
-								</step>
-							</line>
-						</pipeline>
-					</service>
-				</server>
-				<server name="io-server" host="127.0.0.1">
-					<service name="output" port="10001" />
-				</server>
-			</supplier>
-		</market>
-	</economy>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.output">
+                  <param-input>
+                    <declare>
+                      <define-param name="input-data">hello world</define-param>
+                    </declare>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
 </root>
 }}}
 
 ===说明===
-
-==参数==
+===执行入口===
+按照传统语言处理方法, 找main; 但这里需要不断找main, 这里有5个main, 直到找到<service name="main">, 然后执行<pipeline>
+===参数===
 {{{
-<declare>
-											<define-param name="input-data">hello world</define-param>
+<define-param name="input-data">hello world</define-param>
 }}}
 
-这个是要输出的参数
+这个就是要输出的参数
 
-==远程调用==
+===远程服务声明===
+{{{
+<server name="io-server" host="127.0.0.1">
+  <service name="output" port="10001" />
+</server>
+}}}
+
+===远程服务调用===
 {{{
 <step primarayService="main.main.main.io-server.output">
 }}}
