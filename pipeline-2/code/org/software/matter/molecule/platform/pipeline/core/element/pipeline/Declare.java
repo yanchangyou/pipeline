@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 
@@ -16,9 +17,8 @@ public class Declare {
 
 	private List referParamList = new ArrayList(5);
 
-	public void addDefineParam(DefineParam aDefineParam) {
-		defineParamMap.put(aDefineParam.getName(), aDefineParam);
-		addParam(aDefineParam.getName(), aDefineParam);
+	public void addDefineParam(DefineParam defineParam) {
+		defineParamMap.put(defineParam.getName(), defineParam);
 	}
 
 	public Map getParamMap() {
@@ -45,6 +45,15 @@ public class Declare {
 		return referParamList;
 	}
 
+	public void dealDefineParam() {
+		Set set = defineParamMap.keySet();
+		for (Iterator iter = set.iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			DefineParam defineParam = (DefineParam) defineParamMap.get(name);
+			addParam(name, defineParam.getValue());
+		}
+	}
+	
 	public void dealReferParam(PipelineContext pipelineContext) {
 		for (Iterator iter = referParamList.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();

@@ -14,12 +14,21 @@ public class Result {
 	private Map referResultMap = new HashMap(5);
 
 	public void addDefineResult(DefineResult defineResult) {
-		defineResultMap.put(defineResult.getName(), defineResult);
-		resultMap.put(defineResult.getName(), defineResult);
+		defineResultMap.put(defineResult.getName(), defineResult);		
 	}
 
 	public void addReferResult(ReferResult referResult) {
 		referResultMap.put(referResult.getName(), referResult);
+	}
+	
+//	方法用于解决 digest 执行顺序带来的问题(先设置属性)
+	public void dealDefineResult() {
+		Set set = defineResultMap.keySet();
+		for (Iterator iter = set.iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			DefineResult defineResult = (DefineResult) defineResultMap.get(name);
+			addResult(name, defineResult.getValue());
+		}
 	}
 
 	public void dealReferResult(String responseData) {
@@ -31,6 +40,10 @@ public class Result {
 			
 			resultMap.put(name, responseData);
 		}
+	}
+	
+	public void addResult(String name, Object value) {
+		resultMap.put(name, value);
 	}
 
 	public Object getResult(String name) {
