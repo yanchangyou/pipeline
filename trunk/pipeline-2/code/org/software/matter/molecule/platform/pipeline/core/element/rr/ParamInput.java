@@ -11,6 +11,8 @@ public class ParamInput extends Input {
 
 	private Declare declare;
 
+	protected String separtor = "";
+	
 	public Declare getDeclare() {
 		return declare;
 	}
@@ -47,9 +49,10 @@ public class ParamInput extends Input {
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
 			buf.append(declare.getParam(name));
+			buf.append(separtor);
 		}
 //		declare.getParamMap()..values();
-		return buf.toString();
+		return buf.substring(0, buf.length() - separtor.length()).toString();
 	}
 
 	public void setData(String data) {
@@ -65,6 +68,14 @@ public class ParamInput extends Input {
 			String name = (String) iter.next();
 			declare.addParam(name, pipelineContext.get(name));
 		}		
+	}
+
+	public String getSepartor() {
+		return separtor;
+	}
+
+	public void setSepartor(String separtor) {
+		this.separtor = separtor;
 	}
 
 }
