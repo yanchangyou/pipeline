@@ -1,0 +1,92 @@
+#summary 演示echo程序
+#labels Featured,Phase-Deploy,echo
+
+===功能说明===
+通过输入服务器输入字符串, 然后经过pipeline中转, 最后由输出服务器输出刚输入的字符串.
+
+===pipeline文件===
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <meta>
+    <property name="athor" value="ether.anima" />
+    <property name="age" value="25" />
+    <property name="msn" value="isuifengi@hotmail.com" />
+  </meta>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="input-data">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.output" standbyService="">
+                  <param-input>
+                    <declare>
+                      <refer-param name="input-data" />
+                    </declare>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+          <service name="input" port="10002" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+===说明===
+
+===步骤===
+很明显这里包含两个个步骤
+  # 由输入服务器输入内容
+  # pipeline中转
+  # 由输出服务器输出内容
+在代码中的体现
+  * 输入
+{{{
+<step primarayService="main.main.main.io-server.input" standbyService="">
+  <param-output>
+    <result>
+      <refer-result name="input-data">${response.string-output}</refer-result>
+    </result>
+  </param-output>
+</step>
+}}}
+  * 中转
+{{{
+name="input-data"
+}}}
+  * 输出
+{{{
+<step primarayService="main.main.main.io-server.output" standbyService="">
+  <param-input>
+    <declare>
+      <refer-param name="input-data" />
+    </declare>
+  </param-input>
+</step>
+}}}
+
+===远程服务声明===
+
+{{{
+<server name="io-server" host="127.0.0.1">
+  <service name="output" port="10001" />
+  <service name="input" port="10002" />
+</server>
+}}}
