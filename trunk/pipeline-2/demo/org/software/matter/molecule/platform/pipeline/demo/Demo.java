@@ -7,10 +7,16 @@ import org.software.matter.molecule.platform.pipeline.core.element.Root;
 public class Demo {
 
 	public static void main(String[] args) throws Exception {
-
+		
+		System.out.println("==============演示hello world程序开始============");
 		helloWorld();			//实现
-
+		System.out.println("==============演示hello world程序结束=============\n\n");
+		
+		System.out.println("==============演示echo程序开始==============");
 		echo();					//实现
+		System.out.println("==============演示echo程序结束==============\n\n");
+		
+		
 		
 		// add(); 				//计划中
 		//		
@@ -66,7 +72,7 @@ public class Demo {
 		} 
 
 		System.out.println("BEGIN ALL");
-
+		System.out.println("准备到InputServer控制台, 输入内容:");
 		try {
 			aRoot.execute();
 		} catch (ConnectException e) {
