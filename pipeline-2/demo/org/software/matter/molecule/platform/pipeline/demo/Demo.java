@@ -38,7 +38,7 @@ public class Demo {
 			return;
 		} 
 
-		System.out.println("BEGIN ALL");
+//		System.out.println("BEGIN ALL");
 
 		try {
 			aRoot.execute();
@@ -52,7 +52,7 @@ public class Demo {
 			return;
 		}
 
-		System.out.println("OVER ALL");
+//		System.out.println("OVER ALL");
 		
 		System.out.println();
 		System.out.println("到 OutputServer 的控制台看输出的结果");
@@ -71,7 +71,7 @@ public class Demo {
 			return;
 		} 
 
-		System.out.println("BEGIN ALL");
+//		System.out.println("BEGIN ALL");
 		System.out.println("准备到InputServer控制台, 输入内容:");
 		try {
 			aRoot.execute();
@@ -85,7 +85,7 @@ public class Demo {
 			return;
 		}
 
-		System.out.println("OVER ALL");
+//		System.out.println("OVER ALL");
 		
 		System.out.println();
 		System.out.println("到 OutputServer 的控制台看输出的结果");
@@ -96,11 +96,11 @@ public class Demo {
 
 		Root aRoot = Root.load(PIPELINE_FILE_PATH);
 
-		System.out.println("BEGIN ALL");
+//		System.out.println("BEGIN ALL");
 
 		aRoot.execute();
 
-		System.out.println("OVER ALL");
+//		System.out.println("OVER ALL");
 	}
 
 	public static void simpleExpress() throws Exception {
