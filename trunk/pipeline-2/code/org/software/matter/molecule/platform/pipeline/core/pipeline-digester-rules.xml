@@ -305,6 +305,33 @@
 
 											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
 										</pattern>
+										
+										<pattern value="param-output">
+
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ParamOutput" />
+											<set-properties-rule />
+
+											<pattern value="result">
+
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Result" />
+												<set-properties-rule />
+												<pattern value="define-result">
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineResult" />
+													<set-properties-rule />
+													<call-method-rule methodname="setValue" paramcount="0" />
+													<set-next-rule methodname="addDefineResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineResult" />
+												</pattern>
+												<pattern value="refer-result">
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferResult" />
+													<set-properties-rule />
+													<call-method-rule methodname="setValue" paramcount="0" />
+													<set-next-rule methodname="addReferResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferResult" />
+												</pattern>
+												<set-next-rule methodname="setResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Result" />
+											</pattern>
+
+											<set-next-rule methodname="setOutput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Output" />
+										</pattern>
 
 										<set-next-rule methodname="addUnit" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Unit" />
 

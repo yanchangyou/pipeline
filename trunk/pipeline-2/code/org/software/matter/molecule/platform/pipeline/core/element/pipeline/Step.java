@@ -74,22 +74,21 @@ public class Step extends Unit {
 
 		Socket socket = new Socket(host, port);
 
-		// while (socket.isConnected()) {
-//		if (request != null && request.getInput() != null && !request.getInput().getData().trim().equals("")) {
+		if (input != null) {
 			PrintWriter os = new PrintWriter(socket.getOutputStream());
 
-			os.println(request.getInput().toXMLType());
+			input.tunePipelineContextToParam(pipelineContext);
+			os.println(input.getData());
 			os.flush();
-//		}
+		}
 
-//		if (response != null && response.getOutput() != null && !response.getOutput().getData().trim().equals("")) {
+		if (output != null) {
 			BufferedReader is = new BufferedReader(new InputStreamReader(socket
 					.getInputStream()));
 			String responseData = is.readLine();
-			Output output = new Output(responseData);
-			response.setOutput(output);
-//		}
-		// }
+			output.setData(responseData);
+			output.tuneResultToPipelineContext(pipelineContext);
+		}
 		socket.close();
 	}
 

@@ -1,19 +1,18 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 
 public abstract class Input {
 
 	protected String data;
 	
-	public String getData() {
-		return data;
-	}
+	public abstract String getData();
 
-	public void setData(String data) {
-		this.data = data;
-	}
+	public abstract void setData(String data);
 
+	public abstract void tunePipelineContextToParam(PipelineContext pipelineContext);
+	
 	public Input() {
 		super();
 	}
