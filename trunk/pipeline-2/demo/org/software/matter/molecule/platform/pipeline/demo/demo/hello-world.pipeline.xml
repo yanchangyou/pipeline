@@ -6,14 +6,15 @@
 			<supplier name="main">
 				<server name="main">
 					<service name="main">
-						<request>
-							<string-input>
-								<![CDATA[hello world!]]>
-							</string-input>
-						</request>
 						<pipeline>
 							<line>
-								<step primarayService="main.main.main.io-server.output"></step>
+								<step primarayService="main.main.main.io-server.output">
+									<param-input>
+										<declare>
+											<define-param name="input-data">hello world</define-param>
+										</declare>
+									</param-input>
+								</step>
 							</line>
 						</pipeline>
 					</service>

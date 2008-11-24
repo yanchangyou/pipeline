@@ -17,6 +17,7 @@ public class ParamOutput extends Output {
 	}
 
 	public void setResult(Result result) {
+		result.dealDefineResult(); //方法用于解决 digest 执行顺序带来的问题(先设置属性)
 		this.result = result;
 	}
 

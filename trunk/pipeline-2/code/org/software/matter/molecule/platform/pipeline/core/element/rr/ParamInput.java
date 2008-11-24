@@ -16,6 +16,7 @@ public class ParamInput extends Input {
 	}
 
 	public void setDeclare(Declare declare) {
+		declare.dealDefineParam();
 		this.declare = declare;
 	}
 
