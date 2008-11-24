@@ -39,7 +39,7 @@
 
 ===说明===
 ===执行入口===
-按照传统语言处理方法, 找main; 但这里需要不断找main, 这里有5个main, 直到找到<service name="main">, 然后执行<pipeline>
+按照传统语言处理方法, 找main; 但这里需要不断找main, 这里有5个main, 直到找到service name="main"> 然后执行pipeline
 ===参数===
 {{{
 <define-param name="input-data">hello world</define-param>
