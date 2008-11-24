@@ -1,22 +1,13 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
-public class Output {
+import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 
-	public Output(String data) {
-		this.data = data;
-	}
+public abstract class Output {
 
-	public Output() {
+	public abstract String getData();
 
-	}
+	public abstract void setData(String responseData);
 
-	private String data;
+	public abstract void tuneResultToPipelineContext(PipelineContext pipelineContext);
 
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
 }
