@@ -16,18 +16,18 @@ import org.software.matter.molecule.platform.pipeline.core.element.soa.Service;
 
 public class Step extends Unit {
 
-	public Step(){ 
+	public Step() {
 		this.setUnitList(null);
 	}
-	
+
 	private String primarayService;
 
 	private String standbyService;
 
 	private Input input;
-	
+
 	private Output output;
-	
+
 	public Input getInput() {
 		return input;
 	}
@@ -73,23 +73,24 @@ public class Step extends Unit {
 		int port = Integer.parseInt(service.getPort());
 
 		Socket socket = new Socket(host, port);
-		
-//		while (socket.isConnected()) {
-			if (request != null) {
-				PrintWriter os = new PrintWriter(socket.getOutputStream());
-				
-				os.println(request.getInput().toXMLType());
-				os.flush();
-			}
 
-			if (response != null) {
-				BufferedReader is = new BufferedReader(new InputStreamReader(socket
-						.getInputStream()));
-				String responseData = is.readLine();
-				Output output = new Output(responseData);
-				response.setOutput(output);
-			}
+		// while (socket.isConnected()) {
+//		if (request != null && request.getInput() != null && !request.getInput().getData().trim().equals("")) {
+			PrintWriter os = new PrintWriter(socket.getOutputStream());
+
+			os.println(request.getInput().toXMLType());
+			os.flush();
 //		}
+
+//		if (response != null && response.getOutput() != null && !response.getOutput().getData().trim().equals("")) {
+			BufferedReader is = new BufferedReader(new InputStreamReader(socket
+					.getInputStream()));
+			String responseData = is.readLine();
+			Output output = new Output(responseData);
+			response.setOutput(output);
+//		}
+		// }
+		socket.close();
 	}
 
 }

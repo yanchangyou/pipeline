@@ -18,10 +18,15 @@ public class Line extends Unit {
 			unit.setRoot(this.getRoot());
 			unit.deal(request, response);
 			
-			//上一步[响应]是下一步的[请求]
-			Input input = new StringInput();
-			input.setData(response.getOutput().getData());
-			request.setInput(input);
+			
+			
+			//上一步[响应]是下一步的[请求]			
+			if (response != null && response.getOutput() != null) {
+				Input input = new StringInput();
+				input.setData(response.getOutput().getData());
+				request.setInput(input);
+			}
+			
 		}
 	}
 
