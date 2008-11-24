@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<root>
+	<economy name="main">
+		<market name="main">
+			<supplier name="main">
+				<server name="main">
+					<service name="main">
+						<request>
+							<string-input>
+								<![CDATA[hello world!]]>
+							</string-input>
+						</request>
+						<pipeline>
+							<line>
+								<step primarayService="main.main.main.io-server.output"></step>
+							</line>
+						</pipeline>
+					</service>
+				</server>
+				<server name="io-server" host="127.0.0.1">
+					<service name="output" port="10001" />
+				</server>
+			</supplier>
+		</market>
+	</economy>
+</root>

@@ -1,47 +1,11 @@
 <?xml version="1.0"?>
 
-
 <root>
 	<meta>
 		<property name="user" value="ether.anima" />
 		<property name="age" value="25" />
 		<property name="msn" value="isuifengi@hotmail.com" />
 	</meta>
-	<economy name="共产主义经济">
-		<meta>
-			<property name="leader" value="马克思" />
-			<property name="writing" value="资本论" />
-		</meta>
-		<market name="自由市场">
-			<meta>
-				<property name="country" value="永恒国度" />
-			</meta>
-			<supplier name="上帝">
-				<meta>
-					<property name="age" value="万寿无疆" />
-				</meta>
-				<server name="天堂" host="0.0.0.0">
-					<service name="感化" port="0">
-						<request>
-							<string-input>
-								<![CDATA[<message>pain</message>]]>
-							</string-input>
-						</request>
-						<response>
-							<string-output>
-								<![CDATA[<message>love</message>]]>
-							</string-output>
-						</response>
-						<pipeline>
-							<line>
-								<step service="service" />
-							</line>
-						</pipeline>
-					</service>
-				</server>
-			</supplier>
-		</market>
-	</economy>
 	<economy name="main">
 		<market name="main">
 			<supplier name="main">
@@ -209,6 +173,42 @@
 									<unit></unit>
 								</while>
 							</loop>
+						</pipeline>
+					</service>
+				</server>
+			</supplier>
+		</market>
+	</economy>
+
+	<economy name="共产主义经济">
+		<meta>
+			<property name="leader" value="马克思" />
+			<property name="writing" value="资本论" />
+		</meta>
+		<market name="自由市场">
+			<meta>
+				<property name="country" value="永恒国度" />
+			</meta>
+			<supplier name="上帝">
+				<meta>
+					<property name="age" value="万寿无疆" />
+				</meta>
+				<server name="天堂" host="0.0.0.0">
+					<service name="感化" port="0">
+						<request>
+							<string-input>
+								<![CDATA[<message>pain</message>]]>
+							</string-input>
+						</request>
+						<response>
+							<string-output>
+								<![CDATA[<message>love</message>]]>
+							</string-output>
+						</response>
+						<pipeline>
+							<line>
+								<step service="service" />
+							</line>
 						</pipeline>
 					</service>
 				</server>

@@ -41,7 +41,7 @@ public class Root extends NameAndTypeAndMetaObject {
 
 		URL rulesUrl = Root.class.getClassLoader().getResource(VALIDATOR_RULES);
 
-		URL xmlUrl = Economy.class.getClassLoader().getResource(PATH);
+		URL xmlUrl = Root.class.getClassLoader().getResource(PATH);
 		Digester digester = DigesterLoader.createDigester(rulesUrl);
 
 		return (Root) digester.parse(new File(xmlUrl.getFile()));
