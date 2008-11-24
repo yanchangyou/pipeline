@@ -1,4 +1,4 @@
-#summary 网上找到的一些对pipeline用于的资源
+#summary 网上找到的一些对pipeline有用的资源
 #labels Featured,资料
 
 
