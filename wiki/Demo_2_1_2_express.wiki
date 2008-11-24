@@ -1,0 +1,119 @@
+#summary 演示add程序
+#labels Featured,demo,express
+
+===功能说明===
+  # 通过输入服务器输入表达式express
+  # 将express送到计算服务器运算, 并返回结果
+  # 将返回的结果送到输出服务器显示
+
+===pipeline文件===
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <meta>
+    <property name="athor" value="ether.anima" />
+    <property name="age" value="25" />
+    <property name="msn" value="isuifengi@hotmail.com" />
+  </meta>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="express">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.calculator.express" standbyService="">
+                  <param-input separtor=",">
+                    <declare>
+                      <refer-param name="express" />
+                    </declare>
+                  </param-input>
+                  <param-output>
+                    <result>
+                      <refer-result name="result">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.output" standbyService="">
+                  <param-input>
+                    <declare>
+                      <refer-param name="result" />
+                    </declare>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+          <service name="input" port="10002" />
+        </server>
+        <server name="calculator" host="127.0.0.1">
+          <service name="express" port="11009" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+===说明===
+
+  * 输入express
+{{{
+<<step primarayService="main.main.main.io-server.input" standbyService="">
+  <param-output>
+    <result>
+      <refer-result name="express">${response.string-output}</refer-result>
+    </result>
+  </param-output>
+</step>
+}}}
+
+  * 计算express
+{{{
+<step primarayService="main.main.main.calculator.express" standbyService="">
+  <param-input separtor=",">
+    <declare>
+      <refer-param name="express" />
+    </declare>
+  </param-input>
+  <param-output>
+    <result>
+      <refer-result name="result">${response.string-output}</refer-result>
+    </result>
+  </param-output>
+</step>
+}}}
+  * 输出
+{{{
+<step primarayService="main.main.main.io-server.output" standbyService="">
+  <param-input>
+    <declare>
+      <refer-param name="result" />
+    </declare>
+  </param-input>
+</step>
+}}}
+
+===远程服务声明===
+
+{{{
+<server name="io-server" host="127.0.0.1">
+  <service name="output" port="10001" />
+  <service name="input" port="10002" />
+</server>
+<server name="calculator" host="127.0.0.1">
+  <service name="add" port="11001" />
+  <service name="express" port="11009" />
+</server>
+}}}
