@@ -69,7 +69,7 @@ public class InputServer {
 				// 1) + " :");
 				// line = sin.readLine();
 				line = "";
-				while (line != null && !line.equalsIgnoreCase("end")) {
+//				while (line != null && !line.equalsIgnoreCase("end")) {
 
 					 System.out.print("to "
 					 + socket.getRemoteSocketAddress().toString()
@@ -79,7 +79,7 @@ public class InputServer {
 					os.flush();
 					// 开始下一行
 
-				}
+//				}
 				System.out.println("send OVER");
 				os.close(); // 关闭Socket输入流
 				socket.close(); // 关闭Socket
