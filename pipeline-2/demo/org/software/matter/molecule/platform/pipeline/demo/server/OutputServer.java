@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.demo;
+package org.software.matter.molecule.platform.pipeline.demo.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,9 +50,8 @@ public class OutputServer {
 		public void run() {
 
 			String line = null;
-			BufferedReader is = null;
 			try {
-				is = new BufferedReader(new InputStreamReader(socket
+				BufferedReader is = new BufferedReader(new InputStreamReader(socket
 						.getInputStream()));
 				do {
 					line = is.readLine();

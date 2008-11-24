@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.demo;
+package org.software.matter.molecule.platform.pipeline.demo.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,14 +7,14 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class InputServer {
+public class Calculator {
 	public static void main(String args[]) {
-		
-		System.out.println("===========输入控制台=============");
-		
+
+		System.out.println("===========计算控制台=============");
+
 		ServerSocket server = null;
 		try {
-			server = new ServerSocket(10002);
+			server = new ServerSocket(11001);
 			// 创建一个ServerSocket在端口10001监听客户请求
 		} catch (Exception e) {
 			System.out.println("can not listen to:" + e);
@@ -33,7 +33,7 @@ public class InputServer {
 				while (!socket.isClosed()) {
 					Thread.sleep(100);
 				}
-				
+
 			} while (true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,35 +58,46 @@ public class InputServer {
 			String line = null;
 			try {
 				PrintWriter os = new PrintWriter(socket.getOutputStream());
+				BufferedReader is = new BufferedReader(new InputStreamReader(
+						socket.getInputStream()));
 				// 由Socket对象得到输出流，并构造PrintWriter对象
-				BufferedReader sin = new BufferedReader(new InputStreamReader(
-						System.in));
 
-				System.out.println("\nnew send BEGIN");
+				System.out.println("\nnew calculate BEGIN");
 
-				// System.out.print("to "
-				// + socket.getRemoteSocketAddress().toString().substring(
-				// 1) + " :");
-				// line = sin.readLine();
-				line = "";
-//				while (line != null && !line.equalsIgnoreCase("end")) {
+				line = is.readLine();
+				System.out.println("input :　" + line);
+				if (line == null) {
+					os.println("");
+				} else {
+					String[] params = line.split("\\s*[,; :]\\s*");
 
-					 System.out.print("to "
-					 + socket.getRemoteSocketAddress().toString()
-					 .substring(1) + " :");
-					line = sin.readLine();
-					os.println(line);
-					os.flush();
-					// 开始下一行
+					double result = Tool.add(params[0], params[1]);
 
-//				}
-				System.out.println("send OVER");
-				os.close(); // 关闭Socket输入流
-				socket.close(); // 关闭Socket
+					os.println(result);
+					System.out.println("result is : " + result);
+				}
+				
+				os.flush();
+				System.out.println("calculate OVER");
+				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} finally {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // 关闭Socket
 			}
+		}
+
+	}
+
+	static class Tool {
+
+		public static double add(String a, String b) {
+			return Double.parseDouble(a) + Double.parseDouble(b);
 		}
 
 	}
