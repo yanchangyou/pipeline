@@ -130,32 +130,32 @@
 									<meta>
 										<property name="propertyName" value="propertyValue" />
 									</meta>
-									<declare>
+									<param>
 										<define-param name="paramName">param value</define-param>
-									</declare>
+									</param>
 									<line>
-										<declare>
+										<param>
 											<define-param name="paramName">param value</define-param>
-										</declare>
+										</param>
 										<unit>
-											<declare>
+											<param>
 												<define-param name="paramName">param value</define-param>
-											</declare>
+											</param>
 											<step>
-												<declare>
+												<param>
 													<define-param name="paramName">param value</define-param>
-												</declare>
+												</param>
 											</step>
 										</unit>
 									</line>
 									<tree>
-										<declare>
+										<param>
 											<define-param name="paramName">param value</define-param>
-										</declare>
+										</param>
 										<if>
-											<declare>
+											<param>
 												<define-param name="paramName">param value</define-param>
-											</declare>
+											</param>
 											<unit></unit>
 										</if>
 										<else-if>
