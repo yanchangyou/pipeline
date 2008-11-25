@@ -18,6 +18,16 @@
 				端口没有值, service标签中的port属性没有值
 			</cause>
 		</error>
+		<error no="2">
+			<exception>
+				java.net.ConnectException: Connection refused: connect
+			</exception>
+			<cause>
+				连接异常, 大多情况是远程服务没有开启
+			</cause>
+		</error>
+		
+		
 	</common-error>
 
 </root>
