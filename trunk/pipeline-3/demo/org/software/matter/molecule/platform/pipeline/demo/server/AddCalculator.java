@@ -10,7 +10,7 @@ import java.net.Socket;
 public class AddCalculator {
 	public static void main(String args[]) {
 
-		System.out.println("===========计算控制台=============");
+		System.out.println("===========AddCalculator计算控制台=============");
 
 		ServerSocket server = null;
 		try {

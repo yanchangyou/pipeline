@@ -12,7 +12,7 @@ import org.mvel.MVEL;
 public class ExpressCalculator {
 	public static void main(String args[]) {
 
-		System.out.println("===========计算控制台=============");
+		System.out.println("===========ExpressCalculator计算控制台=============");
 
 		ServerSocket server = null;
 		try {

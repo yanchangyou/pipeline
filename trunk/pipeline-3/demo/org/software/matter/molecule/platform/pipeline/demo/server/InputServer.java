@@ -10,7 +10,7 @@ import java.net.Socket;
 public class InputServer {
 	public static void main(String args[]) {
 		
-		System.out.println("===========输入控制台=============");
+		System.out.println("===========InputServer输入控制台=============");
 		
 		ServerSocket server = null;
 		try {
