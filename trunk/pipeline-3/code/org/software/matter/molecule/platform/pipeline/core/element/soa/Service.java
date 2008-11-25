@@ -4,18 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
 import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
-public class Service extends NameAndTypeAndMetaObject {
+public class Service extends SOA {
 
 	private Request request;
 
@@ -163,10 +163,13 @@ public class Service extends NameAndTypeAndMetaObject {
 				os.println(responseData);
 			}
 			socket.close(); // 关闭Socket
-		} catch (IOException e) {
+		} catch (ConnectException e) {
+			System.out.println("错误 : 连接异常, 可能是远程服务没有开启");
+		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (Exception e) {
+		} 
+		 catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {

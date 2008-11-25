@@ -3,6 +3,7 @@ package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -64,9 +65,8 @@ public class Step extends Unit {
 		this.standbyService = standbyService;
 	}
 
-	public void deal(Request request, Response response) throws Exception {
-		Service service = Locator
-				.locateService(this.getRoot(), primarayService);
+	public void deal(Request request, Response response) throws ConnectException, Exception {
+		Service service = Locator.locateService(this.getRoot(), primarayService);
 		Server server = Locator.locateServer(this.getRoot(), primarayService);
 
 		String host = server.getHost();

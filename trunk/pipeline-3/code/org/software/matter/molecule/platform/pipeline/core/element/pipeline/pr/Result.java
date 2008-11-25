@@ -1,11 +1,11 @@
-package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
+package org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class Result {
+public class Result extends PR {
 
 	private Map resultMap = new HashMap(5);
 
@@ -14,19 +14,20 @@ public class Result {
 	private Map referResultMap = new HashMap(5);
 
 	public void addDefineResult(DefineResult defineResult) {
-		defineResultMap.put(defineResult.getName(), defineResult);		
+		defineResultMap.put(defineResult.getName(), defineResult);
 	}
 
 	public void addReferResult(ReferResult referResult) {
 		referResultMap.put(referResult.getName(), referResult);
 	}
-	
-//	方法用于解决 digest 执行顺序带来的问题(先设置属性)
+
+	// 方法用于解决 digest 执行顺序带来的问题(先设置属性)
 	public void dealDefineResult() {
 		Set set = defineResultMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			DefineResult defineResult = (DefineResult) defineResultMap.get(name);
+			DefineResult defineResult = (DefineResult) defineResultMap
+					.get(name);
 			addResult(name, defineResult.getValue());
 		}
 	}
@@ -36,12 +37,12 @@ public class Result {
 
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-//			String value = (String) referResultMap.get(name);
-			
+			// String value = (String) referResultMap.get(name);
+
 			resultMap.put(name, responseData);
 		}
 	}
-	
+
 	public void addResult(String name, Object value) {
 		resultMap.put(name, value);
 	}

@@ -10,7 +10,7 @@
 		<market name="main">
 			<supplier name="main">
 				<server name="main">
-					<service name="main">
+					<service name="main" port="20003">
 						<pipeline>
 							<line>
 								<step primarayService="main.main.main.io-server.input" standbyService="">
@@ -29,10 +29,10 @@
 								</step>
 								<step primarayService="main.main.main.calculator.add" standbyService="">
 									<param-input separtor=",">
-										<declare>
+										<param>
 											<refer-param name="a" />
 											<refer-param name="b" />
-										</declare>
+										</param>
 									</param-input>
 									<param-output>
 										<result>
@@ -42,9 +42,9 @@
 								</step>
 								<step primarayService="main.main.main.io-server.output" standbyService="">
 									<param-input>
-										<declare>
+										<param>
 											<refer-param name="result" />
-										</declare>
+										</param>
 									</param-input>
 								</step>
 							</line>

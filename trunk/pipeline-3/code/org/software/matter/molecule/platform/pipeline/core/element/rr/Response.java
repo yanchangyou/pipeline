@@ -3,7 +3,7 @@ package org.software.matter.molecule.platform.pipeline.core.element.rr;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 
-public class Response {
+public class Response extends Res {
 	private Output output;
 
 	public Output getOutput() {

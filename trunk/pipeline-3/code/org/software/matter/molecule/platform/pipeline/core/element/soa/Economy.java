@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 
-public class Economy extends NameAndTypeAndMetaObject {
+public class Economy extends SOA {
 
 	private Map marketMap = new HashMap();
 
