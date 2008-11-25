@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<root>
+	<meta>
+		<property name="athor" value="ether.anima" />
+		<property name="age" value="25" />
+		<property name="msn" value="isuifengi@hotmail.com" />
+	</meta>
+	<economy name="main">
+		<market name="main">
+			<supplier name="main">
+				<server name="main">
+					<service name="main">
+						<pipeline>
+							<line>
+								<step primarayService="main.main.main.io-server.input" standbyService="">
+									<param-output>
+										<result>
+											<refer-result name="input-data">${response.string-output}</refer-result>
+										</result>
+									</param-output>
+								</step>
+								<step primarayService="main.main.main.io-server.output" standbyService="">
+									<param-input>
+										<declare>
+											<refer-param name="input-data" />
+										</declare>
+									</param-input>
+								</step>
+							</line>
+						</pipeline>
+					</service>
+				</server>
+				<server name="io-server" host="127.0.0.1">
+					<service name="output" port="10001" />
+					<service name="input" port="10002" />
+				</server>
+			</supplier>
+		</market>
+	</economy>
+</root>
