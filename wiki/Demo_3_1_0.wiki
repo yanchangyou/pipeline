@@ -1,0 +1,281 @@
+#summary 演示pipeline3.1.0版本的简单应用
+#labels Featured,Phase-Deploy,demo
+
+==版本差异==
+pipeline2与pipeline3最大差别在于驱动程序执行的方式变了
+  * pipeline2 运行代码后立刻解析并且执行pipeline文件
+  * pipeline3 运行代码后立刻解析pipeline文件, 但是不立刻执行pipeline文件, 而是监听请求, 通过请求来驱动程序的执行
+
+  * 配置文件上变化就是给main service添加一个port属性, 用来监听请求
+  * 还有一个大的变更是 将 declare用param代替, 这一变动涉及位置很多(类,对象,变量,配置文件等等), 这里eclipse的全局查找替换帮了我很大的忙
+
+==pipeline3==
+  * 口号 : pipeline3 == 彻底地整合 + 全新的服务
+  * 代号 : weed(野草)
+
+==demo==
+  # hello world!
+  # echo
+  # add
+  # express
+
+==执行Demo程序==
+  # 下载首页的项目文件[http://ether-anima-pipeline.googlecode.com/files/pipeline-3%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6.rar 项目文件]
+  # 导入eclipse
+  # 执行org.software.matter.molecule.platform.pipeline.demo.Demo程序
+{{{
+==============使用说明============
+1, 运行demo中server包下面4个server类, 以开启相应的服务
+2, 执行demo程序
+3, 按照下面的流程说明使用程序
+4, 下面程序以服务的方式提供, 使用telnet去请求服务
+5, 演示了pipeline3能够整合其它的服务以提供新的服务
+6, pipeline3 == 彻底地整合 + 全新的服务
+
+
+==============hello world流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20001
+3, 在OutputServer输出控制台, 看输出的 hello world!
+4, 在CMD中敲任意键, 返回控制台
+
+
+==============echo流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20002
+3, 在InputServer输入控制台, 输入任意单行字符串
+4, 在OutputServer输出控制台, 查看刚才输入内容
+
+
+==============add流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20003
+3, 在InputServer输入控制台, 输入数字a(一定要是数字, 没有异常处理)
+4, 在InputServer输入控制台, 输入数字b(一定要是数字, 没有异常处理)
+5, 在OutputServer输出控制台, 查看 a+b 的值
+
+
+==============express流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20003
+3, 在InputServer输入控制台, 输入数学表达式,如:(3+2)*2;(一定要是数学表达式, 没有异常处理)
+5, 在OutputServer输出控制台, 查看 表达式的值
+}}}
+
+
+==pipeline文件==
+和上一步版本几分没有大的变化, 细微变化如下
+===差别说明===
+  # declare标签改成param标签
+  # `<`service name="main" port="2000X"`>`多了个port属性, 用于对外服务
+
+===hello world!===
+{{{
+<?xml version="1.0"?>
+<root>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main" port="20001">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.output">
+                  <param-input>
+                    <param>
+                      <define-param name="input-data">hello world!</define-param>
+                    </param>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+
+===echo===
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <meta>
+    <property name="athor" value="ether.anima" />
+    <property name="age" value="25" />
+    <property name="msn" value="isuifengi@hotmail.com" />
+  </meta>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main" port="20002">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="input-data">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.output" standbyService="">
+                  <param-input>
+                    <param>
+                      <refer-param name="input-data" />
+                    </param>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+          <service name="input" port="10002" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+==add==
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <meta>
+    <property name="athor" value="ether.anima" />
+    <property name="age" value="25" />
+    <property name="msn" value="isuifengi@hotmail.com" />
+  </meta>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main" port="20003">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="a">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="b">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.calculator.add" standbyService="">
+                  <param-input separtor=",">
+                    <param>
+                      <refer-param name="a" />
+                      <refer-param name="b" />
+                    </param>
+                  </param-input>
+                  <param-output>
+                    <result>
+                      <refer-result name="result">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.output" standbyService="">
+                  <param-input>
+                    <param>
+                      <refer-param name="result" />
+                    </param>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+          <service name="input" port="10002" />
+        </server>
+        <server name="calculator" host="127.0.0.1">
+          <service name="add" port="11001" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+==express==
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <meta>
+    <property name="athor" value="ether.anima" />
+    <property name="age" value="25" />
+    <property name="msn" value="isuifengi@hotmail.com" />
+  </meta>
+  <economy name="main">
+    <market name="main">
+      <supplier name="main">
+        <server name="main">
+          <service name="main" port="20004">
+            <pipeline>
+              <line>
+                <step primarayService="main.main.main.io-server.input" standbyService="">
+                  <param-output>
+                    <result>
+                      <refer-result name="express">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.calculator.express" standbyService="">
+                  <param-input separtor=",">
+                    <param>
+                      <refer-param name="express" />
+                    </param>
+                  </param-input>
+                  <param-output>
+                    <result>
+                      <refer-result name="result">${response.string-output}</refer-result>
+                    </result>
+                  </param-output>
+                </step>
+                <step primarayService="main.main.main.io-server.output" standbyService="">
+                  <param-input>
+                    <param>
+                      <refer-param name="result" />
+                    </param>
+                  </param-input>
+                </step>
+              </line>
+            </pipeline>
+          </service>
+        </server>
+        <server name="io-server" host="127.0.0.1">
+          <service name="output" port="10001" />
+          <service name="input" port="10002" />
+        </server>
+        <server name="calculator" host="127.0.0.1">
+          <service name="add" port="11001" />
+          <service name="express" port="11009" />
+        </server>
+      </supplier>
+    </market>
+  </economy>
+</root>
+}}}
+
+
+
+
+
