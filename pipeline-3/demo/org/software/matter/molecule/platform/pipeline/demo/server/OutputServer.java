@@ -9,7 +9,7 @@ import java.net.Socket;
 public class OutputServer {
 	public static void main(String args[]) {
 		
-		System.out.println("===========输出控制台=============");
+		System.out.println("===========OutputServer输出控制台=============");
 		
 		ServerSocket server = null;
 		try {
