@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<pipeline>
+
+	<pioneer>
+
+		<evolution version="1.0.2">
+			<function>
+				<new-list>
+					<new no="1">
+						增加对step的复用, 为要复用step的share属性取名,以后就按名提起 该标签名是 :
+						<step-reference name="stepShareName" />
+					</new>
+					<new no="2">
+						增加对pipeline的复用 为要复用pipeline的share属性取名,以后就按名提起 该标签名是 :
+						<line-reference name="pipelineShareName" />
+					</new>
+				</new-list>
+				<fix-list>
+					<fix no="1">因修改参数起始编号带来的bug</fix>
+					<fix no="2">类名错误, NamedObject 写成了 NamadObject(低级错误), 将其修改</fix>
+				</fix-list>
+
+				<bug-list>
+					<bug no="1">
+
+					</bug>
+				</bug-list>
+
+				<tune-list>
+					<tune no="1">为了能够复用pipeline,调整了pipeline的deal方法, 使其有返回值</tune>
+					<tune no="2">将参数的位置编号由原来的0开头调整为以1开头</tune>
+					<tune no="3">去掉step的needSore和globalName属性,替换为output, 修改理由这样更直观</tune>
+					<tune no="4">修改paramList标签为input, 这样更体现step的三个关键元素:input,algorithm,ouput</tune>
+				</tune-list>
+
+			</function>
+
+			<pipeline-list>
+				<pipeline name="input-process-output">
+					<comment>this is a simple test about pipe line (a + b) * c = ?</comment>
+					<step name="read a" share="readInt" output="a">
+						<algorithm className="test.Test" methodName="readInt" />
+					</step>
+					<step name="read b" output="b">
+						<step-reference name="readInt" />
+					</step>
+
+					<step name="(a + b) * c" output="result">
+						<comment></comment>
+						<algorithm className="test.Test" methodName="calculate" methodParams="java.lang.Integer,java.lang.Integer,java.lang.Double" />
+						<input>
+							<global-param name="a" index="1" />
+							<global-param name="b" index="2" />
+							<local-param value="1.5" index="3" meaning="c" />
+						</input>
+					</step>
+					<step name="print">
+						<pipeline-reference name="print" />
+					</step>
+				</pipeline>
+
+				<pipeline name="print" share="print">
+					<step name="print a message">
+						<comment></comment>
+						<algorithm className="test.Test" methodName="println" methodParams="java.lang.Object" />
+						<input>
+							<global-param name="result" index="1" />
+						</input>
+					</step>
+				</pipeline>
+
+			</pipeline-list>
+		</evolution>
+
+		<evolution version="2.1.1">
+
+			<economy name="economyName" type="economyType">
+				<meta>
+					<property name="propertyName" value="propertyValue" />
+				</meta>
+				<market name="marketName" type="marketType">
+					<meta>
+						<property name="propertyName" value="propertyValue" />
+					</meta>
+					<supplier name="supplierName" type="supplierType">
+						<meta>
+							<property name="propertyName" value="propertyValue" />
+						</meta>
+						<server name="serverName" type="public|default|private" host="IP address">
+							<meta>
+								<property name="propertyName" value="propertyValue" />
+							</meta>
+							<service name="serviceName" type="public|default|private" port="service port">
+								<meta>
+									<property name="propertyName" value="propertyValue" />
+								</meta>
+								<request>
+									<string-input>
+										<![CDATA[string data]]>
+									</string-input>
+									或者
+									<xml-input>
+										<![CDATA[xml data]]>
+									</xml-input>
+									或者
+									<json-input>
+										<![CDATA[json data]]>
+									</json-input>
+									或者
+									<byte-input>
+										<![CDATA[byte data]]>
+									</byte-input>
+								</request>
+								<response>
+									<string-output>
+										<![CDATA[string data]]>
+									</string-output>
+									或者
+									<xml-output>
+										<![CDATA[xml data]]>
+									</xml-output>
+									或者
+									<json-output>
+										<![CDATA[json data]]>
+									</json-output>
+								</response>
+								<pipeline>
+									<meta>
+										<property name="propertyName" value="propertyValue" />
+									</meta>
+									<declare>
+										<define-param name="paramName">param value</define-param>
+									</declare>
+									<line>
+										<declare>
+											<define-param name="paramName">param value</define-param>
+										</declare>
+										<unit>
+											<declare>
+												<define-param name="paramName">param value</define-param>
+											</declare>
+											<step>
+												<declare>
+													<define-param name="paramName">param value</define-param>
+												</declare>
+											</step>
+										</unit>
+									</line>
+									<tree>
+										<declare>
+											<define-param name="paramName">param value</define-param>
+										</declare>
+										<if>
+											<declare>
+												<define-param name="paramName">param value</define-param>
+											</declare>
+											<unit></unit>
+										</if>
+										<else-if>
+											<unit></unit>
+										</else-if>
+										<else>
+											<unit></unit>
+										</else>
+
+										或者
+
+										<switch>
+											<case>
+												<unit></unit>
+											</case>
+											<case>
+												<unit></unit>
+											</case>
+										</switch>
+									</tree>
+									<loop>
+										<for>
+											<unit></unit>
+										</for>
+
+										或者
+
+										<while>
+											<unit></unit>
+										</while>
+									</loop>
+								</pipeline>
+							</service>
+						</server>
+					</supplier>
+				</market>
+			</economy>
+
+		</evolution>
+	</pioneer>
+</pipeline>

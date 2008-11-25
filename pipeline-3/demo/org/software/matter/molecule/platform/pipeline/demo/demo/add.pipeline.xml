@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<root>
+	<meta>
+		<property name="athor" value="ether.anima" />
+		<property name="age" value="25" />
+		<property name="msn" value="isuifengi@hotmail.com" />
+	</meta>
+	<economy name="main">
+		<market name="main">
+			<supplier name="main">
+				<server name="main">
+					<service name="main">
+						<pipeline>
+							<line>
+								<step primarayService="main.main.main.io-server.input" standbyService="">
+									<param-output>
+										<result>
+											<refer-result name="a">${response.string-output}</refer-result>
+										</result>
+									</param-output>
+								</step>
+								<step primarayService="main.main.main.io-server.input" standbyService="">
+									<param-output>
+										<result>
+											<refer-result name="b">${response.string-output}</refer-result>
+										</result>
+									</param-output>
+								</step>
+								<step primarayService="main.main.main.calculator.add" standbyService="">
+									<param-input separtor=",">
+										<declare>
+											<refer-param name="a" />
+											<refer-param name="b" />
+										</declare>
+									</param-input>
+									<param-output>
+										<result>
+											<refer-result name="result">${response.string-output}</refer-result>
+										</result>
+									</param-output>
+								</step>
+								<step primarayService="main.main.main.io-server.output" standbyService="">
+									<param-input>
+										<declare>
+											<refer-param name="result" />
+										</declare>
+									</param-input>
+								</step>
+							</line>
+						</pipeline>
+					</service>
+				</server>
+				<server name="io-server" host="127.0.0.1">
+					<service name="output" port="10001" />
+					<service name="input" port="10002" />
+				</server>
+				<server name="calculator" host="127.0.0.1">
+					<service name="add" port="11001" />
+				</server>
+			</supplier>
+		</market>
+	</economy>
+</root>

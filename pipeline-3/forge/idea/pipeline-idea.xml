@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<pipeline>
+
+	<system>
+		<requirement>
+			<action>
+				<problem>
+					<idea>
+						<design>
+							<practise>
+								<feedback>
+									<improve></improve>
+								</feedback>
+							</practise>
+						</design>
+					</idea>
+					<pioneer></pioneer>
+					<pave></pave>
+					<open></open>
+				</problem>
+			</action>
+		</requirement>
+	</system>
+
+
+
+	<problem no="1" type="" provider="" date="">
+		<description>如何解决问题</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Idea --> Pioneer --> Pave --> Open</description>
+		</idea>
+	</problem>
+
+	<problem no="2" type="" provider="" date="">
+		<description>一个好的idea应该是怎样的</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Imaginative + Simple + Comfortable + Wow</description>
+		</idea>
+	</problem>
+
+
+	<idea>
+		<语言特性>
+			<流程控制>
+				<顺序结构 include="yes"></顺序结构>
+				<选择结构 include="no"></选择结构>
+				<循环结构 include="no"></循环结构>
+			</流程控制>
+			<高级特性>
+				<嵌套 include="no"></嵌套>
+				<引用 include="yes"></引用>
+				<继承 include="no"></继承>
+				<并发 include="no"></并发>
+				<框架 include="yes"></框架>
+			</高级特性>
+		</语言特性>
+
+		<讨论>
+			<继承特性>在面向对象中, 继承意味着子类可以使用父类的属性. 但是在一种处理中, 继承又该是怎样的啦? 一种子处理中包含父处理? 不太合理. 前置处理 和 后置处理 比较合适. 这些处理可以包含多个处理, 处理之间是有顺序的 这些附近的处理具有相同的参数, 并且后置处理还有基本处理的结果作为参数传入 这些特性的用处 : 处理一些向日志, 访问控制等功能</继承特性>
+		</讨论>
+
+	</idea>
+
+	<idea no="2">
+		把框架frame整合进去.
+		<frame>
+			<定义>一个带参数的pipeline, 这个pipeline是不完整的, 里面的某些step是预留的, 需要外界传入; 就好像传统语言中的方法调用</定义>
+		</frame>
+		<frame-reference name="frameName">
+			<frame-param name="" stepName=""></frame-param>
+			<frame-param name="" stepName=""></frame-param>
+		</frame-reference>
+
+		<frame></frame>
+	</idea>
+
+
+	<idea no="3">
+		数据结构化: a.b.c@a server.session.request.local server@property server.session@property server.session.request@property server.session.request.local@property
+
+	</idea>
+
+	<idea no="4">
+		<面向服务的编程>
+
+
+			<economy>
+				<market name="" region="">
+					<supplier>
+						<server type="private|public">
+							<!--						<import>-->
+							<!--							<market>-->
+							<!--								<supplier></supplier>-->
+							<!--							</market>-->
+							<!--						</import>-->
+							<service type="private|public|defualt">
+								<pipeline>
+									<line>
+										<step></step>
+									</line>
+								</pipeline>
+							</service>
+
+							<service name="main" type="public" port="10000">
+								<request>
+									<input>
+										<![CDATA[<message>Hello World!</message>]]>
+									</input>
+								</request>
+								<response>
+									<!--								<output to="localhost.console"></output>-->
+								</response>
+								<pipeline>
+									<line>
+										<step service="print" server="" supplier="" market="">
+											<request>
+												<xml-input type="string">
+													<![CDATA[<message>Hello World!</message>]]>
+												</xml-input>
+											</request>
+										</step>
+									</line>
+								</pipeline>
+							</service>
+						</server>
+						<server name="printServer" host="127.0.0.1">
+							<service name="print" port="10000"></service>
+						</server>
+					</supplier>
+				</market>
+			</economy>
+
+
+			<server name="" region="" package="">
+				<host name="" ip="" port="" protocal=""></host>
+				<service>
+					<request></request>
+					<response></response>
+					<pipeline>
+						<line></line>
+						<tree>
+							<if></if>
+							<else-if></else-if>
+							<else></else>
+							<switch>
+								<case></case>
+							</switch>
+						</tree>
+						<loop>
+							<while></while>
+							<do></do>
+							<for></for>
+						</loop>
+						<step></step>
+					</pipeline>
+				</service>
+			</server>
+		</面向服务的编程>
+		<面向对象的编程>定义对象, 操作对象 对象有属性方法构成</面向对象的编程>
+	</idea>
+
+	<idea no="5">
+		<商务模式>
+			<招标投标模式>
+				<买家主导></买家主导>
+			</招标投标模式>
+			<推销购买模式>
+				<卖家主导></卖家主导>
+			</推销购买模式>
+			<市场模式>
+				<市场主导></市场主导>
+			</市场模式>
+		</商务模式>
+	</idea>
+
+	<idae no="6">
+
+		<economy name="共产主义经济">
+			<meta>
+				<property name="leader" value="马克思" />
+				<property name="writing" value="资本论" />
+			</meta>
+			<market name="自由市场">
+				<meta>
+					<property name="country" value="永恒国度" />
+				</meta>
+				<supplier name="上帝">
+					<meta>
+						<property name="age" value="万寿无疆" />
+					</meta>
+					<server name="天堂" host="0.0.0.0">
+						<service name="感化" port="0">
+							<request>
+								<string-input>
+									<![CDATA[<message>pain</message>]]>
+								</string-input>
+							</request>
+							<response>
+								<string-output>
+									<![CDATA[<message>love</message>]]>
+								</string-output>
+							</response>
+							<pipeline>
+								<line>
+									<step service="service" />
+								</line>
+							</pipeline>
+						</service>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</idae>
+	
+	<idea no="7">
+		service 一项服务有启动, 也有停止的时候
+		start, stop, shutdown
+	</idea>
+</pipeline>
