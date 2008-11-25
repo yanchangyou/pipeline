@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<!-- 
-	hello world 
-	version=2.2.1
--->
+
 <root>
 	<economy name="main">
 		<market name="main">

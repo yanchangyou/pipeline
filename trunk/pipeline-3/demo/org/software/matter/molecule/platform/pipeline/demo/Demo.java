@@ -12,8 +12,8 @@ public class Demo {
 		System.out.println("1, 运行server包下面4个server类, 开启相应的服务");
 		System.out.println("2, 执行demo程序");
 		System.out.println("3, 按照下面的流程说明使用程序");
-		System.out.println("4, 下面程序以服务的方式提供, 能反复使用, 像浏览器上网一样; 这里使用telnet, 去请求服务");
-		System.out.println("5, 演示了这种方式能够整合其它的服务以提供新的服务");
+		System.out.println("4, 下面程序以服务的方式提供, 使用telnet去请求服务");
+		System.out.println("5, 演示了pipeline3能够整合其它的服务以提供新的服务");
 		System.out.println("6, pipeline3 == 彻底地整合 + 全新的服务");
 		System.out.println();
 		System.out.println();
