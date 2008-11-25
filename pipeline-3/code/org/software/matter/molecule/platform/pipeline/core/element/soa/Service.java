@@ -101,6 +101,10 @@ public class Service extends NameAndTypeAndMetaObject {
 		try {
 			do {
 				Socket socket = server.accept();
+				
+				System.out.println(socket.getRemoteSocketAddress().toString()
+						.substring(1)+ " 请求服务 ");
+				
 				new ServiceThread(socket, this).start();
 				// 使用accept()阻塞等待客户请求，有客户
 				// 请求到来则产生一个Socket对象，并继续执行
@@ -124,7 +128,9 @@ public class Service extends NameAndTypeAndMetaObject {
 		}
 
 		public void run() {
+			System.out.println("本次服务开始");
 			service.service(service, socket);
+			System.out.println("本次服务结束");
 		}
 
 	}
