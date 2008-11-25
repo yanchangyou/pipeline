@@ -23,7 +23,6 @@ public class InputServer {
 		Socket socket = null;
 		try {
 			do {
-
 				socket = server.accept();
 
 				new Thread(new ServerThread(socket)).start();
