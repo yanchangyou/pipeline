@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
-import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Result;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Result;
 
 public class ParamOutput extends Output {
 

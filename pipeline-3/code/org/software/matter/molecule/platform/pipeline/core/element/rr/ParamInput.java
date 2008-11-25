@@ -5,21 +5,21 @@ import java.util.List;
 import java.util.Set;
 
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
-import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare;
+import org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param;
 
 public class ParamInput extends Input {
 
-	private Declare declare;
+	private Param param;
 
 	protected String separtor = "";
 	
-	public Declare getDeclare() {
-		return declare;
+	public Param getParam() {
+		return param;
 	}
 
-	public void setDeclare(Declare declare) {
-		declare.dealDefineParam();
-		this.declare = declare;
+	public void setParam(Param param) {
+		param.dealDefineParam();
+		this.param = param;
 	}
 
 	public byte[] toByteType() {
@@ -44,14 +44,14 @@ public class ParamInput extends Input {
 
 	public String getData() {
 		StringBuffer buf = new StringBuffer();
-		Set set = declare.getParamMap().keySet();
+		Set set = param.getParamMap().keySet();
 		
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			buf.append(declare.getParam(name));
+			buf.append(param.getParam(name));
 			buf.append(separtor);
 		}
-//		declare.getParamMap()..values();
+//		param.getParamMap()..values();
 		return buf.substring(0, buf.length() - separtor.length()).toString();
 	}
 
@@ -62,11 +62,11 @@ public class ParamInput extends Input {
 
 	public void tunePipelineContextToParam(PipelineContext pipelineContext) {
 
-		List list = declare.getReferParamList();
+		List list = param.getReferParamList();
 		
 		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			declare.addParam(name, pipelineContext.get(name));
+			param.addParam(name, pipelineContext.get(name));
 		}		
 	}
 

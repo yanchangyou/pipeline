@@ -1,4 +1,4 @@
-package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
+package org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 
-public class Declare {
+public class Param extends PR {
 
 	private Map paramMap = new HashMap(5);
 

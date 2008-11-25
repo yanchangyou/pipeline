@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
 import org.software.matter.molecule.platform.pipeline.core.element.common.Meta;
 
-public class Server extends NameAndTypeAndMetaObject {
+public class Server extends SOA {
 	
 	private Meta meta;
 	

@@ -8,14 +8,14 @@
 		<market name="main">
 			<supplier name="main">
 				<server name="main">
-					<service name="main" port="12345">
+					<service name="main" port="20001">
 						<pipeline>
 							<line>
 								<step primarayService="main.main.main.io-server.output">
 									<param-input>
-										<declare>
-											<define-param name="input-data">hello world</define-param>
-										</declare>
+										<param>
+											<define-param name="input-data">hello world!</define-param>
+										</param>
 									</param-input>
 								</step>
 							</line>

@@ -22,21 +22,21 @@
 							</string-output>
 						</response>
 						<pipeline>
-							<declare>
+							<param>
 								<define-param name="paramName"> my param value </define-param>
-							</declare>
+							</param>
 							<line>
 								<step primarayService="main.main.main.io-server.input" standbyService="">
-									<declare>
+									<param>
 										<define-param name="paramName"> my param value </define-param>
-									</declare>
+									</param>
 									<param-input>
-										<declare>
+										<param>
 											<refer-param name="a" />
 											<refer-param name="b" />
 											<define-param name="paramName"> my param value </define-param>
 											<define-param name="paramName"> my param value </define-param>
-										</declare>
+										</param>
 									</param-input>
 									<string-output name=""></string-output>
 								</step>
@@ -116,32 +116,32 @@
 							<meta>
 								<property name="propertyName" value="propertyValue" />
 							</meta>
-							<declare>
+							<param>
 								<define-param name="paramName">param value</define-param>
-							</declare>
+							</param>
 							<line>
-								<declare>
+								<param>
 									<define-param name="paramName">param value</define-param>
-								</declare>
+								</param>
 								<unit>
-									<declare>
+									<param>
 										<define-param name="paramName">param value</define-param>
-									</declare>
+									</param>
 									<step>
-										<declare>
+										<param>
 											<define-param name="paramName">param value</define-param>
-										</declare>
+										</param>
 									</step>
 								</unit>
 							</line>
 							<tree>
-								<declare>
+								<param>
 									<define-param name="paramName">param value</define-param>
-								</declare>
+								</param>
 								<if>
-									<declare>
+									<param>
 										<define-param name="paramName">param value</define-param>
-									</declare>
+									</param>
 									<unit></unit>
 								</if>
 								<else-if>

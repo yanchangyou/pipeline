@@ -139,36 +139,36 @@
 								<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline" />
 								<set-properties-rule />
 
-								<pattern value="declare">
+								<pattern value="param">
 
-									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 									<set-properties-rule />
 									<pattern value="define-param">
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 										<set-properties-rule />
 										<call-method-rule methodname="setValue" paramcount="0" />
-										<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+										<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 									</pattern>
-									<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+									<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 								</pattern>
 
 								<pattern value="step">
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
 									<set-properties-rule />
-									<pattern value="declare">
+									<pattern value="param">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										<set-properties-rule />
 										<pattern value="define-param">
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											<set-properties-rule />
 											
 											<call-method-rule methodname="setValue" paramcount="0" />
 											
-											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 										</pattern>
-										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 									</pattern>
 
 									<pattern value="xml-input">
@@ -195,24 +195,24 @@
 										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ByteInput" />
 										<set-properties-rule />
 
-										<pattern value="declare">
+										<pattern value="param">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 											<set-properties-rule />
 											<pattern value="define-param">
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 												<set-properties-rule />
 												
 												<call-method-rule methodname="setValue" paramcount="0" />
 												
-												<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											</pattern>
 											<pattern value="refer-param">
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferParam" />
 												<set-properties-rule />
-												<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+												<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferParam" />
 											</pattern>
-											<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+											<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										</pattern>
 
 										<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
@@ -227,18 +227,18 @@
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Line" />
 									<set-properties-rule />
-									<pattern value="declare">
+									<pattern value="param">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										<set-properties-rule />
 										<pattern value="define-param">
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											<set-properties-rule />
 											
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 										</pattern>
-										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 									</pattern>
 
 									<pattern value="step">
@@ -246,18 +246,18 @@
 										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Step" />
 										<set-properties-rule />
 										
-										<pattern value="declare">
+										<pattern value="param">
 
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 											<set-properties-rule />
 											<pattern value="define-param">
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 												<set-properties-rule />
 												
 												<call-method-rule methodname="setValue" paramcount="0" />
-												<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+												<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											</pattern>
-											<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+											<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										</pattern>
 
 										<pattern value="xml-input">
@@ -285,22 +285,22 @@
 											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.rr.ParamInput" />
 											<set-properties-rule />
 
-											<pattern value="declare">
+											<pattern value="param">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 												<set-properties-rule />
 												<pattern value="define-param">
-													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+													<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 												</pattern>
 												<pattern value="refer-param">
-													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferParam" />
 													<set-properties-rule />
-													<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferParam" />
+													<set-next-rule methodname="addReferParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferParam" />
 												</pattern>
-												<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+												<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 											</pattern>
 
 											<set-next-rule methodname="setInput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Input" />
@@ -313,21 +313,21 @@
 
 											<pattern value="result">
 
-												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Result" />
+												<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Result" />
 												<set-properties-rule />
 												<pattern value="define-result">
-													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineResult" />
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineResult" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addDefineResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineResult" />
+													<set-next-rule methodname="addDefineResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineResult" />
 												</pattern>
 												<pattern value="refer-result">
-													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferResult" />
+													<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferResult" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addReferResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.ReferResult" />
+													<set-next-rule methodname="addReferResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.ReferResult" />
 												</pattern>
-												<set-next-rule methodname="setResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Result" />
+												<set-next-rule methodname="setResult" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Result" />
 											</pattern>
 
 											<set-next-rule methodname="setOutput" paramtype="org.software.matter.molecule.platform.pipeline.core.element.rr.Output" />
@@ -344,17 +344,17 @@
 
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Tree" />
 									<set-properties-rule />
-									<pattern value="declare">
+									<pattern value="param">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										<set-properties-rule />
 										<pattern value="define-param">
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											<set-properties-rule />
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 										</pattern>
-										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 									</pattern>
 								</pattern>
 
@@ -363,18 +363,18 @@
 									<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Loop" />
 									<set-properties-rule />
 
-									<pattern value="declare">
+									<pattern value="param">
 
-										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 										<set-properties-rule />
 										<pattern value="define-param">
-											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<object-create-rule classname="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 											<set-properties-rule />
 											
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.DefineParam" />
+											<set-next-rule methodname="addDefineParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.DefineParam" />
 										</pattern>
-										<set-next-rule methodname="setDeclare" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.Declare" />
+										<set-next-rule methodname="setParam" paramtype="org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param" />
 									</pattern>
 
 								</pattern>

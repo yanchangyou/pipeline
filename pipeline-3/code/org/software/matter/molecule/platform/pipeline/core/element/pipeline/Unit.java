@@ -1,16 +1,16 @@
 package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
 
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
-import org.software.matter.molecule.platform.pipeline.core.element.common.NameAndTypeAndDeclareObject;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
-public abstract class Unit extends NameAndTypeAndDeclareObject {
+public abstract class Unit extends PP {
 	
 	protected PipelineContext pipelineContext;
 	
@@ -59,5 +59,5 @@ public abstract class Unit extends NameAndTypeAndDeclareObject {
 		return new ToStringBuilder(this).toString();
 	}
 	
-	public abstract void deal(Request request, Response response) throws Exception ;
+	public abstract void deal(Request request, Response response) throws ConnectException, Exception;
 }

@@ -8,21 +8,21 @@ public class Demo {
 
 	public static void main(String[] args) throws Exception {
 
-		 System.out.println("==============演示hello world程序开始============");
-		 helloWorld(); // 实现
-		 System.out.println("==============演示hello world程序结束=============\n\n");
-		//
-		// System.out.println("==============演示echo程序开始==============");
-		// echo(); // 实现
-		// System.out.println("==============演示echo程序结束==============\n\n");
+//		 System.out.println("==============演示hello world!程序开始============");
+//		 helloWorld(); // 实现
+//		 System.out.println("==============演示hello world!程序结束=============\n\n");
+		
+//		 System.out.println("==============演示echo程序开始==============");
+//		 echo(); // 实现
+//		 System.out.println("==============演示echo程序结束==============\n\n");
 
 //		System.out.println("==============演示add程序开始============");
 //		add(); // 实现
 //		System.out.println("==============演示add程序结束============");
 
-//		System.out.println("==============演示express程序开始============");
-//		express(); // 实现
-//		System.out.println("==============演示express程序结束============");
+		System.out.println("==============演示express程序开始============");
+		express(); // 实现
+		System.out.println("==============演示express程序结束============");
 
 	}
 

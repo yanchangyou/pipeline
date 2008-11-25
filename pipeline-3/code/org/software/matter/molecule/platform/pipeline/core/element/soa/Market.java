@@ -3,9 +3,7 @@ package org.software.matter.molecule.platform.pipeline.core.element.soa;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.software.matter.atom.entity.commons.NameAndTypeAndMetaObject;
-
-public class Market extends NameAndTypeAndMetaObject {
+public class Market extends SOA {
 
 
 	private Map supplierMap = new HashMap();

@@ -1,5 +1,6 @@
 package org.software.matter.molecule.platform.pipeline.core.element.pipeline;
 
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,11 +8,10 @@ import java.util.List;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
-import org.software.matter.molecule.platform.pipeline.core.element.common.NameAndTypeAndDeclareObject;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
-public class Pipeline extends NameAndTypeAndDeclareObject {
+public class Pipeline extends PP {
 
 	private PipelineContext pipelineContext;
 	
@@ -26,7 +26,7 @@ public class Pipeline extends NameAndTypeAndDeclareObject {
 				+ unitList;
 	}
 
-	public void deal(Request request, Response response) throws Exception {
+	public void deal(Request request, Response response) throws ConnectException, Exception {
 		if (request != null) {
 			request.tuneRequestData(pipelineContext);
 		}
