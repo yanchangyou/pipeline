@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<root>
+	<global name="main">
+		<economy name="main">
+			<market name="main">
+				<supplier name="main">
+					<server name="main">
+						<service name="main" port="20001">
+							<pipeline>
+								<line>
+									<step primarayService="main.main.main.main.io-server.output">
+										<param-input>
+											<param>
+												<define-param name="input-data">hello world!</define-param>
+											</param>
+										</param-input>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+					<server name="io-server" host="127.0.0.1">
+						<service name="output" port="10001" />
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>
