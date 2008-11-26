@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<pipeline>
+
+	<system>
+		<requirement>
+			<action>
+				<problem>
+					<idea>
+						<design>
+							<practise>
+								<feedback>
+									<improve></improve>
+								</feedback>
+							</practise>
+						</design>
+					</idea>
+					<pioneer></pioneer>
+					<pave></pave>
+					<open></open>
+				</problem>
+			</action>
+		</requirement>
+	</system>
+
+
+
+	<problem no="1" type="" provider="" date="">
+		<description>如何解决问题</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Idea --> Pioneer --> Pave --> Open</description>
+		</idea>
+	</problem>
+
+	<problem no="2" type="" provider="" date="">
+		<description>一个好的idea应该是怎样的</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Imaginative + Simple + Comfortable + Wow</description>
+		</idea>
+	</problem>
+
+
+	<idea>
+		<语言特性>
+			<流程控制>
+				<顺序结构 include="yes"></顺序结构>
+				<选择结构 include="no"></选择结构>
+				<循环结构 include="no"></循环结构>
+			</流程控制>
+			<高级特性>
+				<嵌套 include="no"></嵌套>
+				<引用 include="yes"></引用>
+				<继承 include="no"></继承>
+				<并发 include="no"></并发>
+				<框架 include="yes"></框架>
+			</高级特性>
+		</语言特性>
+
+		<讨论>
+			<继承特性>在面向对象中, 继承意味着子类可以使用父类的属性. 但是在一种处理中, 继承又该是怎样的啦? 一种子处理中包含父处理? 不太合理. 前置处理 和 后置处理 比较合适. 这些处理可以包含多个处理, 处理之间是有顺序的 这些附近的处理具有相同的参数, 并且后置处理还有基本处理的结果作为参数传入 这些特性的用处 : 处理一些向日志, 访问控制等功能</继承特性>
+		</讨论>
+
+	</idea>
+
+	<idea no="2">
+		把框架frame整合进去.
+		<frame>
+			<定义>一个带参数的pipeline, 这个pipeline是不完整的, 里面的某些step是预留的, 需要外界传入; 就好像传统语言中的方法调用</定义>
+		</frame>
+		<frame-reference name="frameName">
+			<frame-param name="" stepName=""></frame-param>
+			<frame-param name="" stepName=""></frame-param>
+		</frame-reference>
+
+		<frame></frame>
+	</idea>
+
+
+	<idea no="3">
+		数据结构化: a.b.c@a server.session.request.local server@property server.session@property server.session.request@property server.session.request.local@property
+
+	</idea>
+
+	<idea no="4">
+		<面向服务的编程>
+
+
+			<economy>
+				<market name="" region="">
+					<supplier>
+						<server type="private|public">
+							<!--						<import>-->
+							<!--							<market>-->
+							<!--								<supplier></supplier>-->
+							<!--							</market>-->
+							<!--						</import>-->
+							<service type="private|public|defualt">
+								<pipeline>
+									<line>
+										<step></step>
+									</line>
+								</pipeline>
+							</service>
+
+							<service name="main" type="public" port="10000">
+								<request>
+									<input>
+										<![CDATA[<message>Hello World!</message>]]>
+									</input>
+								</request>
+								<response>
+									<!--								<output to="localhost.console"></output>-->
+								</response>
+								<pipeline>
+									<line>
+										<step service="print" server="" supplier="" market="">
+											<request>
+												<xml-input type="string">
+													<![CDATA[<message>Hello World!</message>]]>
+												</xml-input>
+											</request>
+										</step>
+									</line>
+								</pipeline>
+							</service>
+						</server>
+						<server name="printServer" host="127.0.0.1">
+							<service name="print" port="10000"></service>
+						</server>
+					</supplier>
+				</market>
+			</economy>
+
+
+			<server name="" region="" package="">
+				<host name="" ip="" port="" protocal=""></host>
+				<service>
+					<request></request>
+					<response></response>
+					<pipeline>
+						<line></line>
+						<tree>
+							<if></if>
+							<else-if></else-if>
+							<else></else>
+							<switch>
+								<case></case>
+							</switch>
+						</tree>
+						<loop>
+							<while></while>
+							<do></do>
+							<for></for>
+						</loop>
+						<step></step>
+					</pipeline>
+				</service>
+			</server>
+		</面向服务的编程>
+		<面向对象的编程>定义对象, 操作对象 对象有属性方法构成</面向对象的编程>
+	</idea>
+
+	<idea no="5">
+		<商务模式>
+			<招标投标模式>
+				<买家主导></买家主导>
+			</招标投标模式>
+			<推销购买模式>
+				<卖家主导></卖家主导>
+			</推销购买模式>
+			<市场模式>
+				<市场主导></市场主导>
+			</市场模式>
+		</商务模式>
+	</idea>
+
+	<idae no="6">
+
+		<economy name="共产主义经济">
+			<meta>
+				<property name="leader" value="马克思" />
+				<property name="writing" value="资本论" />
+			</meta>
+			<market name="自由市场">
+				<meta>
+					<property name="country" value="永恒国度" />
+				</meta>
+				<supplier name="上帝">
+					<meta>
+						<property name="age" value="万寿无疆" />
+					</meta>
+					<server name="天堂" host="0.0.0.0">
+						<service name="感化" port="0">
+							<request>
+								<string-input>
+									<![CDATA[<message>pain</message>]]>
+								</string-input>
+							</request>
+							<response>
+								<string-output>
+									<![CDATA[<message>love</message>]]>
+								</string-output>
+							</response>
+							<pipeline>
+								<line>
+									<step service="service" />
+								</line>
+							</pipeline>
+						</service>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</idae>
+	
+	<idea no="7">
+		service 一项服务有启动, 也有停止的时候
+		start, stop, shutdown
+	</idea>
+	
+	<idea no="8">
+		<版本 version="pipeline 5.0.0">
+			<发展>
+				要想实现pipeline的迅速崛起, 必须走超常规,跨越式的发展道路
+			</发展>
+			<豪言壮语>
+				目前世界上没有任何一门编程语言敢跨越主版本的发布,
+				因为世界上没有任何一门编程语言比得过pipeline,
+				因为pipeline采用了世界上的最先进的Ω宇宙观.
+			</豪言壮语>
+			<跨越>
+				两个改变
+				<改变 no="1">
+					新定位的确立
+					<定位>SOA-->全球化</定位>
+				</改变>
+				<改变 no="2">
+					新目标的确立
+					<目标 no="1">一门全球化的网络语言</目标>
+					<目标 no="2">一个全球化的编程社区</目标>
+					<目标 no="3">一次全球化的人性释放</目标>
+				</改变>
+				正式由于有了这两个改变, 才有了pipeline的这次的跨越
+			</跨越>
+			<版本定义>
+				版本采用三段式 : 观念版本号.结构版本号.功能版本号
+				没有什么改变, 比观念的改变更强大了; 观念变了,版本也变了; 其它的改变只是观念改变的具体表现.
+			</版本定义>
+			<口号>
+				一定二务三标
+				<一定>
+					定位于"全球化"
+				</一定>
+				<二务>
+					把pipeline实现成一门全球化的网络语言,
+					把pipeline打造成一个全球化的编程社区.
+				</二务>
+				<三标>
+					一门全球化的网络语言,
+					一个全球化的编程社区,
+					一此全球化的人性释放
+				</三标>
+			</口号>
+				
+			<代号>
+				soil(土壤)
+				有了土壤, 有了整个生物界的物质基础
+			</代号>
+			
+			<未来>
+				pipeline看到的未来就是:全球所有有端口的电脑都与pipeline建立了联系
+			</未来>
+		</版本>
+	
+	</idea>
+	
+</pipeline>
