@@ -1,0 +1,352 @@
+#summary 演示pipeline5.0.0版本的简单应用
+#labels Featured,Phase-Deploy,demo
+
+==版本差异==
+pipeline5与pipeline3最大差别在于定位和目标变了
+  * pipeline3 定位于SOA, pipeline5定位与全球化
+  * pipeline3 目标:整合服务,整合资源, 这比较大和空, pipeline5具体化了目标:语言<--社区<--人性
+
+  * 配置文件上变化就是给在经济的外面套了global, 这样SOA最高层元素是global, 这适合全球化的定位
+  * 其它变化就是加了global, 带来的相应变化
+
+==pipeline5==
+  * 口号 : 一定二务三标
+  * 代号 : soil(土壤)
+
+==口号==
+  * 一定二务三标
+===一定===
+  # 定位于"全球化"
+===二务===
+  # 把pipeline实现成一门全球化的网络语言
+  # 把pipeline打造成一个全球化的编程社区
+===三标===
+  # 一门全球化的网络语言
+  # 一个全球化的编程社区
+  # 一此全球化的人性释放
+
+==demo==
+  # hello world!
+  # echo
+  # add
+  # express
+
+==执行Demo程序==
+  # 下载首页的项目文件[http://ether-anima-pipeline.googlecode.com/files/pipeline-5.0.0%E7%89%88%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6.rar]
+  # 导入eclipse
+  # 执行org.software.matter.molecule.platform.pipeline.demo.Demo程序
+{{{
+==============使用说明============
+1, 运行demo中server包下面4个server类, 以开启相应的服务
+2, 执行demo程序
+3, 按照下面的流程说明使用程序
+4, 下面程序以服务的方式提供, 使用telnet去请求服务
+5, 演示了pipeline5能够整合其它的服务以提供新的服务
+6, pipeline5 == 全新的定位 + 全新的目标
+
+
+==============hello world流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20001
+3, 在OutputServer输出控制台, 看输出的 hello world!
+4, 在CMD中敲任意键, 返回控制台
+
+
+==============echo流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20002
+3, 在InputServer输入控制台, 输入任意单行字符串
+4, 在OutputServer输出控制台, 查看刚才输入内容
+
+
+==============add流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20003
+3, 在InputServer输入控制台, 输入数字a(一定要是数字, 没有异常处理)
+4, 在InputServer输入控制台, 输入数字b(一定要是数字, 没有异常处理)
+5, 在OutputServer输出控制台, 查看 a+b 的值
+
+
+==============express流程说明============
+1, 运行CMD.exe, 开启控制台
+2, telnet 127.0.0.1 20003
+3, 在InputServer输入控制台, 输入数学表达式,如:(3+2)*2;(一定要是数学表达式, 没有异常处理)
+5, 在OutputServer输出控制台, 查看 表达式的值
+}}}
+
+
+==pipeline文件==
+和上一步版本相比, 多了global标签
+
+
+===hello world!===
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <global name="main">
+    <economy name="main">
+      <market name="main">
+        <supplier name="main">
+          <server name="main">
+            <service name="main" port="20001">
+              <pipeline>
+                <line>
+                  <step primarayService="main.main.main.main.io-server.output">
+                    <param-input>
+                      <param>
+                        <define-param name="input-data">hello world!</define-param>
+                      </param>
+                    </param-input>
+                  </step>
+                </line>
+              </pipeline>
+            </service>
+          </server>
+          <server name="io-server" host="127.0.0.1">
+            <service name="output" port="10001" />
+          </server>
+        </supplier>
+      </market>
+    </economy>
+  </global>
+</root>
+}}}
+
+
+===echo===
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <global name="main">
+    <meta>
+      <property name="athor" value="ether.anima" />
+      <property name="age" value="25" />
+      <property name="msn" value="isuifengi@hotmail.com" />
+    </meta>
+    <economy name="main">
+      <market name="main">
+        <supplier name="main">
+          <server name="main">
+            <service name="main" port="20002">
+              <pipeline>
+                <line>
+                  <step primarayService="main.main.main.main.io-server.input" standbyService="">
+                    <param-output>
+                      <result>
+                        <refer-result name="input-data">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.io-server.output" standbyService="">
+                    <param-input>
+                      <param>
+                        <refer-param name="input-data" />
+                      </param>
+                    </param-input>
+                  </step>
+                </line>
+              </pipeline>
+            </service>
+          </server>
+          <server name="io-server" host="127.0.0.1">
+            <service name="output" port="10001" />
+            <service name="input" port="10002" />
+          </server>
+        </supplier>
+      </market>
+    </economy>
+  </global>
+</root>
+}}}
+
+==add==
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <global name="main">
+    <meta>
+      <property name="athor" value="ether.anima" />
+      <property name="age" value="25" />
+      <property name="msn" value="isuifengi@hotmail.com" />
+    </meta>
+    <economy name="main">
+      <market name="main">
+        <supplier name="main">
+          <server name="main">
+            <service name="main" port="20003">
+              <pipeline>
+                <line>
+                  <step primarayService="main.main.main.main.io-server.input" standbyService="">
+                    <param-output>
+                      <result>
+                        <refer-result name="a">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.io-server.input" standbyService="">
+                    <param-output>
+                      <result>
+                        <refer-result name="b">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.calculator.add" standbyService="">
+                    <param-input separtor=",">
+                      <param>
+                        <refer-param name="a" />
+                        <refer-param name="b" />
+                      </param>
+                    </param-input>
+                    <param-output>
+                      <result>
+                        <refer-result name="result">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.io-server.output" standbyService="">
+                    <param-input>
+                      <param>
+                        <refer-param name="result" />
+                      </param>
+                    </param-input>
+                  </step>
+                </line>
+              </pipeline>
+            </service>
+          </server>
+          <server name="io-server" host="127.0.0.1">
+            <service name="output" port="10001" />
+            <service name="input" port="10002" />
+          </server>
+          <server name="calculator" host="127.0.0.1">
+            <service name="add" port="11001" />
+          </server>
+        </supplier>
+      </market>
+    </economy>
+  </global>
+</root>
+}}}
+
+==express==
+{{{
+<?xml version="1.0"?>
+
+<root>
+  <global name="main">
+    <meta>
+      <property name="athor" value="ether.anima" />
+      <property name="age" value="25" />
+      <property name="msn" value="isuifengi@hotmail.com" />
+    </meta>
+    <economy name="main">
+      <market name="main">
+        <supplier name="main">
+          <server name="main">
+            <service name="main" port="20004">
+              <pipeline>
+                <line>
+                  <step primarayService="main.main.main.main.io-server.input" standbyService="">
+                    <param-output>
+                      <result>
+                        <refer-result name="express">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.calculator.express" standbyService="">
+                    <param-input separtor=",">
+                      <param>
+                        <refer-param name="express" />
+                      </param>
+                    </param-input>
+                    <param-output>
+                      <result>
+                        <refer-result name="result">${response.string-output}</refer-result>
+                      </result>
+                    </param-output>
+                  </step>
+                  <step primarayService="main.main.main.main.io-server.output" standbyService="">
+                    <param-input>
+                      <param>
+                        <refer-param name="result" />
+                      </param>
+                    </param-input>
+                  </step>
+                </line>
+              </pipeline>
+            </service>
+          </server>
+          <server name="io-server" host="127.0.0.1">
+            <service name="output" port="10001" />
+            <service name="input" port="10002" />
+          </server>
+          <server name="calculator" host="127.0.0.1">
+            <service name="add" port="11001" />
+            <service name="express" port="11009" />
+          </server>
+        </supplier>
+      </market>
+    </economy>
+  </global>
+</root>
+}}}
+
+
+===简单小结===
+{{{
+<版本 version="pipeline 5.0.0">
+    <发展>
+        要想实现pipeline的迅速崛起, 必须走超常规,跨越式的发展道路
+    </发展>
+    <豪言壮语>
+        目前世界上没有任何一门编程语言敢跨越主版本的发布,
+        因为世界上没有任何一门编程语言比得过pipeline,
+        因为pipeline采用了世界上的最先进的Ω宇宙观.
+    </豪言壮语>
+    <跨越>
+        两个改变
+        <改变 no="1">
+            新定位的确立
+            <定位>SOA-->全球化</定位>
+        </改变>
+        <改变 no="2">
+            新目标的确立
+            <目标 no="1">一门全球化的网络语言</目标>
+            <目标 no="2">一个全球化的编程社区</目标>
+            <目标 no="3">一次全球化的人性释放</目标>
+        </改变>
+        正式由于有了这两个改变, 才有了pipeline的这次的跨越
+    </跨越>
+    <版本定义>
+        版本采用三段式 : 观念版本号.结构版本号.功能版本号
+        没有什么改变, 比观念的改变更强大了; 观念变了,版本也变了; 其它的改变只是观念改变的具体表现.
+    </版本定义>
+    <口号>
+        一定二务三标
+        <一定>
+            定位于"全球化"
+        </一定>
+        <二务>
+            把pipeline实现成一门全球化的网络语言,
+            把pipeline打造成一个全球化的编程社区.
+        </二务>
+        <三标>
+            一门全球化的网络语言,
+            一个全球化的编程社区,
+            一此全球化的人性释放
+        </三标>
+    </口号>
+        
+    <代号>
+        soil(土壤)
+        有了土壤, 有了整个生物界的物质基础
+    </代号>
+    
+    <未来>
+        pipeline看到的未来就是:全球所有有端口的电脑都与pipeline建立了联系
+    </未来>
+</版本>
+}}}
