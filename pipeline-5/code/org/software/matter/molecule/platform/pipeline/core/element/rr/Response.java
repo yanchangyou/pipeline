@@ -1,7 +1,7 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public class Response extends Res {
 	private Output output;
@@ -22,7 +22,7 @@ public class Response extends Res {
 		return output.getData();
 	}
 
-	public void tuneResponseData(PipelineContext pipelineContext) {
-		output.tunePipelineContextToResult(pipelineContext);		
+	public void tuneResponseData(Context context) {
+		output.tuneContextToResult(context);		
 	}
 }

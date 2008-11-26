@@ -1,6 +1,6 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public class ByteOutput extends Output {
 
@@ -9,7 +9,7 @@ public class ByteOutput extends Output {
 		return null;
 	}
 
-	public void tuneResultToPipelineContext(PipelineContext pipelineContext) {
+	public void tuneResultToContext(Context context) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -19,7 +19,7 @@ public class ByteOutput extends Output {
 		
 	}
 
-	public void tunePipelineContextToResult(PipelineContext pipelineContext) {
+	public void tuneContextToResult(Context context) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -77,7 +77,7 @@ public class Step extends Unit {
 		if (input != null) {
 			PrintWriter os = new PrintWriter(socket.getOutputStream());
 
-			input.tunePipelineContextToParam(pipelineContext);
+			input.tuneContextToParam(context);
 			os.println(input.getData());
 			os.flush();
 		}
@@ -87,7 +87,7 @@ public class Step extends Unit {
 					.getInputStream()));
 			String responseData = is.readLine();
 			output.setData(responseData);
-			output.tuneResultToPipelineContext(pipelineContext);
+			output.tuneResultToContext(context);
 		}
 		socket.close();
 	}

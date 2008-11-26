@@ -3,7 +3,7 @@ package org.software.matter.molecule.platform.pipeline.core.element.rr;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 import org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Result;
 
 public class ParamOutput extends Output {
@@ -25,14 +25,14 @@ public class ParamOutput extends Output {
 		return data;
 	}
 
-	public void tuneResultToPipelineContext(PipelineContext pipelineContext) {
+	public void tuneResultToContext(Context context) {
 
 		Set set = result.getResultMap().keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			pipelineContext.put(name, result.getResult(name));
+			context.put(name, result.getResult(name));
 		}
-//		pipelineContext.put(result.getResultMap());
+//		context.put(result.getResultMap());
 	}
 
 	public void setData(String responseData) {
@@ -40,7 +40,7 @@ public class ParamOutput extends Output {
 		result.dealReferResult(responseData);
 	}
 
-	public void tunePipelineContextToResult(PipelineContext pipelineContext) {
+	public void tuneContextToResult(Context context) {
 		// TODO Auto-generated method stub
 		
 	}

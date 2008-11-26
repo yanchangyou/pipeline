@@ -1,7 +1,7 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public class Request extends Req {
 
@@ -28,7 +28,7 @@ public class Request extends Req {
 		return input.getData();
 	}
 
-	public void tuneRequestData(PipelineContext pipelineContext) {
-		input.tuneParamToPipelineContext(pipelineContext);		
+	public void tuneRequestData(Context context) {
+		input.tuneParamToContext(context);		
 	}
 }

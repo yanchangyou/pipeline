@@ -14,7 +14,7 @@ public class Line extends Unit {
 		for (Iterator iter = this.getUnitList().iterator(); iter.hasNext();) {
 			Unit unit = (Unit) iter.next();
 			unit.setRoot(root);
-			unit.setPipelineContext(pipelineContext);
+			unit.setContext(context);
 			unit.deal(request, response);
 		}
 	}

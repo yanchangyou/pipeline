@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public class Param extends PR {
 
@@ -54,10 +54,10 @@ public class Param extends PR {
 		}
 	}
 	
-	public void dealReferParam(PipelineContext pipelineContext) {
+	public void dealReferParam(Context context) {
 		for (Iterator iter = referParamList.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			paramMap.put(name, pipelineContext.get(name));
+			paramMap.put(name, context.get(name));
 		}
 	}
 

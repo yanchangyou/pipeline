@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
 import org.software.matter.molecule.platform.pipeline.core.element.pipeline.Pipeline;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
@@ -140,7 +140,7 @@ public class Service extends SOA {
 
 			Request request = service.getRequest();
 			Response response = service.getResponse();
-			PipelineContext pipelineContext = new PipelineContext();
+			Context context = new Context();
 
 			if (request != null && request.getInput() != null) {
 				BufferedReader is = new BufferedReader(new InputStreamReader(
@@ -152,7 +152,7 @@ public class Service extends SOA {
 			Pipeline pipeline = service.getPipeline();
 
 			pipeline.setRoot(service.getRoot());
-			pipeline.setPipelineContext(pipelineContext);
+			pipeline.setContext(context);
 
 			pipeline.deal(request, response);
 

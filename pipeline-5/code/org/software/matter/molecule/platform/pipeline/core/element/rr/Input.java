@@ -1,7 +1,7 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public abstract class Input extends Req {
 
@@ -11,9 +11,9 @@ public abstract class Input extends Req {
 
 	public abstract void setData(String data);
 
-	public abstract void tunePipelineContextToParam(PipelineContext pipelineContext);
+	public abstract void tuneContextToParam(Context context);
 	
-	public abstract void tuneParamToPipelineContext(PipelineContext pipelineContext);
+	public abstract void tuneParamToContext(Context context);
 	
 	public Input() {
 		super();
