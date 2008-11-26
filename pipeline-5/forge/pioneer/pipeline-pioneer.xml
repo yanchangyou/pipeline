@@ -195,5 +195,137 @@
 			</economy>
 
 		</evolution>
+
+
+		<evolution version="5.0.0">
+
+			<root>
+				<meta>
+					<property name="propertyName" value="propertyValue" />
+				</meta>
+				<global>
+					<meta>
+						<property name="propertyName" value="propertyValue" />
+					</meta>
+					<economy name="economyName" type="economyType">
+						<meta>
+							<property name="propertyName" value="propertyValue" />
+						</meta>
+						<market name="marketName" type="marketType">
+							<meta>
+								<property name="propertyName" value="propertyValue" />
+							</meta>
+							<supplier name="supplierName" type="supplierType">
+								<meta>
+									<property name="propertyName" value="propertyValue" />
+								</meta>
+								<server name="serverName" type="public|default|private" host="IP address">
+									<meta>
+										<property name="propertyName" value="propertyValue" />
+									</meta>
+									<service name="serviceName" type="public|default|private" port="service port">
+										<meta>
+											<property name="propertyName" value="propertyValue" />
+										</meta>
+										<request>
+											<string-input>
+												<![CDATA[string data]]>
+											</string-input>
+											或者
+											<xml-input>
+												<![CDATA[xml data]]>
+											</xml-input>
+											或者
+											<json-input>
+												<![CDATA[json data]]>
+											</json-input>
+											或者
+											<byte-input>
+												<![CDATA[byte data]]>
+											</byte-input>
+										</request>
+										<response>
+											<string-output>
+												<![CDATA[string data]]>
+											</string-output>
+											或者
+											<xml-output>
+												<![CDATA[xml data]]>
+											</xml-output>
+											或者
+											<json-output>
+												<![CDATA[json data]]>
+											</json-output>
+										</response>
+										<pipeline>
+											<meta>
+												<property name="propertyName" value="propertyValue" />
+											</meta>
+											<param>
+												<define-param name="paramName">param value</define-param>
+											</param>
+											<line>
+												<param>
+													<define-param name="paramName">param value</define-param>
+												</param>
+												<unit>
+													<param>
+														<define-param name="paramName">param value</define-param>
+													</param>
+													<step>
+														<param>
+															<define-param name="paramName">param value</define-param>
+														</param>
+													</step>
+												</unit>
+											</line>
+											<tree>
+												<param>
+													<define-param name="paramName">param value</define-param>
+												</param>
+												<if>
+													<param>
+														<define-param name="paramName">param value</define-param>
+													</param>
+													<unit></unit>
+												</if>
+												<else-if>
+													<unit></unit>
+												</else-if>
+												<else>
+													<unit></unit>
+												</else>
+
+												或者
+
+												<switch>
+													<case>
+														<unit></unit>
+													</case>
+													<case>
+														<unit></unit>
+													</case>
+												</switch>
+											</tree>
+											<loop>
+												<for>
+													<unit></unit>
+												</for>
+
+												或者
+
+												<while>
+													<unit></unit>
+												</while>
+											</loop>
+										</pipeline>
+									</service>
+								</server>
+							</supplier>
+						</market>
+					</economy>
+				</global>
+			</root>
+		</evolution>
 	</pioneer>
 </pipeline>
