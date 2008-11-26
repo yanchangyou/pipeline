@@ -111,7 +111,7 @@ public class Demo {
 	}
 
 	public static void helloWorld() {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/demo/hello-world.pipeline.xml";
+		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello1.pipeline.xml";
 
 		Root root = null;
 		try {
@@ -144,7 +144,7 @@ public class Demo {
 	}
 
 	public static void echo() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/demo/echo.pipeline.xml";
+		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/echo/echo1.pipeline.xml";
 
 		Root root = Root.load(PIPELINE_FILE_PATH);
 
@@ -178,7 +178,7 @@ public class Demo {
 	}
 
 	public static void add() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/demo/add.pipeline.xml";
+		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/add/add1.pipeline.xml";
 
 		Root root = Root.load(PIPELINE_FILE_PATH);
 
@@ -212,7 +212,7 @@ public class Demo {
 	}
 
 	public static void express() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/demo/express.pipeline.xml";
+		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/express/express1.pipeline.xml";
 
 		Root root = Root.load(PIPELINE_FILE_PATH);
 
