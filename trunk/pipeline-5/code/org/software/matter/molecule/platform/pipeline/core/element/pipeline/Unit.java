@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Request;
 import org.software.matter.molecule.platform.pipeline.core.element.rr.Response;
 
 public abstract class Unit extends PP {
 	
-	protected PipelineContext pipelineContext;
+	protected Context context;
 	
 	protected Root root;
 	
-	public PipelineContext getPipelineContext() {
-		return pipelineContext;
+	public Context getContext() {
+		return context;
 	}
 
-	public void setPipelineContext(PipelineContext pipelineContext) {
-		this.pipelineContext = pipelineContext;
+	public void setContext(Context context) {
+		this.context = context;
 	}
 
 	public Root getRoot() {
@@ -39,8 +39,7 @@ public abstract class Unit extends PP {
 		
 	}
 	
-
-	private List unitList = new ArrayList();
+	protected List unitList = new ArrayList();
 	
 	public void addUnit(Unit unit) {
 		unitList.add(unit);
@@ -49,7 +48,6 @@ public abstract class Unit extends PP {
 	public List getUnitList() {
 		return unitList;
 	}
-
 
 	public void setUnitList(List unitList) {
 		this.unitList = unitList;

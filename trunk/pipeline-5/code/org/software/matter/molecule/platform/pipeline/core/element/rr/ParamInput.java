@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 import org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.Param;
 
 public class ParamInput extends Input {
@@ -60,13 +60,13 @@ public class ParamInput extends Input {
 		
 	}
 
-	public void tunePipelineContextToParam(PipelineContext pipelineContext) {
+	public void tuneContextToParam(Context context) {
 
 		List list = param.getReferParamList();
 		
 		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			param.addParam(name, pipelineContext.get(name));
+			param.addParam(name, context.get(name));
 		}		
 	}
 
@@ -78,7 +78,7 @@ public class ParamInput extends Input {
 		this.separtor = separtor;
 	}
 
-	public void tuneParamToPipelineContext(PipelineContext pipelineContext) {
+	public void tuneParamToContext(Context context) {
 		// TODO Auto-generated method stub
 		
 	}

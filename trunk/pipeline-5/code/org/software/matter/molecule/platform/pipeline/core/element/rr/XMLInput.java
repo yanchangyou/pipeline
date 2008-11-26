@@ -1,7 +1,7 @@
 package org.software.matter.molecule.platform.pipeline.core.element.rr;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.software.matter.molecule.platform.pipeline.core.context.PipelineContext;
+import org.software.matter.molecule.platform.pipeline.core.context.Context;
 
 public class XMLInput extends Input{
 
@@ -38,12 +38,12 @@ public class XMLInput extends Input{
 	}
 
 
-	public void tunePipelineContextToParam(PipelineContext pipelineContext) {
+	public void tuneContextToParam(Context context) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void tuneParamToPipelineContext(PipelineContext pipelineContext) {
+	public void tuneParamToContext(Context context) {
 		// TODO Auto-generated method stub
 		
 	}
