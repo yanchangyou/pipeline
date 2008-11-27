@@ -57,7 +57,7 @@ public class Param extends PR {
 	public void dealReferParam(Context context) {
 		for (Iterator iter = referParamList.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			paramMap.put(name, context.get(name));
+			paramMap.put(name, context.smartGet(name));
 		}
 	}
 

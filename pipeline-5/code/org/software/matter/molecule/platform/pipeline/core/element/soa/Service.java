@@ -152,7 +152,7 @@ public class Service extends SOA {
 			Pipeline pipeline = service.getPipeline();
 
 			pipeline.setRoot(service.getRoot());
-			pipeline.setContext(context);
+			pipeline.setParentContext(context);
 
 			pipeline.deal(request, response);
 
