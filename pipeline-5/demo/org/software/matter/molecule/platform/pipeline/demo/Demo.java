@@ -1,247 +1,169 @@
 package org.software.matter.molecule.platform.pipeline.demo;
 
+import java.io.File;
 import java.net.ConnectException;
+import java.net.URL;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import org.apache.commons.digester.Digester;
+import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
 
-public class Demo {
+public class Demo implements Runnable {
+
+	private String name;
+
+	private String version;
+
+	private String path;
+
+	private StringBuffer function;
+
+	private StringBuffer innerFlow;
+
+	private StringBuffer outerFlow;
+
+	static List demoList = new ArrayList();
+
+	static {
+		String VALIDATOR_RULES = "demo-digester-rules.xml";
+		String PATH = "demo-list.xml";
+		URL rulesUrl = Demo.class.getResource(VALIDATOR_RULES);
+
+		URL xmlUrl = Demo.class.getResource(PATH);
+		Digester digester = DigesterLoader.createDigester(rulesUrl);
+
+		try {
+			digester.parse(new File(xmlUrl.getFile()));
+		} catch (Exception e) {
+			System.out.println("demo系统内部错误");
+			e.printStackTrace();
+		}
+	}
+	
+	public static final String LINE_PREFIX = "    ";
+	
+	public static final String LINE_SUBFIX = "\n";
+
+	public Demo() {
+		function = new StringBuffer();
+		innerFlow = new StringBuffer();
+		outerFlow = new StringBuffer();
+	}
+
+	public static void addDemo(Demo demo) {
+		demoList.add(demo);
+	}
+
+	public String getInnerFlow() {
+		return innerFlow.toString();
+	}
+
+	public void addInnerFlowLine(String line) {
+		this.innerFlow.append(LINE_PREFIX).append(line).append(LINE_SUBFIX);
+	}
+
+	public String getOuterFlow() {
+		return outerFlow.toString();
+	}
+
+	public void addOuterFlowLine(String line) {
+		this.outerFlow.append(LINE_PREFIX).append(line).append(LINE_SUBFIX);
+	}
+
+	public String getFunction() {
+		return function.toString();
+	}
+
+	public void addFunctionLine(String line) {
+		this.function.append(LINE_PREFIX).append(line).append(LINE_SUBFIX);
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 
 	public static void main(String[] args) throws Exception {
 
-		System.out.println("==============使用说明============");
-		System.out.println("1, 运行server包下面4个server类, 开启相应的服务");
-		System.out.println("2, 执行demo程序");
-		System.out.println("3, 按照下面的流程说明使用程序");
-		System.out.println("4, 下面程序以服务的方式提供, 使用telnet去请求服务");
-		System.out.println("5, 演示了pipeline5能够整合其它的服务以提供新的服务");
-		System.out.println("6, pipeline5 == 全新的定位 + 全新的目标");
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("==============hello world流程说明============");
-		System.out.println("1, 运行CMD.exe, 开启控制台");
-		System.out.println("2, telnet 127.0.0.1 20001");
-		System.out.println("3, 在OutputServer输出控制台, 看输出的 hello world!");
-		System.out.println("4, 在CMD中敲任意键, 返回控制台");
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("==============echo流程说明============");
-		System.out.println("1, 运行CMD.exe, 开启控制台");
-		System.out.println("2, telnet 127.0.0.1 20002");
-		System.out.println("3, 在InputServer输入控制台, 输入任意单行字符串");
-		System.out.println("4, 在OutputServer输出控制台, 查看刚才输入内容");		
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("==============add流程说明============");
-		System.out.println("1, 运行CMD.exe, 开启控制台");
-		System.out.println("2, telnet 127.0.0.1 20003");					
-		System.out.println("3, 在InputServer输入控制台, 输入数字a(一定要是数字, 没有异常处理)");
-		System.out.println("4, 在InputServer输入控制台, 输入数字b(一定要是数字, 没有异常处理)");
-		System.out.println("5, 在OutputServer输出控制台, 查看 a+b 的值");		
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("==============express流程说明============");
-		System.out.println("1, 运行CMD.exe, 开启控制台");
-		System.out.println("2, telnet 127.0.0.1 20003");					
-		System.out.println("3, 在InputServer输入控制台, 输入数学表达式,如:(3+2)*2;(一定要是数学表达式, 没有异常处理)");
-		System.out.println("5, 在OutputServer输出控制台, 查看 表达式的值");
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		
-		new Thread() {
-			public void run() {
-				System.out.println("==============演示hello world!程序开始============");
-				helloWorld(); // 实现
-				System.out.println("==============演示hello world!程序结束=============\n\n");
-			}
-		}.start();
-		new Thread() {
-			public void run() {
-				
-				try {
-					System.out.println("==============演示echo程序开始==============");
-					echo();
-					System.out.println("==============演示echo程序结束==============\n\n");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // 实现
-				
-			}
-		}.start();
-
-		new Thread() {
-			public void run() {
-				
-				try {
-					System.out.println("==============演示add程序开始============");
-					
-					add();
-					System.out.println("==============演示add程序结束============");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // 实现
-				
-			}
-		}.start();
-
-		new Thread() {
-			public void run() {
-				
-				try {
-					System.out.println("==============演示express程序开始============");
-					
-					express();
-					System.out.println("==============演示express程序结束============");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // 实现
-				
-			}
-		}.start();
+		for (Iterator iter = demoList.iterator(); iter.hasNext();) {
+			Demo demo = (Demo) iter.next();
+			new Thread(demo).start();
+		}
 	}
 
-	public static void helloWorld() {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello1.pipeline.xml";
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String demoName) {
+		this.name = demoName;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	static StringBuffer msgPattern;
+	static MessageFormat msgFormat;
+	
+	static {
+		msgPattern = new StringBuffer();
+		
+		msgPattern.append("\n\n=========开始演示{0} (version:{1})============\n");
+		msgPattern.append("\n===功能如下===\n");
+		msgPattern.append("{2}\n");
+		msgPattern.append("\n===内部流程===\n");
+		msgPattern.append("{3}\n");
+		msgPattern.append("\n===外部流程===\n");
+		msgPattern.append("{4}\n");
+		
+		msgFormat = new MessageFormat(msgPattern.toString());
+	}
+	
+	public void run() {
+
+		Object[] param = new Object[]{this.getName(), this.getVersion(), this.getFunction(), this.getInnerFlow(), this.getOuterFlow()};
+		
+		System.out.println(msgFormat.format(param));
+
+		final String PIPELINE_FILE_PATH = this.getPath();
 
 		Root root = null;
-		try {
-			root = Root.load(PIPELINE_FILE_PATH);
-		} catch (Exception e1) {
-			System.out.println("内部错误");
-			e1.printStackTrace();
-			return;
-		}
-
-		// System.out.println("BEGIN ALL");
-
-		try {
-			root.execute();
-		} catch (ConnectException e) {
-			System.out
-					.println("错误 ：远程服务没有启动, 请先运行demo中的OutputServer程序, 启动远程服务");
-			// e.printStackTrace();
-			return;
-		} catch (Exception e) {
-			System.out.println("未知错误");
-			e.printStackTrace();
-			return;
-		}
-
-		// System.out.println("OVER ALL");
-
-		System.out.println();
-		System.out.println("到 OutputServer 的控制台看输出的结果");
-	}
-
-	public static void echo() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/echo/echo1.pipeline.xml";
-
-		Root root = Root.load(PIPELINE_FILE_PATH);
 
 		try {
 			root = Root.load(PIPELINE_FILE_PATH);
-		} catch (Exception e1) {
-			System.out.println("内部错误");
-			e1.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("加载[" + PIPELINE_FILE_PATH
+					+ "]文件失败, 请检查此pipeline文件中是否有错误的地方");
+			System.out.println("错误信息 : " + e.getMessage());
 			return;
 		}
 
-		// System.out.println("BEGIN ALL");
-		System.out.println("准备到InputServer控制台, 输入内容:");
 		try {
+			System.out.println(this.getName() + "开始演示");
 			root.execute();
+			System.out.println(this.getName() + "演示结束");
 		} catch (ConnectException e) {
-			System.out
-					.println("错误 ：远程服务没有启动, 请先运行demo中的InputServer和OutputServer程序, 启动远程服务");
-			// e.printStackTrace();
+			System.out.println("连接错误 ：远程服务没有启动, 请先运行此[" + PIPELINE_FILE_PATH
+					+ "]pipeline文件中需要的服务");
+			System.out.println("错误信息 : " + e.getMessage());
 			return;
 		} catch (Exception e) {
 			System.out.println("未知错误");
-			e.printStackTrace();
+			System.out.println("错误信息 : " + e.getMessage());
 			return;
 		}
-
-		// System.out.println("OVER ALL");
-
-		System.out.println();
-		System.out.println("到 OutputServer 的控制台看输出的结果");
 	}
 
-	public static void add() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/add/add1.pipeline.xml";
-
-		Root root = Root.load(PIPELINE_FILE_PATH);
-
-		try {
-			root = Root.load(PIPELINE_FILE_PATH);
-		} catch (Exception e1) {
-			System.out.println("内部错误");
-			e1.printStackTrace();
-			return;
-		}
-
-		// System.out.println("BEGIN ALL");
-		System.out.println("准备到InputServer控制台, 输入内容:");
-		try {
-			root.execute();
-		} catch (ConnectException e) {
-			System.out
-					.println("错误 ：远程服务没有启动, 请先运行demo中的InputServer和OutputServer程序, 启动远程服务");
-			// e.printStackTrace();
-			return;
-		} catch (Exception e) {
-			System.out.println("未知错误");
-			e.printStackTrace();
-			return;
-		}
-
-		// System.out.println("OVER ALL");
-
-		System.out.println();
-		System.out.println("到 OutputServer 的控制台看输出的结果");
-	}
-
-	public static void express() throws Exception {
-		final String PIPELINE_FILE_PATH = "org/software/matter/molecule/platform/pipeline/demo/pipeline/express/express1.pipeline.xml";
-
-		Root root = Root.load(PIPELINE_FILE_PATH);
-
-		try {
-			root = Root.load(PIPELINE_FILE_PATH);
-		} catch (Exception e1) {
-			System.out.println("内部错误");
-			e1.printStackTrace();
-			return;
-		}
-
-		// System.out.println("BEGIN ALL");
-		System.out.println("准备到InputServer控制台, 输入内容:");
-		try {
-			root.execute();
-		} catch (ConnectException e) {
-			System.out
-					.println("错误 ：远程服务没有启动, 请先运行demo中的InputServer和OutputServer程序, 启动远程服务");
-			// e.printStackTrace();
-			return;
-		} catch (Exception e) {
-			System.out.println("未知错误");
-			e.printStackTrace();
-			return;
-		}
-
-		// System.out.println("OVER ALL");
-
-		System.out.println();
-		System.out.println("到 OutputServer 的控制台看输出的结果");
-	}
 }
