@@ -11,10 +11,12 @@ public class Line extends Unit {
 
 	public void deal(Request request, Response response) throws ConnectException, Exception {
 
+		tuneParamToContext();
+		
 		for (Iterator iter = this.getUnitList().iterator(); iter.hasNext();) {
 			Unit unit = (Unit) iter.next();
 			unit.setRoot(root);
-			unit.setContext(context);
+			unit.setParentContext(context);
 			unit.deal(request, response);
 		}
 	}

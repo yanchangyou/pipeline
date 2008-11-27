@@ -9,7 +9,7 @@ import org.software.matter.molecule.platform.pipeline.core.element.pipeline.pr.P
 
 public class ParamInput extends Input {
 
-	private Param param;
+	protected Param param;
 
 	protected String separtor = "";
 	
@@ -66,7 +66,7 @@ public class ParamInput extends Input {
 		
 		for (Iterator iter = list.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			param.addParam(name, context.get(name));
+			param.addParam(name, context.smartGet(name));
 		}		
 	}
 

@@ -30,7 +30,7 @@ public class ParamOutput extends Output {
 		Set set = result.getResultMap().keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			String name = (String) iter.next();
-			context.put(name, result.getResult(name));
+			context.smartPut(name, result.getResult(name));
 		}
 //		context.put(result.getResultMap());
 	}
