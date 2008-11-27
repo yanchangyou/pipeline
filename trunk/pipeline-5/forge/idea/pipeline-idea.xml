@@ -268,6 +268,10 @@
 				有了土壤, 有了整个生物界的物质基础
 			</代号>
 			
+			<发布>
+				<google-code>
+				</google-code>
+			</发布>
 			<未来>
 				pipeline看到的未来就是:全球所有有端口的电脑都与pipeline建立了联系
 			</未来>
@@ -276,7 +280,48 @@
 	</idea>
 	
 	<idea no="9">
-		
+		对pipeline和unit等的使用统一的上下文,
+		并且把pipeline也继承unit, 减少了代码量
 	</idea>
+	
+	<idea no="10">
+		把数据结构类型加入, 至少加入数组之一类型
+	</idea>
+	
+	<idae no="11">
+		基本选定JavaScript作为pipeline数据类型的参考.
+		
+		JavaScript 类型研究
+		
+	</idae>
+	
+	<idea no="12" name="版本定义" version="2">
+		三段式版本命名规则
+		观念版本号.结构版本号.功能版本号
+	</idea>
+	
+	<idea no="13" name="版本定义" version="2">
+		扩展三段式版本命名规则
+		观念父版本号$观念子版本号$观念测试版本号.结构父版本号$结构子版本号$结构测试版本号.功能父版本号$功能子版本号$功能测试版本号.日期$时间
+		version=5$0$0.0$0$0.1$1$0.20081127$213601
+	</idea>
+	
+	<idae no="14" name="数据类型" version="2">
+		pipeline有且仅有4种类型
+		<type name="字符串" code="string">与JavaScript的string一样</type>
+		<type name="数字" code="number">与JavaScript的number一样</type>
+		<type name="日期" code="date">与JavaScript的date一样</type>
+		<type name="盒子" code="box">pipeline特有, 有标签的盒子, 盒子里面还可以装这四种类型的变量, 这样可以表达出树的概念</type>
+		默认是字符串类型, 其它的当时再看
+		对变量的服务方式
+	</idae>
+	
+	<idae no="15" name="访问变量" version="1">
+		如何访问变量啦?
+		访问方式的正则表达式定义:
+		(this|super)(.box)*@(string|number|date)
+		this代表了当前执行的unit的上下文
+		super代表了当前执行的unit的父上下文(所有在它之上的上下文)
+	</idae>
 	
 </pipeline>
