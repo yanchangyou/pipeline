@@ -8,11 +8,14 @@
 					<server name="main">
 						<service name="main" port="20001">
 							<pipeline>
+								<param>
+									<define-param name="this@input-data">hello world!</define-param>
+								</param>
 								<line>
 									<step primarayService="main.main.main.main.io-server.output">
 										<param-input>
 											<param>
-												<define-param name="this@input-data">hello world!</define-param>
+												<refer-param name="super@input-data" />
 											</param>
 										</param-input>
 									</step>
