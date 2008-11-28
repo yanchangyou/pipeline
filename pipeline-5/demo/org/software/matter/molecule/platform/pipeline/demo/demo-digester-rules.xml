@@ -2,7 +2,7 @@
 
 <digester-rules>
 	<pattern value="demo-list">
-		<object-create-rule classname="org.software.matter.molecule.platform.pipeline.demo.Demo" />
+		<object-create-rule classname="org.software.matter.molecule.platform.pipeline.demo.DemoList" />
 		<pattern value="demo">
 			<object-create-rule classname="org.software.matter.molecule.platform.pipeline.demo.Demo" />
 			<set-properties-rule />

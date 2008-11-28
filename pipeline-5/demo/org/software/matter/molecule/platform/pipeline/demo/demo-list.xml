@@ -10,7 +10,7 @@
 		<inner-flow></inner-flow>
 		<outer-flow>
 			<line>1, 运行CMD.exe, 开启控制台</line>
-			<line>2,telnet 127.0.0.1 20001</line>
+			<line>2, telnet 127.0.0.1 20001</line>
 			<line>3, 在OutputServer输出控制台, 看输出的 hello world!</line>
 			<line>4, 在CMD中敲任意键, 返回控制台</line>
 		</outer-flow>
