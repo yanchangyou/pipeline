@@ -1,26 +1,11 @@
 package org.software.matter.molecule.platform.pipeline.demo;
 
-import java.io.File;
 import java.net.ConnectException;
-import java.net.URL;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.matter.molecule.platform.pipeline.core.element.Root;
 
 public class Demo implements Runnable {
-
-	public static void main(String[] args) throws Exception {
-
-		for (Iterator iter = demoList.iterator(); iter.hasNext();) {
-			Demo demo = (Demo) iter.next();
-			new Thread(demo).start();
-		}
-	}	
 	
 	public void run() {
 
@@ -56,22 +41,6 @@ public class Demo implements Runnable {
 			return;
 		}
 	}
-	
-	static {
-		String VALIDATOR_RULES = "demo-digester-rules.xml";
-		String PATH = "demo-list.xml";
-		URL rulesUrl = Demo.class.getResource(VALIDATOR_RULES);
-
-		URL xmlUrl = Demo.class.getResource(PATH);
-		Digester digester = DigesterLoader.createDigester(rulesUrl);
-
-		try {
-			digester.parse(new File(xmlUrl.getFile()));
-		} catch (Exception e) {
-			System.out.println("demo系统内部错误");
-			e.printStackTrace();
-		}
-	}
 
 	static StringBuffer msgPattern;
 	static MessageFormat msgFormat;
@@ -98,10 +67,6 @@ public class Demo implements Runnable {
 		function = new StringBuffer();
 		innerFlow = new StringBuffer();
 		outerFlow = new StringBuffer();
-	}
-
-	public static void addDemo(Demo demo) {
-		demoList.add(demo);
 	}
 
 	public String getInnerFlow() {
@@ -163,6 +128,4 @@ public class Demo implements Runnable {
 	private StringBuffer innerFlow;
 
 	private StringBuffer outerFlow;
-
-	static List demoList = new ArrayList();
 }
