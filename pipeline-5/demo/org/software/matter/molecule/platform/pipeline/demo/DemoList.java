@@ -41,8 +41,4 @@ public class DemoList implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
-
-	
-	
 }
