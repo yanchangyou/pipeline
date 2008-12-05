@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<pipeline>
+
+	<system>
+		<requirement>
+			<action>
+				<problem>
+					<idea>
+						<design>
+							<practise>
+								<feedback>
+									<improve></improve>
+								</feedback>
+							</practise>
+						</design>
+					</idea>
+					<pioneer></pioneer>
+					<pave></pave>
+					<open></open>
+				</problem>
+			</action>
+		</requirement>
+	</system>
+
+
+
+	<problem no="1" type="" provider="" date="">
+		<description>如何解决问题</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Idea --> Pioneer --> Pave --> Open</description>
+		</idea>
+	</problem>
+
+	<problem no="2" type="" provider="" date="">
+		<description>一个好的idea应该是怎样的</description>
+		<idea no="1" type="" provider="ether" date="">
+			<description>Imaginative + Simple + Comfortable + Wow</description>
+		</idea>
+	</problem>
+
+
+	<idea>
+		<语言特性>
+			<流程控制>
+				<顺序结构 include="yes"></顺序结构>
+				<选择结构 include="no"></选择结构>
+				<循环结构 include="no"></循环结构>
+			</流程控制>
+			<高级特性>
+				<嵌套 include="no"></嵌套>
+				<引用 include="yes"></引用>
+				<继承 include="no"></继承>
+				<并发 include="no"></并发>
+				<框架 include="yes"></框架>
+			</高级特性>
+		</语言特性>
+
+		<讨论>
+			<继承特性>在面向对象中, 继承意味着子类可以使用父类的属性. 但是在一种处理中, 继承又该是怎样的啦? 一种子处理中包含父处理? 不太合理. 前置处理 和 后置处理 比较合适. 这些处理可以包含多个处理, 处理之间是有顺序的 这些附近的处理具有相同的参数, 并且后置处理还有基本处理的结果作为参数传入 这些特性的用处 : 处理一些向日志, 访问控制等功能</继承特性>
+		</讨论>
+
+	</idea>
+
+	<idea no="2">
+		把框架frame整合进去.
+		<frame>
+			<定义>一个带参数的pipeline, 这个pipeline是不完整的, 里面的某些step是预留的, 需要外界传入; 就好像传统语言中的方法调用</定义>
+		</frame>
+		<frame-reference name="frameName">
+			<frame-param name="" stepName=""></frame-param>
+			<frame-param name="" stepName=""></frame-param>
+		</frame-reference>
+
+		<frame></frame>
+	</idea>
+
+
+	<idea no="3">
+		数据结构化: a.b.c@a server.session.request.local server@property server.session@property server.session.request@property server.session.request.local@property
+
+	</idea>
+
+	<idea no="4">
+		<面向服务的编程>
+
+
+			<economy>
+				<market name="" region="">
+					<supplier>
+						<server type="private|public">
+							<!--						<import>-->
+							<!--							<market>-->
+							<!--								<supplier></supplier>-->
+							<!--							</market>-->
+							<!--						</import>-->
+							<service type="private|public|defualt">
+								<pipeline>
+									<line>
+										<step></step>
+									</line>
+								</pipeline>
+							</service>
+
+							<service name="main" type="public" port="10000">
+								<request>
+									<input>
+										<![CDATA[<message>Hello World!</message>]]>
+									</input>
+								</request>
+								<response>
+									<!--								<output to="localhost.console"></output>-->
+								</response>
+								<pipeline>
+									<line>
+										<step service="print" server="" supplier="" market="">
+											<request>
+												<xml-input type="string">
+													<![CDATA[<message>Hello World!</message>]]>
+												</xml-input>
+											</request>
+										</step>
+									</line>
+								</pipeline>
+							</service>
+						</server>
+						<server name="printServer" host="127.0.0.1">
+							<service name="print" port="10000"></service>
+						</server>
+					</supplier>
+				</market>
+			</economy>
+
+
+			<server name="" region="" package="">
+				<host name="" ip="" port="" protocal=""></host>
+				<service>
+					<request></request>
+					<response></response>
+					<pipeline>
+						<line></line>
+						<tree>
+							<if></if>
+							<else-if></else-if>
+							<else></else>
+							<switch>
+								<case></case>
+							</switch>
+						</tree>
+						<loop>
+							<while></while>
+							<do></do>
+							<for></for>
+						</loop>
+						<step></step>
+					</pipeline>
+				</service>
+			</server>
+		</面向服务的编程>
+		<面向对象的编程>定义对象, 操作对象 对象有属性方法构成</面向对象的编程>
+	</idea>
+
+	<idea no="5">
+		<商务模式>
+			<招标投标模式>
+				<买家主导></买家主导>
+			</招标投标模式>
+			<推销购买模式>
+				<卖家主导></卖家主导>
+			</推销购买模式>
+			<市场模式>
+				<市场主导></市场主导>
+			</市场模式>
+		</商务模式>
+	</idea>
+
+	<idea no="6">
+
+		<economy name="共产主义经济">
+			<meta>
+				<property name="leader" value="马克思" />
+				<property name="writing" value="资本论" />
+			</meta>
+			<market name="自由市场">
+				<meta>
+					<property name="country" value="永恒国度" />
+				</meta>
+				<supplier name="上帝">
+					<meta>
+						<property name="age" value="万寿无疆" />
+					</meta>
+					<server name="天堂" host="0.0.0.0">
+						<service name="感化" port="0">
+							<request>
+								<string-input>
+									<![CDATA[<message>pain</message>]]>
+								</string-input>
+							</request>
+							<response>
+								<string-output>
+									<![CDATA[<message>love</message>]]>
+								</string-output>
+							</response>
+							<pipeline>
+								<line>
+									<step service="service" />
+								</line>
+							</pipeline>
+						</service>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</idea>
+
+	<idea no="7">service 一项服务有启动, 也有停止的时候 start, stop, shutdown</idea>
+
+	<idea no="8">
+		<版本 version="pipeline 5.0.0">
+			<发展>要想实现pipeline的迅速崛起, 必须走超常规,跨越式的发展道路</发展>
+			<豪言壮语>目前世界上没有任何一门编程语言敢跨越主版本的发布, 因为世界上没有任何一门编程语言比得过pipeline, 因为pipeline采用了世界上的最先进的Ω宇宙观.</豪言壮语>
+			<跨越>
+				两个改变
+				<改变 no="1">
+					新定位的确立
+					<定位>SOA-->全球化</定位>
+				</改变>
+				<改变 no="2">
+					新目标的确立
+					<目标 no="1">一门全球化的网络语言</目标>
+					<目标 no="2">一个全球化的编程社区</目标>
+					<目标 no="3">一次全球化的人性释放</目标>
+				</改变>
+				正式由于有了这两个改变, 才有了pipeline的这次的跨越
+			</跨越>
+			<版本定义>版本采用三段式 : 观念版本号.结构版本号.功能版本号 没有什么改变, 比观念的改变更强大了; 观念变了,版本也变了; 其它的改变只是观念改变的具体表现.</版本定义>
+			<口号>
+				一定二务三标
+				<一定>定位于"全球化"</一定>
+				<二务>把pipeline实现成一门全球化的网络语言, 把pipeline打造成一个全球化的编程社区.</二务>
+				<三标>一门全球化的网络语言, 一个全球化的编程社区, 一此全球化的人性释放</三标>
+			</口号>
+
+			<代号>soil(土壤) 有了土壤, 有了整个生物界的物质基础</代号>
+
+			<发布>
+				<google-code></google-code>
+			</发布>
+			<未来>pipeline看到的未来就是:全球所有有端口的电脑都与pipeline建立了联系</未来>
+		</版本>
+
+	</idea>
+
+	<idea no="9">对pipeline和unit等的使用统一的上下文, 并且把pipeline也继承unit, 减少了代码量</idea>
+
+	<idea no="10">把数据结构类型加入, 至少加入数组之一类型</idea>
+
+	<idea no="11">
+		基本选定JavaScript作为pipeline数据类型的参考.
+
+		JavaScript 类型研究
+
+	</idea>
+
+	<idea no="12" name="版本定义" version="2">三段式版本命名规则 观念版本号.结构版本号.功能版本号</idea>
+
+	<idea no="13" name="版本定义" version="2">扩展三段式版本命名规则 观念父版本号$观念子版本号$观念测试版本号.结构父版本号$结构子版本号$结构测试版本号.功能父版本号$功能子版本号$功能测试版本号.日期$时间 version=5$0$0.0$0$0.1$1$0.20081127$213601</idea>
+
+	<idea no="14" name="数据类型" version="2">
+		pipeline有且仅有4种类型
+		<type name="字符串" code="string">与JavaScript的string一样</type>
+		<type name="数字" code="number">与JavaScript的number一样</type>
+		<type name="日期" code="date">与JavaScript的date一样</type>
+		<type name="盒子" code="box">pipeline特有, 有标签的盒子, 盒子里面还可以装这四种类型的变量, 这样可以表达出树的概念</type>
+		默认是字符串类型, 其它的当时再看 对变量的服务方式
+	</idea>
+
+	<idea no="15" name="访问变量" version="1">如何访问变量啦? 访问方式的正则表达式定义: (this|super)(.box)*@(string|number|date) this代表了当前执行的unit的上下文 super代表了当前执行的unit的父上下文(所有在它之上的上下文)</idea>
+
+	<idea no="16" name="版本定义" version="3">扩展四段式版本命名规则 观念父版本号.观念子版本号.观念测试版本号#结构父版本号.结构子版本号.结构测试版本号#功能父版本号.功能子版本号.功能测试版本号#日期.时间 version=5.0.0#0.0.0#1.1.0#20081127.213601 修改版本定义的视觉效果, 比原来的更清晰</idea>
+
+	<idea no="17" name="版本定义" version="4">
+		<版本定义 name="">
+			<名称>扩展三段式版本命名规则</名称>
+			<模式>观念结构大版本号.观念结构小版本号.观念结构试用版本号#观念内容大版本号.观念内容小版本号.观念内容试用版本号 @代码结构大版本号.代码结构小版本号.代码结构试用版本号#代码功能大版本号.代码功能小版本号.代码功能试用本号 @yyyy.mi.dd#hh.mm.ss</模式>
+			<例子>version=1.0.0#1.1.0@1.0.0#1.0.0@2008.11.28#11.45.34</例子>
+			<优点>明确</优点>
+		</版本定义>
+	</idea>
+
+	<idea no="18" name="目标" version="2">
+		<目标 no="1">一门全球化的网络语言</目标>
+		<目标 no="2">一个全球化的编程社区</目标>
+		<目标 no="3">一次全球化的观念融合</目标>
+	</idea>
+
+	<idea no="19" name="版本定义" version="4">
+		<名称>扩展三段式版本命名规则</名称>
+		<模式>观念结构大版本号 . 观念结构小版本号 . 观念结构试用版本号 # 观念内容大版本号 . 观念内容小版本号 . 观念内容试用版本号 # 代码结构大版本号 . 代码结构小版本号 . 代码结构试用版本号 # 代码功能大版本号 . 代码功能小版本号 . 代码功能试用本号 # yyyy . mi . dd # hh . mm . ss</模式>
+		<解析>
+			<观念>
+				<结构>
+					<大></大>
+					<小></小>
+					<试用></试用>
+				</结构>
+				<内容>
+					<大></大>
+					<小></小>
+					<试用></试用>
+				</内容>
+
+			</观念>
+			<代码>
+				<结构>
+					<大></大>
+					<小></小>
+					<试用></试用>
+				</结构>
+				<内容>
+					<大></大>
+					<小></小>
+					<试用></试用>
+				</内容>
+			</代码>
+			<时间>
+				<日期>
+					<年 pattern="yyyy"></年>
+					<月 pattern="mi"></月>
+					<日 pattern="dd"></日>
+				</日期>
+				<时间>
+					<时 pattern="hh24"></时>
+					<分 pattern="mm"></分>
+					<秒 pattern="ss"></秒>
+				</时间>
+			</时间>
+		</解析>
+		<例子>version=1.0.0@1.1.0#1.0.0@1.0.0#2008.11.28@11.45.34</例子>
+		<优点>明确</优点>
+		<修改>观念#代码#时间 结构@内容 大.小.试用 日期@时间 时.分.秒</修改>
+	</idea>
+	<idea no="20" name="语言进化" version="1">
+		Java是C的进化
+		Omega是Java的进化
+		Omega == just-pipeline
+	</idea>
+	<idea no="21" name="源代码后缀名" version="1">
+		统一为 omega.xml, 以后成熟后用omega, 去掉xml, 使用xml是便于编辑
+		干脆支持这两种后缀名xxx.omega或者xxx.omega.xml
+	</idea>
+	<idea no="22" name="技巧" version="1">
+		<技巧>信息集中化</技巧>
+		<技巧>处理自动化</技巧>
+		<技巧>功能独立化</技巧>
+		<技巧>输出格式化</技巧>
+	</idea>
+	
+	<idea no="23" name="测试自动化" version="1">
+		一个输入序列映射到一个输出序列
+	</idea>
+	
+	<idea no="24" name="输入输出" version="1">
+		服务的输入输出
+	</idea>
+	
+	<idea no="24" name="输入" version="1">
+		输入时, 如果不以 ＆ 结尾表示输入结束
+		结尾处的 ＆ 表示续行, 结尾处的 ＆＆ 表示换行
+	</idea>
+	
+	<idea no="25" name="简单结构化输入">
+	</idea>
+	
+	<idea no="26" name="输入类型" version="1">
+		<type name="raw">
+			[无结构]不进行解析的, 最原始的
+			<demo>
+				sdfasdfasdfasdf,asd, fads,f,adsf asdf 
+			</demo>
+		</type>
+		<type name="simple">
+			[有结构, 单符号间隔]只对单符号进行解析的, 采用符号分割的, 使用4类符号 空格[ ], 逗号[,], 分号[;], 句号[.]
+			<demo>
+				I am good boy, with a little shy.
+				23 1234 32 324, 1234, 324,324 432,342;234.234;324.
+			</demo>
+		</type>
+		<type name="json">
+			[有结构, 单符号围堵标记]对一组记号进行进行解析, 采用json类格式的, 表达层次结构的	
+			{a:"asdf", b:"dage",c:{d:"asdfa",e:"adsf"}}
+			[a="sadf",b="dsf",[c="asdfa",e="sdf"]]
+			(a:"asdf";c="asdf";(sdf:"asdfas",adsf:"sadfa"))
+			(a=(b=(234))(d=(34)))
+			只要对称的位置符号一样就行了
+			
+			围堵符号"{}", "[]", "()"
+			间隔符号",", ";"
+			关联符号":", "="
+			字符串引号 [""], [()]"
+		</type>
+		<type name="xml">[有结构, 单词围堵标记]对标签进行解析的, 采用标签形式的</type>
+	</idea>
+	
+	<idea no="27" name="box类型" version="1">
+		所有的内部变量都用box来组装.
+		<box>
+			<bool></bool>*
+			<string></string>*
+			<number></number>*
+			<date></date>*
+			<box></box>*
+		</box>
+	</idea>
+	
+	<idea no="28" name="测试脚本" version="1">
+		<test-list>
+			<test>
+				<input>
+					<line></line>*
+				</input>
+				<output>
+					<line></line>*
+				</output>
+			</test>
+		</test-list>
+	</idea>
+	
+	<idea no="29" name="测试自动化" version="2">
+		通过omega来构建测试服务器, 组合型的.
+	</idea>
+	<idea no="30" name="数组类型" version="1">
+		现在才发现数组类型的好处, 按序号引用, 定义的时候,不要写出名字, 像这样[1,1,2]搞定, 如果采用box
+		就要
+		<box>
+			<nubmer name="0">1</nubmer>
+			<nubmer name="1">1</nubmer>
+ 			<nubmer name="2">2</nubmer>
+			<box name="" type="number">
+				[1,1,1]
+				(1,1,1]
+				{1,2,3}
+				[1;2;3]
+				[1 1 1]
+				
+				(\(|\[\{)number((,|;| )number)*(\)\]\})
+			</box>
+			<box name="stringtest" type="string">
+				(\(|\[\{)"string"((,|;| )"string")(\)\]\})
+			</box>
+		</box>
+		box定义必须要有名字
+		
+		box也是数组, 集成进去, 没有的名字的都在数组里面, 
+	</idea>
+	
+	
+	<idea no="31" name="数据结构" version="1">
+		<数据结构>
+			<内部数据结构>
+				内部采用box数据结构
+			</内部数据结构>
+			<外部数据结构>
+				<raw>
+					<结构>无结构</结构>
+					<记号>NO</记号>
+					<层数>一层</层数>
+					<举例>
+					</举例>
+				</raw>
+				<sentence>
+					<结构>句子结构 记号:</结构>
+					<记号>[ ], [,], [;], [.]四个记号</记号>
+					<层数>四层</层数>
+					<举例>
+					</举例>
+				</sentence>
+				<tree>
+					<结构>tree结构-包裹成树形结构</结构>
+					<层数>无限</层数>
+					<记号>"()[]{}"六个记号</记号>
+					<举例>
+						(1(10(1000))(11))
+					</举例>
+				</tree>
+				<object>
+					<结构>对象结构</结构>
+					<层数>无限</层数>
+					<记号>"()[]{}"六个记号</记号>
+					<说明>
+						[有结构, 单符号围堵标记]对一组记号进行进行解析, 采用json类格式的, 表达层次结构的	
+						
+						只要对称的位置符号一样就行了
+						
+						围堵符号"{}", "[]", "()"
+						间隔符号",", ";"
+						关联符号":", "="
+						字符串引号 [""], [()]"
+					</说明>
+					<举例>
+						{a:"asdf", b:"dage",c:{d:"asdfa",e:"adsf"}}
+						[a="sadf",b="dsf",[c="asdfa",e="sdf"]]
+						(a:"asdf";c="asdf";(sdf:"asdfas",adsf:"sadfa"))
+						(a=(b=(234))(d=(34)))
+					</举例>
+				</object>				
+				<xml>
+					<结构>标记结构</结构>
+					<层数>无限</层数>
+					<记号>自定义记号, 很大的灵活性</记号>
+					<举例>
+						省略
+					</举例>
+				</xml>
+			</外部数据结构>
+		</数据结构>
+	</idea>
+	
+	<idea no="32" name="请求-响应模式" version="1">
+		试探去掉原来的输入输出的封装, 
+		直接在请求相应和响应中使用 box结构, 所有数据通过box来管理
+	</idea>
+
+
+	<idea no="33" name="请求-响应模式" version="1">
+		引入session概念, 一个session表示一段时间内的请求和响应
+		<session>
+			<request>
+			</request>
+			<response>
+			</response>
+		</session>
+	</idea>
+
+	<idea no="34" name="数据类型" version="5">
+		显示指定是否是数据 array[1][1][1][3]
+		{
+			{234,324,234},
+			{dsfas,asdf,sadf}
+		}
+		
+		(
+			(
+				(234)(324)(234)
+			)
+			(
+				(daf)(sadf)(adsf)
+			)
+		)
+		
+	</idea>
+	
+	<idea name="编程" version="1">
+		先形成一个统一的通用的结构
+		然后再对这个结构进行操作.
+	</idea>
+	
+	<idea name="tree" version="1">
+		<tree-0D></tree-0D>
+		<tree-1D></tree-1D>
+		<tree-2D></tree-2D>
+		<tree-3D></tree-3D>
+		<tree-4D>对一颗树的一系列操作</tree-4D>
+	</idea>
+	
+	<idea name="多行连接" version="1">
+		<![CDATA[如果一行是以[&]结束, 就表示输入未完, 需要继续输入, [&&] 和 [&] 意思一样, 只是加入了接收断要换行的意思; 这样很容易通知客户端输入已完毕 ]]>
+		<![CDATA[显示的续行]]>
+	</idea>
+	
+	<idea name="请求-相应格式定义" version="2">
+		统一使用box为头标签, 并且是使用<![CDATA[xxx]]>的定义数据
+		<type>
+			类型级别之间使用 [:] 分割
+			最顶级级别有[tree-0D], [tree-1D], [tree-2D], [tree-3D], [tree-4D]五类
+		</type>
+		<request type="tree-3D:xml">
+			<box name="" type="tree-3D:json">
+				<![CDATA[hello world!]]>
+			</box>
+		</request>
+	</idea>
+	
+	<idea name="命名" version="1">
+		<变量>
+			<单量>
+				字串, 数字, 日期
+			</单量>
+			<复量>
+				box, box由 字串, 数字, 日期和box构成
+			</复量>
+		</变量>
+	</idea>
+	
+	<idea name="自定义变量" version="1">
+		暂不考虑
+	</idea>
+	
+	<idea name="表达式" version="1">
+		引入表达是的目的是, 用于区分原生表达式, 和表达是的结果
+		上次由于没有区分这个导致了, 错误----处理过程中把源文件替换了
+	</idea>
+	
+	<idea name="编程境界" version="1">
+		<编程境界>
+			<最高境界>零阻力编程</最高境界>
+		</编程境界>
+	</idea>
+	
+	<idea name="响应数据的处理" version="1">
+		修改 : 将返回的box作为父上下文的一个元素存储, 改变原来的把box进行merge的处理---此处理很有侵犯性
+	</idea>
+	
+	<idea name="tree类型的参数传递" version="1">
+		在上下文中以meta元素传递
+	</idea>
+	
+	<idea name="box分离" version="1">
+		将源代码中的box和数据结构中的box分开, 形成两个对象
+	</idea>
+	
+	<idea name="tree类型定义" version="1">
+		<tree>
+			<tree-0D>
+				<定义>
+					jsp形式的文本, 里面只有对变量的引用, 变量引用目前使用 <![CDATA[<!omega:变量名称!>]]>
+				</定义>
+				<demo>
+					hello <![CDATA[<!omega:userName!>]]>, welcome to the new region.
+				</demo>
+				<模式>
+					type="tree-0D"
+				</模式>
+			</tree-0D>
+			<tree-1D>
+				<定义>
+					一维数组, 它需要两个属性, 元素分割符 和 对此分割符号的替换(它作为特殊字符, 如果源文件中要使用必须用其它的字符(或字符串)来替换)
+				</定义>
+				<demo>
+					1,23,23,32,34
+					34,324,324,234
+					string, number, date
+				</demo>
+			</tree-1D>
+			<tree-2D>
+				<定义>
+					多维数据, 它需要四个属性, 元素分割符号, 终结符号, 以及它们的替换字符
+				</定义>
+				<demo>
+				{
+					{1,23,23,32,34},
+					{34,324,324,234},
+					{string, number, date}
+				}
+				
+				1,23,23,32,34;
+				34,324,324,23;
+				string, number, date;
+				</demo>
+			</tree-2D>
+			<tree-3D>
+				<定义>
+					有名形式, 每个元素有一个名称, 常见的模型有 json, xml
+					json 定义 元素分割符号, 终结符号, 赋值符号, 引号
+					<json>
+						元素分割符号([,],[ ]), 终结符号("}","]",";", "."), 赋值符号([:],[=]), 单量符号(["],['],[()])
+					</json>
+					<xml>
+						使用传统xml
+					</xml>
+				</定义>
+				
+				<demo name="json">
+					<![CDATA[
+					  student : {
+					  	name:ether,
+					  	age:25,
+					  	sex:male,
+					  	score : {
+					  		math : 96,
+					  		chinese : 79
+					  		english : 69
+					  	}
+					  }
+					]]>
+				</demo>
+				
+				<demo name="xml">
+					<![CDATA[
+						<student name="ether" age="25" sex="male">
+							<score math="96" chinese="79" englist="69">
+							</score>
+						</studnet>
+					]]>
+				</demo>
+			</tree-3D>
+			<tree-4D>
+				<定义>
+					引入时间元素, 就是一系列在tree上面施加的操作.
+				</定义>
+				
+			</tree-4D>
+		</tree>
+	</idea>
+	
+	<idea name="tree-package" version="1">
+		omega所有数据交互采用 tree-package进行交互
+		
+		<定义>
+			tree {
+				meta : {treeType:"0D", dataMode:"text|express", expressMode:"inner|outer"},
+				data : "字符串|数组|多维数组|json|object|xml}"
+			}
+			<dataMode>
+				<text></text>
+				<expressMode>
+					<inner>
+						字符串主导, 想jsp一样, 它的变量通过通过特殊符号表示
+						这里使用特殊标记 Omega{} 来代表一个表达式, 并且用\Omega来代表通常意义的字符串
+					</inner>
+					<outer>
+						整个文本就是一个表达是, 字符串使用 引号 来表示
+					</outer>
+				</expressMode>
+			</dataMode>
+		</定义>
+		<变量>
+			
+		</变量>
+	</idea>
+	
+	<idea name="数据类型" version="1">
+		Data {OriginalCode, Execute, Name, toOtherType, } 使用接口
+	</idea>
+	
+	<idea name="Tree类型" version="1">
+		方法接口(sql处理方法) : 
+		{select, update, insert, delete}
+	</idea>
+	
+	<idea name="中国式重构" version="1">
+		量变 -> 质变
+		量的积累 -> 质的飞越.
+		发现了重复的代码就重构成共用的代码
+		发现了相似的代码就重构成通用的代码
+		发现了统一的代码就重构成标准的代码
+	</idea>
+	
+	<idea name="Omega理论突破" version="1">
+		一门由中国人发明的网络语言即将盛行于整个网络---Omega.
+		JAVA 是 C 的一次飞跃;
+		Omega 是 JAVA 的一次飞跃.
+		Omega的理论突破:
+		1, 通用统一的数据结构---tree-XD---兼容[字符串],[数字], [日期], [数组], [多维数组], [json], [object], [xml], 随时可以扩展
+		2, 通用统一的流程处理---pipeline---[流程控制], [流程引用], [流程协作]
+		3, 通用统一的服务体系---ESOA(扩展SOA)---[面向供应商], [面向市场], [面向经济], [面向全球]
+	</idea>
+	
+	<idea name="流程控制" version="1">
+		修改原来的流程定义方式 : Omega文件不出现 line, tree, loop等标签, 使用 标准的java流程控制关键字
+		if, elseIf, else, switch, case, while, for
+		这些具体类继承, line, tree, loop类
+	</idea>
+	
+	<idea name="安全性" version="1">
+		<安全>数据加密	</安全>
+		<安全></安全>
+	</idea>
+	
+	
+	<idea name="omega-package" version="1">
+		omega所有数据交互采用 omega-package进行交互
+		
+		<定义>
+			<omega>
+				<meta>
+					<property name="type">tree-1D:</property>
+				</meta>
+				<data>
+<!--					<?x ml version="1.0" encoding="UTF-8"?>-->
+					hello world!					
+				</data>
+			</omega>
+			
+			需要一种数据类型meta, 它是tree-1D类型的,
+			提取meta中的type属性, 如果没有就使用string类型
+			type定义采用 tree-xD(:subtype)+来定义
+<!--			omega {-->
+<!--				meta : {treeType:"0D", dataMode:"text|express", expressMode:"inner|outer"},-->
+<!--				data : "字符串|数组|多维数组|json|object|xml}"-->
+<!--			}-->
+			<dataMode>
+				<text></text>
+				<expressMode>
+					<inner>
+						字符串主导, 想jsp一样, 它的变量通过通过特殊符号表示
+						这里使用特殊标记 Omega{} 来代表一个表达式, 并且用\Omega来代表通常意义的字符串
+					</inner>
+					<outer>
+						整个文本就是一个表达是, 字符串使用 引号 来表示
+					</outer>
+				</expressMode>
+			</dataMode>
+		</定义>
+		<变量>
+			
+		</变量>
+	
+	</idea>
+	<idea name="宣言" version="">
+		<悟语言宣言>
+		 	中国已经崛起了,
+			中国文化已经崛起了,
+			中国开源文化正等待崛起,
+			中国开源社区正等待崛起,
+			中国开源软件正等待崛起,
+			这一切就让悟语言来开路吧!
+		</悟语言宣言>
+		<编程本质论>
+			编程的本质一个字---悟.
+			悟的本质---用神经元去动态模拟所悟之物, 并从中得到快乐, 有手舞足蹈的快乐, 有喜极而泣的快乐, 快乐是悟的胜利品.
+			凡是编程能力强的人, 都是悟性很好的人, 因为他/她触到了编程的本质.
+			为此确立中国开源社区第一文化---悟的文化.
+		</编程本质论>
+		<软件开发路线>
+			<顺流而下>神经元模拟-->像素模拟-->符号模拟-->比特模拟</顺流而下>
+			<逆流而上>比特模拟-->符号模拟-->像素模拟-->神经元模拟</逆流而上>
+			中国开源软件要灵活运用这两种路线.
+		</软件开发路线>
+	</idea>
+	
+	<idea name="悟" version="2">
+		悟 == 模型 + 模拟 == 模型＜＝＝＞模拟
+	</idea>
+	
+	<idea name="悟式处理模型" version="1">
+		编码－＞请求－＞解码－＞处理－＞编码－＞响应－＞解码
+		编码－＞(编码－＞)*请求－＞(请求－＞)*解码－＞(解码－＞)*处理－＞编码(－＞编码)*－＞响应(－＞响应)*－＞解码(－＞解码)*
+	</idea>
+	
+	<idea name="NC" version="1">
+		数据库==存储器,
+		操作系统==控制器,
+		服务器==运算器,
+		客户端==输入输出设备
+	</idea>
+	<idea name="目标" version="1">
+		<目标>
+			<短期目标>实现悟语言</短期目标>
+			<中期目标>实现NC</中期目标>
+			<长期目标>实现产业化</长期目标>
+			<终极目标>实现人类整体进化</终极目标>
+		</目标>
+	</idea>
+</pipeline>

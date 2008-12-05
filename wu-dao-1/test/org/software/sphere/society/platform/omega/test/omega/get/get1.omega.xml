@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<root>
+	<meta>
+		<property name="root">root-value</property>
+		<property name="root2">root-value-2</property>
+	</meta>
+	<global name="main">
+		<meta>
+			<property name="global">global-value</property>
+			<property name="global2">global-value-2</property>
+		</meta>
+		<economy name="main">
+			<meta>
+				<property name="economy">economy-value</property>
+				<property name="economy2">economy-value-2</property>
+			</meta>
+			<market name="main">
+				<meta>
+					<property name="market">market-value</property>
+					<property name="market2">market-value-2</property>
+				</meta>
+				<supplier name="main">
+					<meta>
+						<property name="supplier">supplier-value</property>
+						<property name="supplier2">supplier-value-2</property>
+					</meta>
+					<server name="main">
+						<meta>
+							<property name="server">server-value</property>
+							<property name="server2">server-value-2</property>
+						</meta>
+						<service name="main" port="32001">
+							<meta>
+								<property name="service">server-value</property>
+								<property name="service2">service-value-2</property>
+							</meta>
+							<pipeline name="init1_pipeline">
+								<meta>
+									<property name="pipeline">pipeline-value</property>
+									<property name="pipeline2">pipeline-value-2</property>
+								</meta>
+								<line name="init1_line">
+									<meta>
+										<property name="line">line-value</property>
+										<property name="line2">line-value-2</property>
+									</meta>
+									<step name="init1_step">
+										<meta>
+											<property name="step">step-value</property>
+											<property name="step2">step-value-2</property>
+											<property name="requestP">request-value</property>
+												<property name="requestP2">request-value-2</property>
+										</meta>
+										<request name="request">
+											<meta>
+												<property name="request">request-value</property>
+												<property name="request2">request-value-2</property>
+											</meta>
+											<data>
+<!--												<line><![CDATA[<omega><data>]]></line>-->
+												<line><![CDATA[欢迎您 OMEGA{this.meta.request} 你到到来!]]></line>
+												<line><![CDATA[OMEGA{this.meta.request2}]]></line>
+<!--												<line><![CDATA[</data></omega>]]></line>-->
+											</data>
+										</request>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>
