@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+
+<pipeline-list>
+	<pipeline name="input-process-output">
+		<comment>
+			 this is a simple test about pipe line
+		</comment>
+		<step name="read a" needStore="true" globalName="a">
+			<algorithm className="test.Test"
+				methodName="readInt" />
+		</step>
+		<step name="read b" needStore="true" globalName="b">
+			<algorithm className="test.Test"
+				methodName="readInt" />
+		</step>
+
+		<step name="a + b" needStore="true" globalName="result">
+			<comment></comment>
+			<algorithm className="test.Test" methodName="add"
+				methodParams="java.lang.Integer,java.lang.Integer" />
+			<paramList>
+				<globalParam name="a" index="0" />
+				<globalParam name="b" index="1" />
+			</paramList>
+		</step>
+		<step name="print">
+			<comment></comment>
+			<algorithm className="test.Test"
+				methodName="println" methodParams="java.lang.Object" />
+			<paramList>
+				<globalParam name="result" index="0" />
+			</paramList>
+		</step>
+	</pipeline>
+
+</pipeline-list>
