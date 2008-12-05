@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<root>
+	<global name="main">
+		<economy name="main">
+			<market name="main">
+				<supplier name="main">
+					<server name="main">
+						<service name="main" port="21002">
+							<pipeline>
+								<param>
+									<define-param name="this@input-data">hello world!</define-param>
+								</param>
+								<line>
+									<step service="main.main.main.main.io-server.output">
+										<param-input>
+											<param>
+												<refer-param name="super@input-data" />
+											</param>
+										</param-input>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+					<server name="io-server" host="127.0.0.1">
+						<service name="output" port="10001" />
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<demo-list>
+
+
+<!--	 hello  -->
+<!--
+	<demo name="hello" version="1" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello1.pipeline.xml">
+		<function>
+			<line>输出hello world!等</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 21001</line>
+			<line>3, 在OutputServer输出控制台, 看输出的 hello world!</line>
+			<line>4, 在CMD中敲任意键, 返回控制台</line>
+		</outer-flow>
+	</demo>
+	--> 
+	<!-- 
+	<demo name="hello" version="2" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello2.pipeline.xml">
+		<function>
+			<line>输出hello world!等</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 21002</line>
+			<line>3, 在OutputServer输出控制台, 看输出的 hello world!</line>
+			<line>4, 在CMD中敲任意键, 返回控制台</line>
+		</outer-flow>
+	</demo>
+	
+	<demo name="hello" version="3" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello3.pipeline.xml">
+		<function>
+			<line>输出hello world!等</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 21003</line>
+			<line>3, 在客户端输出 hello world!</line>
+			<line>4, 在CMD中敲任意键, 返回控制台</line>
+		</outer-flow>
+	</demo>
+	
+	<demo name="hello" version="4" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/hello/hello4.pipeline.xml">
+		<function>
+			<line>输出hello world!, 从外部获取端口号</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 21004</line>
+			<line>3, 在客户端输出 hello world!</line>
+			<line>4, 在CMD中敲任意键, 返回控制台</line>
+		</outer-flow>
+	</demo>
+ -->
+	<!-- ehco  -->
+	
+	<demo name="echo" version="1" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/echo/echo1.pipeline.xml">
+		<function>
+			<line>输入什么, 就输出什么</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 22001</line>
+			<line>3, 在InputServer输入控制台, 输入任意单行字符串</line>
+			<line>4, 在OutputServer输出控制台, 查看刚才输入内容</line>
+		</outer-flow>
+	</demo>
+
+	<!--  add  -->
+<!--	
+	<demo name="add" version="1" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/add/add1.pipeline.xml">
+		<function>
+			<line>计算 a + b 的值</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 23001</line>
+			<line>3, 在InputServer输入控制台, 输入数字a(一定要是数字, 没有异常处理)</line>
+			<line>4, 在InputServer输入控制台, 输入数字b(一定要是数字, 没有异常处理)</line>
+			<line>5, 在OutputServer输出控制台, 查看 a+b 的值</line>
+		</outer-flow>
+	</demo>
+ -->
+	<!--  express  -->
+<!--	 
+	<demo name="express" version="1" path="org/software/matter/molecule/platform/pipeline/demo/pipeline/express/express1.pipeline.xml">
+		<function>
+			<line>计算表达式的值</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe, 开启控制台</line>
+			<line>2, telnet 127.0.0.1 24001</line>
+			<line>3, 在InputServer输入控制台, 输入数学表达式,如:(3+2)*2;(一定要是数学表达式, 没有异常处理)</line>
+			<line>4, 在OutputServer输出控制台, 查看 表达式的值</line>
+		</outer-flow>
+	</demo>
+	 -->
+	
+</demo-list>
