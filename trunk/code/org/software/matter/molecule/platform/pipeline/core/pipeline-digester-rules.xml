@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+
+<digester-rules>
+	<pattern value="pipeline-list">
+		<object-create-rule
+				classname="org.software.matter.molecule.platform.pipeline.core.PipelineConfig" />
+		<pattern value="import">
+			<call-method-rule methodname="dealImport" paramcount="0" />
+		</pattern>
+		<pattern value="pipeline">
+
+			<object-create-rule
+				classname="org.software.matter.molecule.platform.pipeline.core.Pipeline" />
+			<set-properties-rule />
+
+			<pattern value="comment">
+				<!--			<set-next-rule methodname="setComment" />-->
+			</pattern>
+			<pattern value="step">
+				<object-create-rule
+					classname="org.software.matter.molecule.platform.pipeline.core.Step" />
+				<set-properties-rule />
+
+				<pattern value="algorithm">
+					<object-create-rule
+						classname="org.software.matter.molecule.platform.pipeline.core.Algorithm" />
+					<set-properties-rule />
+					<set-next-rule methodname="setAlgorithm"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.Algorithm" />
+				</pattern>
+
+				<pattern value="paramList">
+					<object-create-rule
+						classname="org.software.matter.molecule.platform.pipeline.core.ParamList" />
+
+					<set-properties-rule />
+
+					<pattern value="globalParam">
+						<object-create-rule
+							classname="org.software.matter.molecule.platform.pipeline.core.GlobalParam" />
+						<set-properties-rule />
+						<set-next-rule methodname="addGlobalVariable"
+							paramtype="org.software.matter.molecule.platform.pipeline.core.GlobalParam" />
+
+					</pattern>
+
+
+					<pattern value="param">
+						<object-create-rule
+							classname="org.software.matter.molecule.platform.pipeline.core.Param" />
+						<set-properties-rule />
+						<set-next-rule methodname="addParam"
+							paramtype="org.software.matter.molecule.platform.pipeline.core.Param" />
+
+					</pattern>
+					<set-next-rule methodname="setParamList"
+						paramtype="org.software.matter.molecule.platform.pipeline.core.ParamList" />
+				</pattern>
+
+
+				<set-next-rule methodname="addStep" />
+			</pattern>
+			<set-next-rule methodname="addPipeline" />
+		</pattern>
+
+	</pattern>
+</digester-rules>

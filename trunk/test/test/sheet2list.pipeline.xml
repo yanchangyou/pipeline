@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+
+<pipeline-list>
+	<pipeline name="sheet2list">
+		<comment>this is a simple test about pipe line</comment>
+		<step name="read excel" needStore="true" globalName="excel">
+			<algorithm className="test.SOM"
+				methodName="readExcel" methodParams="java.lang.String" />
+			<paramList>
+				<param index="0" value="学生信息测试--功能.xls"
+					meaning="excel file name" />
+			</paramList>
+		</step>
+		<step name="read sheet" needStore="true" globalName="sheet">
+			<algorithm className="test.SOM"
+				methodName="readSheet" methodParams="org.apache.poi.hssf.usermodel.HSSFWorkbook,java.lang.String" />
+			<paramList>
+				<globalParam name="excel" index="0"
+					meaning="the excel" />
+				<param index="1" value="学生信息"
+					meaning="sheet name" />
+			</paramList>
+		</step>
+		<step name="covert sheet to table" needStore="true"
+			globalName="table">
+			<algorithm className="test.SOM"
+				methodName="sheet2table" methodParams="org.apache.poi.hssf.usermodel.HSSFSheet"/>
+			<paramList>
+				<globalParam name="sheet" index="0"
+					meaning="the sheet" />
+			</paramList>
+		</step>
+		<step name="covert table to list" needStore="true"
+			globalName="list">
+			<algorithm className="test.SOM"
+				methodName="table2list" methodParams="test.Table"/>
+			<paramList>
+				<globalParam name="table" index="0"
+					meaning="the sheet" />
+			</paramList>
+		</step>
+		<step name="heigth add 1" needStore="true"
+			globalName="list">
+			<algorithm className="test.SOM"
+				methodName="heightAdd" methodParams="java.util.List, java.lang.Double"/>
+			<paramList>
+				<globalParam name="list" index="0"/>
+					<param index="1" value="1" meaning="the add height" />
+			</paramList>
+		</step>
+		
+		<step name="print list">
+			<algorithm className="test.SOM"
+				methodName="printList" methodParams="java.util.List"/>
+			<paramList>
+				<globalParam name="list" index="0"
+					meaning="the list" />
+			</paramList>
+		</step>
+	</pipeline>
+
+</pipeline-list>
