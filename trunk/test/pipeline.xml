@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-
-
-<pipeline-list>
-	<import>input-process-output.pipeline.xml</import>
-</pipeline-list>
