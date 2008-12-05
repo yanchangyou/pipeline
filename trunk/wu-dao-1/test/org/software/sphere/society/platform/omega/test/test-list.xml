@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<test-list>
+
+
+<!--	 init  -->
+<!-- 
+	<test name="init" version="1" path="org/software/sphere/society/platform/omega/test/omega/init/init1.omega.xml">
+		<function>
+			<line>测试整个上下文的初始化是否正确</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe等telnet工具</line>
+			<line>2, telnet 127.0.0.1 31001</line>
+			<line>3, 进入调试状态</line>
+			<line>4, 依次查看上下文的初始化是否正确</line>
+		</outer-flow>
+	</test>
+	-->
+<!-- -->
+	<test name="get" version="1" path="org/software/sphere/society/platform/omega/test/omega/get/get1.omega.xml">
+		<function>
+			<line>获取整个上下文的meta数据</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe等telnet工具</line>
+			<line>2, telnet 127.0.0.1 32001</line>
+			<line>3, 查看输出结果</line>
+		</outer-flow>
+	</test> 
+	
+</test-list>
