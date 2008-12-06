@@ -6,128 +6,128 @@
 		<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.Root" />
 		<set-properties-rule />
 
-		<pattern value="meta">
+		<pattern value="define">
 
-			<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+			<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 			<set-properties-rule />
-			<pattern value="property">
-				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+			<pattern value="var">
+				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 				<set-properties-rule />
 				<call-method-rule methodname="setValue" paramcount="0" />
-				<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+				<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 			</pattern>
-			<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+			<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 		</pattern>
 		<pattern value="global">
 
 			<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Global" />
 			<set-properties-rule />
 
-			<pattern value="meta">
+			<pattern value="define">
 
-				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 				<set-properties-rule />
-				<pattern value="property">
-					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+				<pattern value="var">
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 					<set-properties-rule />
 					<call-method-rule methodname="setValue" paramcount="0" />
-					<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+					<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 				</pattern>
-				<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+				<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 			</pattern>
 			<pattern value="economy">
 
 				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Economy" />
 				<set-properties-rule />
 
-				<pattern value="meta">
-					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+				<pattern value="define">
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 					<set-properties-rule />
-					<pattern value="property">
-						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+					<pattern value="var">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 						<set-properties-rule />
 						<call-method-rule methodname="setValue" paramcount="0" />
-						<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+						<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 					</pattern>
-					<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+					<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 				</pattern>
 				<pattern value="market">
 					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Market" />
 					<set-properties-rule />
 
-					<pattern value="meta">
-						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+					<pattern value="define">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 						<set-properties-rule />
-						<pattern value="property">
-							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+						<pattern value="var">
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 							<set-properties-rule />
 							<call-method-rule methodname="setValue" paramcount="0" />
-							<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+							<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 						</pattern>
-						<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+						<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 					</pattern>
 					<pattern value="supplier">
 						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Supplier" />
 						<set-properties-rule />
 
-						<pattern value="meta">
+						<pattern value="define">
 
-							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 							<set-properties-rule />
-							<pattern value="property">
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+							<pattern value="var">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 								<set-properties-rule />
 								<call-method-rule methodname="setValue" paramcount="0" />
-								<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+								<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 							</pattern>
-							<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+							<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 						</pattern>
 						<pattern value="server">
 							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Server" />
 							<set-properties-rule />
 
-							<pattern value="meta">
+							<pattern value="define">
 
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 								<set-properties-rule />
-								<pattern value="property">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+								<pattern value="var">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 									<set-properties-rule />
 									<call-method-rule methodname="setValue" paramcount="0" />
-									<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+									<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 								</pattern>
-								<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+								<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 							</pattern>
 							<pattern value="service">
 								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Service" />
 								<set-properties-rule />
 
-								<pattern value="meta">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+								<pattern value="define">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 									<set-properties-rule />
-									<pattern value="property">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+									<pattern value="var">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 										<set-properties-rule />
 										<call-method-rule methodname="setValue" paramcount="0" />
-										<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+										<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 									</pattern>
-									<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+									<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 								</pattern>
 
 								<pattern value="request">
 									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
 									<set-properties-rule />
 
-									<pattern value="meta">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+									<pattern value="define">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 										<set-properties-rule />
-										<pattern value="property">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+										<pattern value="var">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 											<set-properties-rule />
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 										</pattern>
-										<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 									</pattern>
 
 									<pattern value="data">
@@ -148,16 +148,16 @@
 									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
 									<set-properties-rule />
 
-									<pattern value="meta">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+									<pattern value="define">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 										<set-properties-rule />
-										<pattern value="property">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+										<pattern value="var">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 											<set-properties-rule />
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 										</pattern>
-										<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 									</pattern>
 
 									<pattern value="data">
@@ -179,48 +179,48 @@
 									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />
 									<set-properties-rule />
 
-									<pattern value="meta">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+									<pattern value="define">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 										<set-properties-rule />
-										<pattern value="property">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+										<pattern value="var">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 											<set-properties-rule />
 											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 										</pattern>
-										<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 									</pattern>
 
 									<pattern value="step">
 										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />
 										<set-properties-rule />
 
-										<pattern value="meta">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+										<pattern value="define">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 											<set-properties-rule />
-											<pattern value="property">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+											<pattern value="var">
+												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 												<set-properties-rule />
 												<call-method-rule methodname="setValue" paramcount="0" />
-												<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 											</pattern>
-											<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+											<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 										</pattern>
 
 										<pattern value="request">
 											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
 											<set-properties-rule />
 
-											<pattern value="meta">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+											<pattern value="define">
+												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 												<set-properties-rule />
-												<pattern value="property">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+												<pattern value="var">
+													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 												</pattern>
-												<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 											</pattern>
 											
 											<pattern value="data">
@@ -241,16 +241,16 @@
 											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
 											<set-properties-rule />
 
-											<pattern value="meta">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+											<pattern value="define">
+												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 												<set-properties-rule />
-												<pattern value="property">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+												<pattern value="var">
+													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 												</pattern>
-												<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 											</pattern>
 
 											<pattern value="data">
@@ -276,32 +276,32 @@
 										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Line" />
 										<set-properties-rule />
 
-										<pattern value="meta">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+										<pattern value="define">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 											<set-properties-rule />
-											<pattern value="property">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+											<pattern value="var">
+												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 												<set-properties-rule />
 												<call-method-rule methodname="setValue" paramcount="0" />
-												<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 											</pattern>
-											<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+											<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 										</pattern>
 
 										<pattern value="step">
 											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />
 											<set-properties-rule />
 
-											<pattern value="meta">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+											<pattern value="define">
+												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 												<set-properties-rule />
-												<pattern value="property">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+												<pattern value="var">
+													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 													<set-properties-rule />
 													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 												</pattern>
-												<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 											</pattern>
 
 
@@ -309,16 +309,16 @@
 												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
 												<set-properties-rule />
 												
-												<pattern value="meta">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+												<pattern value="define">
+													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 													<set-properties-rule />
-													<pattern value="property">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+													<pattern value="var">
+														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 														<set-properties-rule />
 														<call-method-rule methodname="setValue" paramcount="0" />
-														<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 													</pattern>
-													<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+													<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 												</pattern>
 												
 												<pattern value="data">
@@ -339,16 +339,16 @@
 												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
 												<set-properties-rule />
 
-												<pattern value="meta">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+												<pattern value="define">
+													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
 													<set-properties-rule />
-													<pattern value="property">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Property" />
+													<pattern value="var">
+														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
 														<set-properties-rule />
 														<call-method-rule methodname="setValue" paramcount="0" />
-														<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.element.common.Property" />
+														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
 													</pattern>
-													<set-next-rule methodname="setMeta" paramtype="org.software.sphere.society.platform.omega.core.element.common.Meta" />
+													<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 												</pattern>
 
 

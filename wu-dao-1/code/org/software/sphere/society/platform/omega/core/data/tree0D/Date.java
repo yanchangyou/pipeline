@@ -36,8 +36,8 @@ public class Date extends Tree0D {
 	public void append(java.lang.String path, Tree data) throws TreeNotFoundException {
 	}
 
-	public boolean delete(java.lang.String path) throws TreeNotFoundException {
-		return false;
+	public Tree delete(java.lang.String path) throws TreeNotFoundException {
+		return null;
 	}
 
 	public Tree find(java.lang.String path) {
@@ -71,12 +71,12 @@ public class Date extends Tree0D {
 		return false;
 	}
 
-	public boolean cteate(java.lang.String path, Class treeClass) throws NonTreeClassException {
+	public boolean create(java.lang.String path, Class treeClass) throws NonTreeClassException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean cteate(java.lang.String path, Class[] treeClass) throws NonTreeClassException, PathLevelAndTreeClassArrayLengthNotMatchException {
+	public boolean create(java.lang.String path, Class[] treeClass) throws NonTreeClassException, PathLevelAndTreeClassArrayLengthNotMatchException {
 		// TODO Auto-generated method stub
 		return false;
 	}

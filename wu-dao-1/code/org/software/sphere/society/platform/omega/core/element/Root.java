@@ -13,7 +13,6 @@ import org.xml.sax.SAXException;
 public class Root extends Element {
 	
 	public Root() {
-
 	}
 
 	/**

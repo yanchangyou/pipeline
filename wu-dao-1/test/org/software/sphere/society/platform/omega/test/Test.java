@@ -40,7 +40,10 @@ public class Test implements Runnable, Logable {
 		try {
 			log.info(this.getName() + "开始演示");
 			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
-			root.getMeta().addProperty("port", port);
+			org.software.sphere.society.platform.omega.core.data.tree0D.String portString = new org.software.sphere.society.platform.omega.core.data.tree0D.String();
+			portString.setName("port");
+			portString.setJavaString(port);
+			root.getContext().append(portString);
 			root.execute();
 			log.info(this.getName() + "演示结束");
 		} catch (ConnectException e) {
