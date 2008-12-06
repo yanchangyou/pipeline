@@ -133,6 +133,6 @@ public class Context extends DefaultTree3D {
 	}
 	
 	public String toString(){ 
-		return this.children.toString() + "\n";
+		return this.children.toString();
 	}
 }

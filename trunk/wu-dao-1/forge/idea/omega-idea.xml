@@ -853,4 +853,18 @@
 			<终极目标>实现人类整体进化</终极目标>
 		</目标>
 	</idea>
+	
+	<idea name="流程" version="1">
+	
+		启动每个test配置文件-->配置digestor文件-->digestor组件解析配置文件-->输出对象root对象-->root对象启动线程-->执行execute方法-->监听请求-->处理请求-->相应请求
+		每一个环节都不能出错
+		昨天晚上就是两个错误 1,digestor配置文件中line中的request的meta没有导致request对象获取不到对象, 2, 没考虑digestor的解析顺序, 是一些处理没执行
+	</idea>
+	
+	<idea name="初始化" version="1">
+		专门预留一个变量定义的, 初始化的地区
+		初始化的必须是tree-0D的元素
+		采用
+		
+	</idea>
 </pipeline>

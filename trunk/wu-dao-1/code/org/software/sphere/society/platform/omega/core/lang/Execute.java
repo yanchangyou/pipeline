@@ -10,7 +10,7 @@ public class Execute implements Logable {
 
 		String mainPath = "main.main.main.main.main.main";
 		log.info("开始加载[[" + mainPath + "]]服务");
-		Service mainService = (Service) root.getContext().getAbsolutePathElement(mainPath);
+		Service mainService = (Service) root.getAbsolutePathElement(mainPath);
 
 		log.info("加载服务成功");
 		int port = 0;

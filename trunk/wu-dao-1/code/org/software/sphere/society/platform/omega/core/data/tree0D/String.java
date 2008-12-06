@@ -58,8 +58,8 @@ public class String extends Tree0D {
 			throws TreeNotFoundException {
 	}
 
-	public boolean delete(java.lang.String path) throws TreeNotFoundException {
-		return false;
+	public Tree delete(java.lang.String path) throws TreeNotFoundException {
+		return null;
 	}
 
 	public Tree find(java.lang.String path) {
@@ -80,13 +80,13 @@ public class String extends Tree0D {
 		return false;
 	}
 
-	public boolean cteate(java.lang.String path, Class treeClass)
+	public boolean create(java.lang.String path, Class treeClass)
 			throws NonTreeClassException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean cteate(java.lang.String path, Class[] treeClass)
+	public boolean create(java.lang.String path, Class[] treeClass)
 			throws NonTreeClassException,
 			PathLevelAndTreeClassArrayLengthNotMatchException {
 		// TODO Auto-generated method stub
@@ -121,22 +121,23 @@ public class String extends Tree0D {
 		} 
 	}
 
-	public void execute(Context context) throws ExcuteException {
-
+	public static final java.lang.String ADD_WORD = " + ";
+	
+	public void execute(Context originalContext) throws ExcuteException {
+		
 		StringBuffer buf = new StringBuffer();
 		
-		java.lang.String[] unitArray = this.originalCode.split("\\s*\\+\\s*");
-		String data = new String("name", "cyyan");
-		context.append(data);
+		java.lang.String[] unitArray = this.originalCode.split("\\s*[\\+\\-\\*/]\\s*");
 		
 		for (int i = 0; i < unitArray.length; i++) {
 			if (unitArray[i] == null || unitArray[i].trim().length() == 0) {
 				continue;
 			}
+			unitArray[i] = unitArray[i].trim();
 			if (Character.isJavaIdentifierPart(unitArray[i].charAt(0))) {
+				Context context = originalContext;
 				java.lang.String value = null;
 				try {
-//					value
 					Tree tree = context.getSuitablePathTree(unitArray[i]);
 					while (tree == null && context.getParentElement() != null) { //依次向上遍历
 						context = context.getParentElement().getContext();
@@ -152,13 +153,15 @@ public class String extends Tree0D {
 					e.printStackTrace();
 					throw new ExcuteException(e.getMessage());
 				}
-//				buf.append(value);
-				buf.append(" + ");
 				buf.append("\"" + value + "\"");
-				buf.append(" + ");
+				buf.append(ADD_WORD);
 			} else {
 				buf.append(unitArray[i]);
 			}
+		}
+		java.lang.String result = buf.toString();
+		if (result.endsWith(ADD_WORD)) {
+			result = result.substring(0, result.lastIndexOf(ADD_WORD));
 		}
 		this.javaString = MVEL.eval(buf.toString()).toString(); 
 	}

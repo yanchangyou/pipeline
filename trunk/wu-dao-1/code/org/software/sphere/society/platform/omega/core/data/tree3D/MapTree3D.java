@@ -36,9 +36,9 @@ public class MapTree3D extends Tree3D {
 		tree.append(data);
 	}
 
-	public boolean delete(String path) throws TreeNotFoundException {
+	public Tree delete(String path) throws TreeNotFoundException {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	public void execute(Context context) throws ExcuteException {
@@ -47,7 +47,9 @@ public class MapTree3D extends Tree3D {
 	}
 
 	public Tree find(String path) throws NotValidTreePath {
+		
 		checkPath(path);
+		path = path.trim();
 		String[] pathArray = path.split("\\.|@");
 		Tree data = (Tree) children.get(pathArray[0]); //只知道本层的find方法, 其它层的调用标准接口
 		if (data == null) {
@@ -71,21 +73,28 @@ public class MapTree3D extends Tree3D {
 		Tree tree = find(path);
 		if (tree == null) {
 			try {
-				this.cteate(path, clazz);
+				this.create(path, clazz);
 			} catch (NonTreeClassException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
 		}
-		
-		try {
-			replace(path, data);
-		} catch (TreeNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
+		String[] pathArray = path.split("\\.|@");
+		if (pathArray.length > 1) {
+			try {
+				replace(path, data);
+			} catch (TreeNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		} else if (pathArray.length == 1) {
+			append(data);
+		} else {
+			throw new NotValidTreePath("无效路径:" + path);
 		}
+		
 		return true;
 	}
 	
@@ -100,9 +109,9 @@ public class MapTree3D extends Tree3D {
 		}
 		String[] pathArray = path.split("\\.|@");
 		StringBuffer pathBuf = new StringBuffer();
-		for (int i = 0; i < pathArray.length; i++) {
+		for (int i = 0; i < pathArray.length-1; i++) {
 			pathBuf.append(pathArray[i]);
-			if (i != pathArray.length-1) {
+			if (i != pathArray.length-2) {
 				pathBuf.append('.');
 			}
 		}
@@ -111,7 +120,7 @@ public class MapTree3D extends Tree3D {
 		return true;
 	}
 
-	public boolean cteate(String path, Class treeClass)
+	public boolean create(String path, Class treeClass)
 			throws NonTreeClassException {
 
 		String[] pathArray = path.split("\\.|@");
@@ -120,7 +129,7 @@ public class MapTree3D extends Tree3D {
 			treeClassArray[i] = treeClass;
 		}
 		try {
-			cteate(path, treeClassArray);
+			create(path, treeClassArray);
 		} catch (PathLevelAndTreeClassArrayLengthNotMatchException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,7 +138,7 @@ public class MapTree3D extends Tree3D {
 		return true;
 	}
 
-	public boolean cteate(String path, Class[] treeClassArray)
+	public boolean create(String path, Class[] treeClassArray)
 			throws NonTreeClassException,
 			PathLevelAndTreeClassArrayLengthNotMatchException {
 		Tree tree = this;
@@ -140,7 +149,7 @@ public class MapTree3D extends Tree3D {
 			if (!Tree.class.isAssignableFrom(treeClass)) {
 				throw new NonTreeClassException();
 			}
-			try {
+			try { //创建之前先找
 				tree = tree.find(pathArray[i]);
 			} catch (NotValidTreePath e1) {
 				// TODO Auto-generated catch block

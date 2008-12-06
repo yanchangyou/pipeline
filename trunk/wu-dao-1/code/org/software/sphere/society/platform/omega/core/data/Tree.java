@@ -121,15 +121,15 @@ public abstract class Tree extends NameAndTypeObject implements Metable, Logable
 	
 	public abstract Tree find(java.lang.String path) throws NotValidTreePath ;
 	
-	public abstract boolean cteate(java.lang.String path, Class treeClass) throws NotValidTreePath, NonTreeClassException;
+	public abstract boolean create(java.lang.String path, Class treeClass) throws NotValidTreePath, NonTreeClassException;
 	
-	public abstract boolean cteate(java.lang.String path, Class[] treeClass) throws NotValidTreePath, NonTreeClassException, PathLevelAndTreeClassArrayLengthNotMatchException;
+	public abstract boolean create(java.lang.String path, Class[] treeClass) throws NotValidTreePath, NonTreeClassException, PathLevelAndTreeClassArrayLengthNotMatchException;
 	
 	public abstract void append(java.lang.String path, Tree data) throws NotValidTreePath, TreeNotFoundException;
 	
 	public abstract void append(Tree data);
 	
-	public abstract boolean delete(java.lang.String path) throws NotValidTreePath, TreeNotFoundException;
+	public abstract Tree delete(java.lang.String path) throws NotValidTreePath, TreeNotFoundException;
 	
 	public abstract boolean replace(java.lang.String path, Tree data) throws NotValidTreePath, TreeNotFoundException;
 	

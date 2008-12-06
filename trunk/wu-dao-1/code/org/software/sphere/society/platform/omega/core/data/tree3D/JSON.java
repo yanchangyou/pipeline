@@ -13,8 +13,9 @@ public class JSON extends Tree3D {
 	public void append(String path, Tree data) throws TreeNotFoundException {
 	}
 
-	public boolean delete(String path) throws TreeNotFoundException {
-		return false;	}
+	public Tree delete(String path) throws TreeNotFoundException {
+		return null;
+	}
 
 	public Tree find(String path) {
 		return null;
@@ -26,7 +27,7 @@ public class JSON extends Tree3D {
 
 	public void execute(Context context) throws ExcuteException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String getResult() {
@@ -39,12 +40,15 @@ public class JSON extends Tree3D {
 		return false;
 	}
 
-	public boolean cteate(String path, Class treeClass) throws NonTreeClassException {
+	public boolean create(String path, Class treeClass)
+			throws NonTreeClassException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean cteate(String path, Class[] treeClass) throws NonTreeClassException, PathLevelAndTreeClassArrayLengthNotMatchException {
+	public boolean create(String path, Class[] treeClass)
+			throws NonTreeClassException,
+			PathLevelAndTreeClassArrayLengthNotMatchException {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -55,6 +59,6 @@ public class JSON extends Tree3D {
 
 	public void compile() throws CompileException {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
