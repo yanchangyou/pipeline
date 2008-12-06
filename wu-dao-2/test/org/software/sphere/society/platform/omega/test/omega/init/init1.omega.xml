@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<root>
+	<global name="main">
+		<define>
+			<var name="global">global-value</var>
+			<var name="global2">global-value-2</var>
+		</define>
+		<economy name="main">
+			<define>
+				<var name="economy">economy-value</var>
+				<var name="economy2">economy-value-2</var>
+			</define>
+			<market name="main">
+				<define>
+					<var name="market">market-value</var>
+					<var name="market2">market-value-2</var>
+				</define>
+				<supplier name="main">
+					<define>
+						<var name="supplier">supplier-value</var>
+						<var name="supplier2">supplier-value-2</var>
+					</define>
+					<server name="main">
+						<define>
+							<var name="server">server-value</var>
+							<var name="server2">server-value-2</var>
+						</define>
+						<service name="main" port="31001">
+							<define>
+								<var name="service">server-value</var>
+								<var name="service2">service-value-2</var>
+							</define>
+							<pipeline name="init1_pipeline">
+								<define>
+									<var name="pipeline">pipeline-value</var>
+									<var name="pipeline2">pipeline-value-2</var>
+								</define>
+								<line name="init1_line">
+									<define>
+										<var name="line">line-value</var>
+										<var name="line2">line-value-2</var>
+									</define>
+									<step name="init1_step">
+										<define>
+											<var name="step">step-value</var>
+											<var name="step2">step-value-2</var>
+										</define>
+										<request name="request">
+											<define>
+												<var name="request">request-value</var>
+												<var name="request2">request-value-2</var>
+											</define>
+											<data>
+												<line><![CDATA[request data line1&]]></line>
+												<line><![CDATA[request data line2]]></line>
+											</data>
+										</request>
+										<response name="response">
+											<define>
+												<var name="response">response-value</var>
+												<var name="response2">response-value-2</var>
+											</define>
+											<data>
+												<line><![CDATA[response data line1&]]></line>
+												<line><![CDATA[response data line2]]></line>
+											</data>
+										</response>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>

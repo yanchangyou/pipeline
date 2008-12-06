@@ -1,0 +1,32 @@
+
+<root>
+
+	<common-error>
+		<error no="1">
+			<exception>
+				can not listen to:java.net.BindException: Address already in use: JVM_Bind
+			</exception>
+			<cause>
+				端口冲突, 很多是由于相同程序执行了两次造成
+			</cause>
+		</error>
+		<error no="2">
+			<exception>
+				can not listen to:java.lang.NullPointerException
+			</exception>
+			<cause>
+				端口没有值, service标签中的port属性没有值
+			</cause>
+		</error>
+		<error no="2">
+			<exception>
+				java.net.ConnectException: Connection refused: connect
+			</exception>
+			<cause>
+				连接异常, 大多情况是远程服务没有开启
+			</cause>
+		</error>
+		
+		
+	</common-error>
+</root>
