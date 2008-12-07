@@ -928,5 +928,14 @@
 		<现实模型>ESOA</现实模型>
 		<执行模型>编码,解码; 请求,响应.</执行模型>
 	</idea>
-	
+	<idea name="语言命名" version="4">
+		<语言>
+			<名称 version="1">pipeline</名称>
+			<名称 version="2">just-pipeline</名称>
+			<名称 version="3">悟语言(Ω luanguage)</名称>
+			<名称 version="4">龙语(dragon luanguage)</名称>
+			龙, 中国人创造的动物, 它融合了多种动物的长处.
+			新语言取名为[龙语], 就取其博采众长而集大成之意.
+		</语言>
+	</idea>
 </pipeline>
