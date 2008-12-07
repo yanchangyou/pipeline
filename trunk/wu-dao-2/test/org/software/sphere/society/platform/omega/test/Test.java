@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.software.sphere.atom.entity.commons.Logable;
+import org.software.matter.atom.entity.commons.Logable;
 import org.software.sphere.society.platform.omega.core.element.Root;
 
 public class Test implements Runnable, Logable {

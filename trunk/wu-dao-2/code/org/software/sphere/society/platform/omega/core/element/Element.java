@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
-import org.software.sphere.atom.entity.commons.Logable;
+import org.software.matter.atom.entity.commons.Logable;
 import org.software.sphere.society.platform.omega.core.data.tree0D.String;
 import org.software.sphere.society.platform.omega.core.data.tree1D.Array;
 import org.software.sphere.society.platform.omega.core.data.tree3D.DefaultTree3D;

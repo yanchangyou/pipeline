@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.omega.core.lang;
 
-import org.software.sphere.atom.entity.commons.Logable;
+import org.software.matter.atom.entity.commons.Logable;
 import org.software.sphere.society.platform.omega.core.element.Root;
 import org.software.sphere.society.platform.omega.core.element.esoa.Service;
 
