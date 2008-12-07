@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.omega.core.element.common;
 
-import org.software.sphere.atom.entity.commons.NameValueObject;
+import org.software.matter.atom.entity.commons.NameValueObject;
 
 public class Property extends NameValueObject {
 	

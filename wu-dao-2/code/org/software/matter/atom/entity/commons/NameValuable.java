@@ -1,4 +1,4 @@
-package org.software.sphere.atom.entity.commons;
+package org.software.matter.atom.entity.commons;
 
 public interface NameValuable {
 

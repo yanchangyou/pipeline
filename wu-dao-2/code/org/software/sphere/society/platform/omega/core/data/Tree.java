@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.mvel.CompileException;
-import org.software.sphere.atom.entity.commons.Logable;
-import org.software.sphere.atom.entity.commons.Metable;
-import org.software.sphere.atom.entity.commons.NameAndTypeObject;
+import org.software.matter.atom.entity.commons.Logable;
+import org.software.matter.atom.entity.commons.Metable;
+import org.software.matter.atom.entity.commons.NameAndTypeObject;
 import org.software.sphere.society.platform.omega.core.data.tree3D.DefaultTree3D;
 import org.software.sphere.society.platform.omega.core.element.common.Meta;
 import org.software.sphere.society.platform.omega.core.lang.Context;

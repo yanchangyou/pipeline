@@ -1,4 +1,4 @@
-package org.software.sphere.atom.entity.commons;
+package org.software.matter.atom.entity.commons;
 
 import org.software.sphere.society.platform.omega.core.element.common.Meta;
 
