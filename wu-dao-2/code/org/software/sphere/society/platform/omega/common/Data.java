@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.software.sphere.society.platform.omega.data.node0X.Node0X;
+import org.software.sphere.society.platform.omega.core.data.node0X.Node0X;
 import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
 
 public class Data extends Node0X {

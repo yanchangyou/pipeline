@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.omega.common.Logable;
-import org.software.sphere.society.platform.omega.execute.Root;
+import org.software.sphere.society.platform.omega.core.execute.Root;
 
 public class Demo implements Runnable, Logable {
 	

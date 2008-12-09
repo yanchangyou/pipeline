@@ -1,7 +1,7 @@
 package org.software.sphere.society.platform.omega.common;
 
-import org.software.sphere.society.platform.omega.data.Node;
-import org.software.sphere.society.platform.omega.data.node0X.DefaultNode0X;
+import org.software.sphere.society.platform.omega.core.data.Node;
+import org.software.sphere.society.platform.omega.core.data.node0X.DefaultNode0X;
 
 /**
  * 此类用于定义变量, 程序会把这些变量存储到上下文中

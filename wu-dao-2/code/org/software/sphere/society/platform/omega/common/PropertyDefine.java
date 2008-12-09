@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.omega.common;
 
-import org.software.sphere.society.platform.omega.data.node0X.DefaultNode0X;
+import org.software.sphere.society.platform.omega.core.data.node0X.DefaultNode0X;
 
 public class PropertyDefine extends DefaultNode0X {
 
