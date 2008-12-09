@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.omega.common;
 
-import org.software.sphere.society.platform.omega.data.node00.Node00;
+import org.software.sphere.society.platform.omega.core.data.node00.Node00;
 import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
 
 public class Property extends Node00 {

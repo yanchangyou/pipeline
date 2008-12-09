@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.software.sphere.society.platform.omega.execute.OmegaNetCompiler;
+import org.software.sphere.society.platform.omega.core.execute.OmegaNetCompiler;
 
 public class OmegaSyntaxChecker {
 	public static void main(String args[]) {

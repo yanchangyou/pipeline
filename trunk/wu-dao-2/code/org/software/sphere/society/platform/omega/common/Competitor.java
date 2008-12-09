@@ -1,8 +1,8 @@
 package org.software.sphere.society.platform.omega.common;
 
-import org.software.sphere.society.platform.omega.data.node00.Node00;
+import org.software.sphere.society.platform.omega.core.data.node00.Node00;
+import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
-import org.software.sphere.society.platform.omega.data.node0X.String;
 
 public class Competitor extends Node00 {
 
