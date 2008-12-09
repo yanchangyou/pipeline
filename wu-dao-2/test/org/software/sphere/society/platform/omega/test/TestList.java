@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
-import org.software.matter.atom.entity.commons.Logable;
+import org.software.sphere.society.platform.omega.common.Logable;
 
 public class TestList implements Runnable, Logable {
 	

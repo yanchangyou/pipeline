@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.software.matter.atom.entity.commons.Logable;
-import org.software.sphere.society.platform.omega.core.execute.Root;
+import org.software.sphere.society.platform.omega.common.Logable;
+import org.software.sphere.society.platform.omega.execute.Root;
 
 public class Test implements Runnable, Logable {
 	
@@ -41,9 +41,9 @@ public class Test implements Runnable, Logable {
 		try {
 			log.info(this.getName() + "开始演示");
 			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
-			org.software.sphere.society.platform.omega.core.data.tree0D.String portString = new org.software.sphere.society.platform.omega.core.data.tree0D.String();
-			portString.setName("port");
-			portString.setJavaString(port);
+//			org.software.sphere.society.platform.omega.data.tree0D.String portString = new org.software.sphere.society.platform.omega.data.tree0D.String();
+//			portString.setName("port");
+//			portString.setJavaString(port);
 //			root.getContext().append(portString);
 			root.execute();
 			log.info(this.getName() + "演示结束");

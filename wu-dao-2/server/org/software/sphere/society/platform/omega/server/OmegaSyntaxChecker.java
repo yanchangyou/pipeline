@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.software.sphere.society.platform.omega.core.lang.OmegaTreeCompiler;
+import org.software.sphere.society.platform.omega.execute.OmegaNetCompiler;
 
 public class OmegaSyntaxChecker {
 	public static void main(String args[]) {
@@ -96,7 +96,7 @@ public class OmegaSyntaxChecker {
 	static class Tool {
 
 		public static boolean check(String data) {
-			return OmegaTreeCompiler.isMatchTreeDataModel(data);
+			return true;//OmegaNetCompiler.isMatchTreeDataModel(data);
 		}
 
 	}
