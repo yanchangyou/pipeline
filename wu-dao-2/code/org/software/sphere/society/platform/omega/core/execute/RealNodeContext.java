@@ -110,7 +110,7 @@ public class RealNodeContext extends DefaultNode1X {
 //	}
 	
 	public void addChild(String name, RealNode realNode) {
-		realNode.setName(name);
+		realNode.setNodeName(name);
 //		this.addChild(realNode);
 	}
 

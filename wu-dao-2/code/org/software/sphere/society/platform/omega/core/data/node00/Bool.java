@@ -1,5 +1,6 @@
 package org.software.sphere.society.platform.omega.core.data.node00;
-import org.software.sphere.society.platform.omega.core.data.node0X.String;
+
+import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
 
 public class Bool extends Node00 {
 
@@ -20,12 +21,17 @@ public class Bool extends Node00 {
 	public void setBool(Boolean bool) {
 		this.bool = bool;
 	}
-
-	public void generateByString(String data) {
-		this.bool = new Boolean(data.toJavaString());		
-	}
 	
 	public java.lang.String toString() {
-		return super.toString() + " = " + this.bool.toString();
+		return super.toString() + " = " + this.bool;
+	}
+
+	public void fromJavaString(String data) throws DataGenerateException {
+		bool = new Boolean(data);
+	}
+
+	public String toJavaString() {
+		// TODO Auto-generated method stub
+		return "" + bool;
 	}
 }

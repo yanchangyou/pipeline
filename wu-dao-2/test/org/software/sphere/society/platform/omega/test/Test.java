@@ -35,6 +35,7 @@ public class Test implements Runnable, Logable {
 			log.error("加载[" + OMEGA_FILE_PATH
 					+ "]文件失败, 请检查此omega文件中是否有错误的地方");
 			log.error("错误信息 : " + e.getMessage());
+			e.printStackTrace();
 			return;
 		}
 
