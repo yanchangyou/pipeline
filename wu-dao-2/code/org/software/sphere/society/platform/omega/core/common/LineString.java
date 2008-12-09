@@ -1,4 +1,4 @@
-package org.software.sphere.society.platform.omega.core.element.common;
+package org.software.sphere.society.platform.omega.core.common;
 
 
 public class LineString {

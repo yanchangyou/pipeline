@@ -23,7 +23,7 @@ public class Server extends ESOA {
 	 * ªÒ»°service
 	 * 
 	 */
-	public Service getService(String serviceName) {
-		return (Service) this.context.getChild(serviceName);
+	public Service_old getService(String serviceName) {
+		return (Service_old) this.context.getChild(serviceName);
 	}
 }

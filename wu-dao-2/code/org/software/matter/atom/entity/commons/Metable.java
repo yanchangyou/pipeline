@@ -1,6 +1,6 @@
 package org.software.matter.atom.entity.commons;
 
-import org.software.sphere.society.platform.omega.core.element.common.Meta;
+import org.software.sphere.society.platform.omega.core.common.Meta;
 
 public interface Metable {
 

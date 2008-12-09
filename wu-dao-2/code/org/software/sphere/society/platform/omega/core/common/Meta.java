@@ -1,4 +1,4 @@
-package org.software.sphere.society.platform.omega.core.element.common;
+package org.software.sphere.society.platform.omega.core.common;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +30,7 @@ public class Meta {
 	public String getProperty(java.lang.String name) {
 		String value = null;
 		if (propertyMap.containsKey(name)) {
-			value = ((Property)propertyMap.get(name)).getValue();
+//			value = ((Property)propertyMap.get(name)).getValue();
 		} else {
 			value = null;
 		}

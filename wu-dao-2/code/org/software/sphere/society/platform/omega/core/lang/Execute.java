@@ -2,7 +2,7 @@ package org.software.sphere.society.platform.omega.core.lang;
 
 import org.software.matter.atom.entity.commons.Logable;
 import org.software.sphere.society.platform.omega.core.element.Root;
-import org.software.sphere.society.platform.omega.core.element.esoa.Service;
+import org.software.sphere.society.platform.omega.core.element.esoa.Service_old;
 
 public class Execute implements Logable {
 
@@ -10,7 +10,7 @@ public class Execute implements Logable {
 
 		String mainPath = "main.main.main.main.main.main";
 		log.info("开始加载[[" + mainPath + "]]服务");
-		Service mainService = (Service) root.getAbsolutePathElement(mainPath);
+		Service_old mainService = (Service_old) root.getAbsolutePathElement(mainPath);
 
 		log.info("加载服务成功");
 		int port = 0;

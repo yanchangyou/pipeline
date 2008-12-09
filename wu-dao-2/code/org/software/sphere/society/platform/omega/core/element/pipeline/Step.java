@@ -8,7 +8,7 @@ import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.data.Tree;
 import org.software.sphere.society.platform.omega.core.data.tree3D.DefaultTree3D;
 import org.software.sphere.society.platform.omega.core.element.esoa.Server;
-import org.software.sphere.society.platform.omega.core.element.esoa.Service;
+import org.software.sphere.society.platform.omega.core.element.esoa.Service_old;
 import org.software.sphere.society.platform.omega.core.element.rr.Request;
 import org.software.sphere.society.platform.omega.core.element.rr.Response;
 import org.software.sphere.society.platform.omega.core.lang.OmegaTreeCompiler;
@@ -73,7 +73,7 @@ public class Step extends Unit {
 				if (serviceArray[i].split("\\.").length != 6) {
 					throw new Exception("不是合法的路径");
 				}
-				Service service = (Service) this.context.getAbsolutePathElement(serviceArray[i]);
+				Service_old service = (Service_old) this.context.getAbsolutePathElement(serviceArray[i]);
 				Server server = (Server) this.context.getAbsolutePathElement(serviceArray[i].substring(0, serviceArray[i].lastIndexOf('.')));
 
 				String host = server.getHost();

@@ -328,7 +328,7 @@
 			</root>
 		</evolution>
 	</pioneer>
-	
+
 	<pioneer name="request的设计" version="1">
 		<type name="string" verion="1">
 			<request>
@@ -342,7 +342,7 @@
 				</box>
 			</request>
 		</type>
-		
+
 		<type name="number" verion="1">
 			<request>
 				<number>234234</number>
@@ -350,9 +350,7 @@
 		</type>
 		<type name="date" version="1">
 			<request>
-				<date>
-					2008-11-29 17:32:20
-				</date>
+				<date>2008-11-29 17:32:20</date>
 			</request>
 		</type>
 		<type name="box" version="1">
@@ -367,7 +365,7 @@
 				</box>
 			</request>
 		</type>
-		
+
 		<type name="raw-box" version="1">
 			<request>
 				<raw-box>
@@ -389,8 +387,7 @@
 		<type name="tree" version="1">
 			<request>
 				<tree-box>
-					基类形{字符串, 数字, 日期}
-					"字符串", (数字), [日期]
+					基类形{字符串, 数字, 日期} "字符串", (数字), [日期]
 					<![CDATA[
 						{ether, 25, male, {96, 79, 69}}
 						{(ether)(25)(male){(96)(79)(69)}}
@@ -398,7 +395,7 @@
 				</tree-box>
 			</request>
 		</type>
-		
+
 		<type name="object" version="1">
 			<request>
 				<object-box>
@@ -427,6 +424,82 @@
 				]]>
 			</request>
 		</type>
+		<omega version="2">
+			<root>
+				<global name="main">
+					<economy name="main">
+						<market name="main">
+							<supplier name="main">
+								<server name="main">
+									<service-define>
+										<service name="input" port="21001">
+											<competitor name="main.main.main.main.io-server.input1" priority="1"/>
+											<competitor name="main.main.main.main.io-server.input2" priority="2"/>
+										</service>
+									</service-define>
+									
+									<telnet name="main" port="21001">
+										<start/>
+										<if condition="1=1">
+											<unit></unit>*
+										</if>
+										<unit serviceName="">
+											<define>
+												<var name="step">step-value</var>
+												<var name="step2">step-value-2</var>
+											</define>
+											<request name="request">
+												<define>
+													<var name="request">request-value</var>
+													<var name="request2">request-value-2</var>
+												</define>
+												<data>
+													<line><![CDATA[request data line1&]]></line>
+													<line><![CDATA[request data line2]]></line>
+												</data>
+											</request>
+											<response name="response">
+												<define>
+													<var name="response">response-value</var>
+													<var name="response2">response-value-2</var>
+												</define>
+												<data>
+													<line><![CDATA[response data line1&]]></line>
+													<line><![CDATA[response data line2]]></line>
+												</data>
+											</response>
+										</unit>
+										<telnet serviceName="">
+											
+										</telnet>
+										<end/>
+									</telnet>
+								</server>
+								<server name="io-server" host="127.0.0.1">
+									<jdbc:oracle:thin name="csair_db">
+										<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+										<property name="connection.url">jdbc:oracle:thin:@10.89.187.20:1521:nhzj</property>
+										<property name="dialect">net.sf.hibernate.dialect.Oracle9Dialect</property>
+										<property name="connection.username">csair</property>
+										<property name="connection.password">csair</property>
+										<property name="show_sql">true</property>
+										<property name="jdbc.maxActive">50</property>
+										<property name="jdbc.maxIdle">10</property>
+										<property name="jdbc.maxWait">9000</property>
+										<property name="jdbc.fetch_size">50</property>
+										<property name="jdbc.batch_size">50</property>
+										<property name="hibernate.cache.use_query_cache">false</property>
+										<property name="hibernate.cglib.use_reflection_optimizer">true</property>
+										<property name="use_outer_join">true</property>
+									</jdbc:oracle:thin>
+								</server>
+							</supplier>
+						</market>
+					</economy>
+				</global>
+			</root>
+		</omega>
+
 	</pioneer>
-	
+
 </pipeline>

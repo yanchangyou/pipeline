@@ -6,6 +6,7 @@ import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.software.matter.atom.entity.commons.Logable;
 import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.data.Tree;
 import org.software.sphere.society.platform.omega.core.data.tree3D.DefaultTree3D;
@@ -16,7 +17,7 @@ import org.software.sphere.society.platform.omega.core.lang.OmegaTreeCompiler;
 import org.software.sphere.society.platform.omega.core.session.Session;
 import org.software.sphere.society.platform.omega.exception.flow.DataNotFoundException;
 
-public class Service extends ESOA {
+public class Service extends RealNode implements Logable {
 
 	private Request request;
 
@@ -30,9 +31,9 @@ public class Service extends ESOA {
 	}
 	
 	public int getIntPort() {
-		if (port == null || port.length() == 0) {
-			port = (String) this.getMeta().getProperty("port");
-		}
+//		if (port == null || port.length() == 0) {
+//			port = (String) this.getMeta().getProperty("port");
+//		}
 		return Integer.parseInt(port);
 	}
 
@@ -54,7 +55,7 @@ public class Service extends ESOA {
 
 	public void setPipeline(Pipeline pipeline) {
 		this.pipeline = pipeline;
-		this.addChildElement(pipeline);
+//		this.addChildElement(pipeline);
 	}
 
 	public void setRequest(Request request) {
@@ -149,8 +150,8 @@ public class Service extends ESOA {
 				log.info("服务[" + this.getName() + "]接收客户端输入数据");
 				String requestData = RuleReadNetDataByOmega.readData(socket);
 				Tree requestTree = OmegaTreeCompiler.compile(requestData);
-				requestTree.execute(this.getContext());
-				this.getContext().merge(this.request.getName(), requestTree);
+//				requestTree.execute(this.getContext());
+//				this.getContext().merge(this.request.getName(), requestTree);
 				log.info("服务[" + this.getName() + "]客户端输入数据完毕");
 			}
 			
@@ -160,7 +161,7 @@ public class Service extends ESOA {
 //			pipeline.setParentContext(context);
 
 			// TODO CHECH THIS
-			this.addChildElement(pipeline);
+//			this.addChildElement(pipeline);
 			
 			log.info("服务[" + this.getName() + "]开始处理");
 			
@@ -173,8 +174,8 @@ public class Service extends ESOA {
 				PrintWriter os = new PrintWriter(socket.getOutputStream());
 				String responseData = response.getResponseData();
 				Tree responseTree = OmegaTreeCompiler.compile(responseData);
-				responseTree.execute(this.getContext());
-				this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);
+//				responseTree.execute(this.getContext());
+//				this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);
 //				this.getContext().getParent().merger(response.getName(), responseTree);
 				os.print(responseTree.getResult());
 				os.flush();

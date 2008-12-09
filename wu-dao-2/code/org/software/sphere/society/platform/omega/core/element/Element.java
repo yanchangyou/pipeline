@@ -6,10 +6,10 @@ import java.util.Set;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 import org.software.matter.atom.entity.commons.Logable;
+import org.software.sphere.society.platform.omega.core.common.VarDefine;
 import org.software.sphere.society.platform.omega.core.data.tree0D.String;
 import org.software.sphere.society.platform.omega.core.data.tree1D.Array;
 import org.software.sphere.society.platform.omega.core.data.tree3D.DefaultTree3D;
-import org.software.sphere.society.platform.omega.core.element.common.Define;
 import org.software.sphere.society.platform.omega.core.lang.Context;
 import org.software.sphere.society.platform.omega.core.lang.KeyWords;
 import org.software.sphere.society.platform.omega.exception.data.NotValidTreePath;
@@ -18,13 +18,13 @@ public class Element extends Array implements Logable {
 
 	protected Context context;
 
-	protected Define define;
+	protected VarDefine define;
 	
-	public Define getDefine() {
+	public VarDefine getDefine() {
 		return define;
 	}
 
-	public void setDefine(Define define) {
+	public void setDefine(VarDefine define) {
 		this.define = define;
 	}
 
@@ -45,10 +45,10 @@ public class Element extends Array implements Logable {
 
 	public void tuneVarToContext() {
 		if (define != null) {
-			Set set = this.define.getVarMap().keySet();
+			Set set = null;//this.define.getVarMap().keySet();
 			for (Iterator iter = set.iterator(); iter.hasNext();) {
 				java.lang.String name = (java.lang.String) iter.next();
-				java.lang.String value = this.define.getVar(name);
+				java.lang.String value = null;//this.define.getVar(name);
 
 				String data = new String(name, value);
 				try {

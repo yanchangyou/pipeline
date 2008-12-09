@@ -16,7 +16,7 @@ import org.software.sphere.society.platform.omega.core.lang.OmegaTreeCompiler;
 import org.software.sphere.society.platform.omega.core.session.Session;
 import org.software.sphere.society.platform.omega.exception.flow.DataNotFoundException;
 
-public class Service extends ESOA {
+public class Service_old extends ESOA {
 
 	private Request request;
 
@@ -26,7 +26,7 @@ public class Service extends ESOA {
 
 	private String port;
 
-	public Service() {
+	public Service_old() {
 	}
 	
 	public int getIntPort() {
@@ -118,22 +118,22 @@ public class Service extends ESOA {
 
 		Socket socket;
 
-		Service service;
+		Service_old service;
 
-		public ServiceThread(Socket socket, Service service) {
+		public ServiceThread(Socket socket, Service_old service) {
 			this.socket = socket;
 			this.service = service;
 		}
 
 		public void run() {
-			log.info("[" + Service.this.getName() + "]服务开始");
+			log.info("[" + Service_old.this.getName() + "]服务开始");
 			service.service(service, socket);
-			log.info("[" + Service.this.getName() + "]服务结束");
+			log.info("[" + Service_old.this.getName() + "]服务结束");
 		}
 
 	}
 
-	public void service(Service service, Socket socket) {
+	public void service(Service_old service, Socket socket) {
 		try {
 
 			log.info("服务[" + this.getName() + "]建立socket");
