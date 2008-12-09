@@ -1,5 +1,9 @@
 package org.software.sphere.society.platform.omega.core.data;
 
+import org.apache.commons.lang.ClassUtils;
+import org.software.matter.atom.entity.commons.NameAndTypeObject;
+import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
+
 /**
  * 在omega中, 所有数据都看成是net的一部分<br>
  * <br>
@@ -46,61 +50,70 @@ package org.software.sphere.society.platform.omega.core.data;
  * @file : Net.java
  * @version : 0.1
  */
-public abstract class Node {
+public abstract class Node extends NameAndTypeObject {
 
-	// * 1, 前驱
+	public Node() {
+		
+	}
+//	// * 1, 前驱
+//
+//	/**
+//	 * 
+//	 */
+//	public abstract void addPrecede(Node net);
+//
+//	public abstract void addPrecede(String name, Node net);
+//
+//	public abstract void addPrecedeByPath(String path, Node net);
+//
+//	public abstract void addPrecedeByPath(String path, String name, Node net);
+//
+//	public abstract void getPrecede(String name);
+//
+//	public abstract void getPrecedeByPath(String path);
+//
+//	public abstract void getPathInPrecede(String name);
+//
+//	public abstract void getPathInPrecede(Node net);
+//
+//	public abstract void containNetInPrecede(String name);
+//
+//	public abstract void containPathInPrecede(String path);
+//
+//	public abstract void contanLoopNetInPrecede();
+//
+//	// * 2, 后续
+//	public abstract void addNext(Node net);
+//
+//	public abstract void addNext(String name, Node net);
+//
+//	public abstract void addNextByPath(String path, Node net);
+//
+//	public abstract void addNextByPath(String path, String name, Node net);
+//
+//	public abstract void getNext(String name);
+//
+//	public abstract void getNextByPath(String path);
+//
+//	public abstract void getPathInNext(String name);
+//
+//	public abstract void getPathInNext(Node net);
+//
+//	public abstract void containNetInNext(String name);
+//
+//	public abstract void containPathInNext(String path);
+//
+//	public abstract void contanLoopNetInNext();
+//ch
+//	// * 前驱和后续
+//	public abstract void containLoop();
+//
+//	public abstract void getShortestPath(Node anotherNet);
 
-	/**
-	 * 
-	 */
-	public abstract void addPrecede(Node net);
-
-	public abstract void addPrecede(String name, Node net);
-
-	public abstract void addPrecedeByPath(String path, Node net);
-
-	public abstract void addPrecedeByPath(String path, String name, Node net);
-
-	public abstract void getPrecede(String name);
-
-	public abstract void getPrecedeByPath(String path);
-
-	public abstract void getPathInPrecede(String name);
-
-	public abstract void getPathInPrecede(Node net);
-
-	public abstract void containNetInPrecede(String name);
-
-	public abstract void containPathInPrecede(String path);
-
-	public abstract void contanLoopNetInPrecede();
-
-	// * 2, 后续
-	public abstract void addNext(Node net);
-
-	public abstract void addNext(String name, Node net);
-
-	public abstract void addNextByPath(String path, Node net);
-
-	public abstract void addNextByPath(String path, String name, Node net);
-
-	public abstract void getNext(String name);
-
-	public abstract void getNextByPath(String path);
-
-	public abstract void getPathInNext(String name);
-
-	public abstract void getPathInNext(Node net);
-
-	public abstract void containNetInNext(String name);
-
-	public abstract void containPathInNext(String path);
-
-	public abstract void contanLoopNetInNext();
-
-	// * 前驱和后续
-	public abstract void containLoop();
-
-	public abstract void getShortestPath(Node anotherNet);
-
+	public abstract void generateByString(java.lang.String data) throws DataGenerateException;
+	
+	public java.lang.String toString() {
+		return "[" + ClassUtils.getShortClassName(this.getClass()) + " " + this.getName();
+	}
+	
 }

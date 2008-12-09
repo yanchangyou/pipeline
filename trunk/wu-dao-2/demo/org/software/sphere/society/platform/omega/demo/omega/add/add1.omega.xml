@@ -22,6 +22,9 @@
 										</param-output>
 									</step>
 									<step service="main.main.main.main.io-server.input" standbyService="">
+										<service>
+											<bidder name="main.main.main.main.io-server.input" index=""/>
+										</service>
 										<param-output>
 											<result>
 												<refer-result name="b">${response.string-output}</refer-result>
@@ -53,7 +56,30 @@
 						</service>
 					</server>
 					<server name="io-server" host="127.0.0.1">
-						<service name="output" port="10001" />
+						<telnet>
+							
+						</telnet>
+						
+						<service name="output" port="10001" >
+							<competitor name="main.main.main.main.io-server.input" index="">
+								<jdbc:oracle:thin name="csair_db">
+									<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+									<property name="connection.url">jdbc:oracle:thin:@10.89.187.20:1521:nhzj</property>
+									<property name="dialect">net.sf.hibernate.dialect.Oracle9Dialect</property>
+									<property name="connection.username">csair</property>
+									<property name="connection.password">csair</property>
+									<property name="show_sql">true</property>
+									<property name="jdbc.maxActive">50</property>
+									<property name="jdbc.maxIdle">10</property>
+									<property name="jdbc.maxWait">9000</property>
+									<property name="jdbc.fetch_size">50</property>
+									<property name="jdbc.batch_size">50</property>
+									<property name="hibernate.cache.use_query_cache">false</property>
+									<property name="hibernate.cglib.use_reflection_optimizer">true</property>
+									<property name="use_outer_join">true</property>
+								</jdbc:oracle:thin>
+							</competitor>
+						</service>
 						<service name="input" port="10002" />
 					</server>
 					<server name="calculator" host="127.0.0.1">

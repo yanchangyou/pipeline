@@ -3,401 +3,618 @@
 <digester-rules>
 	<pattern value="root">
 
-		<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.Root" />
+		<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Root" />
 		<set-properties-rule />
 
-		<pattern value="define">
-
-			<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-			<set-properties-rule />
-			<pattern value="var">
-				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-				<set-properties-rule />
-				<call-method-rule methodname="setValue" paramcount="0" />
-				<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-			</pattern>
-			<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-		</pattern>
 		<pattern value="global">
 
-			<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Global" />
+			<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Global" />
 			<set-properties-rule />
 
-			<pattern value="define">
+			<pattern value="var-define">
 
-				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-				<set-properties-rule />
-				<pattern value="var">
-					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+				<pattern value="bool">
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 					<set-properties-rule />
-					<call-method-rule methodname="setValue" paramcount="0" />
-					<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+					<call-method-rule methodname="generateByString" paramcount="0" />
+					<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 				</pattern>
-				<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 			</pattern>
+			
+			<pattern value="service-define">
+				<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+				<set-properties-rule />
+				<pattern value="service">
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Service" />
+					<set-properties-rule />
+					
+					<pattern value="competitor">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Competitor" />
+						<set-properties-rule />
+						<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.omega.core.common.Competitor" />
+					</pattern>
+					<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.omega.core.common.Service" />
+				</pattern>
+				<set-next-rule methodname="setServiceDefine" paramtype="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+			</pattern>
+			
 			<pattern value="economy">
 
-				<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Economy" />
+				<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Economy" />
 				<set-properties-rule />
 
-				<pattern value="define">
-					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-					<set-properties-rule />
-					<pattern value="var">
-						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+				<pattern value="var-define">
+
+					<pattern value="bool">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 						<set-properties-rule />
-						<call-method-rule methodname="setValue" paramcount="0" />
-						<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+						<call-method-rule methodname="generateByString" paramcount="0" />
+						<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 					</pattern>
-					<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 				</pattern>
+				<pattern value="service-define">
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+					<set-properties-rule />
+					<pattern value="service">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Service" />
+						<set-properties-rule />
+						
+						<pattern value="competitor">
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Competitor" />
+							<set-properties-rule />
+							<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.omega.core.common.Competitor" />
+						</pattern>
+						<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.omega.core.common.Service" />
+					</pattern>
+					<set-next-rule methodname="setServiceDefine" paramtype="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+				</pattern>
+			
 				<pattern value="market">
-					<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Market" />
+					<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Market" />
 					<set-properties-rule />
 
-					<pattern value="define">
-						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-						<set-properties-rule />
-						<pattern value="var">
-							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+					<pattern value="var-define">
+
+						<pattern value="bool">
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 							<set-properties-rule />
-							<call-method-rule methodname="setValue" paramcount="0" />
-							<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+							<call-method-rule methodname="generateByString" paramcount="0" />
+							<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 						</pattern>
-						<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
+					</pattern>
+					
+					<pattern value="service-define">
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+						<set-properties-rule />
+						<pattern value="service">
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Service" />
+							<set-properties-rule />
+							
+							<pattern value="competitor">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Competitor" />
+								<set-properties-rule />
+								<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.omega.core.common.Competitor" />
+							</pattern>
+							<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.omega.core.common.Service" />
+						</pattern>
+						<set-next-rule methodname="setServiceDefine" paramtype="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
 					</pattern>
 					<pattern value="supplier">
-						<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Supplier" />
+						<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Supplier" />
 						<set-properties-rule />
 
-						<pattern value="define">
+						<pattern value="var-define">
 
-							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-							<set-properties-rule />
-							<pattern value="var">
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+							<pattern value="bool">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 								<set-properties-rule />
-								<call-method-rule methodname="setValue" paramcount="0" />
-								<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+								<call-method-rule methodname="generateByString" paramcount="0" />
+								<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 							</pattern>
-							<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 						</pattern>
+						
+							
+						<pattern value="service-define">
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+							<set-properties-rule />
+							<pattern value="service">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Service" />
+								<set-properties-rule />
+								
+								<pattern value="competitor">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Competitor" />
+									<set-properties-rule />
+									<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.omega.core.common.Competitor" />
+								</pattern>
+								<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.omega.core.common.Service" />
+							</pattern>
+							<set-next-rule methodname="setServiceDefine" paramtype="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+						</pattern>
+						
 						<pattern value="server">
-							<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Server" />
+							<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Server" />
 							<set-properties-rule />
 
-							<pattern value="define">
+							<pattern value="var-define">
 
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-								<set-properties-rule />
-								<pattern value="var">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+								<pattern value="bool">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 									<set-properties-rule />
-									<call-method-rule methodname="setValue" paramcount="0" />
-									<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+									<call-method-rule methodname="generateByString" paramcount="0" />
+									<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
 								</pattern>
-								<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
 							</pattern>
-							<pattern value="service">
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.esoa.Service" />
+								
+							<pattern value="service-define">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
 								<set-properties-rule />
-
-								<pattern value="define">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
+								<pattern value="service">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Service" />
 									<set-properties-rule />
-									<pattern value="var">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+									
+									<pattern value="competitor">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Competitor" />
+										<set-properties-rule />
+										<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.omega.core.common.Competitor" />
+									</pattern>
+									<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.omega.core.common.Service" />
+								</pattern>
+								<set-next-rule methodname="setServiceDefine" paramtype="org.software.sphere.society.platform.omega.core.common.ServiceDefine" />
+							</pattern>
+							
+							
+							<pattern value="telnet">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
+								<set-properties-rule />
+								
+								<pattern value="var-define">
+									<pattern value="bool">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
+										<set-properties-rule />
+										<call-method-rule methodname="generateByString" paramcount="0" />
+										<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
+									</pattern>
+								</pattern>
+								
+								<pattern value="property-define">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.PropertyDefine" />
+									<set-properties-rule />
+									<pattern value="property">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Property" />
 										<set-properties-rule />
 										<call-method-rule methodname="setValue" paramcount="0" />
-										<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+										<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.common.Property" />
 									</pattern>
-									<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
+									<set-next-rule methodname="setPropertyDefine" paramtype="org.software.sphere.society.platform.omega.core.common.PropertyDefine" />
 								</pattern>
-
 								<pattern value="request">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />
 									<set-properties-rule />
-
-									<pattern value="define">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-										<set-properties-rule />
-										<pattern value="var">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-											<set-properties-rule />
-											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-										</pattern>
-										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-									</pattern>
-
+									
+<!--									<pattern value="var-define">-->
+<!--										<pattern value="bool">-->
+<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--											<set-properties-rule />-->
+<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--										</pattern>-->
+<!--									</pattern>-->
+									
 									<pattern value="data">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />
 										<set-properties-rule />
 										<pattern value="line">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />
 											<set-properties-rule />
 											<call-method-rule methodname="setLine" paramcount="0" />
-											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
+											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />
 										</pattern>
-										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
+										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />
 									</pattern>
-									<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Request" />
+									<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />
 								</pattern>
 
 								<pattern value="response">
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Response" />
 									<set-properties-rule />
 
-									<pattern value="define">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-										<set-properties-rule />
-										<pattern value="var">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-											<set-properties-rule />
-											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-										</pattern>
-										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-									</pattern>
+<!--									<pattern value="var-define">-->
+<!--										<pattern value="bool">-->
+<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--											<set-properties-rule />-->
+<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--										</pattern>-->
+<!--									</pattern>-->
+
 
 									<pattern value="data">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />
 										<set-properties-rule />
 										<pattern value="line">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />
 											<set-properties-rule />
 											<call-method-rule methodname="setLine" paramcount="0" />
-											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
+											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />
 										</pattern>
-										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
+										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />
 									</pattern>
-									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Response" />
+									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />
 								</pattern>
 
-								<pattern value="pipeline">
 
-									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />
+
+
+							<pattern value="telnet">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
+								<set-properties-rule />
+								
+								<pattern value="var-define">
+									<pattern value="bool">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
+										<set-properties-rule />
+										<call-method-rule methodname="generateByString" paramcount="0" />
+										<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />
+									</pattern>
+								</pattern>
+								
+								<pattern value="property-define">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.PropertyDefine" />
+									<set-properties-rule />
+									<pattern value="property">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Property" />
+										<set-properties-rule />
+										<call-method-rule methodname="setValue" paramcount="0" />
+										<set-next-rule methodname="addProperty" paramtype="org.software.sphere.society.platform.omega.core.common.Property" />
+									</pattern>
+									<set-next-rule methodname="setPropertyDefine" paramtype="org.software.sphere.society.platform.omega.core.common.PropertyDefine" />
+								</pattern>
+								<pattern value="request">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />
+									<set-properties-rule />
+									
+<!--									<pattern value="var-define">-->
+<!--										<pattern value="bool">-->
+<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--											<set-properties-rule />-->
+<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--										</pattern>-->
+<!--									</pattern>-->
+									
+									<pattern value="data">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />
+										<set-properties-rule />
+										<pattern value="line">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />
+											<set-properties-rule />
+											<call-method-rule methodname="setLine" paramcount="0" />
+											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />
+										</pattern>
+										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />
+									</pattern>
+									<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />
+								</pattern>
+
+								<pattern value="response">
+									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Response" />
 									<set-properties-rule />
 
-									<pattern value="define">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
+<!--									<pattern value="var-define">-->
+<!--										<pattern value="bool">-->
+<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--											<set-properties-rule />-->
+<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+<!--										</pattern>-->
+<!--									</pattern>-->
+
+
+									<pattern value="data">
+										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />
 										<set-properties-rule />
-										<pattern value="var">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
+										<pattern value="line">
+											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />
 											<set-properties-rule />
-											<call-method-rule methodname="setValue" paramcount="0" />
-											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
+											<call-method-rule methodname="setLine" paramcount="0" />
+											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />
 										</pattern>
-										<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
+										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />
 									</pattern>
-
-									<pattern value="step">
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />
-										<set-properties-rule />
-
-										<pattern value="define">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-											<set-properties-rule />
-											<pattern value="var">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-												<set-properties-rule />
-												<call-method-rule methodname="setValue" paramcount="0" />
-												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-											</pattern>
-											<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-										</pattern>
-
-										<pattern value="request">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
-											<set-properties-rule />
-
-											<pattern value="define">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-												<set-properties-rule />
-												<pattern value="var">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-													<set-properties-rule />
-													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-												</pattern>
-												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-											</pattern>
-											
-											<pattern value="data">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
-												<set-properties-rule />
-												<pattern value="line">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-													<set-properties-rule />
-													<call-method-rule methodname="setLine" paramcount="0" />
-													<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-												</pattern>
-												<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
-											</pattern>
-											<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Request" />
-										</pattern>
-
-										<pattern value="response">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
-											<set-properties-rule />
-
-											<pattern value="define">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-												<set-properties-rule />
-												<pattern value="var">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-													<set-properties-rule />
-													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-												</pattern>
-												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-											</pattern>
-
-											<pattern value="data">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
-												<set-properties-rule />
-												<pattern value="line">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-													<set-properties-rule />
-													<call-method-rule methodname="setLine" paramcount="0" />
-													<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-												</pattern>
-												<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
-											</pattern>
-											<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Response" />
-										</pattern>
-
-										<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />
-
-									</pattern>
-
-									<pattern value="line">
-
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Line" />
-										<set-properties-rule />
-
-										<pattern value="define">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-											<set-properties-rule />
-											<pattern value="var">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-												<set-properties-rule />
-												<call-method-rule methodname="setValue" paramcount="0" />
-												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-											</pattern>
-											<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-										</pattern>
-
-										<pattern value="step">
-											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />
-											<set-properties-rule />
-
-											<pattern value="define">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-												<set-properties-rule />
-												<pattern value="var">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-													<set-properties-rule />
-													<call-method-rule methodname="setValue" paramcount="0" />
-													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-												</pattern>
-												<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-											</pattern>
-
-
-											<pattern value="request">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Request" />
-												<set-properties-rule />
-												
-												<pattern value="define">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-													<set-properties-rule />
-													<pattern value="var">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-														<set-properties-rule />
-														<call-method-rule methodname="setValue" paramcount="0" />
-														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-													</pattern>
-													<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-												</pattern>
-												
-												<pattern value="data">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
-													<set-properties-rule />
-													<pattern value="line">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-														<set-properties-rule />
-														<call-method-rule methodname="setLine" paramcount="0" />
-														<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-													</pattern>
-													<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
-												</pattern>
-												<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Request" />
-											</pattern>
-
-											<pattern value="response">
-												<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.rr.Response" />
-												<set-properties-rule />
-
-												<pattern value="define">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Define" />
-													<set-properties-rule />
-													<pattern value="var">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Var" />
-														<set-properties-rule />
-														<call-method-rule methodname="setValue" paramcount="0" />
-														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.element.common.Var" />
-													</pattern>
-													<set-next-rule methodname="setDefine" paramtype="org.software.sphere.society.platform.omega.core.element.common.Define" />
-												</pattern>
-
-
-												<pattern value="data">
-													<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.Data" />
-													<set-properties-rule />
-													<pattern value="line">
-														<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-														<set-properties-rule />
-														<call-method-rule methodname="setLine" paramcount="0" />
-														<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.element.common.LineString" />
-													</pattern>
-													<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.element.common.Data" />
-												</pattern>
-												<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.element.rr.Response" />
-											</pattern>
-
-											<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />
-
-										</pattern>
-										<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />
-									</pattern>
-
-									<pattern value="tree">
-
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Tree" />
-										<set-properties-rule />
-									</pattern>
-
-									<pattern value="loop">
-
-										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Loop" />
-										<set-properties-rule />
-									</pattern>
-
-									<set-next-rule methodname="setPipeline" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />
+									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />
 								</pattern>
 
-								<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Service" />
+								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
 							</pattern>
-							<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Server" />
+
+
+
+
+								<set-next-rule methodname="addFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
+							</pattern>
+							
+							
+							
+							
+							
+							<!--							<pattern value="service">-->
+							<!--								<object-create-rule classname="org.software.sphere.society.platform.omega.core.real.Service" />-->
+							<!--								<set-properties-rule />-->
+							<!---->
+							<!--								<pattern value="var-define">-->
+
+							<!--									<pattern value="bool">-->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--										<set-properties-rule />-->
+							<!--										<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--										<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--									</pattern>-->
+							<!--								</pattern>-->
+							<!---->
+							<!--								<pattern value="request">-->
+							<!--									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--									<set-properties-rule />-->
+							<!---->
+							<!--									<pattern value="var-define">-->
+
+							<!--										<pattern value="bool">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--											<set-properties-rule />-->
+							<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--										</pattern>-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="data">-->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--										<set-properties-rule />-->
+							<!--										<pattern value="line">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--											<set-properties-rule />-->
+							<!--											<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--										</pattern>-->
+							<!--										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--									</pattern>-->
+							<!--									<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--								</pattern>-->
+							<!---->
+							<!--								<pattern value="response">-->
+							<!--									<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--									<set-properties-rule />-->
+							<!---->
+							<!--									<pattern value="var-define">-->
+
+							<!--										<pattern value="bool">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--											<set-properties-rule />-->
+							<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--										</pattern>-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="data">-->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--										<set-properties-rule />-->
+							<!--										<pattern value="line">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--											<set-properties-rule />-->
+							<!--											<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--											<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--										</pattern>-->
+							<!--										<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--									</pattern>-->
+							<!--									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--								</pattern>-->
+							<!---->
+							<!--								<pattern value="pipeline">-->
+							<!---->
+							<!--									<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />-->
+							<!--									<set-properties-rule />-->
+							<!---->
+							<!--									<pattern value="var-define">-->
+
+							<!--										<pattern value="bool">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--											<set-properties-rule />-->
+							<!--											<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--											<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--										</pattern>-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="step">-->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />-->
+							<!--										<set-properties-rule />-->
+							<!---->
+							<!--										<pattern value="var-define">-->
+
+							<!--											<pattern value="bool">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--												<set-properties-rule />-->
+							<!--												<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--											</pattern>-->
+							<!--										</pattern>-->
+							<!---->
+							<!--										<pattern value="request">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--											<set-properties-rule />-->
+							<!---->
+							<!--											<pattern value="var-define">-->
+
+							<!--												<pattern value="bool">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--												</pattern>-->
+							<!--											</pattern>-->
+							<!--											-->
+							<!--											<pattern value="data">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--												<set-properties-rule />-->
+							<!--												<pattern value="line">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--													<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--												</pattern>-->
+							<!--												<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--											</pattern>-->
+							<!--											<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--										</pattern>-->
+							<!---->
+							<!--										<pattern value="response">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--											<set-properties-rule />-->
+							<!---->
+							<!--											<pattern value="var-define">-->
+
+							<!--												<pattern value="bool">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--												</pattern>-->
+							<!--											</pattern>-->
+							<!---->
+							<!--											<pattern value="data">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--												<set-properties-rule />-->
+							<!--												<pattern value="line">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--													<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--												</pattern>-->
+							<!--												<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--											</pattern>-->
+							<!--											<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--										</pattern>-->
+							<!---->
+							<!--										<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />-->
+							<!---->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="line">-->
+							<!---->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Line" />-->
+							<!--										<set-properties-rule />-->
+							<!---->
+							<!--										<pattern value="var-define">-->
+
+							<!--											<pattern value="bool">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--												<set-properties-rule />-->
+							<!--												<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--												<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--											</pattern>-->
+							<!--										</pattern>-->
+							<!---->
+							<!--										<pattern value="step">-->
+							<!--											<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Step" />-->
+							<!--											<set-properties-rule />-->
+							<!---->
+							<!--											<pattern value="var-define">-->
+
+							<!--												<pattern value="bool">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--													<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--												</pattern>-->
+							<!--											</pattern>-->
+							<!---->
+							<!---->
+							<!--											<pattern value="request">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--												<set-properties-rule />-->
+							<!--												-->
+							<!--												<pattern value="var-define">-->
+
+							<!--													<pattern value="bool">-->
+							<!--														<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--														<set-properties-rule />-->
+							<!--														<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--													</pattern>-->
+							<!--												</pattern>-->
+							<!--												-->
+							<!--												<pattern value="data">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<pattern value="line">-->
+							<!--														<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--														<set-properties-rule />-->
+							<!--														<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--														<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--													</pattern>-->
+							<!--													<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--												</pattern>-->
+							<!--												<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />-->
+							<!--											</pattern>-->
+							<!---->
+							<!--											<pattern value="response">-->
+							<!--												<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--												<set-properties-rule />-->
+							<!---->
+							<!--												<pattern value="var-define">-->
+
+							<!--													<pattern value="bool">-->
+							<!--														<object-create-rule classname="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--														<set-properties-rule />-->
+							<!--														<call-method-rule methodname="generateByString" paramcount="0" />-->
+							<!--														<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.node00.Bool" />-->
+							<!--													</pattern>-->
+							<!--												</pattern>-->
+							<!---->
+							<!---->
+							<!--												<pattern value="data">-->
+							<!--													<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--													<set-properties-rule />-->
+							<!--													<pattern value="line">-->
+							<!--														<object-create-rule classname="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--														<set-properties-rule />-->
+							<!--														<call-method-rule methodname="setLine" paramcount="0" />-->
+							<!--														<set-next-rule methodname="addLine" paramtype="org.software.sphere.society.platform.omega.core.common.LineString" />-->
+							<!--													</pattern>-->
+							<!--													<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.omega.core.common.Data" />-->
+							<!--												</pattern>-->
+							<!--												<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />-->
+							<!--											</pattern>-->
+							<!---->
+							<!--											<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />-->
+							<!---->
+							<!--										</pattern>-->
+							<!--										<set-next-rule methodname="addUnit" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Unit" />-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="tree">-->
+							<!---->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Tree" />-->
+							<!--										<set-properties-rule />-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<pattern value="loop">-->
+							<!---->
+							<!--										<object-create-rule classname="org.software.sphere.society.platform.omega.core.element.pipeline.Loop" />-->
+							<!--										<set-properties-rule />-->
+							<!--									</pattern>-->
+							<!---->
+							<!--									<set-next-rule methodname="setPipeline" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />-->
+							<!--								</pattern>-->
+							<!---->
+							<!--								<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Service" />-->
+							<!--							</pattern>-->
+							<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Server" />
 						</pattern>
-						<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Supplier" />
+						<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Supplier" />
 					</pattern>
-					<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Market" />
+					<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Market" />
 				</pattern>
-				<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Economy" />
+				<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Economy" />
 			</pattern>
-			<set-next-rule methodname="addChildElement" paramtype="org.software.sphere.society.platform.omega.core.element.esoa.Global" />
+			<set-next-rule methodname="setGlobal" paramtype="org.software.sphere.society.platform.omega.core.real.Global" />
 		</pattern>
 	</pattern>
 </digester-rules>

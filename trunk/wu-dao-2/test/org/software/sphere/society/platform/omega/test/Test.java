@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.software.matter.atom.entity.commons.Logable;
-import org.software.sphere.society.platform.omega.core.element.Root;
+import org.software.sphere.society.platform.omega.core.execute.Root;
 
 public class Test implements Runnable, Logable {
 	
@@ -30,6 +30,7 @@ public class Test implements Runnable, Logable {
 
 		try {
 			root = Root.load(OMEGA_FILE_PATH);
+			System.out.println(root);
 		} catch (Exception e) {
 			log.error("加载[" + OMEGA_FILE_PATH
 					+ "]文件失败, 请检查此omega文件中是否有错误的地方");
@@ -43,7 +44,7 @@ public class Test implements Runnable, Logable {
 			org.software.sphere.society.platform.omega.core.data.tree0D.String portString = new org.software.sphere.society.platform.omega.core.data.tree0D.String();
 			portString.setName("port");
 			portString.setJavaString(port);
-			root.getContext().append(portString);
+//			root.getContext().append(portString);
 			root.execute();
 			log.info(this.getName() + "演示结束");
 		} catch (ConnectException e) {

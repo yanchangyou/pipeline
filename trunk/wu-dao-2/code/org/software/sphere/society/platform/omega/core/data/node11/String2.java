@@ -124,4 +124,9 @@ public class String2 extends Node11 {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void generateByString(String data) {
+		// TODO Auto-generated method stub
+		
+	}
 }

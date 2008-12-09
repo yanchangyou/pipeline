@@ -1,7 +1,7 @@
 package org.software.sphere.society.platform.omega.core.element.rr;
 
+import org.software.sphere.society.platform.omega.core.common.Data;
 import org.software.sphere.society.platform.omega.core.element.Element;
-import org.software.sphere.society.platform.omega.core.element.common.Data;
 
 public class RR extends Element {
 

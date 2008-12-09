@@ -1,10 +1,13 @@
-package org.software.sphere.society.platform.omega.core.element.common;
+package org.software.sphere.society.platform.omega.core.common;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Data {
+import org.software.sphere.society.platform.omega.core.data.node0X.Node0X;
+import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
+
+public class Data extends Node0X {
 
 	protected java.lang.String data;
 
@@ -33,5 +36,15 @@ public class Data {
 
 	public void setData(java.lang.String data) {
 		this.data = data;
+	}
+
+	public void generateByString(String data) throws DataGenerateException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void dealChildNode(NodeDealer nodeDealer) {
+		// TODO Auto-generated method stub
+		
 	}
 }
