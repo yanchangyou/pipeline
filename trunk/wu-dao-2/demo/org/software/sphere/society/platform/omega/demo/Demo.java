@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.software.matter.atom.entity.commons.Logable;
-import org.software.sphere.society.platform.omega.core.element.Root;
+import org.software.sphere.society.platform.omega.common.Logable;
+import org.software.sphere.society.platform.omega.execute.Root;
 
 public class Demo implements Runnable, Logable {
 	
@@ -40,7 +40,7 @@ public class Demo implements Runnable, Logable {
 		try {
 			log.info(this.getName() + "开始演示");
 			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
-			root.getMeta().addProperty("port", port);
+//			root.getMeta().addProperty("port", port);
 			root.execute();
 			log.info(this.getName() + "演示结束");
 		} catch (ConnectException e) {
