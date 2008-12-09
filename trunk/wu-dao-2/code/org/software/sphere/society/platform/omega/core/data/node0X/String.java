@@ -38,4 +38,8 @@ public class String extends Node0X implements JavaStringable {
 	public void fromJavaString(java.lang.String data) throws DataGenerateException {
 		this.string = data;
 	}
+	
+	public java.lang.String toString() {
+		return this.toJavaString();
+	}
 }

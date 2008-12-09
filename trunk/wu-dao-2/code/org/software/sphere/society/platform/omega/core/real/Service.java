@@ -7,10 +7,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import org.software.sphere.society.platform.omega.common.Logable;
-import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.execute.Request;
 import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.execute.Session;
 
 public class Service extends RealNode implements Logable {
 
@@ -137,13 +135,13 @@ public class Service extends RealNode implements Logable {
 			Response response = service.getResponse();
 //			Context context = new Context();
 
-			Session clientSession = new Session(request, response, socket);
+//			Session clientSession = new Session(request, response, socket);
 			/**
 			 * 读取数据 采用&续行, && 换行的处理规则
 			 */
 			if (request != null) { //接收客户端请求
 				log.info("服务[" + this.getName() + "]接收客户端输入数据");
-				String requestData = RuleReadNetDataByOmega.readData(socket);
+//				String requestData = RuleReadNetDataByOmega.readData(socket);
 //				Tree requestTree = OmegaNetCompiler.compile(requestData);
 //				requestTree.execute(this.getContext());
 //				this.getContext().merge(this.request.getName(), requestTree);
@@ -167,7 +165,7 @@ public class Service extends RealNode implements Logable {
 			if (response != null) { //响应客户端请求
 				log.info("服务[" + this.getName() + "]向客户端输出结果");
 				PrintWriter os = new PrintWriter(socket.getOutputStream());
-				String responseData = response.getResponseData();
+//				String responseData = response.getResponseData();
 //				Tree responseTree = OmegaNetCompiler.compile(responseData);
 //				responseTree.execute(this.getContext());
 //				this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);

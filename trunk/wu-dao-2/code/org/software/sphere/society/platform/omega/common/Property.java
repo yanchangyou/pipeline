@@ -6,11 +6,6 @@ import org.software.sphere.society.platform.omega.exception.data.DataGenerateExc
 public class Property extends Node00 {
 
 	private java.lang.String value;
-	
-	public void generateByString(String data) throws DataGenerateException {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public java.lang.String getValue() {
 		return value;
@@ -22,6 +17,16 @@ public class Property extends Node00 {
 	
 	public java.lang.String toString() {
 		return value;
+	}
+
+	public void fromJavaString(String data) throws DataGenerateException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String toJavaString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

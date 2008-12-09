@@ -52,20 +52,28 @@ import org.software.sphere.society.platform.omega.core.data.node0X.String;
  */
 public abstract class Node extends Data implements Namable {
 
-	protected String name;
+	protected String nodeName;
 	
+	public String getNodeName() {
+		return nodeName;
+	}
+
+	public void setNodeName(String nodeName) {
+		this.nodeName = nodeName;
+	}
+
 	public Node() {
 		
 	}
-
 	
-	public String getName() {
-		return name;
+	public java.lang.String getName() {
+		return nodeName.toJavaString();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(java.lang.String name) {
+		setNodeName(new String(name));
 	}
+	
 	//	// * 1, Ç°Çý
 //
 //	/**
@@ -123,7 +131,7 @@ public abstract class Node extends Data implements Namable {
 
 	
 	public java.lang.String toString() {
-		return "[" + ClassUtils.getShortClassName(this.getClass()) + " " + this.getName();
+		return "[" + ClassUtils.getShortClassName(this.getClass()) + " " + this.getNodeName();
 	}
 	
 }

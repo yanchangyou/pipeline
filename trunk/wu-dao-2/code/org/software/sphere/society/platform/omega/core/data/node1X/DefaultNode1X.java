@@ -20,7 +20,7 @@ public class DefaultNode1X extends Node1X {
 	}
 	
 	public void addChildNode(Node node) {
-		this.addChildNode(node.getName(), node);
+		this.addChildNode(node.getNodeName(), node);
 	}
 	
 	public void addChildNode(String name, Node node) {
