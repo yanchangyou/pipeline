@@ -9,6 +9,6 @@ public class Economy extends RealNode {
 	 * 
 	 */
 	public Market getMarket(String marketName) {
-		return (Market) this.getChildRealNode(marketName);
+		return (Market) this.getNextRealNode(marketName);
 	}
 }

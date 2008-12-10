@@ -5,7 +5,6 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.core.execute.Root;
 
@@ -41,7 +40,7 @@ public class Test implements Runnable, Logable {
 
 		try {
 			log.info(this.getName() + "¿ªÊ¼ÑÝÊ¾");
-			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
+//			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
 //			org.software.sphere.society.platform.omega.data.tree0D.String portString = new org.software.sphere.society.platform.omega.data.tree0D.String();
 //			portString.setName("port");
 //			portString.setJavaString(port);

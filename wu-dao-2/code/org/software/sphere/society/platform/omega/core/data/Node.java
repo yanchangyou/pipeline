@@ -110,9 +110,12 @@ public abstract class Node extends Data implements Namable {
 //
 //	public abstract void addNextByPath(String path, String name, Node net);
 //
-//	public abstract void getNext(String name);
-//
-//	public abstract void getNextByPath(String path);
+	public abstract Node getNextNode(String nodeName);
+
+	public abstract Node getNextNodeByPath(String pathName);
+	
+	public abstract Node getNextNodeByPath(String[] pathNamesArray);
+	
 //
 //	public abstract void getPathInNext(String name);
 //

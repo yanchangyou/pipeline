@@ -13,31 +13,45 @@ public class DefaultNode1X extends Node1X {
 
 	protected Node preNode;
 	
-	private Map childNodesMap;
+	private Map nextNodesMap;
 	
 	public DefaultNode1X() {
-		childNodesMap = new HashMap();
+		nextNodesMap = new HashMap();
 	}
 	
-	public void addChildNode(Node node) {
-		this.addChildNode(node.getNodeName(), node);
+	public void addNextNode(Node node) {
+		this.addNextNode(node.getNodeName(), node);
 	}
 	
-	public void addChildNode(String name, Node node) {
-		childNodesMap.put(name, node);
-	}
-	
-	public Node getChildNode(String childNodeName) {
-		return (Node) childNodesMap.get(childNodeName);
+	public void addNextNode(String name, Node node) {
+		nextNodesMap.put(name, node);
 	}
 
-	public void generateByString(String data) {
-		// TODO Auto-generated method stub
-		
+	public Node getNextNodeByPath(String[] pathNamesArray) {
+		Node node = this;
+		for (int i = 0; i < pathNamesArray.length; i++) {
+			node = node.getNextNode(pathNamesArray[i]);
+		}
+		return node;
+	}
+
+	public Node getNextNodeByPath(String pathNames) {
+		java.lang.String path_javaString = pathNames.toJavaString();
+		java.lang.String[] pathArray = path_javaString.split("\\.");
+		String[] pathNameArray = new String[pathArray.length];
+		for (int i = 0; i < pathNameArray.length; i++) {
+			pathNameArray[i] = new String(pathArray[i]);
+		}
+		return this.getNextNodeByPath(pathNameArray);
 	}
 	
-	public void dealChildNode(NodeDealer nodeDealer) {
-		Set set = this.childNodesMap.keySet();
+	
+	public Node getNextNode(String nextNodeName) {
+		return (Node) nextNodesMap.get(nextNodeName);
+	}
+
+	public void dealNextNode(NodeDealer nodeDealer) {
+		Set set = this.nextNodesMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			Node node = (Node) iter.next();
 			nodeDealer.deal(node);
@@ -48,7 +62,7 @@ public class DefaultNode1X extends Node1X {
 //		return "preNodeName : " + this.preNode.getName() + ", children : " + this.getChildren();
 //	}
 
-	public Map getChildNodesMap() {
-		return childNodesMap;
+	public Map getNextNodesMap() {
+		return nextNodesMap;
 	}
 }
