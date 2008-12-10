@@ -10,7 +10,7 @@ import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.execute.Request;
 import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.flow.unit.Unit;
+import org.software.sphere.society.platform.omega.core.flow.Flow;
 
 public class Service extends RealNode implements Logable {
 
@@ -18,7 +18,7 @@ public class Service extends RealNode implements Logable {
 
 	private Response response;
 
-	private Unit unit;
+	private Flow flow;
 
 	private String port;
 
@@ -44,15 +44,15 @@ public class Service extends RealNode implements Logable {
 		return request;
 	}
 
-	public Unit getUnit() {
-		return unit;
+	public Flow getFlow() {
+		return flow;
 	}
 
-	public void setUnit(Unit unit) {
-		this.unit = unit;
-		this.setRequest(unit.getRequest());
-		this.setResponse(unit.getResponse());
-//		this.addChildElement(unit);
+	public void setFlow(Flow flow) {
+		this.flow = flow;
+		this.setRequest(flow.getRequest());
+		this.setResponse(flow.getResponse());
+//		this.addChildElement(flow);
 	}
 
 	public void setRequest(Request request) {
@@ -68,8 +68,8 @@ public class Service extends RealNode implements Logable {
 	}
 
 	public String toString() {
-		return super.toString() + "\nunit : "
-				+ unit + "\nrequest : " + request + "\nresponse : "
+		return super.toString() + "\nflow : "
+				+ flow + "\nrequest : " + request + "\nresponse : "
 				+ response;
 	}
 
@@ -153,17 +153,17 @@ public class Service extends RealNode implements Logable {
 				log.info("服务[" + this.getName() + "]客户端输入数据完毕");
 			}
 			
-//			Unit unit = service.getUnit();
+//			Flow flow = service.getFlow();
 
-//			unit.setRoot(service.getRoot());
-//			unit.setParentContext(context);
+//			flow.setRoot(service.getRoot());
+//			flow.setParentContext(context);
 
 			// TODO CHECH THIS
-//			this.addChildElement(unit);
+//			this.addChildElement(flow);
 			
 			log.info("服务[" + this.getName() + "]开始处理");
 			
-//			unit.deal(clientSession);
+//			flow.deal(clientSession);
 
 			log.info("服务[" + this.getName() + "]完成处理");
 			

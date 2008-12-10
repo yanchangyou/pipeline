@@ -163,8 +163,8 @@
 							</pattern>
 							
 							
-							<pattern value="telnet">
-								<object-create-rule classname="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
+							<pattern value="thread">
+								<object-create-rule classname="org.software.sphere.society.platform.omega.core.flow.thread.Thread" />
 								<set-properties-rule />
 								
 								<pattern value="var-define">
@@ -324,7 +324,7 @@
 									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />
 								</pattern>
 
-								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.unit.TELNET" />
+								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.thread.Thread" />
 							</pattern>
 
 

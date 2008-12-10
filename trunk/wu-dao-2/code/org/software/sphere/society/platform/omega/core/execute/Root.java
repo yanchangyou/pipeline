@@ -9,7 +9,7 @@ import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.sphere.society.platform.omega.OmegaConst;
 import org.software.sphere.society.platform.omega.core.data.node01.DefaultNode01;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
-import org.software.sphere.society.platform.omega.core.flow.unit.Unit;
+import org.software.sphere.society.platform.omega.core.flow.Flow;
 import org.software.sphere.society.platform.omega.core.real.Global;
 import org.xml.sax.SAXException;
 
@@ -29,7 +29,8 @@ public class Root extends DefaultNode01 {
 	}
 	
 	public void execute() throws Exception {
-		Execute.execute(this);
+//		Execute.execute(this);
+		this.getMainFlow().execute(null);
 		System.out.println("execute!!!!");
 	}
 	
@@ -41,8 +42,8 @@ public class Root extends DefaultNode01 {
 		this.setNext(global);
 	}
 	
-	public Unit getMainUnit() {
+	public Flow getMainFlow() {
 		final String MAIN_UNIT_PATH = new String(OmegaConst.CORE.EXECUTE.MAIN_UNIT_PATH);
-		return (Unit) this.getGlobal().getNextNodeByPath(MAIN_UNIT_PATH);
+		return (Flow) this.getGlobal().getNextNodeByPath(MAIN_UNIT_PATH);
 	}
 }
