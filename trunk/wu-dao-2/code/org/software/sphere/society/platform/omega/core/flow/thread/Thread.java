@@ -120,20 +120,25 @@ public class Thread extends Flow {
 			welcomeMsg.append("================欢迎来到工作室================")
 					.append("\r\n");
 			welcomeMsg.append("     你可以向服务器请求以下服务").append("\r\n");
-			welcomeMsg.append("     1, [start at port]-----在端口[port](数字)处开启服务").append("\r\n");
-			welcomeMsg.append("     2, [run at port]-----在端口[port](数字)处执行服务").append("\r\n");
-			welcomeMsg.append("     3, [stop at port]-----在端口[port](数字)处停止服务")
-					.append("\r\n");
+			welcomeMsg.append("     1, [start at port]-----在指定的端口[port](数字)开启这项服务").append("\r\n");
+			welcomeMsg.append("     2, [run at port]-----执行指定的端口[port](数字)的此项服务").append("\r\n");
+			welcomeMsg.append("     3, [stop at port]-----停止指定端口[port](数字)的此项服务").append("\r\n");
+			welcomeMsg.append("   某处可以[开启],[执行],[停止]其它端口处的这项服务, 它都是平等的, 可以互相操作的").append("\r\n");
+			welcomeMsg.append("   一旦你开启了某端口处的服务, 那么你就必须等待你开的端口执行完成后才能继续操作").append("\r\n");
 			welcomeMsg.append("=============================================")
 					.append("\r\n");
 			os.print(welcomeMsg);
 			os.flush();
-			while (true) {
+			while (!socket.isClosed()) {
 				os.print("请输入请求命令>");
 				os.flush();
 
 				requestData = RuleReadNetDataByOmega.readData(socket);
 
+				if (requestData == null) {
+					log.error(" 违法输入, 服务停止");
+					break;
+				}
 				log.info("服务[" + this.getName() + "]开始处理");
 
 				Session clientSession = new Session(request, response, socket);
@@ -145,14 +150,16 @@ public class Thread extends Flow {
 					responseData = "执行[" + requestData + "]命令成功";
 					log.info("开始执行命令" + requestData + "成功");
 				} catch (Exception e) {
-					responseData = "执行[" + requestData + "]命令失败, 失败的原因是 : "
+					command = "执行[" + command + "]命令失败, 失败的原因是 : "
 							+ e.getMessage();
-					responseData = responseData + "\r\n\r\n\r\n" + welcomeMsg;
-					log.info("开始执行命令" + requestData + "失败");
+					command = command + "\r\n\r\n\r\n" + welcomeMsg;
+					log.info("开始执行命令" + command + "失败");
 					e.printStackTrace();
+//					System.out.println("无效命令:" + command);
+//					System.in.read();
 				}
 
-				os.print(responseData + "\r\n");
+				os.print(command + "\r\n");
 				os.flush();
 				log.info("服务[" + this.getName() + "]向客户端输出结果完毕");
 			}
@@ -224,8 +231,9 @@ public class Thread extends Flow {
 		} else if (action.equals("run")) {
 			run(clientSession, port);
 		} else {
-			System.out.println("无效命令");
-			throw new Exception("无效命令");
+//			System.out.println("无效命令:" + command);
+//			System.in.read();
+			throw new Exception("无效命令" + command);
 		}
 	}
 
