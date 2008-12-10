@@ -52,7 +52,7 @@
 							</service>
 						</service-define>
 
-						<telnet name="main" port="21001">
+						<thread name="main" port="31001">
 							<property-define>
 								<property name="connection.driver_class">super.host</property>
 								<property name="connection.url">this.port</property>
@@ -188,7 +188,7 @@
 								</telnet>
 							</if-else>
 							
-						</telnet>	
+						</thread>	
 					</server>
 					<server name="io-server" host="127.0.0.1">
 						<ftp name="input-ftp">

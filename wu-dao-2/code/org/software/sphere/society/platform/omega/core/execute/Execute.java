@@ -7,7 +7,7 @@ import org.software.sphere.society.platform.omega.core.real.Service;
 public class Execute implements Logable {
 	public static void execute(Root root) throws Exception {
 
-		Unit mainUnit = root.getMainUnit();
+		Unit mainUnit = null;//root.getMainUnit();
 
 		log.info("开始加载[main unit]服务");
 
@@ -15,7 +15,7 @@ public class Execute implements Logable {
 		
 		Service mainService = new Service();
 		mainService.setName("main");
-		mainService.setUnit(mainUnit);
+		mainService.setFlow(mainUnit);
 		 String port = "11001";
 //		 try {
 //			 port = 11001;//mainUnit.getIntPort();

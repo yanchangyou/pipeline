@@ -8,7 +8,7 @@ public class TELNET extends Unit {
 
 	public void execute(Session clientSession) throws ConnectException, Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("run telnet");
 	}
 
 }
