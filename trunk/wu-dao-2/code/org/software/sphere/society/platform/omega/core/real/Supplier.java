@@ -9,6 +9,6 @@ public class Supplier extends RealNode {
 	 * 
 	 */
 	public Server getServer(String serverName) {
-		return (Server) this.getChildRealNode(serverName);
+		return (Server) this.getNextRealNode(serverName);
 	}
 }

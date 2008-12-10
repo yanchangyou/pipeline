@@ -15,10 +15,10 @@ import org.software.sphere.society.platform.omega.core.data.node0X.DefaultNode0X
 public class VarDefine extends DefaultNode0X {
 	
 	public void addVar(Node node) {
-		this.addChildNode(node);
+		this.addNextNode(node);
 	}
 
 	public Node getVar(java.lang.String name) {
-		return this.getChildNode(name);
+		return this.getNextNode(name);
 	}
 }

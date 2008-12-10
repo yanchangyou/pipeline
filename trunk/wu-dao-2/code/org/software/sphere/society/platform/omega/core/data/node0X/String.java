@@ -1,7 +1,11 @@
 package org.software.sphere.society.platform.omega.core.data.node0X;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.software.sphere.society.platform.omega.common.JavaStringable;
 import org.software.sphere.society.platform.omega.common.NodeDealer;
+import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node00.Char2;
 import org.software.sphere.society.platform.omega.exception.data.DataGenerateException;
 
@@ -21,8 +25,7 @@ public class String extends Node0X implements JavaStringable {
 		return string;
 	}
 
-	public void dealChildNode(NodeDealer nodeDealer) {
-		// TODO Auto-generated method stub
+	public void dealNextNode(NodeDealer nodeDealer) {
 		for (int i = 0; i < string.length(); i++) {
 			Char2 char2 = new Char2();
 			try {
@@ -41,5 +44,48 @@ public class String extends Node0X implements JavaStringable {
 	
 	public java.lang.String toString() {
 		return this.toJavaString();
+	}
+
+	public Node getNextNode(String nodeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getNextNodeByPath(String pathName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getNextNodeByPath(String[] pathNamesArray) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public boolean equals(Object node) {
+		if (node != null && (node instanceof String)) {
+			String string = (String)node;
+			if (string.toJavaString().equals(this.string)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int hashCode() {
+		return this.string.hashCode();
+	}
+	
+	public static void main(java.lang.String[] args) {
+		
+		Map map = new HashMap();
+		
+		String name = new String("name");
+		Object obj = new Object();
+		map.put(name, obj);
+		
+		
+		String name2 = new String("name");
+		
+		System.out.println(map.get(name2));
 	}
 }

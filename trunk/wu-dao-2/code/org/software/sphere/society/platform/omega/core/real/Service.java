@@ -7,8 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import org.software.sphere.society.platform.omega.common.Logable;
+import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.execute.Request;
 import org.software.sphere.society.platform.omega.core.execute.Response;
+import org.software.sphere.society.platform.omega.core.flow.unit.Unit;
 
 public class Service extends RealNode implements Logable {
 
@@ -16,7 +18,7 @@ public class Service extends RealNode implements Logable {
 
 	private Response response;
 
-//	private Pipeline pipeline;
+	private Unit unit;
 
 	private String port;
 
@@ -42,14 +44,16 @@ public class Service extends RealNode implements Logable {
 		return request;
 	}
 
-//	public Pipeline getPipeline() {
-//		return pipeline;
-//	}
-//
-//	public void setPipeline(Pipeline pipeline) {
-//		this.pipeline = pipeline;
-////		this.addChildElement(pipeline);
-//	}
+	public Unit getUnit() {
+		return unit;
+	}
+
+	public void setUnit(Unit unit) {
+		this.unit = unit;
+		this.setRequest(unit.getRequest());
+		this.setResponse(unit.getResponse());
+//		this.addChildElement(unit);
+	}
 
 	public void setRequest(Request request) {
 		this.request = request;
@@ -62,12 +66,12 @@ public class Service extends RealNode implements Logable {
 	public void setResponse(Response response) {
 		this.response = response;
 	}
-//
-//	public String toString() {
-//		return super.toString() + "\npipeline : "
-//				+ pipeline + "\nrequest : " + request + "\nresponse : "
-//				+ response;
-//	}
+
+	public String toString() {
+		return super.toString() + "\nunit : "
+				+ unit + "\nrequest : " + request + "\nresponse : "
+				+ response;
+	}
 
 	/**
 	 * service 对外的三个核心方法, start, stop, service
@@ -141,36 +145,38 @@ public class Service extends RealNode implements Logable {
 			 */
 			if (request != null) { //接收客户端请求
 				log.info("服务[" + this.getName() + "]接收客户端输入数据");
-//				String requestData = RuleReadNetDataByOmega.readData(socket);
+				String requestData = RuleReadNetDataByOmega.readData(socket);
 //				Tree requestTree = OmegaNetCompiler.compile(requestData);
 //				requestTree.execute(this.getContext());
 //				this.getContext().merge(this.request.getName(), requestTree);
+				System.out.println("请求数据是 : " + requestData);
 				log.info("服务[" + this.getName() + "]客户端输入数据完毕");
 			}
 			
-//			Pipeline pipeline = service.getPipeline();
+//			Unit unit = service.getUnit();
 
-//			pipeline.setRoot(service.getRoot());
-//			pipeline.setParentContext(context);
+//			unit.setRoot(service.getRoot());
+//			unit.setParentContext(context);
 
 			// TODO CHECH THIS
-//			this.addChildElement(pipeline);
+//			this.addChildElement(unit);
 			
 			log.info("服务[" + this.getName() + "]开始处理");
 			
-//			pipeline.deal(clientSession);
+//			unit.deal(clientSession);
 
 			log.info("服务[" + this.getName() + "]完成处理");
 			
 			if (response != null) { //响应客户端请求
 				log.info("服务[" + this.getName() + "]向客户端输出结果");
 				PrintWriter os = new PrintWriter(socket.getOutputStream());
-//				String responseData = response.getResponseData();
+				String responseData = response.getResponseData();
 //				Tree responseTree = OmegaNetCompiler.compile(responseData);
 //				responseTree.execute(this.getContext());
 //				this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);
 //				this.getContext().getParent().merger(response.getName(), responseTree);
 //				os.print(responseTree.getResult());
+				os.print(responseData);
 				os.flush();
 				log.info("服务[" + this.getName() + "]向客户端输出结果完毕");
 			}

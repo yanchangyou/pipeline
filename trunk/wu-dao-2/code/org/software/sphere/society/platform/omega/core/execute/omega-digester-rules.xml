@@ -604,15 +604,15 @@
 							<!--									<set-next-rule methodname="setPipeline" paramtype="org.software.sphere.society.platform.omega.core.element.pipeline.Pipeline" />-->
 							<!--								</pattern>-->
 							<!---->
-							<!--								<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Service" />-->
+							<!--								<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Service" />-->
 							<!--							</pattern>-->
-							<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Server" />
+							<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Server" />
 						</pattern>
-						<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Supplier" />
+						<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Supplier" />
 					</pattern>
-					<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Market" />
+					<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Market" />
 				</pattern>
-				<set-next-rule methodname="addChildRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Economy" />
+				<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Economy" />
 			</pattern>
 			<set-next-rule methodname="setGlobal" paramtype="org.software.sphere.society.platform.omega.core.real.Global" />
 		</pattern>

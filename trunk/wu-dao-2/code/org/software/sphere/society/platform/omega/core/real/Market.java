@@ -9,6 +9,6 @@ public class Market extends RealNode {
 	 * 
 	 */
 	public Supplier getSupplier(String supplierName) {
-		return (Supplier) this.getChildRealNode(supplierName);
+		return (Supplier) this.getNextRealNode(supplierName);
 	}
 }

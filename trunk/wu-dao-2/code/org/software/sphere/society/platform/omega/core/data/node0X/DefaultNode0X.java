@@ -12,11 +12,11 @@ public class DefaultNode0X extends Node0X {
 
 	private Map node0XMap = new HashMap();
 
-	public void addChildNode(Node node) {
+	public void addNextNode(Node node) {
 		node0XMap.put(node.getName(), node);
 	}
 
-	public Node getChildNode(java.lang.String name) {
+	public Node getNextNode(java.lang.String name) {
 		return (Node) node0XMap.get(name);
 	}
 
@@ -37,7 +37,7 @@ public class DefaultNode0X extends Node0X {
 
 	}
 	
-	public void dealChildNode(NodeDealer nodeDealer) {
+	public void dealNextNode(NodeDealer nodeDealer) {
 		Set set = this.node0XMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			Node node = (Node) iter.next();
@@ -52,6 +52,21 @@ public class DefaultNode0X extends Node0X {
 
 	public Map getNode0XMap() {
 		return node0XMap;
+	}
+
+	public Node getNextNode(String nodeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getNextNodeByPath(String pathName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getNextNodeByPath(String[] pathNamesArray) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

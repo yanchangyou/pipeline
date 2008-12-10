@@ -73,15 +73,15 @@ public abstract class RealNode extends DefaultNode1X {
 //	}
 
 	public void addVar(Node node) {
-		this.realNodeContext.addChildNode(node);
+		this.realNodeContext.addNextNode(node);
 	}
 
 	public Node getVar(String name) {
-		return this.realNodeContext.getChildNode(name);
+		return this.realNodeContext.getNextNode(name);
 	}
 
-	public RealNode getChildRealNode(String childNodeName) {
-		return (RealNode) this.getChildNode(childNodeName);
+	public RealNode getNextRealNode(String NextNodeName) {
+		return (RealNode) this.getNextNode(NextNodeName);
 	}
 
 	/**
@@ -89,16 +89,16 @@ public abstract class RealNode extends DefaultNode1X {
 	 * 
 	 * @param realNode
 	 */
-	public void addChildRealNode(RealNode realNode) {
-		this.addChildNode(realNode);
+	public void addNextRealNode(RealNode realNode) {
+		this.addNextNode(realNode);
 		realNode.setParentNode(this);
 //		realNode.tuneVarToRealNodeContext();
 	}
 //
 //	public void tuneVarToRealNodeContext() {
-//		this.varDefine.dealChildNode(new NodeDealer() {
+//		this.varDefine.dealNextNode(new NodeDealer() {
 //			public void deal(Node node) {
-//				RealNode.this.realNodeContext.addChildNode(node);
+//				RealNode.this.realNodeContext.addNextNode(node);
 //			}
 //		});
 //	}
@@ -112,8 +112,8 @@ public abstract class RealNode extends DefaultNode1X {
 //				+ "{var = {" + this.getVarDefine() + "}, \n" + leftPad
 				+ "{context = {" + this.getRealNodeContext() + "}, \n" + 
 				leftPad	+ "{service = {" + this.getServiceDefine() + "}, \n" + 
-				leftPad	+ "children = {\n" + 
-				leftPad + this.getChildNodesMap()+ "}]\n";
+				leftPad	+ "Nextren = {\n" + 
+				leftPad + this.getNextNodesMap()+ "}]\n";
 	}
 
 	public int getRealNodeLevel() {
@@ -146,7 +146,7 @@ public abstract class RealNode extends DefaultNode1X {
 		// if (pathArray[i].equals(KeyWords.SUPER_KEY_WORLD)) {
 		// RealNode = (RealNode) RealNode.getParent();
 		// } else {
-		// RealNode = (RealNode) RealNode.getChild(pathArray[i]);
+		// RealNode = (RealNode) RealNode.getNext(pathArray[i]);
 		// }
 		// }
 		return RealNode;
@@ -156,7 +156,7 @@ public abstract class RealNode extends DefaultNode1X {
 		RealNode RealNode = this.getRootRealNode();
 		java.lang.String[] pathArray = path.split("\\.");
 		for (int i = 0; i < pathArray.length; i++) {
-			// RealNode = (RealNode) RealNode.getChild(pathArray[i]);
+			// RealNode = (RealNode) RealNode.getNext(pathArray[i]);
 		}
 		return RealNode;
 	}

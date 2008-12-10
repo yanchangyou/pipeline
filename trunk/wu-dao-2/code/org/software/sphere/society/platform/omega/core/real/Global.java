@@ -9,6 +9,6 @@ public class Global extends RealNode {
 	 * 
 	 */
 	public Economy getEconomy(String economyName) {
-		return (Economy) this.getChildRealNode(economyName);
+		return (Economy) this.getNextRealNode(economyName);
 	}
 }

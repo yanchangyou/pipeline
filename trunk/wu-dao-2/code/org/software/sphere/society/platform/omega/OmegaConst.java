@@ -8,6 +8,12 @@ public class OmegaConst {
 
 	// public final String REQUEST_INPUT = "request-input";
 
+	public static class CORE {
+		public static class EXECUTE {
+			public final static String MAIN_UNIT_PATH = "main.main.main.main.main";
+		}
+	}
+	
 	public static class OuterDataStructure {
 
 		public static class Raw { // 原生数据结构

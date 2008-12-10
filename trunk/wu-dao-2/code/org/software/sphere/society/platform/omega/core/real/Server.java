@@ -13,7 +13,7 @@ public class Server extends RealNode {
 	
 	
 	public void addFlow(Flow flow) {
-		this.addChildNode(flow);
+		this.addNextNode(flow);
 	}
 	
 	public Flow getMainServiceFlow() {

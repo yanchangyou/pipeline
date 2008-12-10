@@ -127,6 +127,6 @@ public class RealNodeContext extends DefaultNode1X {
 	}
 
 	public java.lang.String toString() {
-		return this.getChildNodesMap().toString();
+		return this.getNextNodesMap().toString();
 	}
 }
