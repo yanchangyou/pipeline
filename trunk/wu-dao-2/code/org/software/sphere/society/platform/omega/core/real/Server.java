@@ -1,8 +1,6 @@
 package org.software.sphere.society.platform.omega.core.real;
 
-import java.util.Iterator;
-
-import org.software.sphere.society.platform.omega.core.flow.Flow;
+import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 
 
 public class Server extends RealNode {
@@ -12,19 +10,9 @@ public class Server extends RealNode {
 	}
 	
 	
-	public void addFlow(Flow flow) {
+	public void addFlow(FlowNode flow) {
 		this.addNextNode(flow);
-	}
-	
-	public Flow getMainServiceFlow() {
-		Flow flow = null;
-		for (Iterator iter = flow.getFlowList().iterator(); iter.hasNext();) {
-			flow = (Flow) iter.next();
-			if (flow.getName().equals("main")) {
-				break;
-			}
-		}
-		return flow;
+		flow.setPreNode(this);
 	}
 	
 	protected String host;

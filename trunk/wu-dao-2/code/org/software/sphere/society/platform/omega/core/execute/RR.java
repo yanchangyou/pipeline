@@ -22,6 +22,6 @@ public class RR  {
 		if (data == null) {
 			return null;
 		}
-		return super.toString() + ", data:" + data.getData();
+		return "data:{" + data.getData() + "}";
 	}
 }

@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 
 <root>
-	<global name="main">
+	<global name="self">
 		<meta>
 			<property name="athor" value="ether.anima" />
 			<property name="age" value="25" />
 			<property name="msn" value="isuifengi@hotmail.com" />
 		</meta>
-		<economy name="main">
-			<market name="main">
-				<supplier name="main">
-					<server name="main">
-						<service name="main" port="23001">
+		<economy name="self">
+			<market name="self">
+				<supplier name="self">
+					<server name="self">
+						<service name="self" port="23001">
 							<pipeline>
 								<line>
-									<step service="main.main.main.main.io-server.input" standbyService="">
+									<step service="self.self.self.self.io-server.input" standbyService="">
 										<param-output>
 											<result>
 												<refer-result name="a">${response.string-output}</refer-result>
 											</result>
 										</param-output>
 									</step>
-									<step service="main.main.main.main.io-server.input" standbyService="">
+									<step service="self.self.self.self.io-server.input" standbyService="">
 										<service>
-											<bidder name="main.main.main.main.io-server.input" index=""/>
+											<bidder name="self.self.self.self.io-server.input" index=""/>
 										</service>
 										<param-output>
 											<result>
@@ -31,7 +31,7 @@
 											</result>
 										</param-output>
 									</step>
-									<step service="main.main.main.main.calculator.add" standbyService="">
+									<step service="self.self.self.self.calculator.add" standbyService="">
 										<param-input separtor=",">
 											<param>
 												<refer-param name="a" />
@@ -44,7 +44,7 @@
 											</result>
 										</param-output>
 									</step>
-									<step service="main.main.main.main.io-server.output" standbyService="">
+									<step service="self.self.self.self.io-server.output" standbyService="">
 										<param-input>
 											<param>
 												<refer-param name="result" />
@@ -61,7 +61,7 @@
 						</telnet>
 						
 						<service name="output" port="10001" >
-							<competitor name="main.main.main.main.io-server.input" index="">
+							<competitor name="self.self.self.self.io-server.input" index="">
 								<jdbc:oracle:thin name="csair_db">
 									<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 									<property name="connection.url">jdbc:oracle:thin:@10.89.187.20:1521:nhzj</property>

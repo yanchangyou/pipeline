@@ -46,7 +46,7 @@ public class String extends Node0X implements JavaStringable {
 		return this.toJavaString();
 	}
 
-	public Node getNextNode(String nodeName) {
+	public Node getNextNodeByName(String nodeName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -88,4 +88,28 @@ public class String extends Node0X implements JavaStringable {
 		
 		System.out.println(map.get(name2));
 	}
+
+	public Node getPreNodeByName(String nodeName) {
+		return null;
+	}
+
+	public Node getPreNodeByPath(String pathName){
+		return null;
+	}
+
+	public Node getPreNodeByPath(String[] pathNamesArray) {
+		return null;
+	}
+	
+	
+	
+	
+	// common function
+	
+	public String trim() {
+		string = string.trim();
+		return this;
+	}
+	
+	
 }

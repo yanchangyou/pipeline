@@ -10,7 +10,7 @@ import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.execute.Request;
 import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.flow.Flow;
+import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 
 public class Service extends RealNode implements Logable {
 
@@ -18,7 +18,7 @@ public class Service extends RealNode implements Logable {
 
 	private Response response;
 
-	private Flow flow;
+	private FlowNode flow;
 
 	private String port;
 
@@ -44,11 +44,11 @@ public class Service extends RealNode implements Logable {
 		return request;
 	}
 
-	public Flow getFlow() {
+	public FlowNode getFlow() {
 		return flow;
 	}
 
-	public void setFlow(Flow flow) {
+	public void setFlow(FlowNode flow) {
 		this.flow = flow;
 		this.setRequest(flow.getRequest());
 		this.setResponse(flow.getResponse());

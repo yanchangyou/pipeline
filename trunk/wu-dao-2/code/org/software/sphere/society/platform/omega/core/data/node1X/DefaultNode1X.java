@@ -5,9 +5,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.software.sphere.society.platform.omega.common.Commons;
 import org.software.sphere.society.platform.omega.common.NodeDealer;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public class DefaultNode1X extends Node1X {
 
@@ -27,26 +29,26 @@ public class DefaultNode1X extends Node1X {
 		nextNodesMap.put(name, node);
 	}
 
-	public Node getNextNodeByPath(String[] pathNamesArray) {
+	public Node getNextNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
 		Node node = this;
+		StringBuffer buf = new StringBuffer();
 		for (int i = 0; i < pathNamesArray.length; i++) {
-			node = node.getNextNode(pathNamesArray[i]);
+			node = node.getNextNodeByName(pathNamesArray[i]);
+			buf.append(".").append(pathNamesArray[i]);
+			if (node == null) {
+				throw new MiddleNodeNotFountException("错误:中间节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
+			}
 		}
 		return node;
 	}
 
-	public Node getNextNodeByPath(String pathNames) {
-		java.lang.String path_javaString = pathNames.toJavaString();
-		java.lang.String[] pathArray = path_javaString.split("\\.");
-		String[] pathNameArray = new String[pathArray.length];
-		for (int i = 0; i < pathNameArray.length; i++) {
-			pathNameArray[i] = new String(pathArray[i]);
-		}
+	public Node getNextNodeByPath(String pathName)  throws MiddleNodeNotFountException {
+		String[] pathNameArray = Commons.getPathNameArray(pathName);
 		return this.getNextNodeByPath(pathNameArray);
 	}
 	
 	
-	public Node getNextNode(String nextNodeName) {
+	public Node getNextNodeByName(String nextNodeName) {
 		return (Node) nextNodesMap.get(nextNodeName);
 	}
 
@@ -57,12 +59,50 @@ public class DefaultNode1X extends Node1X {
 			nodeDealer.deal(node);
 		}
 	}
-//
-//	public String toString() {
-//		return "preNodeName : " + this.preNode.getName() + ", children : " + this.getChildren();
-//	}
 
 	public Map getNextNodesMap() {
 		return nextNodesMap;
 	}
+
+	public Node getPreNode() {
+		return preNode;
+	}
+
+	public void setPreNode(Node preNode) {
+		this.preNode = preNode;
+	}
+
+	public Node getPreNodeByName(String nodeName) {
+		if (this.preNode.getNodeName().equals(nodeName)) {
+			return this.preNode;
+		}
+		return null;
+	}
+
+	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
+		String[] pathNameArray = Commons.getPathNameArray(pathName);
+		return getPreNodeByPath(pathNameArray);
+	}
+
+	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+
+		if (pathNamesArray != null && pathNamesArray.length == 1 && pathNamesArray[0].equals(this.preNode.getNodeName())) {
+			return this.preNode;
+		}
+		return null;
+	}
+	
+	public int getNode1XPreLevel() {
+		DefaultNode1X node1X = this;
+		int level = 0;
+		while (node1X.preNode != null) {
+			level ++;
+			node1X = (DefaultNode1X) node1X.preNode;
+		}
+		return level;
+	}
+//
+//	public String toString() {
+//		return "preNodeName : " + this.preNode.getName() + ", children : " + this.getChildren();
+//	}
 }

@@ -9,6 +9,6 @@ public class Service extends DefaultNode0X {
 	}
 
 	public Competitor getCompetitor(java.lang.String name) {
-		return (Competitor) this.getNextNode(name);
+		return (Competitor) this.getNextNodeByName(name);
 	}
 }

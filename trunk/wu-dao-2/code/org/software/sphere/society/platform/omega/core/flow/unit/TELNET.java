@@ -11,12 +11,14 @@ public class TELNET extends Unit {
 	public void execute(Session clientSession) throws ConnectException, Exception {
 		// TODO Auto-generated method stub
 		System.out.println("run telnet");
-		
-		Socket socket = clientSession.getClientSocket();
-		
-		PrintWriter os = new PrintWriter(socket.getOutputStream());
-		os.println("这是一个telnet服务, 目前还没有实现");
-		os.flush();
+		if (clientSession != null) {
+			
+			Socket socket = clientSession.getClientSocket();
+			
+			PrintWriter os = new PrintWriter(socket.getOutputStream());
+			os.println("这是一个telnet服务, 目前还没有实现");
+			os.flush();
+		}
 //		socket.close();
 	}
 

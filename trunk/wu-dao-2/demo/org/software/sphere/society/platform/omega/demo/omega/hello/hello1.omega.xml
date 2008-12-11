@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
 <root>
-	<global name="main">
-		<economy name="main">
-			<market name="main">
-				<supplier name="main">
-					<server name="main">
-						<service name="main" port="21001">
+	<global name="self">
+		<economy name="self">
+			<market name="self">
+				<supplier name="self">
+					<server name="self">
+						<service name="self" port="21001">
 							<pipeline name="hello1_pipeline">
 								<line name="hello1_line">
 									<step name="hello1_step">

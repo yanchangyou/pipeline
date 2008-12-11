@@ -20,5 +20,5 @@ public class KeyWords {
 	
 	public final static String SUPER_KEY_WORLD = "super";
 	
-	
+	public final static String ROOT_KEY_WORLD = "root";
 }
