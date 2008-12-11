@@ -7,28 +7,28 @@ import org.software.sphere.society.platform.omega.core.real.Service;
 public class Execute implements Logable {
 	public static void execute(Root root) throws Exception {
 
-		Unit mainUnit = null;//root.getMainUnit();
+		Unit selfUnit = null;//root.getselfUnit();
 
-		log.info("开始加载[main unit]服务");
+		log.info("开始加载[self unit]服务");
 
 		log.info("加载服务成功");
 		
-		Service mainService = new Service();
-		mainService.setName("main");
-		mainService.setFlow(mainUnit);
+		Service selfService = new Service();
+		selfService.setName("self");
+		selfService.setFlow(selfUnit);
 		 String port = "11001";
 //		 try {
-//			 port = 11001;//mainUnit.getIntPort();
+//			 port = 11001;//selfUnit.getIntPort();
 //			 
 //		 } catch (Exception e) {
-//		 log.error("严重错误:没有指定端口号, 在服务[[main]]处");
+//		 log.error("严重错误:没有指定端口号, 在服务[[self]]处");
 //		 }
-		 mainService.setPort(port);
+		 selfService.setPort(port);
 		 
 		 log.info("开始在" + port + "端口监听请求");
-		 mainService.start();
+		 selfService.start();
 
 		log.info("所有服务结束");
-		// log.info("关闭在" + mainService.getPort() + "端口监听请求");
+		// log.info("关闭在" + selfService.getPort() + "端口监听请求");
 	}
 }

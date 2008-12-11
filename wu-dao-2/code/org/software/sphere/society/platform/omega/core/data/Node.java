@@ -1,8 +1,10 @@
 package org.software.sphere.society.platform.omega.core.data;
 
 import org.apache.commons.lang.ClassUtils;
+import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.common.Namable;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 /**
  * 在omega中, 所有数据都看成是net的一部分<br>
@@ -50,7 +52,7 @@ import org.software.sphere.society.platform.omega.core.data.node0X.String;
  * @file : Net.java
  * @version : 0.1
  */
-public abstract class Node extends Data implements Namable {
+public abstract class Node extends Data implements Namable, Logable {
 
 	protected String nodeName;
 	
@@ -87,9 +89,11 @@ public abstract class Node extends Data implements Namable {
 //
 //	public abstract void addPrecedeByPath(String path, String name, Node net);
 //
-//	public abstract void getPrecede(String name);
-//
-//	public abstract void getPrecedeByPath(String path);
+	public abstract Node getPreNodeByName(String nodeName);
+
+	public abstract Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException;
+	
+	public abstract Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException;
 //
 //	public abstract void getPathInPrecede(String name);
 //
@@ -110,11 +114,11 @@ public abstract class Node extends Data implements Namable {
 //
 //	public abstract void addNextByPath(String path, String name, Node net);
 //
-	public abstract Node getNextNode(String nodeName);
+	public abstract Node getNextNodeByName(String nodeName);
 
-	public abstract Node getNextNodeByPath(String pathName);
+	public abstract Node getNextNodeByPath(String pathName) throws MiddleNodeNotFountException;
 	
-	public abstract Node getNextNodeByPath(String[] pathNamesArray);
+	public abstract Node getNextNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException;
 	
 //
 //	public abstract void getPathInNext(String name);
@@ -134,6 +138,9 @@ public abstract class Node extends Data implements Namable {
 
 	
 	public java.lang.String toString() {
+		if (this.getNodeName() == null) {
+			log.info("why this is null, make a break point at here to know");
+		}
 		return "[" + ClassUtils.getShortClassName(this.getClass()) + " " + this.getNodeName();
 	}
 	

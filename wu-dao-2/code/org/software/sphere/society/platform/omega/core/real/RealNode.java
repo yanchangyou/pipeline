@@ -5,7 +5,6 @@ import org.software.sphere.society.platform.omega.common.ServiceDefine;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.omega.core.execute.KeyWords;
 import org.software.sphere.society.platform.omega.core.execute.RealNodeContext;
 
 /**
@@ -18,10 +17,10 @@ import org.software.sphere.society.platform.omega.core.execute.RealNodeContext;
  * 服务定义用于定义当前节点所拥有的服务,并且每个服务有多个竞争者提供此服务<be> 
  * 3, 变量列表<br>
  * 定义当前节点的初始变量, 并且处理到上下文中, 所有变量都统一存储在上下文中 
- * 4, 父节点<br>
- * 父节点用于关联父节点, 便于整个real node 的向上导航 
- * 5, 子节点列表<br>
- * 用于整个real node 的向下导航
+ * 4, 前驱节点<br>
+ * 父节点用于关联父节点, 便于整个real node 的向前遍历 
+ * 5, 后续节点<br>
+ * 用于整个real node 的向后遍历
  * 
  * 
  * 
@@ -33,144 +32,83 @@ import org.software.sphere.society.platform.omega.core.execute.RealNodeContext;
 public abstract class RealNode extends DefaultNode1X {
 
 	/**
-	 * 父节点
-	 */
-	protected RealNode parentNode;
-
-	/**
 	 * 上下文
 	 */
-	protected RealNodeContext realNodeContext;
-
-	/**
-	 * 变量定义
-	 */
-//	protected VarDefine varDefine;
+	private RealNodeContext realNodeContext;
 
 	/**
 	 * 服务定义
 	 */
 	protected ServiceDefine serviceDefine;
 
+	/**
+	 * 构造节点, 同时初始化上下文
+	 *
+	 */
 	public RealNode() {
 		this.realNodeContext = new RealNodeContext(this);// 自动把上下文与此节点关联起来
 	}
 
+	/**
+	 * 获取上下文
+	 * @return
+	 */
 	public RealNodeContext getRealNodeContext() {
 		return realNodeContext;
 	}
 
-	public void setRealNodeContext(RealNodeContext realNodeContext) {
-		this.realNodeContext = realNodeContext;
-	}
-//
-//	public VarDefine getVarDefine() {
-//		return varDefine;
-//	}
-//
-//	public void setVarDefine(VarDefine varDefine) {
-//		this.varDefine = varDefine;
-//	}
-
+	/** 
+	 * 添加变量<br>
+	 * 直接放到上下文中去了
+	 * 
+	 * @param node
+	 */
 	public void addVar(Node node) {
 		this.realNodeContext.addNextNode(node);
 	}
-
+	/**
+	 * 获取变量<br>
+	 * 直接从上下文中获取
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public Node getVar(String name) {
-		return this.realNodeContext.getNextNode(name);
-	}
-
-	public RealNode getNextRealNode(String NextNodeName) {
-		return (RealNode) this.getNextNode(NextNodeName);
+		return this.realNodeContext.getNextNodeByName(name);
 	}
 
 	/**
-	 * 添加子节点并且设置parent
+	 * 按名获取后一个后续节点
+	 * @param NextNodeName
+	 * @return
+	 */
+	public RealNode getNextRealNode(String NextNodeName) {
+		return (RealNode) this.getNextNodeByName(NextNodeName);
+	}
+
+	/**
+	 * 添加后续节点
 	 * 
 	 * @param realNode
 	 */
 	public void addNextRealNode(RealNode realNode) {
 		this.addNextNode(realNode);
-		realNode.setParentNode(this);
-//		realNode.tuneVarToRealNodeContext();
-	}
-//
-//	public void tuneVarToRealNodeContext() {
-//		this.varDefine.dealNextNode(new NodeDealer() {
-//			public void deal(Node node) {
-//				RealNode.this.realNodeContext.addNextNode(node);
-//			}
-//		});
-//	}
-
-	// public
-
-	public java.lang.String toString() {
-		int RealNodeLevel = getRealNodeLevel();
-		java.lang.String leftPad = StringUtils.leftPad(" ", RealNodeLevel * 4);
-		return "\n" + leftPad + super.toString() + " = \n" + leftPad
-//				+ "{var = {" + this.getVarDefine() + "}, \n" + leftPad
-				+ "{context = {" + this.getRealNodeContext() + "}, \n" + 
-				leftPad	+ "{service = {" + this.getServiceDefine() + "}, \n" + 
-				leftPad	+ "Nextren = {\n" + 
-				leftPad + this.getNextNodesMap()+ "}]\n";
+		realNode.setPreNode(this);
 	}
 
+	/**
+	 * 获取节点层次数 根节点定义为0
+	 * 
+	 * @return 层次数
+	 */
 	public int getRealNodeLevel() {
 		int realNodeLevel = 0;
 		RealNode realNode = this;
-		while (realNode.getParentNode() != null) {
+		while (realNode.getPreNode() != null) {
 			realNodeLevel++;
-			realNode = (RealNode) realNode.getParentNode();
+			realNode = (RealNode) realNode.getPreNode();
 		}
 		return realNodeLevel;
-	}
-
-	public RealNode getSuitablePathRealNode(java.lang.String path) {
-		RealNode RealNode = null;
-		if (path.startsWith(KeyWords.THIS_KEY_WORLD + ".")) {
-			RealNode = getRelativePathRealNode(path
-					.substring(KeyWords.THIS_KEY_WORLD.length() + 1));
-		} else {
-			RealNode = getAbsolutePathRealNode(path);
-		}
-		return RealNode;
-	}
-
-	public RealNode getRelativePathRealNode(java.lang.String path) {
-		RealNode RealNode = this;
-
-//		java.lang.String[] pathArray = path.split("\\.");
-
-		// for (int i = 0; i < pathArray.length; i++) {
-		// if (pathArray[i].equals(KeyWords.SUPER_KEY_WORLD)) {
-		// RealNode = (RealNode) RealNode.getParent();
-		// } else {
-		// RealNode = (RealNode) RealNode.getNext(pathArray[i]);
-		// }
-		// }
-		return RealNode;
-	}
-
-	public RealNode getAbsolutePathRealNode(java.lang.String path) {
-		RealNode RealNode = this.getRootRealNode();
-		java.lang.String[] pathArray = path.split("\\.");
-		for (int i = 0; i < pathArray.length; i++) {
-			// RealNode = (RealNode) RealNode.getNext(pathArray[i]);
-		}
-		return RealNode;
-	}
-
-	public RealNode getRootRealNode() {
-		RealNode RealNode = this;
-		// while (RealNode.getParent() != null) {
-		// RealNode = (RealNode) RealNode.getParent();
-		// }
-		return RealNode;
-	}
-
-	public RealNodeContext getRootRealNodeContext() {
-		return getRootRealNode().getRealNodeContext();
 	}
 
 	public ServiceDefine getServiceDefine() {
@@ -181,12 +119,18 @@ public abstract class RealNode extends DefaultNode1X {
 		this.serviceDefine = serviceDefine;
 	}
 
-	public RealNode getParentNode() {
-		return parentNode;
+	public RealNode getPreRealNode() {
+		return (RealNode) this.preNode;
 	}
-
-	public void setParentNode(RealNode parentNode) {
-		this.parentNode = parentNode;
+	
+	public java.lang.String toString() {
+		int flowNodeLevel = this.getNode1XPreLevel();
+		java.lang.String leftPad = StringUtils.leftPad(" ", flowNodeLevel * 4);
+		StringBuffer buf = new StringBuffer();
+		buf.append("\r\n").append(leftPad).append(super.toString());
+		buf.append("\r\n").append(leftPad).append("context = {").append(getRealNodeContext().getNextNodesMap());
+		buf.append("\r\n").append(leftPad).append("service : ").append(getServiceDefine());
+		buf.append("\r\n").append(leftPad).append("next = {").append(this.getNextNodesMap().toString());
+		return buf.toString();
 	}
-
 }

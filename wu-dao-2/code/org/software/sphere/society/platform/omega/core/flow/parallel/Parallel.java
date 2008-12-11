@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.software.sphere.society.platform.omega.core.execute.Session;
-import org.software.sphere.society.platform.omega.core.flow.Flow;
+import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 
 
 /**
@@ -20,13 +20,13 @@ import org.software.sphere.society.platform.omega.core.flow.Flow;
  * @file : Parallel.java
  * @version : 0.1
  */
-public class Parallel extends Flow {
+public class Parallel extends FlowNode {
 
 	public void execute(final Session clientSession) throws ConnectException, Exception {
 
 		List flowThreadList = new ArrayList();
 		for (Iterator iter = flowList.iterator(); iter.hasNext();) {
-			final Flow flow = (Flow) iter.next();
+			final FlowNode flow = (FlowNode) iter.next();
 			Thread thread = newThreadExecuteFlow(clientSession, flow);
 			flowThreadList.add(thread);
 		}
@@ -37,7 +37,7 @@ public class Parallel extends Flow {
 	}
 
 	
-	public Thread newThreadExecuteFlow(final Session clientSession, final Flow flow) {
+	public Thread newThreadExecuteFlow(final Session clientSession, final FlowNode flow) {
 		Thread thread = new Thread(){ 
 			public void run() {
 				try {

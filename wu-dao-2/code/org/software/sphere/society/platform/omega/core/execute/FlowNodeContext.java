@@ -3,7 +3,7 @@ package org.software.sphere.society.platform.omega.core.execute;
 import org.software.sphere.society.platform.omega.common.Commons;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.omega.core.real.RealNode;
+import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 
 /**
  * 上下文<br>
@@ -12,14 +12,14 @@ import org.software.sphere.society.platform.omega.core.real.RealNode;
  * 
  * @author yanchangyou@gmail.com
  * @date : 2008-12-2 下午09:30:51
- * @file : RealNodeContext.java
+ * @file : FlowNodeContext.java
  * @version : 0.1
  */
-public class RealNodeContext extends DefaultNode1X {
+public class FlowNodeContext extends DefaultNode1X {
 
-	public RealNodeContext(RealNode thisRealNode) {
+	public FlowNodeContext(FlowNode thisFlowNode) {
 		super();
-		this.preNode = thisRealNode;
+		this.preNode = thisFlowNode;
 	}
 	
 	/**
@@ -35,17 +35,17 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNode getSuitablePathRealNode(String path) {
-		RealNode realNode = null;
+	public FlowNode getSuitablePathFlowNode(String path) {
+		FlowNode flowNode = null;
 		
 		if (path.toJavaString().startsWith(KeyWords.THIS_KEY_WORLD + ".")) {
-			realNode = getRelativePathRealNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.length() + 1)));
+			flowNode = getRelativePathFlowNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.length() + 1)));
 		} else if (path.toJavaString().startsWith(KeyWords.ROOT_KEY_WORLD + ".")) {
-			realNode = getAbsolutePathRealNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.length() + 1)));
+			flowNode = getAbsolutePathFlowNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.length() + 1)));
 		} else {
-			realNode = getRelativePathRealNode(path);
+			flowNode = getRelativePathFlowNode(path);
 		}
-		return realNode;
+		return flowNode;
 	}
 	
 	/**
@@ -53,8 +53,8 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNodeContext getSuitablePathRealNodeContext(String path) {
-		return getSuitablePathRealNode(path).getRealNodeContext();
+	public FlowNodeContext getSuitablePathFlowNodeContext(String path) {
+		return getSuitablePathFlowNode(path).getFlowNodeContext();
 	}
 
 	/**
@@ -63,19 +63,19 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNode getRelativePathRealNode(String path) {
-		RealNode realNode = this.getThisRealNode();
+	public FlowNode getRelativePathFlowNode(String path) {
+		FlowNode flowNode = this.getThisFlowNode();
 
 		String[] pathArray = Commons.convertToStringArray(path.toJavaString().split("\\."));
 
 		for (int i = 0; i < pathArray.length; i++) {
 			if (pathArray[i].equals(KeyWords.SUPER_KEY_WORLD)) {
-				realNode = realNode.getPreRealNode();
+				flowNode = flowNode.getPreFlowNode();
 			} else {
-				realNode = realNode.getNextRealNode(pathArray[i]);
+				flowNode = flowNode.getNextFlowNode(pathArray[i]);
 			}
 		}
-		return realNode;
+		return flowNode;
 	}
 	
 	/**
@@ -84,8 +84,8 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNodeContext getRelativePathRealNodeContext(String path) {
-		return getRelativePathRealNode(path).getRealNodeContext();
+	public FlowNodeContext getRelativePathFlowNodeContext(String path) {
+		return getRelativePathFlowNode(path).getFlowNodeContext();
 	}
 	/**
 	 * 获取绝对路径的节点
@@ -93,13 +93,13 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNode getAbsolutePathRealNode(String path) {
-		RealNode realNode = this.getGlobalNode();
+	public FlowNode getAbsolutePathFlowNode(String path) {
+		FlowNode flowNode = this.getSelfFlowNode();
 		String[] pathArray = Commons.convertToStringArray(path.toJavaString().split("\\."));
 		for (int i = 0; i < pathArray.length; i++) {
-			realNode = realNode.getNextRealNode(pathArray[i]);
+			flowNode = flowNode.getNextFlowNode(pathArray[i]);
 		}
-		return realNode;
+		return flowNode;
 	}
 	
 	/**
@@ -108,8 +108,8 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @param path
 	 * @return
 	 */
-	public RealNodeContext getAbsolutePathRealNodeContext(String path) {
-		return getAbsolutePathRealNode(path).getRealNodeContext();
+	public FlowNodeContext getAbsolutePathFlowNodeContext(String path) {
+		return getAbsolutePathFlowNode(path).getFlowNodeContext();
 	}
 		
 	/**
@@ -117,8 +117,8 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @return
 	 */
-	public RealNode getThisRealNode() {
-		return (RealNode) this.preNode;
+	public FlowNode getThisFlowNode() {
+		return (FlowNode) this.preNode;
 	}
 
 	/**
@@ -128,23 +128,23 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @return
 	 */
-	public RealNode getGlobalNode() {
-		RealNode realNode = this.getThisRealNode();
-		while (realNode.getPreNode() != null) {
-			realNode = realNode.getPreRealNode();
+	public FlowNode getSelfFlowNode() {
+		FlowNode flowNode = this.getThisFlowNode();
+		while (flowNode.getPreNode() != null) {
+			flowNode = flowNode.getPreFlowNode();
 		}
-		return ((Root)(Object)realNode).getGlobal();
+		return flowNode;
 	}
 	
 	/**
 	 * Global的上下文
 	 * @return
 	 */
-	public RealNodeContext getGlobalNodeContext() {
-		return getGlobalNode().getRealNodeContext();
+	public FlowNodeContext getSelfFlowNodeContext() {
+		return getSelfFlowNode().getFlowNodeContext();
 	}
 	
 	public java.lang.String toString() {
-		return this.getNextNodesMap().toString();
+		return super.toString() + "" + this.getNextNodesMap().toString();
 	}
 }

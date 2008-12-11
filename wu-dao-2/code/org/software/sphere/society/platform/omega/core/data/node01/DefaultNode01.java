@@ -2,6 +2,7 @@ package org.software.sphere.society.platform.omega.core.data.node01;
 
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public class DefaultNode01 extends Node01 {
 
@@ -23,7 +24,7 @@ public class DefaultNode01 extends Node01 {
 		return next.toString();
 	}
 
-	public Node getNextNode(String nodeName) {
+	public Node getNextNodeByName(String nodeName) {
 		if (this.next.getName().equals(nodeName)) {
 			return this.next;
 		}
@@ -40,6 +41,21 @@ public class DefaultNode01 extends Node01 {
 		if (pathNamesArray != null && pathNamesArray.length == 1 && pathNamesArray[0].equals(pathNamesArray)) {
 			return this.next;
 		}
+		return null;
+	}
+
+	public Node getPreNodeByName(String nodeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

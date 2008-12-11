@@ -9,6 +9,6 @@ public class ServiceDefine extends DefaultNode0X {
 	}
 
 	public Service getService(java.lang.String name) {
-		return (Service) this.getNextNode(name);
+		return (Service) this.getNextNodeByName(name);
 	}
 }

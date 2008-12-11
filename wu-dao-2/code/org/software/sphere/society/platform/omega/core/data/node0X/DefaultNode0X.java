@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.software.sphere.society.platform.omega.common.NodeDealer;
 import org.software.sphere.society.platform.omega.core.data.Node;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public class DefaultNode0X extends Node0X {
 
@@ -16,7 +17,7 @@ public class DefaultNode0X extends Node0X {
 		node0XMap.put(node.getName(), node);
 	}
 
-	public Node getNextNode(java.lang.String name) {
+	public Node getNextNodeByName(java.lang.String name) {
 		return (Node) node0XMap.get(name);
 	}
 
@@ -54,7 +55,7 @@ public class DefaultNode0X extends Node0X {
 		return node0XMap;
 	}
 
-	public Node getNextNode(String nodeName) {
+	public Node getNextNodeByName(String nodeName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -65,6 +66,21 @@ public class DefaultNode0X extends Node0X {
 	}
 
 	public Node getNextNodeByPath(String[] pathNamesArray) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getPreNodeByName(String nodeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
 	}

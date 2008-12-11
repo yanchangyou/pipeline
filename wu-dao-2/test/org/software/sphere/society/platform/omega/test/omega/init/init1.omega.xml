@@ -1,67 +1,62 @@
 <?xml version="1.0"?>
 <root>
-	<global name="main">
+	<global name="self">
 		<service-define>
 			<service name="global-init">
-				<competitor name="main.main.main.main.io-server.init1" priority="1" />
-				<competitor name="main.main.main.main.io-server.init2" priority="2" />
+				<competitor name="self.self.self.self.io-server.init1" priority="1" />
+				<competitor name="self.self.self.self.io-server.init2" priority="2" />
 			</service>
 		</service-define>
 		<var-define>
 			<bool name="global">true</bool>
 		</var-define>
-		<economy name="main">
+		<economy name="self">
 			<service-define>
 				<service name="economy-init">
-					<competitor name="main.main.main.main.io-server.init1" priority="1" />
-					<competitor name="main.main.main.main.io-server.init2" priority="2" />
+					<competitor name="self.self.self.self.io-server.init1" priority="1" />
+					<competitor name="self.self.self.self.io-server.init2" priority="2" />
 				</service>
 			</service-define>
 			<var-define>
 				<bool name="economy">true</bool>
 			</var-define>
-			<market name="main">
+			<market name="self">
 				<service-define>
 					<service name="market-init">
-						<competitor name="main.main.main.main.io-server.init1" priority="1" />
-						<competitor name="main.main.main.main.io-server.init2" priority="2" />
+						<competitor name="self.self.self.self.io-server.init1" priority="1" />
+						<competitor name="self.self.self.self.io-server.init2" priority="2" />
 					</service>
 				</service-define>
 				<var-define>
 					<bool name="market">true</bool>
 				</var-define>
-				<supplier name="main">
+				<supplier name="self">
 					<service-define>
 						<service name="supplier-init">
-							<competitor name="main.main.main.main.io-server.init1" priority="1" />
-							<competitor name="main.main.main.main.io-server.init2" priority="2" />
+							<competitor name="self.self.self.self.io-server.init1" priority="1" />
+							<competitor name="self.self.self.self.io-server.init2" priority="2" />
 						</service>
 					</service-define>
 					<var-define>
 						<bool name="supplier">true</bool>
 					</var-define>
 					
-					<server name="main">
+					<server name="self">
 						<var-define>
 							<bool name="server">true</bool>
 						</var-define>
 						<service-define>
 							<service name="server-init">
-								<competitor name="main.main.main.main.io-server.init1" priority="1" />
-								<competitor name="main.main.main.main.io-server.init2" priority="2" />
+								<competitor name="self.self.self.self.io-server.init1" priority="1" />
+								<competitor name="self.self.self.self.io-server.init2" priority="2" />
 							</service>
 						</service-define>
 
-						<thread name="main" port="31001">
-							<property-define>
-								<property name="connection.driver_class">super.host</property>
-								<property name="connection.url">this.port</property>
-							</property-define>
-
+						<thread name="self" port="31001" times="100">
+							<var-define>
+								<bool name="thread_self">true</bool>
+							</var-define>
 							<request name="request">
-								<var-define>
-									<bool name="request">true</bool>
-								</var-define>
 								<data>
 									<line>
 										<![CDATA[request data line1&]]>
@@ -72,9 +67,6 @@
 								</data>
 							</request>
 							<response name="response">
-								<var-define>
-									<bool name="response">true</bool>
-								</var-define>
 								<data>
 									<line>
 										<![CDATA[response data line1&]]>
@@ -85,15 +77,11 @@
 								</data>
 							</response>
 
-							<telnet serviceName="telnet-1">
-								<property-define>
-									<property name="connection.driver_class">super.host</property>
-									<property name="connection.url">this.port</property>
-								</property-define>
+							<telnet name="telnet-1" serviceName="telnet-1">
+								<var-define>
+									<bool name="telnet_1_bool">true</bool>
+								</var-define>	
 								<request name="request">
-									<var-define>
-										<bool name="request">true</bool>
-									</var-define>
 									<data>
 										<line>
 											<![CDATA[request data line1&]]>
@@ -104,9 +92,6 @@
 									</data>
 								</request>
 								<response name="response">
-									<var-define>
-										<bool name="response">true</bool>
-									</var-define>
 									<data>
 										<line>
 											<![CDATA[response data line1&]]>
@@ -119,15 +104,12 @@
 							</telnet>
 
 							<if condition="1=1" name="if-flow-2">
-								<telnet serviceName="">
-									<property-define>
-										<property name="connection.driver_class">super.host</property>
-										<property name="connection.url">this.port</property>
-									</property-define>
+								<var-define>
+									<bool name="if-flow-2-bool">true</bool>
+								</var-define>
+
+								<telnet serviceName="telnet1">
 									<request name="request">
-										<var-define>
-											<bool name="request">true</bool>
-										</var-define>
 										<data>
 											<line>
 												<![CDATA[request data line1&]]>
@@ -138,9 +120,6 @@
 										</data>
 									</request>
 									<response name="response">
-										<var-define>
-											<bool name="request">true</bool>
-										</var-define>
 										<data>
 											<line>
 												<![CDATA[response data line1&]]>
@@ -155,13 +134,9 @@
 							
 							<if-else condition="1=1" name="if-else-flow-3">
 								<telnet serviceName="">
-									<property-define>
-										<property name="connection.driver_class">super.host</property>
-										<property name="connection.url">this.port</property>
-									</property-define>
 									<request name="request">
 										<var-define>
-											<bool name="request">true</bool>
+											<bool name="if-else-flow-3-bool">true</bool>
 										</var-define>
 										<data>
 											<line>

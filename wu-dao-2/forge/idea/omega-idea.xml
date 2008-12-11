@@ -103,7 +103,7 @@
 								</pipeline>
 							</service>
 
-							<service name="main" type="public" port="10000">
+							<service name="self" type="public" port="10000">
 								<request>
 									<input>
 										<![CDATA[<message>Hello World!</message>]]>

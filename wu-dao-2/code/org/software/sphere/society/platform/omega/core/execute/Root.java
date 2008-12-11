@@ -9,8 +9,9 @@ import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.sphere.society.platform.omega.OmegaConst;
 import org.software.sphere.society.platform.omega.core.data.node01.DefaultNode01;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
-import org.software.sphere.society.platform.omega.core.flow.Flow;
+import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 import org.software.sphere.society.platform.omega.core.real.Global;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 import org.xml.sax.SAXException;
 
 public class Root extends DefaultNode01 {
@@ -30,7 +31,7 @@ public class Root extends DefaultNode01 {
 	
 	public void execute() throws Exception {
 //		Execute.execute(this);
-		this.getMainFlow().execute(null);
+		this.getSelfFlow().execute(null);
 		System.out.println("execute!!!!");
 	}
 	
@@ -42,8 +43,8 @@ public class Root extends DefaultNode01 {
 		this.setNext(global);
 	}
 	
-	public Flow getMainFlow() {
-		final String MAIN_UNIT_PATH = new String(OmegaConst.CORE.EXECUTE.MAIN_UNIT_PATH);
-		return (Flow) this.getGlobal().getNextNodeByPath(MAIN_UNIT_PATH);
+	public FlowNode getSelfFlow() throws MiddleNodeNotFountException {
+		final String SELF_UNIT_PATH = new String(OmegaConst.CORE.EXECUTE.SELF_UNIT_PATH);
+		return (FlowNode) this.getGlobal().getNextNodeByPath(SELF_UNIT_PATH);
 	}
 }

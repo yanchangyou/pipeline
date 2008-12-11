@@ -19,6 +19,6 @@ public class VarDefine extends DefaultNode0X {
 	}
 
 	public Node getVar(java.lang.String name) {
-		return this.getNextNode(name);
+		return this.getNextNodeByName(name);
 	}
 }

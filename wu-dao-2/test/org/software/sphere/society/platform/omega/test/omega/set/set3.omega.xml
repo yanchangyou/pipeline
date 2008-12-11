@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 
 <root>
-	<global name="main">
+	<global name="self">
 		<meta>
 			<property name="athor" value="ether.anima" />
 			<property name="age" value="25" />
 			<property name="msn" value="isuifengi@hotmail.com" />
 		</meta>
-		<economy name="main">
-			<market name="main">
-				<supplier name="main">
-					<server name="main">
-						<service name="main" port="22001">
+		<economy name="self">
+			<market name="self">
+				<supplier name="self">
+					<server name="self">
+						<service name="self" port="22001">
 							<pipeline>
 								<line>
-									<step service="main.main.main.main.io-server.input" standbyService="">
+									<step service="self.self.self.self.io-server.input" standbyService="">
 										<param-output>
 											<result>
 												<refer-result name="input-data">${response.string-output}</refer-result>
 											</result>
 										</param-output>
 									</step>
-									<step service="main.main.main.main.io-server.output" standbyService="">
+									<step service="self.self.self.self.io-server.output" standbyService="">
 										<param-input>
 											<param>
 												<refer-param name="input-data" />
