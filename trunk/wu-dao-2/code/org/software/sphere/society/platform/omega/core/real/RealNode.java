@@ -1,6 +1,7 @@
 package org.software.sphere.society.platform.omega.core.real;
 
 import org.apache.commons.lang.StringUtils;
+import org.software.sphere.society.platform.omega.common.Service;
 import org.software.sphere.society.platform.omega.common.ServiceDefine;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
@@ -47,6 +48,7 @@ public abstract class RealNode extends DefaultNode1X {
 	 */
 	public RealNode() {
 		this.realNodeContext = new RealNodeContext(this);// 自动把上下文与此节点关联起来
+		serviceDefine = new ServiceDefine(); //服务存储区
 	}
 
 	/**
@@ -77,6 +79,16 @@ public abstract class RealNode extends DefaultNode1X {
 		return this.realNodeContext.getNextNodeByName(name);
 	}
 
+	public void addService(Service service) {
+		this.serviceDefine.addService(service);
+		service.setPreNode(this);
+	}
+
+	public Service getService(String name) {
+		return serviceDefine.getService(name);
+	}
+
+	
 	/**
 	 * 按名获取后一个后续节点
 	 * @param NextNodeName
@@ -129,8 +141,8 @@ public abstract class RealNode extends DefaultNode1X {
 		StringBuffer buf = new StringBuffer();
 		buf.append("\r\n").append(leftPad).append(super.toString());
 		buf.append("\r\n").append(leftPad).append("context = {").append(getRealNodeContext().getNextNodesMap());
-		buf.append("\r\n").append(leftPad).append("service : ").append(getServiceDefine());
-		buf.append("\r\n").append(leftPad).append("next = {").append(this.getNextNodesMap().toString());
+		buf.append("\r\n").append(leftPad).append("service : ").append(getServiceDefine().getNextNodesMap());
+		buf.append("\r\n").append(leftPad).append("next = {").append(this.getNextNodesMap().toString()).append("]");
 		return buf.toString();
 	}
 }

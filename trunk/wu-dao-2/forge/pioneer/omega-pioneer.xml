@@ -92,7 +92,7 @@
 							<meta>
 								<property name="propertyName" value="propertyValue" />
 							</meta>
-							<service name="serviceName" type="public|default|private" port="service port">
+							<service name="service" type="public|default|private" port="service port">
 								<meta>
 									<property name="propertyName" value="propertyValue" />
 								</meta>
@@ -223,7 +223,7 @@
 									<meta>
 										<property name="propertyName" value="propertyValue" />
 									</meta>
-									<service name="serviceName" type="public|default|private" port="service port">
+									<service name="service" type="public|default|private" port="service port">
 										<meta>
 											<property name="propertyName" value="propertyValue" />
 										</meta>
@@ -443,7 +443,7 @@
 										<if condition="1=1">
 											<unit></unit>*
 										</if>
-										<unit serviceName="">
+										<unit service="">
 											<define>
 												<var name="step">step-value</var>
 												<var name="step2">step-value-2</var>
@@ -469,7 +469,7 @@
 												</data>
 											</response>
 										</unit>
-										<telnet serviceName="">
+										<telnet service="">
 											
 										</telnet>
 										<end/>

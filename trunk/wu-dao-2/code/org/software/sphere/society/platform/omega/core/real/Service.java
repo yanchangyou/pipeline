@@ -14,6 +14,16 @@ import org.software.sphere.society.platform.omega.core.flow.FlowNode;
 
 public class Service extends RealNode implements Logable {
 
+	
+	public Object getAvailableService() {
+		
+		
+		
+		return null;
+	}
+	
+	
+	
 	private Request request;
 
 	private Response response;
@@ -145,7 +155,7 @@ public class Service extends RealNode implements Logable {
 			 */
 			if (request != null) { //接收客户端请求
 				log.info("服务[" + this.getName() + "]接收客户端输入数据");
-				String requestData = RuleReadNetDataByOmega.readData(socket);
+				String requestData = RuleReadNetDataByOmega.readData(socket.getInputStream());
 //				Tree requestTree = OmegaNetCompiler.compile(requestData);
 //				requestTree.execute(this.getContext());
 //				this.getContext().merge(this.request.getName(), requestTree);

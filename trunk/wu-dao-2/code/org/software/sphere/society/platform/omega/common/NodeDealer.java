@@ -4,5 +4,5 @@ import org.software.sphere.society.platform.omega.core.data.Node;
 
 public abstract class NodeDealer {
 
-	public abstract void deal(Node node);
+	public abstract void deal(Node node) throws Exception ;
 }

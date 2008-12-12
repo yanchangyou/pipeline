@@ -39,9 +39,9 @@ public class FlowNodeContext extends DefaultNode1X {
 		FlowNode flowNode = null;
 		
 		if (path.toJavaString().startsWith(KeyWords.THIS_KEY_WORLD + ".")) {
-			flowNode = getRelativePathFlowNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.length() + 1)));
+			flowNode = getRelativePathFlowNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.toJavaString().length() + 1)));
 		} else if (path.toJavaString().startsWith(KeyWords.ROOT_KEY_WORLD + ".")) {
-			flowNode = getAbsolutePathFlowNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.length() + 1)));
+			flowNode = getAbsolutePathFlowNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.toJavaString().length() + 1)));
 		} else {
 			flowNode = getRelativePathFlowNode(path);
 		}

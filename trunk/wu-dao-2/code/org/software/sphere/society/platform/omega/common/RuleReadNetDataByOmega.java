@@ -2,8 +2,8 @@ package org.software.sphere.society.platform.omega.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.Socket;
 
 
 /**
@@ -19,9 +19,8 @@ import java.net.Socket;
 public class RuleReadNetDataByOmega {
 
 	
-	public static String readData(Socket socket) throws IOException { 
-		BufferedReader is = new BufferedReader(new InputStreamReader(
-				socket.getInputStream()));
+	public static String readData(InputStream inputStream) throws IOException { 
+		BufferedReader is = new BufferedReader(new InputStreamReader(inputStream));
 		StringBuffer requestDatabuf = new StringBuffer();
 		String requestData = is.readLine();
 		while (isAppend(requestData)) {

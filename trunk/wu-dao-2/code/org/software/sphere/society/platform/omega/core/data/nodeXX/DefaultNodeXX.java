@@ -78,7 +78,7 @@ public abstract class DefaultNodeXX extends NodeXX {
 		return (Node) preNodesMap.get(preNodeName);
 	}
 	
-	public void dealNextNode(NodeDealer nodeDealer) {
+	public void dealNextNode(NodeDealer nodeDealer) throws Exception {
 		Set set = this.nextNodesMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			Node node = (Node) iter.next();

@@ -31,11 +31,6 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	protected List flowList = new ArrayList();
 
 	/**
-	 * 服务, 按名定义的服务, 可能对应多个现实的服务
-	 */
-	protected String service;
-
-	/**
 	 * 发出的请求
 	 */
 	protected Request request;
@@ -93,15 +88,6 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		return value;
 	}
 
-	
-	public String getService() {
-		return service;
-	}
-
-	public void setService(String service) {
-		this.service = service;
-	}
-
 	public Request getRequest() {
 		return request;
 	}
@@ -135,39 +121,6 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 
 	public abstract void execute(Session clientSession)
 			throws ConnectException, Exception;
-	
-//	
-//	public Node getNextNodeByName(String nodeName) {
-//		FlowNode flowNode = null;
-//		for (Iterator iter = flowList.iterator(); iter.hasNext();) {
-//			flowNode = (FlowNode) iter.next();
-//			if (flowNode.getNodeName().equals(nodeName)) {
-//				break;
-//			}
-//		}
-//
-//		return flowNode;
-//	}
-
-//	public Node getNextNodeByPath(String pathName) throws MiddleNodeNotFountException {
-//		String[] pathArray = Commons.convertToStringArray(pathName.toJavaString().split("\\."));
-//		return getNextNodeByPath(pathArray);
-//	}
-
-//	public Node getNextNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
-//
-//		FlowNode flowNode = this;
-//		StringBuffer buf = new StringBuffer();
-//		for (int i = 0; i < pathNamesArray.length; i++) {
-//			flowNode = flowNode.getNextFlowNode(pathNamesArray[i]);
-//			buf.append(flowNode.getName());
-//			if (flowNode == null) {
-//				throw new MiddleNodeNotFountException("错误:中间节点为空, 此节点是:" + flowNode.getName() + ", 整个路径是:" + buf);
-//			}
-//		}
-//		
-//		return flowNode;
-//	}
 
 	public FlowNodeContext getFlowNodeContext() {
 		return flowNodeContext;

@@ -5,84 +5,83 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.software.sphere.society.platform.omega.common.Commons;
 import org.software.sphere.society.platform.omega.common.NodeDealer;
 import org.software.sphere.society.platform.omega.core.data.Node;
+import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public class DefaultNode0X extends Node0X {
 
-	private Map node0XMap = new HashMap();
-
-	public void addNextNode(Node node) {
-		node0XMap.put(node.getName(), node);
-	}
-
-	public Node getNextNodeByName(java.lang.String name) {
-		return (Node) node0XMap.get(name);
-	}
-
-	public boolean containNode(java.lang.String name) {
-		return node0XMap.containsKey(name);
-	}
-
-	public boolean containNode(Node node) {
-		return node0XMap.containsValue(node);
-	}
-
-	public java.lang.String toString() {
-		return this.node0XMap.toString();
-	}
-
-	public void generateByString(String data) {
-		// TODO Auto-generated method stub
-
+	private Map nextNodesMap;
+	
+	public DefaultNode0X() {
+		nextNodesMap = new HashMap();
 	}
 	
-	public void dealNextNode(NodeDealer nodeDealer) {
-		Set set = this.node0XMap.keySet();
+	public void addNextNode(Node node) {
+		this.addNextNode(node.getNodeName(), node);
+	}
+	
+	public void addNextNode(String name, Node node) {
+		nextNodesMap.put(name, node);
+	}
+
+	public Node getNextNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+		Node node = this;
+		StringBuffer buf = new StringBuffer();
+		for (int i = 0; i < pathNamesArray.length; i++) {
+			node = node.getNextNodeByName(pathNamesArray[i]);
+			buf.append(".").append(pathNamesArray[i]);
+			if (node == null) {
+				throw new MiddleNodeNotFountException("错误:中间节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
+			}
+		}
+		return node;
+	}
+
+	public Node getNextNodeByPath(String pathName)  throws MiddleNodeNotFountException {
+		String[] pathNameArray = Commons.getPathNameArray(pathName);
+		return this.getNextNodeByPath(pathNameArray);
+	}
+	
+	public Node getNextNodeByName(String nextNodeName) {
+		return (Node) nextNodesMap.get(nextNodeName);
+	}
+
+	public void dealNextNode(NodeDealer nodeDealer) throws Exception {
+		Set set = this.nextNodesMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			Node node = (Node) iter.next();
 			nodeDealer.deal(node);
 		}
 	}
 
-	public void generateByString(java.lang.String data) {
-		// TODO Auto-generated method stub
-		
+	public Map getNextNodesMap() {
+		return nextNodesMap;
 	}
 
-	public Map getNode0XMap() {
-		return node0XMap;
-	}
-
-	public Node getNextNodeByName(String nodeName) {
-		// TODO Auto-generated method stub
+	public Node getPreNode() {
 		return null;
 	}
 
-	public Node getNextNodeByPath(String pathName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Node getNextNodeByPath(String[] pathNamesArray) {
-		// TODO Auto-generated method stub
-		return null;
+	public void setPreNode(Node preNode) {
 	}
 
 	public Node getPreNodeByName(String nodeName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
-		// TODO Auto-generated method stub
-		return null;
+		String[] pathNameArray = Commons.getPathNameArray(pathName);
+		return getPreNodeByPath(pathNameArray);
 	}
 
 	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	public int getNode1XPreLevel() {
+		return -1;
+	}
 }

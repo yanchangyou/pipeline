@@ -135,7 +135,7 @@ public class Collaborate extends FlowNode {
 				os.print("请输入请求命令>");
 				os.flush();
 
-				command = RuleReadNetDataByOmega.readData(socket);
+				command = RuleReadNetDataByOmega.readData(socket.getInputStream());
 
 				if (command == null) {
 					log.error(" 违法输入, 服务停止");

@@ -13,7 +13,16 @@ public class String extends Node0X implements JavaStringable {
 
 	private java.lang.String string;
 
+	public String() {
+		
+	}
+	
 	public String(java.lang.String string) {
+		this.string = string;
+	}
+	
+	public String(java.lang.String name, java.lang.String string) {
+		this.setName(name);
 		this.string = string;
 	}
 	
@@ -25,7 +34,7 @@ public class String extends Node0X implements JavaStringable {
 		return string;
 	}
 
-	public void dealNextNode(NodeDealer nodeDealer) {
+	public void dealNextNode(NodeDealer nodeDealer) throws Exception {
 		for (int i = 0; i < string.length(); i++) {
 			Char2 char2 = new Char2();
 			try {
