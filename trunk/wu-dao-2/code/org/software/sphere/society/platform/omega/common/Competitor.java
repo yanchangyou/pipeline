@@ -18,7 +18,9 @@ public class Competitor extends Node10 {
 		if (!realService.trim().startsWith("self")) {
 			throw new RuntimeException("抱歉!现在只支持[self]星球的查找");
 		}
+		log.info("开始获取真实的服务 :" + this.realService);
 		Unit unit = (Unit) global.getNextNodeByPath(new String(realService.substring(realService.indexOf('.')+1)));
+		log.info("获取到真实的执行单元 :" + unit);
 		return unit.getGod();
 	}
 	

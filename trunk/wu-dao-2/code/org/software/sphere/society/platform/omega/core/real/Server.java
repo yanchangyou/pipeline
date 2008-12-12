@@ -10,7 +10,7 @@ public class Server extends RealNode {
 	}
 	
 	
-	public void addFlow(FlowNode flow) {
+	public void appendFlow(FlowNode flow) {
 		this.addNextNode(flow);
 		flow.setPreNode(this);
 	}

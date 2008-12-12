@@ -16,7 +16,7 @@ import org.xml.sax.SAXException;
 
 public class Root extends DefaultNode01 {
 	
-	final static java.lang.String VALIDATOR_RULES = "org/software/sphere/society/platform/omega/core/execute/omega-digester-rules.xml";
+	final static java.lang.String VALIDATOR_RULES = "org/software/sphere/society/platform/omega/core/execute/digestor/omega-digester-rules.xml";
 
 	public static Root load(final java.lang.String PATH) throws IOException,
 			SAXException {

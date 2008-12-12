@@ -70,7 +70,7 @@
 				]]>
 			</exception>
 			<cause>
-				 在server节点下面的元素的添加要用:addFlow
+				 在server节点下面的元素的添加要用:appendFlow
 			</cause>
 		</error>
 		
