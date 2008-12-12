@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="request">
+		<object-create-rule classname="org.software.sphere.society.platform.omega.core.execute.Request" />
+		<set-properties-rule />
+		<pattern value="param">
+			<object-create-rule classname="org.software.sphere.society.platform.omega.common.Var" />
+			<set-properties-rule />
+			<call-method-rule methodname="fromJavaString" paramcount="0" />
+			<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.omega.core.data.Node" />
+		</pattern>
+		<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.omega.core.execute.Request" />
+	</pattern>
+</digester-rules>

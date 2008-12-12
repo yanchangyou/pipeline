@@ -27,4 +27,8 @@ public abstract class Unit extends FlowNode {
 	public void setService(java.lang.String service) {
 		this.service = service;
 	}
+	
+	public java.lang.String toString(){ 
+		return super.toString() + ", servive :" + service;
+	}
 }

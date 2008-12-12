@@ -180,7 +180,7 @@
 									</pattern>
 									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />
 								</pattern>
-								<set-next-rule methodname="addFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
+								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
 							</pattern>
 
 							<pattern value="thread">
@@ -261,7 +261,7 @@
 									<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
 								</pattern>
 
-								<set-next-rule methodname="addFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
+								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
 							</pattern>
 
 							<pattern value="telnet">
@@ -310,7 +310,7 @@
 									<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.omega.core.execute.Response" />
 								</pattern>
 
-								<set-next-rule methodname="addFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
+								<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.omega.core.flow.FlowNode" />
 							</pattern>
 
 							<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.omega.core.real.Server" />
