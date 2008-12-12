@@ -9,6 +9,7 @@ import org.software.sphere.society.platform.omega.common.Commons;
 import org.software.sphere.society.platform.omega.common.NodeDealer;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
+import org.software.sphere.society.platform.omega.core.data.pre.Pre1able;
 import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public class DefaultNode1X extends Node1X {
@@ -16,6 +17,11 @@ public class DefaultNode1X extends Node1X {
 	protected Node preNode;
 	
 	private Map nextNodesMap;
+	
+	public DefaultNode1X(Node node) {
+		this();		
+		this.preNode = node;
+	}
 	
 	public DefaultNode1X() {
 		nextNodesMap = new HashMap();
@@ -52,7 +58,7 @@ public class DefaultNode1X extends Node1X {
 		return (Node) nextNodesMap.get(nextNodeName);
 	}
 
-	public void dealNextNode(NodeDealer nodeDealer) {
+	public void dealNextNode(NodeDealer nodeDealer) throws Exception {
 		Set set = this.nextNodesMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
 			Node node = (Node) iter.next();
@@ -93,11 +99,11 @@ public class DefaultNode1X extends Node1X {
 	}
 	
 	public int getNode1XPreLevel() {
-		DefaultNode1X node1X = this;
 		int level = 0;
-		while (node1X.preNode != null) {
+		Pre1able pre1ableNode = this;
+		while (pre1ableNode != null && Pre1able.class.isInstance(pre1ableNode.getPreNode())) {
 			level ++;
-			node1X = (DefaultNode1X) node1X.preNode;
+			pre1ableNode = (Pre1able) pre1ableNode.getPreNode();
 		}
 		return level;
 	}
@@ -105,4 +111,13 @@ public class DefaultNode1X extends Node1X {
 //	public String toString() {
 //		return "preNodeName : " + this.preNode.getName() + ", children : " + this.getChildren();
 //	}
+
+	public Node getFirstNodeInSequencePre1ableNodes() {
+		Pre1able pre1ableNode = this;
+		while (pre1ableNode != null && Pre1able.class.isInstance(pre1ableNode.getPreNode())) {
+			pre1ableNode = (Pre1able) pre1ableNode.getPreNode();
+		}
+		return (Node) pre1ableNode;
+	}
+
 }

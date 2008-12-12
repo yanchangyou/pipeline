@@ -130,7 +130,7 @@ public class Thread extends FlowNode {
 				 */
 				if (request != null) { //接收客户端请求
 					log.info("服务[" + this.getName() + "]接收客户端输入数据");
-					requestData = new String(RuleReadNetDataByOmega.readData(socket));
+					requestData = new String(RuleReadNetDataByOmega.readData(socket.getInputStream()));
 //					Tree requestTree = OmegaNetCompiler.compile(requestData);
 //					requestTree.execute(this.getContext());
 //					this.getContext().merge(this.request.getName(), requestTree);

@@ -30,9 +30,11 @@ public class Root extends DefaultNode01 {
 	}
 	
 	public void execute() throws Exception {
-//		Execute.execute(this);
-		this.getSelfFlow().execute(null);
-		System.out.println("execute!!!!");
+		log.info("初始化第一个flow, 此flow的socket为null, 后面注意");
+		FlowNode sefFlow = this.getSelfFlow();
+		Session clientSession = new Session(sefFlow.getRequest(), sefFlow.getResponse(), null);
+		log.info("执行第一个 flow");
+		sefFlow.execute(clientSession);
 	}
 	
 	public Global getGlobal() {
@@ -41,6 +43,7 @@ public class Root extends DefaultNode01 {
 
 	public void setGlobal(Global global) {
 		this.setNext(global);
+		global.setPreNode(this);
 	}
 	
 	public FlowNode getSelfFlow() throws MiddleNodeNotFountException {

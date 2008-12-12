@@ -39,9 +39,9 @@ public class RealNodeContext extends DefaultNode1X {
 		RealNode realNode = null;
 		
 		if (path.toJavaString().startsWith(KeyWords.THIS_KEY_WORLD + ".")) {
-			realNode = getRelativePathRealNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.length() + 1)));
+			realNode = getRelativePathRealNode(new String(path.toJavaString().substring(KeyWords.THIS_KEY_WORLD.toJavaString().length() + 1)));
 		} else if (path.toJavaString().startsWith(KeyWords.ROOT_KEY_WORLD + ".")) {
-			realNode = getAbsolutePathRealNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.length() + 1)));
+			realNode = getAbsolutePathRealNode(new String(path.toJavaString().substring(KeyWords.ROOT_KEY_WORLD.toJavaString().length() + 1)));
 		} else {
 			realNode = getRelativePathRealNode(path);
 		}

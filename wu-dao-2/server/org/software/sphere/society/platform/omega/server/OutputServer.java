@@ -52,7 +52,7 @@ public class OutputServer {
 			try {
 				BufferedReader is = new BufferedReader(new InputStreamReader(socket
 						.getInputStream()));
-					String data = RuleReadNetDataByOmega.readData(socket);
+					String data = RuleReadNetDataByOmega.readData(socket.getInputStream());
 					System.out.println(socket.getRemoteSocketAddress().toString()
 							.substring(1)
 							+ " speak : " + data);
