@@ -2,6 +2,7 @@ package org.software.sphere.society.platform.omega.core.flow;
 
 import java.net.ConnectException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -9,11 +10,12 @@ import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.omega.core.execute.FlowNodeContext;
-import org.software.sphere.society.platform.omega.core.execute.Request;
-import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.execute.Session;
+import org.software.sphere.society.platform.omega.core.lang.execute.FlowNodeContext;
+import org.software.sphere.society.platform.omega.core.lang.execute.Request;
+import org.software.sphere.society.platform.omega.core.lang.execute.Response;
+import org.software.sphere.society.platform.omega.core.lang.execute.Session;
 import org.software.sphere.society.platform.omega.core.real.RealNode;
+import org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException;
 
 public abstract class FlowNode extends DefaultNode1X implements Logable {
 
@@ -58,6 +60,7 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	 * 
 	 * @param name
 	 * @return
+	 * @throws MiddleNodeNotFountException 
 	 */
 	public Node getVar(String name) {
 		
@@ -65,11 +68,22 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		 * 先在流程模型里找
 		 */
 		FlowNode flowNode = this;
-		Node value = flowNode.getFlowNodeContext().getNextNodeByName(name);
+		Node value = null;
+		try {
+			value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
+		} catch (MiddleNodeNotFountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		while (value == null && flowNode.getPreNode() != null && (FlowNode.class.isInstance(flowNode.getPreNode()))) {
 			flowNode = (FlowNode) flowNode.getPreNode();
-			value = flowNode.getFlowNodeContext().getNextNodeByName(name);
+			try {
+				value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
+			} catch (MiddleNodeNotFountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		/**
@@ -77,11 +91,21 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		 */
 		if (value == null) { //在流程模型中没有找到, 继续往上找
 			RealNode realNode = (RealNode) flowNode.getPreNode();
-			value = realNode.getRealNodeContext().getNextNodeByName(name);
+			try {
+				value = realNode.getRealNodeContext().getNextNodeByPath(name);
+			} catch (MiddleNodeNotFountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-			while (value == null && realNode.getPreNode() != null && realNode instanceof RealNode) {
+			while (value == null && realNode.getPreNode() != null && realNode.getPreNode() instanceof RealNode) {
 				realNode = (RealNode) realNode.getPreNode();
-				value = realNode.getRealNodeContext().getNextNodeByName(name);
+				try {
+					value = realNode.getRealNodeContext().getNextNodeByPath(name);
+				} catch (MiddleNodeNotFountException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
@@ -119,9 +143,31 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		this.flowList = flowList;
 	}
 
+	/**
+	 * 流程处理的执行接口, 有子类进行实现
+	 * @param clientSession
+	 * @throws ConnectException
+	 * @throws Exception
+	 */
 	public abstract void execute(Session clientSession)
 			throws ConnectException, Exception;
 
+	/**
+	 * 一个缺省的执行模式:顺序执行
+	 * @param clientSession
+	 * @throws ConnectException
+	 * @throws Exception
+	 */
+	public void defaultExecute(Session clientSession)
+			throws ConnectException, Exception {
+		for (Iterator iter = flowList.iterator(); iter.hasNext();) {
+			FlowNode flow = (FlowNode) iter.next();
+			flow.execute(clientSession);
+		}
+	}
+
+	
+	
 	public FlowNodeContext getFlowNodeContext() {
 		return flowNodeContext;
 	}

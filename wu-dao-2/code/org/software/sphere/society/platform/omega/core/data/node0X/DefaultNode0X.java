@@ -84,4 +84,9 @@ public class DefaultNode0X extends Node0X {
 	public int getNode1XPreLevel() {
 		return -1;
 	}
+	
+	
+	public java.lang.String toString() {
+		return super.toString() + "next : " + this.getNextNodesMap();
+	}
 }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.software.sphere.society.platform.omega.common.Logable;
-import org.software.sphere.society.platform.omega.core.execute.Root;
+import org.software.sphere.society.platform.omega.core.lang.execute.Root;
 
 public class Demo implements Runnable, Logable {
 	

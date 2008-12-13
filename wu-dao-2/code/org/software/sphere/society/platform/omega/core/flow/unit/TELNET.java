@@ -9,10 +9,11 @@ import java.net.UnknownHostException;
 import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
-import org.software.sphere.society.platform.omega.core.execute.KeyWords;
-import org.software.sphere.society.platform.omega.core.execute.Request;
-import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.execute.Session;
+import org.software.sphere.society.platform.omega.core.lang.execute.KeyWords;
+import org.software.sphere.society.platform.omega.core.lang.execute.Request;
+import org.software.sphere.society.platform.omega.core.lang.execute.Response;
+import org.software.sphere.society.platform.omega.core.lang.execute.Session;
+import org.software.sphere.society.platform.omega.core.lang.parse.Evale;
 import org.software.sphere.society.platform.omega.core.real.Global;
 
 public class TELNET extends Unit {
@@ -20,7 +21,7 @@ public class TELNET extends Unit {
 	public void execute(Session clientSession) throws ConnectException,
 			Exception {
 
-		encodeRequestData(clientSession.getRequest(), this.getFlowNodeContext());
+//		encodeRequestData(clientSession.getRequest(), this.getFlowNodeContext());
 
 		// System.out.println("run telnet");
 		// if (clientSession != null) {
@@ -64,7 +65,8 @@ public class TELNET extends Unit {
 			PrintWriter os = new PrintWriter(socket.getOutputStream());
 			java.lang.String requestData = request.getRequestData();
 			log.info("开始向外输出数据 : " + requestData);
-			os.println(requestData);
+			java.lang.String result = Evale.eval(requestData, this).toString();
+			os.println(result);
 			os.flush();
 			log.info("完毕向外输出数据");
 		}

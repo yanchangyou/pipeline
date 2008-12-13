@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<root>
+	<global name="self">
+		<var-define>
+			<string name="var">true</string>
+		</var-define>
+		<service-define>
+			<service name="hello-service">
+				<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+			</service>
+		</service-define>
+
+		<economy name="self">
+			<var-define>
+				<string name="var">true</string>
+			</var-define>
+			<service-define>
+				<service name="hello-service">
+					<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+				</service>
+			</service-define>
+
+			<market name="self">
+				<var-define>
+					<string name="var">true</string>
+				</var-define>
+				<service-define>
+					<service name="hello-service">
+						<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+					</service>
+				</service-define>
+
+				<supplier name="self">
+					<var-define>
+						<string name="var">true</string>
+						<string name="userName">"无名氏"</string>
+					</var-define>
+					<service-define>
+						<service name="hello-service">
+							<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+						</service>
+					</service-define>
+
+					<server name="self">
+						<var-define>
+							<string name="a">1</string>
+							<string name="b">2</string>
+							<string name="c">3</string>
+						</var-define>
+						<service-define>
+							<service name="hello-service">
+								<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+							</service>
+						</service-define>
+
+						<if name="self" condition="a+b==c">
+							<telnet name="self" service="hello-service@self.self.self.self.self">
+								<request name="request">
+									<param name="data">"omega speak : hello world! " + userName</param>
+								</request>
+							</telnet>
+						</if>
+						<for name="self_for" min="1" max="10" step="1">
+							<sequence name="self_sequence">
+								<telnet name="self" service="hello-service@self.self.self.self.self">
+									<request name="request">
+										<param name="data">omega speak : hello world!</param>
+									</request>
+								</telnet>
+
+								<telnet name="self" service="hello-service@self.self.self.self.self">
+									<request name="request">
+										<param name="data">omega speak : hello world!</param>
+									</request>
+								</telnet>
+							</sequence>
+						</for>
+
+					</server>
+					<server name="io-server" host="127.0.0.1">
+						<telnet name="output-telnet1">
+							<param name="host">127.0.0.1</param>
+							<param name="port">10001</param>
+						</telnet>
+						<telnet name="output-telnet2">
+							<param name="host">127.0.0.1</param>
+							<param name="port">10002</param>
+						</telnet>
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>

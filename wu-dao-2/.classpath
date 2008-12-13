@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="demo"/>
 	<classpathentry kind="src" path="train"/>
 	<classpathentry kind="src" path="server"/>
+	<classpathentry kind="src" path="digester"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="src" path="test"/>
@@ -17,6 +18,5 @@
 	<classpathentry kind="lib" path="lib/org.apache.httpcomponents.httpcore_4.0-beta3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-digester-1.8-fixed.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

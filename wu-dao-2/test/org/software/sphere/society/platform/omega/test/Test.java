@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.omega.common.Logable;
-import org.software.sphere.society.platform.omega.core.execute.Root;
+import org.software.sphere.society.platform.omega.core.lang.execute.Root;
 
 public class Test implements Runnable, Logable {
 	
@@ -16,7 +16,9 @@ public class Test implements Runnable, Logable {
 		NAME_NUMBER_MAP.put("init", "31");
 		NAME_NUMBER_MAP.put("get", "32");
 		NAME_NUMBER_MAP.put("set", "33");
-		NAME_NUMBER_MAP.put("express", "34");
+		NAME_NUMBER_MAP.put("in", "34");
+		NAME_NUMBER_MAP.put("out", "35");
+		NAME_NUMBER_MAP.put("express", "36");
 	}
 	
 	public void run() {
