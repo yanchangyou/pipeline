@@ -75,6 +75,9 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 			try {
 				log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
 				value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
+				if (value == null) {
+					throw new MiddleNodeNotFountException("不存在此变量");
+				}
 				log.info("查找变量成功,值为:" + value);
 			} catch (MiddleNodeNotFountException e) {
 				log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
@@ -97,6 +100,9 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 				try {
 					log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
 					value = realNode.getRealNodeContext().getNextNodeByPath(name);
+					if (value == null) {
+						throw new MiddleNodeNotFountException("不存在此变量");
+					}
 					log.info("查找变量成功,值为:" + value);
 				} catch (MiddleNodeNotFountException e) {
 					log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());

@@ -41,8 +41,8 @@ public class DefaultNode1X extends Node1X {
 		for (int i = 0; i < pathNamesArray.length; i++) {
 			node = node.getNextNodeByName(pathNamesArray[i]);
 			buf.append(".").append(pathNamesArray[i]);
-			if (node == null) {
-				throw new MiddleNodeNotFountException("错误:中间节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
+			if (node == null && i != pathNamesArray.length - 1) {
+				throw new MiddleNodeNotFountException("错误:路径节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
 			}
 		}
 		return node;
