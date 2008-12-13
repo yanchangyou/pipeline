@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<test-list>
+
+
+<!--	 init  -->
+<!--
+	<test name="init" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init1.pipeline.xml">
+		<function>
+			<line>测试整个上下文的初始化是否正确</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe等telnet工具</line>
+			<line>2, telnet 127.0.0.1 31001</line>
+			<line>3, 进入调试状态</line>
+			<line>4, 依次查看上下文的初始化是否正确</line>
+		</outer-flow>
+	</test>
+
+	<test name="init" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init2.pipeline.xml">
+		<function>
+			<line>测试整个上下文的初始化是否正确</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe等telnet工具</line>
+			<line>2, telnet 127.0.0.1 31001</line>
+			<line>3, 进入调试状态</line>
+			<line>4, 依次查看上下文的初始化是否正确</line>
+		</outer-flow>
+	</test>
+--> 
+<!--
+	<test name="get" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/get/get1.pipeline.xml">
+		<function>
+			<line>获取整个上下文的meta数据</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行CMD.exe等telnet工具</line>
+			<line>2, telnet 127.0.0.1 32001</line>
+			<line>3, 查看输出结果</line>
+		</outer-flow>
+	</test> 
+ 	-->
+ 	<!-- 输出测试  输出 pipeline speak : hello world!
+	<test name="out" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/out/out1.pipeline.xml">
+		<function>
+			<line>输出pipeline speak : hello world!</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行　输出服务器server/org/software/sphere/society/platform/pipeline/server/OutputServer.java</line>
+			<line>2, 运行TestList</line>
+			<line>3, 到输出服务器查看输出结果</line>
+		</outer-flow>
+	</test>
+-->
+	<!--  使用顺序流程连续输出两个pipeline speak : hello world!-->
+	<test name="out" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/out/out2.pipeline.xml">
+		<function>
+			<line>连续输出两个pipeline speak : hello world!</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行　输出服务器server/org/software/sphere/society/platform/pipeline/server/OutputServer.java</line>
+			<line>2, 运行TestList</line>
+			<line>3, 到输出服务器查看输出结果</line>
+		</outer-flow>
+	</test>
+</test-list>

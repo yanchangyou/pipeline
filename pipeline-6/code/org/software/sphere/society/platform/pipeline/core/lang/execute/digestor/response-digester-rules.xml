@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="response">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.lang.execute.Response" />
+		<set-properties-rule />
+		<pattern value="param">
+			<object-create-rule classname="org.software.sphere.society.platform.pipeline.common.Var" />
+			<set-properties-rule />
+			<call-method-rule methodname="fromJavaString" paramcount="0" />
+			<set-next-rule methodname="addVar" paramtype="org.software.sphere.society.platform.pipeline.core.data.Node" />
+		</pattern>
+		<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.pipeline.core.lang.execute.Response" />
+	</pattern>
+</digester-rules>

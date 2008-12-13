@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="service-define">
+		<pattern value="service">
+			<object-create-rule classname="org.software.sphere.society.platform.pipeline.common.Service" />
+			<set-properties-rule />
+
+			<pattern value="competitor">
+				<object-create-rule classname="org.software.sphere.society.platform.pipeline.common.Competitor" />
+				<set-properties-rule />
+				<set-next-rule methodname="addCompetitor" paramtype="org.software.sphere.society.platform.pipeline.common.Competitor" />
+			</pattern>
+			<set-next-rule methodname="addService" paramtype="org.software.sphere.society.platform.pipeline.common.Service" />
+		</pattern>
+	</pattern>
+</digester-rules>
