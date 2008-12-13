@@ -69,44 +69,44 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		 */
 		FlowNode flowNode = this;
 		Node value = null;
-		try {
-			value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
-		} catch (MiddleNodeNotFountException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		while (value == null && flowNode.getPreNode() != null && (FlowNode.class.isInstance(flowNode.getPreNode()))) {
-			flowNode = (FlowNode) flowNode.getPreNode();
+
+		do
+		{
 			try {
+				log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
 				value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
+				log.info("查找变量成功,值为:" + value);
 			} catch (MiddleNodeNotFountException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
+//				e.printStackTrace();
 			}
-		}
+			if (flowNode.getPreNode() instanceof FlowNode) {
+				flowNode = (FlowNode) flowNode.getPreNode();
+			} else {
+				break;
+			}
+		} while (value == null && flowNode != null) ;
 		
 		/**
 		 * 再到 现实模型中寻找
 		 */
 		if (value == null) { //在流程模型中没有找到, 继续往上找
+			log.info("开始在现实模型上下文中查找变量:" + name);
 			RealNode realNode = (RealNode) flowNode.getPreNode();
-			try {
-				value = realNode.getRealNodeContext().getNextNodeByPath(name);
-			} catch (MiddleNodeNotFountException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			while (value == null && realNode.getPreNode() != null && realNode.getPreNode() instanceof RealNode) {
-				realNode = (RealNode) realNode.getPreNode();
+			do {			
 				try {
+					log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
 					value = realNode.getRealNodeContext().getNextNodeByPath(name);
+					log.info("查找变量成功,值为:" + value);
 				} catch (MiddleNodeNotFountException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
 				}
-			}
+				if (realNode.getPreNode() instanceof RealNode) {
+					realNode = (RealNode) realNode.getPreNode();
+				} else {
+					break;
+				}
+			} while (value == null && realNode != null);
 		}
 		
 		return value;
