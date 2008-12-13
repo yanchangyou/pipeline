@@ -10,7 +10,7 @@ public class OmegaConst {
 
 	public static class CORE {
 		public static class EXECUTE {
-			public final static String SELF_UNIT_PATH = "self.self.self.self.self";
+			public final static String SELF_UNIT_PATH = "self.self.self.self.self";//Ö´ÐÐÈë¿Ú
 		}
 	}
 	

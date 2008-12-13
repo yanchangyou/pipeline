@@ -6,7 +6,7 @@ import org.software.sphere.society.platform.omega.common.ServiceDefine;
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
 import org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.omega.core.execute.RealNodeContext;
+import org.software.sphere.society.platform.omega.core.lang.execute.RealNodeContext;
 
 /**
  * 所有现实节点的父类<br>

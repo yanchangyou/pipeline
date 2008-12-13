@@ -8,9 +8,9 @@ import java.net.Socket;
 
 import org.software.sphere.society.platform.omega.common.Logable;
 import org.software.sphere.society.platform.omega.common.RuleReadNetDataByOmega;
-import org.software.sphere.society.platform.omega.core.execute.Request;
-import org.software.sphere.society.platform.omega.core.execute.Response;
 import org.software.sphere.society.platform.omega.core.flow.FlowNode;
+import org.software.sphere.society.platform.omega.core.lang.execute.Request;
+import org.software.sphere.society.platform.omega.core.lang.execute.Response;
 
 public class Service extends RealNode implements Logable {
 

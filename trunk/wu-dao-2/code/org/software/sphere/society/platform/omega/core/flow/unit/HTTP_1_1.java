@@ -10,9 +10,9 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.software.sphere.society.platform.omega.core.data.Node;
-import org.software.sphere.society.platform.omega.core.execute.Request;
-import org.software.sphere.society.platform.omega.core.execute.Response;
-import org.software.sphere.society.platform.omega.core.execute.Session;
+import org.software.sphere.society.platform.omega.core.lang.execute.Request;
+import org.software.sphere.society.platform.omega.core.lang.execute.Response;
+import org.software.sphere.society.platform.omega.core.lang.execute.Session;
 
 //import org.ap
 

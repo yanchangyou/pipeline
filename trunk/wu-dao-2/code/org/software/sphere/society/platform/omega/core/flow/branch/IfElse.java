@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import org.mvel.MVEL;
 import org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.omega.core.execute.Session;
+import org.software.sphere.society.platform.omega.core.lang.execute.Session;
 
 
 /**

@@ -32,8 +32,8 @@
 					java.lang.NullPointerException
 						at org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:37)
 						at org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:47)
-						at org.software.sphere.society.platform.omega.core.execute.Root.getSelfFlow(Root.java:48)
-						at org.software.sphere.society.platform.omega.core.execute.Root.execute(Root.java:34)
+						at org.software.sphere.society.platform.omega.core.lang.execute.Root.getSelfFlow(Root.java:48)
+						at org.software.sphere.society.platform.omega.core.lang.execute.Root.execute(Root.java:34)
 						at org.software.sphere.society.platform.omega.test.Test.run(Test.java:48)
 						at java.lang.Thread.run(Thread.java:534)
 				]]>
@@ -51,8 +51,8 @@
 					org.software.sphere.society.platform.omega.exception.data.MiddleNodeNotFountException: 错误:中间节点为空, 此节点是:self, 前面的路径是:.self.self.self.self.self
 						at org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:39)
 						at org.software.sphere.society.platform.omega.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:47)
-						at org.software.sphere.society.platform.omega.core.execute.Root.getSelfFlow(Root.java:48)
-						at org.software.sphere.society.platform.omega.core.execute.Root.execute(Root.java:34)
+						at org.software.sphere.society.platform.omega.core.lang.execute.Root.getSelfFlow(Root.java:48)
+						at org.software.sphere.society.platform.omega.core.lang.execute.Root.execute(Root.java:34)
 						at org.software.sphere.society.platform.omega.test.Test.run(Test.java:47)
 						at java.lang.Thread.run(Thread.java:534)
 				]]>

@@ -2,8 +2,8 @@ package org.software.sphere.society.platform.omega.core.flow.time;
 
 import java.net.ConnectException;
 
-import org.software.sphere.society.platform.omega.core.execute.Session;
 import org.software.sphere.society.platform.omega.core.flow.FlowNode;
+import org.software.sphere.society.platform.omega.core.lang.execute.Session;
 
 public class Time extends FlowNode {
 

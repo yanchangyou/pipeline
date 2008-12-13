@@ -2,9 +2,9 @@ package org.software.sphere.society.platform.omega.core.flow.unit;
 
 import org.software.sphere.society.platform.omega.core.data.Node;
 import org.software.sphere.society.platform.omega.core.data.node0X.String;
-import org.software.sphere.society.platform.omega.core.execute.Request;
-import org.software.sphere.society.platform.omega.core.execute.Response;
 import org.software.sphere.society.platform.omega.core.flow.FlowNode;
+import org.software.sphere.society.platform.omega.core.lang.execute.Request;
+import org.software.sphere.society.platform.omega.core.lang.execute.Response;
 
 public abstract class Unit extends FlowNode {
 

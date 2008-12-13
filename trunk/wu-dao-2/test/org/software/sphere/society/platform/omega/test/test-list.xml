@@ -18,7 +18,7 @@
 			<line>4, 依次查看上下文的初始化是否正确</line>
 		</outer-flow>
 	</test>
---> 
+
 	<test name="init" version="2" path="org/software/sphere/society/platform/omega/test/omega/init/init2.omega.xml">
 		<function>
 			<line>测试整个上下文的初始化是否正确</line>
@@ -31,7 +31,7 @@
 			<line>4, 依次查看上下文的初始化是否正确</line>
 		</outer-flow>
 	</test>
-
+--> 
 <!--
 	<test name="get" version="1" path="org/software/sphere/society/platform/omega/test/omega/get/get1.omega.xml">
 		<function>
@@ -45,4 +45,29 @@
 		</outer-flow>
 	</test> 
  	-->
+ 	<!-- 输出测试  输出 omega speak : hello world!
+	<test name="out" version="1" path="org/software/sphere/society/platform/omega/test/omega/out/out1.omega.xml">
+		<function>
+			<line>输出omega speak : hello world!</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行　输出服务器server/org/software/sphere/society/platform/omega/server/OutputServer.java</line>
+			<line>2, 运行TestList</line>
+			<line>3, 到输出服务器查看输出结果</line>
+		</outer-flow>
+	</test>
+-->
+	<!--  使用顺序流程连续输出两个omega speak : hello world!-->
+	<test name="out" version="2" path="org/software/sphere/society/platform/omega/test/omega/out/out2.omega.xml">
+		<function>
+			<line>连续输出两个omega speak : hello world!</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 运行　输出服务器server/org/software/sphere/society/platform/omega/server/OutputServer.java</line>
+			<line>2, 运行TestList</line>
+			<line>3, 到输出服务器查看输出结果</line>
+		</outer-flow>
+	</test>
 </test-list>
