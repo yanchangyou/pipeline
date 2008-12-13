@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<root>
+	<global name="self">
+		<meta>
+			<property name="athor" value="ether.anima" />
+			<property name="age" value="25" />
+			<property name="msn" value="isuifengi@hotmail.com" />
+		</meta>
+		<economy name="self">
+			<market name="self">
+				<supplier name="self">
+					<server name="self">
+						<service name="self" port="22001">
+							<response type="tree-0D" name="msg">
+							</response>
+							<pipeline>
+								<line>
+									<step name="输入数据">
+										<response type="tree-0D" name="msg">
+											<data>
+												<line>
+													<![CDATA[你输入的字符串是 : 是否满足语法]]>
+												</line>
+											</data>
+										</response>
+									</step>
+									<step name="处理数据">
+										<response type="tree-0D" name="msg">
+											<data>
+												<line>
+													<![CDATA[你输入的字符串是 : 是否满足语法]]>
+												</line>
+											</data>
+										</response>
+									</step>
+									<step name="输出数据">
+										<request type="tree-0D">
+											<data>
+												<line>
+													<![CDATA[你输入的字符串是 : <!this.msg@0!>]]>
+												</line>
+											</data>
+										</request>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+					<server name="io-server" host="127.0.0.1">
+						<service name="output" port="10001" />
+						<service name="input" port="10002" />
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>

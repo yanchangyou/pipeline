@@ -1,0 +1,78 @@
+
+<root>
+
+	<common-error>
+		<error no="1">
+			<exception>
+				can not listen to:java.net.BindException: Address already in use: JVM_Bind
+			</exception>
+			<cause>
+				端口冲突, 很多是由于相同程序执行了两次造成
+			</cause>
+		</error>
+		<error no="2">
+			<exception>
+				can not listen to:java.lang.NullPointerException
+			</exception>
+			<cause>
+				端口没有值, service标签中的port属性没有值
+			</cause>
+		</error>
+		<error no="3">
+			<exception>
+				java.net.ConnectException: Connection refused: connect
+			</exception>
+			<cause>
+				连接异常, 大多情况是远程服务没有开启
+			</cause>
+		</error>
+		<error no="4">
+			<exception>
+				<![CDATA[
+					java.lang.NullPointerException
+						at org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:37)
+						at org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:47)
+						at org.software.sphere.society.platform.pipeline.core.lang.execute.Root.getSelfFlow(Root.java:48)
+						at org.software.sphere.society.platform.pipeline.core.lang.execute.Root.execute(Root.java:34)
+						at org.software.sphere.society.platform.pipeline.test.Test.run(Test.java:48)
+						at java.lang.Thread.run(Thread.java:534)
+				]]>
+			</exception>
+			<cause>
+				元素没有名字, 提起名字时出错, 这个可以通过语法检查来避免(目前没有), 人为注意好了, 检查所有节点是否都有名字
+			</cause>
+		</error>
+		<error no="5">
+			<exception>
+				<![CDATA[
+					
+					250    ERROR [Thread-2] [2008-12-10 23:48:31,406] org.software.sphere.society.platform.pipeline.test.Test.run(Test.java:55)   - 未知错误  
+					250    ERROR [Thread-2] [2008-12-10 23:48:31,406] org.software.sphere.society.platform.pipeline.test.Test.run(Test.java:56)   - 错误信息 : 错误:中间节点为空, 此节点是:self, 前面的路径是:.self.self.self.self.self  
+					org.software.sphere.society.platform.pipeline.exception.data.MiddleNodeNotFountException: 错误:中间节点为空, 此节点是:self, 前面的路径是:.self.self.self.self.self
+						at org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:39)
+						at org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X.getNextNodeByPath(DefaultNode1X.java:47)
+						at org.software.sphere.society.platform.pipeline.core.lang.execute.Root.getSelfFlow(Root.java:48)
+						at org.software.sphere.society.platform.pipeline.core.lang.execute.Root.execute(Root.java:34)
+						at org.software.sphere.society.platform.pipeline.test.Test.run(Test.java:47)
+						at java.lang.Thread.run(Thread.java:534)
+				]]>
+			</exception>
+			<cause>
+				没有self的流程, 在server节点下面加上一个节点名称为self的就可以了, 这个可以通过语法检查来避免(目前没有), 人为注意好了, 检查所有节点是否都有名字
+				整个路径是   self.self.self.self.self.self 六个self
+			</cause>
+		</error>
+		
+		<error no="5">
+			<exception>
+				<![CDATA[
+				java.lang.NoSuchMethodException: No such accessible method: addNextRealNode() on object: org.software.sphere.society.platform.pipeline.core.real.Server				
+				]]>
+			</exception>
+			<cause>
+				 在server节点下面的元素的添加要用:appendFlow
+			</cause>
+		</error>
+		
+	</common-error>
+</root>
