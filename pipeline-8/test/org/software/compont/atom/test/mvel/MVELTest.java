@@ -9,10 +9,10 @@ public class MVELTest {
 
 	public static void main(String[] args) {
 		Map map = new HashMap();
-		map.put("a_c", "1");
+		map.put("language_name", " pipeline ");
 		map.put("b", "2");
 		
-		Object result = MVEL.eval("a_c+b==3", map);
+		Object result = MVEL.eval("language_name.trim()", map);
 		
 		
 		System.out.println(result);

@@ -4,8 +4,8 @@ import java.net.ConnectException;
 import java.util.Iterator;
 
 import org.mvel.MVEL;
+import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Session;
 
 
 /**
@@ -29,7 +29,7 @@ public class IfElse extends Branch {
 		
 		for (Iterator iter = flowList.iterator(); iter.hasNext();) {
 			If _if = (If) iter.next();
-			DefaultNode1X varMap = getVarMap(clientSession);
+			DefaultNode1X varMap = getDataNodeMap(clientSession);
 			if (_if.getCondition() ==null || MVEL.evalToBoolean(_if.getCondition(), varMap).booleanValue() == true) {
 				_if.execute(clientSession);
 				break; //if-else块中只能执行一个
@@ -37,7 +37,7 @@ public class IfElse extends Branch {
 		}
 	}
 	
-	public DefaultNode1X getVarMap(Session clientSession) {
+	public DefaultNode1X getDataNodeMap(Session clientSession) {
 		return new DefaultNode1X();
 	}
 }

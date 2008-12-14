@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="response">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.core.Response" />
+		<set-properties-rule />
+
+		<!-- 请求数据参数:data-node-->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/common/data-node-define-digester-rules.xml"/>
+				
+		<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.pipeline.core.core.Response" />
+	</pattern>
+</digester-rules>

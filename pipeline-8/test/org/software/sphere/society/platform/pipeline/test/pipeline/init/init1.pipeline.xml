@@ -1,61 +1,61 @@
 <?xml version="1.0"?>
 <root>
 	<global name="self">
-		<service-define>
+		<service-node-define>
 			<service name="global-init">
 				<competitor name="self.self.self.self.io-server.init1" priority="1" />
 				<competitor name="self.self.self.self.io-server.init2" priority="2" />
 			</service>
-		</service-define>
-		<var-define>
+		</service-node-define>
+		<data-node-define>
 			<string name="global">true</string>
-		</var-define>
+		</data-node-define>
 		<economy name="self">
-			<service-define>
+			<service-node-define>
 				<service name="economy-init">
 					<competitor name="self.self.self.self.io-server.init1" priority="1" />
 					<competitor name="self.self.self.self.io-server.init2" priority="2" />
 				</service>
-			</service-define>
-			<var-define>
+			</service-node-define>
+			<data-node-define>
 				<string name="economy">true</string>
-			</var-define>
+			</data-node-define>
 			<market name="self">
-				<service-define>
+				<service-node-define>
 					<service name="market-init">
 						<competitor name="self.self.self.self.io-server.init1" priority="1" />
 						<competitor name="self.self.self.self.io-server.init2" priority="2" />
 					</service>
-				</service-define>
-				<var-define>
+				</service-node-define>
+				<data-node-define>
 					<string name="market">true</string>
-				</var-define>
+				</data-node-define>
 				<supplier name="self">
-					<service-define>
+					<service-node-define>
 						<service name="supplier-init">
 							<competitor name="self.self.self.self.io-server.init1" priority="1" />
 							<competitor name="self.self.self.self.io-server.init2" priority="2" />
 						</service>
-					</service-define>
-					<var-define>
+					</service-node-define>
+					<data-node-define>
 						<string name="supplier">true</string>
-					</var-define>
+					</data-node-define>
 					
 					<server name="self">
-						<var-define>
+						<data-node-define>
 							<string name="server">true</string>
-						</var-define>
-						<service-define>
+						</data-node-define>
+						<service-node-define>
 							<service name="server-init">
 								<competitor name="self.self.self.self.io-server.init1" priority="1" />
 								<competitor name="self.self.self.self.io-server.init2" priority="2" />
 							</service>
-						</service-define>
+						</service-node-define>
 
 						<thread name="self" port="31001" times="100">
-							<var-define>
+							<data-node-define>
 								<string name="thread_self">true</string>
-							</var-define>
+							</data-node-define>
 							<request name="request">
 								<data>
 									<line>
@@ -78,9 +78,9 @@
 							</response>
 
 							<telnet name="telnet-1" service="telnet-1">
-								<var-define>
+								<data-node-define>
 									<string name="telnet_1_string">true</string>
-								</var-define>	
+								</data-node-define>	
 								<request name="request">
 									<data>
 										<line>
@@ -104,9 +104,9 @@
 							</telnet>
 
 							<if condition="1=1" name="if-flow-2">
-								<var-define>
+								<data-node-define>
 									<string name="if-flow-2-string">true</string>
-								</var-define>
+								</data-node-define>
 
 								<telnet service="telnet1">
 									<request name="request">
@@ -135,9 +135,9 @@
 							<if-else condition="1=1" name="if-else-flow-3">
 								<telnet service="">
 									<request name="request">
-										<var-define>
+										<data-node-define>
 											<string name="if-else-flow-3-string">true</string>
-										</var-define>
+										</data-node-define>
 										<data>
 											<line>
 												<![CDATA[request data line1&]]>
@@ -148,9 +148,9 @@
 										</data>
 									</request>
 									<response name="response">
-										<var-define>
+										<data-node-define>
 											<string name="response">true</string>
-										</var-define>
+										</data-node-define>
 										<data>
 											<line>
 												<![CDATA[response data line1&]]>

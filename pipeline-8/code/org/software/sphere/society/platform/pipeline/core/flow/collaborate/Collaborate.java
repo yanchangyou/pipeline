@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.software.sphere.society.platform.pipeline.common.RuleReadNetDataByPipeline;
+import org.software.sphere.society.platform.pipeline.core.core.Request;
+import org.software.sphere.society.platform.pipeline.core.core.Response;
+import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Request;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Response;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Session;
 
 public class Collaborate extends FlowNode {
 

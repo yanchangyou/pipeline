@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Session;
 
 
 /**

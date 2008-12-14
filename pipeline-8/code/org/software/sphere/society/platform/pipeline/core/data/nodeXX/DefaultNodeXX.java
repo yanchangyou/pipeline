@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.software.sphere.society.platform.pipeline.common.NodeDealer;
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 
 public abstract class DefaultNodeXX extends NodeXX {
@@ -19,23 +19,23 @@ public abstract class DefaultNodeXX extends NodeXX {
 		nextNodesMap = new HashMap();
 	}
 
-	public void addNextNode(Node node) {
+	public void addNextNode(DataNode node) {
 		this.addNextNode(node.getNodeName(), node);
 	}
 
-	public void addNextNode(String name, Node node) {
+	public void addNextNode(String name, DataNode node) {
 		nextNodesMap.put(name, node);
 	}
 
-	public Node getNextNodeByPath(String[] pathNamesArray) {
-		Node node = this;
+	public DataNode getNextNodeByPath(String[] pathNamesArray) {
+		DataNode node = this;
 		for (int i = 0; i < pathNamesArray.length; i++) {
 			node = node.getNextNodeByName(pathNamesArray[i]);
 		}
 		return node;
 	}
 
-	public Node getNextNodeByPath(String pathNames) {
+	public DataNode getNextNodeByPath(String pathNames) {
 		java.lang.String path_javaString = pathNames.toJavaString();
 		java.lang.String[] pathArray = path_javaString.split("\\.");
 		String[] pathNameArray = new String[pathArray.length];
@@ -45,26 +45,26 @@ public abstract class DefaultNodeXX extends NodeXX {
 		return this.getNextNodeByPath(pathNameArray);
 	}
 
-	public Node getNextNodeByName(String nextNodeName) {
-		return (Node) nextNodesMap.get(nextNodeName);
+	public DataNode getNextNodeByName(String nextNodeName) {
+		return (DataNode) nextNodesMap.get(nextNodeName);
 	}
-	public void addPreNode(Node node) {
+	public void addPreNode(DataNode node) {
 		this.addPreNode(node.getNodeName(), node);
 	}
 
-	public void addPreNode(String name, Node node) {
+	public void addPreNode(String name, DataNode node) {
 		preNodesMap.put(name, node);
 	}
 
-	public Node getPreNodeByPath(String[] pathNamesArray) {
-		Node node = this;
+	public DataNode getPreNodeByPath(String[] pathNamesArray) {
+		DataNode node = this;
 		for (int i = 0; i < pathNamesArray.length; i++) {
 			node = node.getPreNodeByName(pathNamesArray[i]);
 		}
 		return node;
 	}
 
-	public Node getPreNodeByPath(String pathNames) {
+	public DataNode getPreNodeByPath(String pathNames) {
 		java.lang.String path_javaString = pathNames.toJavaString();
 		java.lang.String[] pathArray = path_javaString.split("\\.");
 		String[] pathNameArray = new String[pathArray.length];
@@ -74,14 +74,14 @@ public abstract class DefaultNodeXX extends NodeXX {
 		return this.getPreNodeByPath(pathNameArray);
 	}
 
-	public Node getPreNode(String preNodeName) {
-		return (Node) preNodesMap.get(preNodeName);
+	public DataNode getPreNode(String preNodeName) {
+		return (DataNode) preNodesMap.get(preNodeName);
 	}
 	
 	public void dealNextNode(NodeDealer nodeDealer) throws Exception {
 		Set set = this.nextNodesMap.keySet();
 		for (Iterator iter = set.iterator(); iter.hasNext();) {
-			Node node = (Node) iter.next();
+			DataNode node = (DataNode) iter.next();
 			nodeDealer.deal(node);
 		}
 	}

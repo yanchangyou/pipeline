@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.software.sphere.society.platform.pipeline.common.JavaStringable;
 import org.software.sphere.society.platform.pipeline.common.NodeDealer;
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node00.Char2;
-import org.software.sphere.society.platform.pipeline.exception.data.DataGenerateException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.DataGenerateException;
 
 public class String extends Node0X implements JavaStringable {
 
@@ -55,17 +55,17 @@ public class String extends Node0X implements JavaStringable {
 		return this.toJavaString();
 	}
 
-	public Node getNextNodeByName(String nodeName) {
+	public DataNode getNextNodeByName(String nodeName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getNextNodeByPath(String pathName) {
+	public DataNode getNextNodeByPath(String pathName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getNextNodeByPath(String[] pathNamesArray) {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -98,15 +98,15 @@ public class String extends Node0X implements JavaStringable {
 		System.out.println(map.get(name2));
 	}
 
-	public Node getPreNodeByName(String nodeName) {
+	public DataNode getPreNodeByName(String nodeName) {
 		return null;
 	}
 
-	public Node getPreNodeByPath(String pathName){
+	public DataNode getPreNodeByPath(String pathName){
 		return null;
 	}
 
-	public Node getPreNodeByPath(String[] pathNamesArray) {
+	public DataNode getPreNodeByPath(String[] pathNamesArray) {
 		return null;
 	}
 	

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.software.sphere.society.platform.pipeline.exception.data.DataGenerateException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.DataGenerateException;
 
 public class Data {
 

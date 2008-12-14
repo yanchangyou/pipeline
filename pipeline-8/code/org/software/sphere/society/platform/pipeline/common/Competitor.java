@@ -1,11 +1,11 @@
 package org.software.sphere.society.platform.pipeline.common;
 
+import org.software.sphere.society.platform.pipeline.core.core.unit.Unit;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node10.Node10;
-import org.software.sphere.society.platform.pipeline.core.flow.unit.Unit;
 import org.software.sphere.society.platform.pipeline.core.real.Global;
-import org.software.sphere.society.platform.pipeline.exception.data.DataGenerateException;
-import org.software.sphere.society.platform.pipeline.exception.data.MiddleNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.DataGenerateException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public class Competitor extends Node10 {
 
@@ -13,7 +13,7 @@ public class Competitor extends Node10 {
 	
 	private java.lang.String realService;
 	
-	public Object getGod() throws MiddleNodeNotFountException, Exception {
+	public Object getGod() throws PreNodeNotFountException, Exception {
 		Global global = (Global) this.getFirstNodeInSequencePre1ableNodes();
 		if (!realService.trim().startsWith("self")) {
 			throw new RuntimeException("抱歉!现在只支持[self]星球的查找");

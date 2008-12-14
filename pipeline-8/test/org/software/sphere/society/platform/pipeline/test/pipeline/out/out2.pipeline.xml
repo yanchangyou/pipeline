@@ -1,62 +1,64 @@
 <?xml version="1.0"?>
 <root>
 	<global name="self">
-		<var-define>
+		<data-node-define>
 			<string name="var">true</string>
-		</var-define>
-		<service-define>
+		</data-node-define>
+		<service-node-define>
 			<service name="hello-service">
 				<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 			</service>
-		</service-define>
+		</service-node-define>
 
 		<economy name="self">
-			<var-define>
+			<data-node-define>
 				<string name="var">true</string>
-			</var-define>
-			<service-define>
+			</data-node-define>
+			<service-node-define>
 				<service name="hello-service">
 					<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 				</service>
-			</service-define>
+			</service-node-define>
 
 			<market name="self">
-				<var-define>
+				<data-node-define>
 					<string name="var">true</string>
-				</var-define>
-				<service-define>
+				</data-node-define>
+				<service-node-define>
 					<service name="hello-service">
 						<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 					</service>
-				</service-define>
+				</service-node-define>
 
 				<supplier name="self">
-					<var-define>
+					<data-node-define>
 						<string name="var">true</string>
-						<string name="userName">"无名氏"</string>
-					</var-define>
-					<service-define>
+						<string name="language_name"> pipeline </string>
+					</data-node-define>
+					<service-node-define>
 						<service name="hello-service">
 							<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 						</service>
-					</service-define>
+					</service-node-define>
 
 					<server name="self">
-						<var-define>
+						<data-node-define>
 							<string name="a">1</string>
 							<string name="b">2</string>
 							<string name="c">3</string>
-						</var-define>
-						<service-define>
+						</data-node-define>
+						<service-node-define>
 							<service name="hello-service">
 								<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 							</service>
-						</service-define>
+						</service-node-define>
 
 						<if name="self" condition="a+b==c">
 							<telnet name="self" service="hello-service@self.self.self.self.self">
 								<request name="request">
-									<param name="data">"pipeline speak : hello world! " + userName</param>
+									<data-node-define>
+										<string name="data">"hello world! (generate by " + language_name.substring(0) + ")"</string>
+									</data-node-define>
 								</request>
 							</telnet>
 						</if>
@@ -79,12 +81,16 @@
 					</server>
 					<server name="io-server" host="127.0.0.1">
 						<telnet name="output-telnet1">
-							<param name="host">127.0.0.1</param>
-							<param name="port">10001</param>
+							<data-node-define>
+								<string name="host">127.0.0.1</string>
+								<string name="port">10001</string>
+							</data-node-define>
 						</telnet>
 						<telnet name="output-telnet2">
-							<param name="host">127.0.0.1</param>
-							<param name="port">10002</param>
+							<data-node-define>
+								<string name="host">127.0.0.1</string>
+								<string name="port">10001</string>
+							</data-node-define>
 						</telnet>
 					</server>
 				</supplier>

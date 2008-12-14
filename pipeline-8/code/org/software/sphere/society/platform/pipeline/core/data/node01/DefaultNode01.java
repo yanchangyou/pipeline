@@ -1,18 +1,18 @@
 package org.software.sphere.society.platform.pipeline.core.data.node01;
 
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
-import org.software.sphere.society.platform.pipeline.exception.data.MiddleNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public class DefaultNode01 extends Node01 {
 
-	protected Node next;
+	protected DataNode next;
 
-	public Node getNext() {
+	public DataNode getNext() {
 		return next;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(DataNode next) {
 		this.next = next;
 	}
 
@@ -24,19 +24,19 @@ public class DefaultNode01 extends Node01 {
 		return next.toString();
 	}
 
-	public Node getNextNodeByName(String nodeName) {
+	public DataNode getNextNodeByName(String nodeName) {
 		if (this.next.getName().equals(nodeName)) {
 			return this.next;
 		}
 		return null;
 	}
 
-	public Node getNextNodeByPath(String pathName) {
+	public DataNode getNextNodeByPath(String pathName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getNextNodeByPath(String[] pathNamesArray) {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) {
 		
 		if (pathNamesArray != null && pathNamesArray.length == 1 && pathNamesArray[0].equals(pathNamesArray)) {
 			return this.next;
@@ -44,17 +44,17 @@ public class DefaultNode01 extends Node01 {
 		return null;
 	}
 
-	public Node getPreNodeByName(String nodeName) {
+	public DataNode getPreNodeByName(String nodeName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
+	public DataNode getPreNodeByPath(String pathName) throws PreNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+	public DataNode getPreNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
 	}

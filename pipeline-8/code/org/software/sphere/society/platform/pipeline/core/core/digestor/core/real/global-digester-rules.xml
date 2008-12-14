@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="global">
+
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.real.Global" />
+		<set-properties-rule />
+
+		<!-- 导入 real:economy的 digestor文件 -->
+		<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/real/economy-digester-rules.xml" />
+
+		<!-- 导入 real:market的 digestor文件 -->
+		<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/real/market-digester-rules.xml" />
+
+		<!-- 导入 real:supplier的 digestor文件 -->
+		<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/real/supplier-digester-rules.xml" />
+
+		<!-- 导入 real:server的 digestor文件 -->
+		<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/real/server-digester-rules.xml" />
+
+		<set-next-rule methodname="setGlobal" paramtype="org.software.sphere.society.platform.pipeline.core.real.Global" />
+	</pattern>
+</digester-rules>
