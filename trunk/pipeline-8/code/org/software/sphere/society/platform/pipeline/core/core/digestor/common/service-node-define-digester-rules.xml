@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <digester-rules>
-	<pattern value="service-node-define">
+	<pattern value="*/service-node-define">
 		<pattern value="service">
 			<object-create-rule classname="org.software.sphere.society.platform.pipeline.common.ServiceNode" />
 			<set-properties-rule />

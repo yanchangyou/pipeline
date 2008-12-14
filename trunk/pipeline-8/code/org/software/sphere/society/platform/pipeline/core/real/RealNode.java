@@ -7,6 +7,7 @@ import org.software.sphere.society.platform.pipeline.core.core.RealNodeContext;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
+import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
 
 /**
  * 所有现实节点的父类<br>
@@ -22,6 +23,8 @@ import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNod
  * 父节点用于关联父节点, 便于整个real node 的向前遍历 
  * 5, 后续节点<br>
  * 用于整个real node 的向后遍历
+ * 
+ * 6, 起始流程节点
  * 
  * 
  * 
@@ -133,6 +136,12 @@ public abstract class RealNode extends DefaultNode1X {
 
 	public RealNode getPreRealNode() {
 		return (RealNode) this.preNode;
+	}
+	
+	
+	public void appendFlow(FlowNode flow) {
+		this.addNextNode(flow);
+		flow.setPreNode(this);
 	}
 	
 	public java.lang.String toString() {

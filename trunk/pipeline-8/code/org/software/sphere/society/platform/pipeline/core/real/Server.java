@@ -1,18 +1,9 @@
 package org.software.sphere.society.platform.pipeline.core.real;
 
-import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
-
-
 public class Server extends RealNode {
 	
 	
 	public Server() {
-	}
-	
-	
-	public void appendFlow(FlowNode flow) {
-		this.addNextNode(flow);
-		flow.setPreNode(this);
 	}
 	
 	protected String host;
