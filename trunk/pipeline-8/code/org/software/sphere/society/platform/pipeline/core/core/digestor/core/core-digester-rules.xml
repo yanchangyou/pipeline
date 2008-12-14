@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- 数据模型的digester -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/data/data-node-digester-rules.xml" />
+
+	<!-- 现实模型的digester -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/real/real-node-digester-rules.xml" />
+
+	<!-- 流程模型的digester -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/flow-node-digester-rules.xml" />
+
+	<!-- 核心模型 -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/core/core-digester-rules.xml" />
+</digester-rules>
