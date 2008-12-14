@@ -5,7 +5,7 @@
 
 
 <!--	 init  -->
-<!--
+<!----> 
 	<test name="init" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init1.pipeline.xml">
 		<function>
 			<line>测试整个上下文的初始化是否正确</line>
@@ -18,7 +18,7 @@
 			<line>4, 依次查看上下文的初始化是否正确</line>
 		</outer-flow>
 	</test>
-
+<!--  
 	<test name="init" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init2.pipeline.xml">
 		<function>
 			<line>测试整个上下文的初始化是否正确</line>
@@ -31,7 +31,7 @@
 			<line>4, 依次查看上下文的初始化是否正确</line>
 		</outer-flow>
 	</test>
---> 
+-->
 <!--
 	<test name="get" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/get/get1.pipeline.xml">
 		<function>
@@ -58,7 +58,7 @@
 		</outer-flow>
 	</test>
 -->
-	<!--  使用顺序流程连续输出两个pipeline speak : hello world!-->
+	<!--  使用顺序流程连续输出两个pipeline speak : hello world!
 	<test name="out" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/out/out2.pipeline.xml">
 		<function>
 			<line>连续输出两个pipeline speak : hello world!</line>
@@ -70,4 +70,5 @@
 			<line>3, 到输出服务器查看输出结果</line>
 		</outer-flow>
 	</test>
+	-->
 </test-list>

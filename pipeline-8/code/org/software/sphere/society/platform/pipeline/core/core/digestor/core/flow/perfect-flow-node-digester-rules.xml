@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- 流程模型:执行单元:unit -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/core/unit-digester-rules.xml"/>
+
+	<!-- 流程模型:顺序:sequence-->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/sequencess-digester-rules.xml"/>
+
+	<!-- 流程模型:分支:branch -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/branch-digester-rules.xml"/>
+
+	<!-- 流程模型:循环:loop -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/loop-digester-rules.xml"/>
+	
+	<!-- 流程模型:线程:tread -->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/thread-digester-rules.xml"/>	
+	
+	<!-- 流程模型:协作:collaborate-->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/collaborate-digester-rules.xml"/>	
+	
+	<!-- 流程模型:定时:time-->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/time-digester-rules.xml"/>	
+	
+	<!-- 流程模型:并行:parallel-->
+	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/parallel-digester-rules.xml"/>	
+	
+</digester-rules>
