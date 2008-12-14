@@ -2,9 +2,6 @@
 
 <digester-rules>
 
-	<!-- 流程模型:执行单元:unit -->
-	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/core/unit-digester-rules.xml"/>
-
 	<!-- 流程模型:顺序:sequence-->
 	<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/core/flow/sequencess-digester-rules.xml"/>
 

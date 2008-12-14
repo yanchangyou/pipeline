@@ -4,7 +4,6 @@
 	<pattern value="*/response">
 		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.core.Response" />
 		<set-properties-rule />
-				
 		<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.pipeline.core.core.Response" />
 	</pattern>
 </digester-rules>
