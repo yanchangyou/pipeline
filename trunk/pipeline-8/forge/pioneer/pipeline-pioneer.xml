@@ -431,12 +431,12 @@
 						<market name="self">
 							<supplier name="self">
 								<server name="self">
-									<service-define>
+									<service-node-define>
 										<service name="input" port="21001">
 											<competitor name="self.self.self.self.io-server.input1" priority="1"/>
 											<competitor name="self.self.self.self.io-server.input2" priority="2"/>
 										</service>
-									</service-define>
+									</service-node-define>
 									
 									<telnet name="self" port="21001">
 										<start/>

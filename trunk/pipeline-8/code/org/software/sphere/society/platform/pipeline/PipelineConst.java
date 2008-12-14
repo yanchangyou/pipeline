@@ -10,7 +10,7 @@ public class PipelineConst {
 
 	public static class CORE {
 		public static class EXECUTE {
-			public final static String SELF_UNIT_PATH = "self.self.self.self.self";//执行入口
+			public final static String SELF_UNIT_PATH = "self.self.self";//执行入口
 		}
 	}
 	

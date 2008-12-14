@@ -1,7 +1,7 @@
 package org.software.sphere.society.platform.pipeline.core.data.node00;
 
 import org.software.sphere.society.platform.pipeline.common.JavaStringable;
-import org.software.sphere.society.platform.pipeline.exception.data.DataGenerateException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.DataGenerateException;
 
 public class Char2 extends Node00 implements JavaStringable {
 

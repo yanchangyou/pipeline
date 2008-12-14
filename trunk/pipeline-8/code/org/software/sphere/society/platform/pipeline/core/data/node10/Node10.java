@@ -1,27 +1,27 @@
 package org.software.sphere.society.platform.pipeline.core.data.node10;
 
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.pre.Pre1able;
-import org.software.sphere.society.platform.pipeline.exception.data.MiddleNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
-public class Node10 extends Node implements Pre1able {
+public class Node10 extends DataNode implements Pre1able {
 
-	protected Node preNode;
+	protected DataNode preNode;
 	
-	public Node getNextNodeByName(String nodeName) {
+	public DataNode getNextNodeByName(String nodeName) {
 		return null;
 	}
 
-	public Node getNextNodeByPath(String pathName) throws MiddleNodeNotFountException {
+	public DataNode getNextNodeByPath(String pathName) throws PreNodeNotFountException {
 		return null;
 	}
 
-	public Node getNextNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
 		return null;
 	}
 
-	public Node getPreNodeByName(String nodeName) {
+	public DataNode getPreNodeByName(String nodeName) {
 
 		if (preNode != null && preNode.getName().equals(nodeName)) {
 			return this.preNode;
@@ -29,29 +29,29 @@ public class Node10 extends Node implements Pre1able {
 		return null;
 	}
 
-	public Node getPreNodeByPath(String pathName) throws MiddleNodeNotFountException {
+	public DataNode getPreNodeByPath(String pathName) throws PreNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getPreNodeByPath(String[] pathNamesArray) throws MiddleNodeNotFountException {
+	public DataNode getPreNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Node getFirstNodeInSequencePre1ableNodes() {
+	public DataNode getFirstNodeInSequencePre1ableNodes() {
 		Pre1able pre1ableNode = this;
 		while (pre1ableNode != null && Pre1able.class.isInstance(pre1ableNode.getPreNode())) {
 			pre1ableNode = (Pre1able) pre1ableNode.getPreNode();
 		}
-		return (Node) pre1ableNode;
+		return (DataNode) pre1ableNode;
 	}
 
-	public Node getPreNode() {
+	public DataNode getPreNode() {
 		return this.preNode;
 	}
 
-	public void setPreNode(Node preNode) {
+	public void setPreNode(DataNode preNode) {
 		this.preNode = preNode;
 	}
 }

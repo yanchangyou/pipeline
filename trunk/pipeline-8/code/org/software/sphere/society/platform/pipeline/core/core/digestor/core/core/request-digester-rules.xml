@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="request">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.core.Request" />
+		<set-properties-rule />
+
+		<!-- 请求数据参数:data-node-->
+		<include path="org/software/sphere/society/platform/pipeline/core/core/digestor/common/data-node-define-digester-rules.xml" />
+		
+		<set-next-rule methodname="setRequest" paramtype="org.software.sphere.society.platform.pipeline.core.core.Request" />
+	</pattern>
+</digester-rules>

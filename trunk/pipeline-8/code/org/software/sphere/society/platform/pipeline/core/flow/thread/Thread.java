@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.software.sphere.society.platform.pipeline.common.RuleReadNetDataByPipeline;
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.core.Request;
+import org.software.sphere.society.platform.pipeline.core.core.Response;
+import org.software.sphere.society.platform.pipeline.core.core.Session;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Request;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Response;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Session;
 
 public class Thread extends FlowNode {
 
@@ -151,11 +151,11 @@ public class Thread extends FlowNode {
 //					this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);
 //					this.getContext().getParent().merger(response.getName(), responseTree);
 //					os.print(responseTree.getResult());
-					Node node = this.getVar(requestData.trim());
+					DataNode node = this.getDataNode(requestData.trim());
 					if (node != null) {
 						responseData = new String(node.toString());
 					} else {
-						responseData = new String("变量没有找到");
+						responseData = new String("数据节点没有找到");
 					}
 					
 					os.print(responseData + "\r\n");

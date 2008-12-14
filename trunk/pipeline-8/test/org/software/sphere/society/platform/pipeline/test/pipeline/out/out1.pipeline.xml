@@ -1,54 +1,54 @@
 <?xml version="1.0"?>
 <root>
 	<global name="self">
-		<var-define>
+		<data-node-define>
 			<string name="var">true</string>
-		</var-define>
-		<service-define>
+		</data-node-define>
+		<service-node-define>
 			<service name="hello-service">
 				<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 			</service>
-		</service-define>
+		</service-node-define>
 
 		<economy name="self">
-			<var-define>
+			<data-node-define>
 				<string name="var">true</string>
-			</var-define>
-			<service-define>
+			</data-node-define>
+			<service-node-define>
 				<service name="hello-service">
 					<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 				</service>
-			</service-define>
+			</service-node-define>
 
 			<market name="self">
-				<var-define>
+				<data-node-define>
 					<string name="var">true</string>
-				</var-define>
-				<service-define>
+				</data-node-define>
+				<service-node-define>
 					<service name="hello-service">
 						<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 					</service>
-				</service-define>
+				</service-node-define>
 
 				<supplier name="self">
-					<var-define>
+					<data-node-define>
 						<string name="var">true</string>
-					</var-define>
-					<service-define>
+					</data-node-define>
+					<service-node-define>
 						<service name="hello-service">
 							<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 						</service>
-					</service-define>
+					</service-node-define>
 
 					<server name="self">
-						<var-define>
+						<data-node-define>
 							<string name="var">true</string>
-						</var-define>
-						<service-define>
+						</data-node-define>
+						<service-node-define>
 							<service name="hello-service">
 								<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
 							</service>
-						</service-define>
+						</service-node-define>
 
 						<telnet name="self" service="hello-service@self.self.self.self.self">
 							<request name="request">

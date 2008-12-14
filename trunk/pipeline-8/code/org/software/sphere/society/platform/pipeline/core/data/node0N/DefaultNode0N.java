@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.pipeline.core.data.node0N;
 
-import org.software.sphere.society.platform.pipeline.exception.data.NodeXNOutOfBounder;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NodeXNOutOfBounder;
 
 public abstract class DefaultNode0N extends Node0N {
 

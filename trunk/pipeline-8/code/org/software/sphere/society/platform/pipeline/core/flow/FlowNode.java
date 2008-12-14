@@ -7,15 +7,15 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.pipeline.common.Logable;
-import org.software.sphere.society.platform.pipeline.core.data.Node;
+import org.software.sphere.society.platform.pipeline.core.core.FlowNodeContext;
+import org.software.sphere.society.platform.pipeline.core.core.Request;
+import org.software.sphere.society.platform.pipeline.core.core.Response;
+import org.software.sphere.society.platform.pipeline.core.core.Session;
+import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.FlowNodeContext;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Request;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Response;
-import org.software.sphere.society.platform.pipeline.core.lang.execute.Session;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
-import org.software.sphere.society.platform.pipeline.exception.data.MiddleNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public abstract class FlowNode extends DefaultNode1X implements Logable {
 
@@ -23,7 +23,7 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		this.flowNodeContext = new FlowNodeContext(this);
 	}
 	/**
-	 * 上下文存储变量
+	 * 上下文存储数据节点
 	 */
 	protected FlowNodeContext flowNodeContext;
 
@@ -45,42 +45,42 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	
 
 	/** 
-	 * 添加变量<br>
+	 * 添加数据节点<br>
 	 * 直接放到上下文中去了
 	 * 
 	 * @param node
 	 */
-	public void addVar(Node node) {
+	public void addDataNode(DataNode node) {
 		this.flowNodeContext.addNextNode(node);
 	}
 	/**
-	 * 获取变量<br>
+	 * 获取数据节点<br>
 	 * 直接从上下文中获取<br>
 	 * 本层没有找到就从上层中去寻找<br>
 	 * 
 	 * @param name
 	 * @return
-	 * @throws MiddleNodeNotFountException 
+	 * @throws PreNodeNotFountException 
 	 */
-	public Node getVar(String name) {
+	public DataNode getDataNode(String name) {
 		
 		/**
 		 * 先在流程模型里找
 		 */
 		FlowNode flowNode = this;
-		Node value = null;
+		DataNode value = null;
 
 		do
 		{
 			try {
-				log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
+				log.info("开始在[" + flowNode.getName() + "]流程上下文中查找数据节点:" + name);
 				value = flowNode.getFlowNodeContext().getNextNodeByPath(name);
 				if (value == null) {
-					throw new MiddleNodeNotFountException("不存在此变量");
+					throw new PreNodeNotFountException("不存在此数据节点");
 				}
-				log.info("查找变量成功,值为:" + value);
-			} catch (MiddleNodeNotFountException e) {
-				log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
+				log.info("查找数据节点成功,值为:" + value);
+			} catch (PreNodeNotFountException e) {
+				log.info("在" + flowNode.getName() + "流程上下文查找数据节点失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
 //				e.printStackTrace();
 			}
 			if (flowNode.getPreNode() instanceof FlowNode) {
@@ -94,18 +94,18 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		 * 再到 现实模型中寻找
 		 */
 		if (value == null) { //在流程模型中没有找到, 继续往上找
-			log.info("开始在现实模型上下文中查找变量:" + name);
+			log.info("开始在现实模型上下文中查找数据节点:" + name);
 			RealNode realNode = (RealNode) flowNode.getPreNode();
 			do {			
 				try {
-					log.info("开始在[" + flowNode.getName() + "]流程上下文中查找变量:" + name);
+					log.info("开始在[" + flowNode.getName() + "]流程上下文中查找数据节点:" + name);
 					value = realNode.getRealNodeContext().getNextNodeByPath(name);
 					if (value == null) {
-						throw new MiddleNodeNotFountException("不存在此变量");
+						throw new PreNodeNotFountException("不存在此数据节点");
 					}
-					log.info("查找变量成功,值为:" + value);
-				} catch (MiddleNodeNotFountException e) {
-					log.info("在" + flowNode.getName() + "流程上下查找变量失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
+					log.info("查找数据节点成功,值为:" + value);
+				} catch (PreNodeNotFountException e) {
+					log.info("在" + flowNode.getName() + "流程上下文查找数据节点失败,找到上级流程中去查找, 失败原因:" + e.getMessage());
 				}
 				if (realNode.getPreNode() instanceof RealNode) {
 					realNode = (RealNode) realNode.getPreNode();

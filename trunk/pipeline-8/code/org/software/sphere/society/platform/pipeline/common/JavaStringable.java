@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.pipeline.common;
 
-import org.software.sphere.society.platform.pipeline.exception.data.DataGenerateException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.DataGenerateException;
 
 public interface JavaStringable {
 
