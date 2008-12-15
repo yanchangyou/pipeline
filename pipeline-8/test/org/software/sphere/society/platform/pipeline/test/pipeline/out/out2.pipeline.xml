@@ -1,22 +1,46 @@
 <?xml version="1.0"?>
-<root>
-	<global name="self">
+
+<root name="root" boot="my-timer">
+
+	<time name="my-timer" period="1000" maxTimes="3">
+		<telnet name="self" service="hello-service@my-node.self1.self.self.self">
+			<request name="request">
+				<data-node-define>
+					<string name="data">"data"</string>
+				</data-node-define>
+			</request>
+		</telnet>
+	</time>
+		
+	<real-node name="my-node">
 		<data-node-define>
 			<string name="var">true</string>
 		</data-node-define>
 		<service-node-define>
 			<service name="hello-service">
-				<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+				<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 			</service>
 		</service-node-define>
 
-		<economy name="self">
+		
+		<if name="first-if-flow" condition="1&lt;2">
+			<telnet name="self" service="hello-service@my-node.self1.self.self.self">
+				<request name="request">
+					<data-node-define>
+						<string name="data">"data"</string>
+					</data-node-define>
+				</request>
+			</telnet>
+		</if>
+
+
+		<economy name="self1">
 			<data-node-define>
 				<string name="var">true</string>
 			</data-node-define>
 			<service-node-define>
 				<service name="hello-service">
-					<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+					<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 				</service>
 			</service-node-define>
 
@@ -26,7 +50,7 @@
 				</data-node-define>
 				<service-node-define>
 					<service name="hello-service">
-						<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+						<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 					</service>
 				</service-node-define>
 
@@ -37,7 +61,7 @@
 					</data-node-define>
 					<service-node-define>
 						<service name="hello-service">
-							<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+							<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 						</service>
 					</service-node-define>
 
@@ -49,7 +73,7 @@
 						</data-node-define>
 						<service-node-define>
 							<service name="hello-service">
-								<competitor name="output-service" realService="self.self.self.self.io-server.output-telnet1" priority="2" />
+								<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 							</service>
 						</service-node-define>
 
@@ -96,5 +120,5 @@
 				</supplier>
 			</market>
 		</economy>
-	</global>
+	</real-node>
 </root>

@@ -115,10 +115,12 @@ public class DefaultNode1X extends Node1X {
 
 	public DataNode getFirstNodeInSequencePre1ableNodes() {
 		Pre1able pre1ableNode = this;
-		while (pre1ableNode != null && Pre1able.class.isInstance(pre1ableNode.getPreNode())) {
+		DataNode firstNode = null;
+		while (pre1ableNode.getPreNode() != null && Pre1able.class.isInstance(pre1ableNode.getPreNode())) {
+//			firstNode = (DataNode) pre1ableNode;
 			pre1ableNode = (Pre1able) pre1ableNode.getPreNode();
 		}
-		return (DataNode) pre1ableNode;
+		return (DataNode) firstNode;
 	}
 
 }

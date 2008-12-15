@@ -55,4 +55,14 @@ public class Node10 extends DataNode implements Pre1able {
 	public void setPreNode(DataNode preNode) {
 		this.preNode = preNode;
 	}
+
+	public void addNextNode(DataNode node) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addNextNode(String name, DataNode node) {
+		// TODO Auto-generated method stub
+		
+	}
 }

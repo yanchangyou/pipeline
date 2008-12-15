@@ -29,4 +29,14 @@ public abstract class Node00 extends DataNode implements JavaStringable {
 	public DataNode getPreNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
 		return null;
 	}
+
+	public void addNextNode(DataNode node) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addNextNode(org.software.sphere.society.platform.pipeline.core.data.node0X.String name, DataNode node) {
+		// TODO Auto-generated method stub
+		
+	}
 }

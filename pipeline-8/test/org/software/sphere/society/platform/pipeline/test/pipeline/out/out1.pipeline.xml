@@ -33,6 +33,7 @@
 				<supplier name="self">
 					<data-node-define>
 						<string name="var">true</string>
+						<string name="language_name"> pipeline </string>
 					</data-node-define>
 					<service-node-define>
 						<service name="hello-service">
@@ -42,7 +43,9 @@
 
 					<server name="self">
 						<data-node-define>
-							<string name="var">true</string>
+							<string name="a">1</string>
+							<string name="b">2</string>
+							<string name="c">3</string>
 						</data-node-define>
 						<service-node-define>
 							<service name="hello-service">
@@ -50,20 +53,44 @@
 							</service>
 						</service-node-define>
 
-						<telnet name="self" service="hello-service@self.self.self.self.self">
-							<request name="request">
-								<param name="data">pipeline speak : hello world!</param>
-							</request>
-						</telnet>
+						<if name="self" condition="a+b==c">
+							<telnet name="self" service="hello-service@self.self.self.self.self">
+								<request name="request">
+									<data-node-define>
+										<string name="data">"hello world! (generate by " + language_name.substring(0) + ")"</string>
+									</data-node-define>
+								</request>
+							</telnet>
+						</if>
+						<for name="self_for" min="1" max="10" step="1">
+							<sequence name="self_sequence">
+								<telnet name="self" service="hello-service@self.self.self.self.self">
+									<request name="request">
+										<param name="data">pipeline speak : hello world!</param>
+									</request>
+								</telnet>
+
+								<telnet name="self" service="hello-service@self.self.self.self.self">
+									<request name="request">
+										<param name="data">pipeline speak : hello world!</param>
+									</request>
+								</telnet>
+							</sequence>
+						</for>
+
 					</server>
 					<server name="io-server" host="127.0.0.1">
 						<telnet name="output-telnet1">
-							<param name="host">127.0.0.1</param>
-							<param name="port">10001</param>
+							<data-node-define>
+								<string name="host">127.0.0.1</string>
+								<string name="port">10001</string>
+							</data-node-define>
 						</telnet>
 						<telnet name="output-telnet2">
-							<param name="host">127.0.0.1</param>
-							<param name="port">10002</param>
+							<data-node-define>
+								<string name="host">127.0.0.1</string>
+								<string name="port">10001</string>
+							</data-node-define>
 						</telnet>
 					</server>
 				</supplier>

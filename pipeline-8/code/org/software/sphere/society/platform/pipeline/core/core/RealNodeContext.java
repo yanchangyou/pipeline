@@ -4,6 +4,7 @@ import org.software.sphere.society.platform.pipeline.common.Commons;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 
 /**
  * 上下文<br>
@@ -34,8 +35,9 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @param path
 	 * @return
+	 * @throws NextNodeNotFountException 
 	 */
-	public RealNode getSuitablePathRealNode(String path) {
+	public RealNode getSuitablePathRealNode(String path) throws NextNodeNotFountException {
 		RealNode realNode = null;
 		
 		if (path.toJavaString().startsWith(KeyWords.THIS_KEY_WORLD + ".")) {
@@ -52,8 +54,9 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 获取适合节点的上下文
 	 * @param path
 	 * @return
+	 * @throws NextNodeNotFountException 
 	 */
-	public RealNodeContext getSuitablePathRealNodeContext(String path) {
+	public RealNodeContext getSuitablePathRealNodeContext(String path) throws NextNodeNotFountException {
 		return getSuitablePathRealNode(path).getRealNodeContext();
 	}
 
@@ -92,14 +95,10 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @param path
 	 * @return
+	 * @throws NextNodeNotFountException 
 	 */
-	public RealNode getAbsolutePathRealNode(String path) {
-		RealNode realNode = this.getRealNodeNode();
-		String[] pathArray = Commons.convertToStringArray(path.toJavaString().split("\\."));
-		for (int i = 0; i < pathArray.length; i++) {
-			realNode = realNode.getNextRealNode(pathArray[i]);
-		}
-		return realNode;
+	public RealNode getAbsolutePathRealNode(String path) throws NextNodeNotFountException {
+		return (RealNode) this.getNextNodeByPath(path);
 	}
 	
 	/**
@@ -107,8 +106,9 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @param path
 	 * @return
+	 * @throws NextNodeNotFountException 
 	 */
-	public RealNodeContext getAbsolutePathRealNodeContext(String path) {
+	public RealNodeContext getAbsolutePathRealNodeContext(String path) throws NextNodeNotFountException {
 		return getAbsolutePathRealNode(path).getRealNodeContext();
 	}
 		
@@ -128,21 +128,21 @@ public class RealNodeContext extends DefaultNode1X {
 	 * 
 	 * @return
 	 */
-	public RealNode getRealNodeNode() {
-		RealNode realNode = this.getThisRealNode();
-		while (realNode.getPreNode() != null) {
-			realNode = realNode.getPreRealNode();
-		}
-		return ((Root)(Object)realNode).getRealNode();
-	}
+//	public RealNode getRealNodeNode() {
+//		RealNode realNode = this.getThisRealNode();
+//		while (realNode.getPreNode() != null) {
+//			realNode = realNode.getPreRealNode();
+//		}
+//		return ((Root)(Object)realNode).getRealNode();
+//	}
 	
 	/**
 	 * RealNode的上下文
 	 * @return
 	 */
-	public RealNodeContext getRealNodeNodeContext() {
-		return getRealNodeNode().getRealNodeContext();
-	}
+//	public RealNodeContext getRealNodeNodeContext() {
+//		return getRealNodeNode().getRealNodeContext();
+//	}
 	
 	public java.lang.String toString() {
 		return this.getNextNodesMap().toString();

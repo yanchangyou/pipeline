@@ -44,6 +44,9 @@ public class DefaultNode01 extends Node01 {
 	public DataNode getNextNodeByPath(String[] pathNamesArray) throws NextNodeNotFountException {
 		
 		if (pathNamesArray != null && pathNamesArray.length > 0 && pathNamesArray[0].equals(this.next.getNodeName())) {
+			if (pathNamesArray.length == 1) {
+				return this.next;
+			}
 			String[] newPathNamesArray = new String[pathNamesArray.length-1];
 			System.arraycopy(pathNamesArray, 1, newPathNamesArray, 0, newPathNamesArray.length);
 			return this.next.getNextNodeByPath(newPathNamesArray);
@@ -64,5 +67,20 @@ public class DefaultNode01 extends Node01 {
 	public DataNode getPreNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void addNext(DataNode net) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addNextNode(String name, DataNode net) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addNextNode(DataNode node) {
+		next = node;
+		
 	}
 }
