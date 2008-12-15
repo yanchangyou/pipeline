@@ -94,7 +94,7 @@ public class RealNodeContext extends DefaultNode1X {
 	 * @return
 	 */
 	public RealNode getAbsolutePathRealNode(String path) {
-		RealNode realNode = this.getGlobalNode();
+		RealNode realNode = this.getRealNodeNode();
 		String[] pathArray = Commons.convertToStringArray(path.toJavaString().split("\\."));
 		for (int i = 0; i < pathArray.length; i++) {
 			realNode = realNode.getNextRealNode(pathArray[i]);
@@ -122,26 +122,26 @@ public class RealNodeContext extends DefaultNode1X {
 	}
 
 	/**
-	 * 获取Global节点<br>
+	 * 获取RealNode节点<br>
 	 * 
 	 * 不断的向前遍历
 	 * 
 	 * @return
 	 */
-	public RealNode getGlobalNode() {
+	public RealNode getRealNodeNode() {
 		RealNode realNode = this.getThisRealNode();
 		while (realNode.getPreNode() != null) {
 			realNode = realNode.getPreRealNode();
 		}
-		return ((Root)(Object)realNode).getGlobal();
+		return ((Root)(Object)realNode).getRealNode();
 	}
 	
 	/**
-	 * Global的上下文
+	 * RealNode的上下文
 	 * @return
 	 */
-	public RealNodeContext getGlobalNodeContext() {
-		return getGlobalNode().getRealNodeContext();
+	public RealNodeContext getRealNodeNodeContext() {
+		return getRealNodeNode().getRealNodeContext();
 	}
 	
 	public java.lang.String toString() {

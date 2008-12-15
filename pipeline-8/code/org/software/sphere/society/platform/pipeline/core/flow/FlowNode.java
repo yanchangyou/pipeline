@@ -15,6 +15,7 @@ import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public abstract class FlowNode extends DefaultNode1X implements Logable {
@@ -60,9 +61,10 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	 * 
 	 * @param name
 	 * @return
+	 * @throws NextNodeNotFountException 
 	 * @throws PreNodeNotFountException 
 	 */
-	public DataNode getDataNode(String name) {
+	public DataNode getDataNode(String name) throws NextNodeNotFountException {
 		
 		/**
 		 * 先在流程模型里找

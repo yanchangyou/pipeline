@@ -8,7 +8,7 @@ import java.util.Set;
 import org.software.sphere.society.platform.pipeline.common.Commons;
 import org.software.sphere.society.platform.pipeline.common.NodeDealer;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
-import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public class DefaultNode0X extends Node0X {
@@ -27,20 +27,20 @@ public class DefaultNode0X extends Node0X {
 		nextNodesMap.put(name, node);
 	}
 
-	public DataNode getNextNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) throws NextNodeNotFountException {
 		DataNode node = this;
 		StringBuffer buf = new StringBuffer();
 		for (int i = 0; i < pathNamesArray.length; i++) {
 			node = node.getNextNodeByName(pathNamesArray[i]);
 			buf.append(".").append(pathNamesArray[i]);
 			if (node == null) {
-				throw new PreNodeNotFountException("错误:中间节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
+				throw new NextNodeNotFountException("错误:中间节点为空, 此节点是:" + pathNamesArray[i] + ", 不存在的路径是:" + buf);
 			}
 		}
 		return node;
 	}
 
-	public DataNode getNextNodeByPath(String pathName)  throws PreNodeNotFountException {
+	public DataNode getNextNodeByPath(String pathName)  throws NextNodeNotFountException {
 		String[] pathNameArray = Commons.getPathNameArray(pathName);
 		return this.getNextNodeByPath(pathNameArray);
 	}

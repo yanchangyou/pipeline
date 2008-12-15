@@ -12,7 +12,7 @@ import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
 import org.software.sphere.society.platform.pipeline.exception.core.core.VarNotFountException;
-import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 
 public class Evale {
 
@@ -38,7 +38,7 @@ public class Evale {
 	}
 
 	public static Object eval(java.lang.String express, FlowNode flow)
-			throws PreNodeNotFountException, VarNotFountException {
+			throws NextNodeNotFountException, VarNotFountException {
 
 //		express = express.replace('\r', ' ').replace('\n', ' '); //换行处理
 //		express = express.replaceAll("[\\+\\-\\*/%]|==", " $0 ");//运算符前后加空格, 便于后面数据节点替换
@@ -77,7 +77,7 @@ public class Evale {
 	}
 
 	public static boolean evaleToBoolean(java.lang.String express, FlowNode flow)
-			throws PreNodeNotFountException, VarNotFountException {
+			throws NextNodeNotFountException, VarNotFountException {
 		return ((Boolean) eval(express, flow)).booleanValue();
 	}
 

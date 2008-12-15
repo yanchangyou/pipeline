@@ -2,6 +2,7 @@ package org.software.sphere.society.platform.pipeline.core.data.node01;
 
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public class DefaultNode01 extends Node01 {
@@ -31,15 +32,21 @@ public class DefaultNode01 extends Node01 {
 		return null;
 	}
 
-	public DataNode getNextNodeByPath(String pathName) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataNode getNextNodeByPath(String pathName) throws NextNodeNotFountException {
+		java.lang.String[] javaPathNamesArray = pathName.toJavaString().split("\\.");
+		String[] pathNamesArray = new String[javaPathNamesArray.length];
+		for (int i = 0; i < pathNamesArray.length; i++) {
+			pathNamesArray[i] = new String(javaPathNamesArray[i]);
+		}
+		return this.getNextNodeByPath(pathNamesArray);
 	}
 
-	public DataNode getNextNodeByPath(String[] pathNamesArray) {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) throws NextNodeNotFountException {
 		
-		if (pathNamesArray != null && pathNamesArray.length == 1 && pathNamesArray[0].equals(pathNamesArray)) {
-			return this.next;
+		if (pathNamesArray != null && pathNamesArray.length > 0 && pathNamesArray[0].equals(this.next.getNodeName())) {
+			String[] newPathNamesArray = new String[pathNamesArray.length-1];
+			System.arraycopy(pathNamesArray, 1, newPathNamesArray, 0, newPathNamesArray.length);
+			return this.next.getNextNodeByPath(newPathNamesArray);
 		}
 		return null;
 	}

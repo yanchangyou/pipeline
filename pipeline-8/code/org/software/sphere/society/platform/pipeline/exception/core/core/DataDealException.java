@@ -1,6 +1,6 @@
 package org.software.sphere.society.platform.pipeline.exception.core.core;
 
-public class DataException extends LangException {
+public class DataDealException extends LangException {
 
 	/**
 	 * ExcuteException.java is 
@@ -8,11 +8,11 @@ public class DataException extends LangException {
 	private static final long serialVersionUID = 3227892196505005719L;
 
 	
-	public DataException() {
+	public DataDealException() {
 		super();
 	}
 
-	public DataException(String message) {
+	public DataDealException(String message) {
 		super(message);
 	}
 }

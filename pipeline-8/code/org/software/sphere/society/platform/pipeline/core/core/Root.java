@@ -8,9 +8,10 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node01.DefaultNode01;
+import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
-import org.software.sphere.society.platform.pipeline.core.real.Global;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 import org.xml.sax.SAXException;
 
@@ -23,6 +24,8 @@ import org.xml.sax.SAXException;
  * @version : 0.1
  */
 public class Root extends DefaultNode01 {
+	
+	private java.lang.String boot; //程序的第一个执行入口
 	
 	/**
 	 * digester文件的路径, 用于构建整个对象网络
@@ -42,62 +45,8 @@ public class Root extends DefaultNode01 {
 		URL rulesUrl = Root.class.getClassLoader().getResource(VALIDATOR_RULES);
 
 		URL xmlUrl = Root.class.getClassLoader().getResource(PATH);
-		
-		
-		
-		
-		Digester digester = DigesterLoader.createDigester(rulesUrl);
 
-//		Digester digester = new Digester();
-//		digester.push(new Root());
-//		
-//		java.lang.String root = "root";
-//		java.lang.String global = "global";
-//		java.lang.String economy = "economy";
-////		java.lang.String root = "root";
-////		java.lang.String root = "root";
-////		java.lang.String root = "root";
-////		java.lang.String root = "root";
-//
-//		java.lang.String[] real_pattern_array = new java.lang.String[]{"*/global", "*/economy", "*/market", "*/supplier", "*/server"};
-//		java.lang.Class[] real_class_array = new java.lang.Class[]{Global.class, Economy.class, Market.class, Supplier.class, Server.class};
-//		
-//		for (int i = 0; i < real_pattern_array.length; i++) {
-//			digester.addObjectCreate(real_pattern_array[i], real_class_array[i]);
-//			digester.addSetProperties(real_pattern_array[i]);
-//			digester.addSetNext(real_pattern_array[i], "addNextRealNode");
-//		}
-//
-//		java.lang.String[] string_pattern_array = new java.lang.String[]{"*/string"};
-//		java.lang.Class[] string_class_array = new java.lang.Class[]{String.class};
-//		
-//		for (int i = 0; i < string_pattern_array.length; i++) {
-//			digester.addObjectCreate(string_pattern_array[i], string_class_array[i]);
-//			digester.addSetProperties(string_pattern_array[i]);
-//			digester.addCallMethod(string_pattern_array[i], "fromJavaString", 0);
-//			digester.addSetNext(string_pattern_array[i], "addDataNode", DataNode.class.getName());
-//		}
-//		
-//		java.lang.String[] service_pattern_array = new java.lang.String[]{"*/service"};
-//		java.lang.Class[] service_class_array = new java.lang.Class[]{ServiceNode.class};
-//		
-//		for (int i = 0; i < service_pattern_array.length; i++) {
-//			digester.addObjectCreate(service_pattern_array[i], service_class_array[i]);
-//			digester.addSetProperties(service_pattern_array[i]);
-//			digester.addSetNext(service_pattern_array[i], "addServiceNode", ServiceNode.class.getName());
-//		}
-//		
-//		java.lang.String[] competitor_pattern_array = new java.lang.String[]{"*/competitor"};
-//		java.lang.Class[] competitor_class_array = new java.lang.Class[]{Competitor.class};
-//		
-//		for (int i = 0; i < competitor_pattern_array.length; i++) {
-//			digester.addObjectCreate(competitor_pattern_array[i], competitor_class_array[i]);
-//			digester.addSetProperties(competitor_pattern_array[i]);
-//			digester.addSetNext(competitor_pattern_array[i], "addCompetitor", Competitor.class.getName());
-//		}
-//		
-		
-		
+		Digester digester = DigesterLoader.createDigester(rulesUrl);
 		return (Root) digester.parse(new File(xmlUrl.getFile()));
 	}
 	
@@ -117,11 +66,11 @@ public class Root extends DefaultNode01 {
 	}
 
 	/**
-	 * 根节点默认下面有global节点
+	 * 根节点默认下面有realNode节点
 	 * @return
 	 */
-	public Global getGlobal() {
-		return (Global) this.getNext();
+	public RealNode getRealNode() {
+		return (RealNode) this.getNext();
 	}
 
 	public void addNextRealNode(RealNode realNode) {
@@ -129,29 +78,50 @@ public class Root extends DefaultNode01 {
 		realNode.setPreNode(this);
 	}
 	/**
+	 * 如果知道了boot属性就按照boot去找第一个执行的flow<br>
+	 * 如果没有boot属性的即按照self规则找第一个执行的flow<br>
 	 * 获取执行的入口, 和java语言类似, java从main开始, 而pipeline从第一个名为self的流程节点开始执行<br>
 	 * 获取合适的流程节点, 查找规则:<br>
-	 * 1, 从global开始查找, 不断查找名称为[self]的子节点<br>
+	 * 1, 从realNode开始查找, 不断查找名称为[self]的子节点<br>
 	 * 2, 如果此节点是Flow类型, 就认为找到了<br>
 	 * 3, 程序就执行此flow<br>
 	 * @return 程序第一个要执行的flow节点
 	 * @throws PreNodeNotFountException 
+	 * @throws NextNodeNotFountException 
 	 */
-	public FlowNode getSuitableSelfFlowNode() throws PreNodeNotFountException {
-		DataNode node = this.getGlobal();
-		if (node == null) {
-			throw new PreNodeNotFountException("global节点没有找到, 请检查root节点下面是否有global节点");
-		}
-		
-		while (node.getName().equals(KeyWords.SELF_KEY_WORLD.toJavaString())) {
-			node = node.getNextNodeByName(KeyWords.SELF_KEY_WORLD);
-			if (node instanceof FlowNode) {
-				break;
+	public FlowNode getSuitableSelfFlowNode() throws NextNodeNotFountException {
+		DataNode node = null;
+		StringBuffer firstFlowPathBuf = new StringBuffer();
+		if(this.boot != null && this.boot.trim().length() != 0) { //如果知道了boot属性, 就按照boot属性来查找第一个执行的flow
+			firstFlowPathBuf.append(this.boot);
+			node = this.getNextNodeByPath(new String(this.boot));
+		} else { //如果没有知道boot属性, 按照默认的self规则查找第一个flow
+			 node = this.getRealNode();
+			 firstFlowPathBuf.append(node.getName());
+			if (node == null) {
+				throw new NextNodeNotFountException("realNode节点没有找到, 请检查root节点下面是否有realNode节点");
 			}
+			
+			while (node.getName().equals(KeyWords.SELF_KEY_WORLD.toJavaString())) {
+				node = node.getNextNodeByName(KeyWords.SELF_KEY_WORLD);
+				 firstFlowPathBuf.append(node.getName());
+				if (node instanceof FlowNode) {
+					break;
+				}
+			}
+			
 		}
 		if (node == null || !(node instanceof FlowNode)) {
-			throw new PreNodeNotFountException("名为self的Flow节点没找到, 请检查是否名字错误");
+			throw new NextNodeNotFountException("第一个Flow节点没找到, 请检查是否名字错误, 此路径是:" + firstFlowPathBuf);
 		}
 		return (FlowNode) node;
+	}
+
+	public java.lang.String getBoot() {
+		return boot;
+	}
+
+	public void setBoot(java.lang.String boot) {
+		this.boot = boot;
 	}
 }
