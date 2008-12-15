@@ -6,24 +6,37 @@ import java.net.URL;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
+import org.software.sphere.society.platform.pipeline.common.ServiceNode;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
-import org.software.sphere.society.platform.pipeline.core.data.node01.DefaultNode01;
+import org.software.sphere.society.platform.pipeline.core.data.node0X.DefaultNode0X;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.core.real.Service;
+import org.software.sphere.society.platform.pipeline.exception.core.core.CoreException;
+import org.software.sphere.society.platform.pipeline.exception.core.core.NoAvailableServiceException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 import org.xml.sax.SAXException;
 
 /**
- * 所有节点的根节点, 所有的从跟开始
+ * 所有节点的根节点, 所有的从跟开始<br>
+ * 
+ * 作用
+ * 1, 用于向下导航
+ * 1.1, 查找现实节点
+ * 1.2, 查找流程节点
+ * 1.3, 查找服务节点
+ * 2, 程序执行入口
  * 
  * @author yanchangyou@gmail.com
  * @date : 2008-12-12 下午11:04:53
  * @file : Root.java
  * @version : 0.1
  */
-public class Root extends DefaultNode01 {
+public class Root extends DefaultNode0X {
+	
+	private static Root root;
 	
 	private java.lang.String boot; //程序的第一个执行入口
 	
@@ -32,6 +45,72 @@ public class Root extends DefaultNode01 {
 	 */
 	final static java.lang.String VALIDATOR_RULES = "org/software/sphere/society/platform/pipeline/core/core/digestor/pipeline-digester-rules.xml";
 
+	public Root() {
+		super();
+		root = this;
+	}
+	
+	/**
+	 * 查找现实节点
+	 * @param nodePath
+	 * @return
+	 * @throws NextNodeNotFountException
+	 * @throws CoreException
+	 */
+	public static RealNode getRealNode(String nodePath) throws NextNodeNotFountException, CoreException {
+		DataNode node = root.getNextNodeByPath(nodePath);
+		if (node instanceof RealNode) {
+			//nothing to do
+		} else {
+			throw new CoreException("类型不匹配, 此节点不是real-node节点, 此节点名称:" + node.getName() + ", 类型:" + node.getClass().getName() + ", 请检查路径是否正确");
+		}
+		return (RealNode) node;
+	}
+	
+	/**
+	 * 查找流程节点
+	 * @param nodePath
+	 * @return
+	 * @throws NextNodeNotFountException
+	 * @throws CoreException
+	 */
+	public static FlowNode getFlowNode(String nodePath) throws NextNodeNotFountException, CoreException {
+		DataNode node = root.getNextNodeByPath(nodePath);
+		if (node instanceof FlowNode) {
+			//nothing to do
+		} else {
+			throw new CoreException("类型不匹配, 此节点不是flow-node节点, 此节点名称:" + node.getName() + ", 类型:" + node.getClass().getName() + ", 请检查路径是否正确");
+		}
+		return (FlowNode) node;
+	}
+	
+
+	/**
+	 * 查找真实的服务节点
+	 * @param nodePath
+	 * @return
+	 * @throws NextNodeNotFountException
+	 * @throws CoreException
+	 * @throws NoAvailableServiceException 
+	 */
+	public static ServiceNode getServiceNode(String nodePath, String serviceName) throws NextNodeNotFountException, CoreException, NoAvailableServiceException {
+		ServiceNode definedServiceNode = null;	
+		DataNode node = root.getNextNodeByPath(nodePath);
+		if (node instanceof RealNode) {
+			//nothing to do
+		} else {
+			throw new CoreException("类型不匹配, 此节点不是service-node节点, 此节点名称:" + node.getName() + ", 类型:" + node.getClass().getName() + ", 请检查路径是否正确");
+		}
+		
+		RealNode realNode = (RealNode)node;
+		definedServiceNode = realNode.getService(serviceName);
+		if (definedServiceNode == null) {
+			throw new NoAvailableServiceException("定义的服务节点没有找到, 此节点路径是:" + serviceName);
+		}
+		return definedServiceNode;
+	}
+	
+	
 	/**
 	 * 加载digerst文件并且解析和构建对象网络
 	 * @param PATH
@@ -57,24 +136,20 @@ public class Root extends DefaultNode01 {
 	 * @throws Exception
 	 */
 	public void execute() throws Exception {
-		log.info("初始化[self]flow, 此flow的socket为null, 后面注意");
-		FlowNode sefFlow = this.getSuitableSelfFlowNode();
-		Session clientSession = new Session(sefFlow.getRequest(), sefFlow.getResponse(), null);
+		log.info("执行第一个Service, 此时socket为null, 后面注意");
+		 
+		DataNode node = this.getNextNodeByPath(new String(this.boot));
+		if (!(node instanceof Service)) {
+			throw new NoAvailableServiceException("没有找服务[service]标签, 请检查此路径是否正确, 此路径是:" + this.boot); 
+		}
+		Service service = (Service)node;
 		log.info("执行[self]flow");
-		sefFlow.execute(clientSession);
+		service.service();
 		log.info("执行[self]flow结束");
 	}
 
-	/**
-	 * 根节点默认下面有realNode节点
-	 * @return
-	 */
-	public RealNode getRealNode() {
-		return (RealNode) this.getNext();
-	}
-
 	public void addNextRealNode(RealNode realNode) {
-		this.setNext(realNode);
+		this.addNextNode(realNode);
 		realNode.setPreNode(this);
 	}
 	/**
@@ -96,7 +171,7 @@ public class Root extends DefaultNode01 {
 			firstFlowPathBuf.append(this.boot);
 			node = this.getNextNodeByPath(new String(this.boot));
 		} else { //如果没有知道boot属性, 按照默认的self规则查找第一个flow
-			 node = this.getRealNode();
+			 node = this.getNextNodeByName(KeyWords.SELF_KEY_WORLD);
 			 firstFlowPathBuf.append(node.getName());
 			if (node == null) {
 				throw new NextNodeNotFountException("realNode节点没有找到, 请检查root节点下面是否有realNode节点");

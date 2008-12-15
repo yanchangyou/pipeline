@@ -34,4 +34,5 @@ public class Bool extends Node00 {
 		// TODO Auto-generated method stub
 		return "" + bool;
 	}
+
 }

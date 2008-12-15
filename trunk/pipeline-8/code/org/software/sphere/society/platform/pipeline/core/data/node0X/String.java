@@ -111,6 +111,17 @@ public class String extends Node0X implements JavaStringable {
 	}
 	
 	
+
+	public void addNextNode(DataNode net) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void addNextNode(String name, DataNode net) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	
 	// common function
@@ -120,5 +131,12 @@ public class String extends Node0X implements JavaStringable {
 		return this;
 	}
 	
-	
+	public String[] split(String regex) {
+		java.lang.String[] javaStringArray = this.string.split(regex.toJavaString());
+		String[] part = new String[javaStringArray.length];
+		for (int i = 0; i < javaStringArray.length; i++) {
+			part[i] = new String(javaStringArray[i]);
+		}
+		return part;
+	}
 }

@@ -156,7 +156,14 @@ public class RealNode extends DefaultNode1X {
 			realNode = this;
 		} else {
 			java.lang.String realPath = part[1];
-			realNode = (RealNode) this.getNextNodeByPath(new String(realPath.substring(realPath.indexOf('.')+1)));	
+			if (!realPath.trim().startsWith("self")) {
+				throw new RuntimeException("抱歉!现在只支持[self]星球的查找");
+			}
+			if (realPath.equals("self")) {
+				realNode = this;
+			} else {
+				realNode = (RealNode) this.getNextNodeByPath(new String(realPath.substring(realPath.indexOf('.')+1)));	
+			}
 		}
 		
 		ServiceNode defineService = realNode.getService(new String(defineServiceName));

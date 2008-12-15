@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.pipeline.common.Logable;
+import org.software.sphere.society.platform.pipeline.common.ServiceNode;
 import org.software.sphere.society.platform.pipeline.core.core.FlowNodeContext;
 import org.software.sphere.society.platform.pipeline.core.core.Request;
 import org.software.sphere.society.platform.pipeline.core.core.Response;
@@ -15,6 +16,7 @@ import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
 import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.exception.core.core.NoAvailableServiceException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
@@ -120,6 +122,50 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		return value;
 	}
 
+
+	
+
+	/**
+	 * 获取定义的服务节点<br>
+	 * 直接从上下文中获取<br>
+	 * 本层没有找到就从上层中去寻找<br>
+	 * 
+	 * @param name
+	 * @return
+	 * @throws NextNodeNotFountException 
+	 * @throws NoAvailableServiceException 
+	 * @throws PreNodeNotFountException 
+	 */
+	public ServiceNode getDefinedServiceNode(String name) throws NextNodeNotFountException, NoAvailableServiceException {
+		
+		/**
+		 * 先在流程模型里找
+		 */
+		FlowNode flowNode = this;
+
+		ServiceNode definedServiceNode = null;
+		
+		while (flowNode.getPreNode() instanceof FlowNode) {
+			flowNode = (FlowNode) flowNode.getPreNode();
+		}
+		
+		/**
+		 * 再到 现实模型中寻找
+		 */
+		
+		log.info("开始在现实模型上下文中查找数据节点:" + name);
+		RealNode realNode = (RealNode) flowNode.getPreNode();
+		definedServiceNode = realNode.getService(name);
+		while (realNode != null && definedServiceNode == null && realNode.getPreNode() instanceof RealNode) {
+			realNode = (RealNode) realNode.getPreNode();
+			definedServiceNode = realNode.getService(name);
+		}
+		if (definedServiceNode == null) {
+			throw new NoAvailableServiceException("定义的服务节点没有找到, 此节点路径是:" + name);
+		}
+		return definedServiceNode;
+	}
+
 	public Request getRequest() {
 		return request;
 	}
@@ -135,7 +181,6 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	public void setResponse(Response response) {
 		this.response = response;
 	}
-	
 
 	public void appendFlow(FlowNode flow) {
 		flowList.add(flow);

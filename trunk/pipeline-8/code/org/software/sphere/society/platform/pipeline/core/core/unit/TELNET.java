@@ -7,14 +7,15 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import org.software.sphere.society.platform.pipeline.common.RuleReadNetDataByPipeline;
+import org.software.sphere.society.platform.pipeline.common.ServiceNode;
 import org.software.sphere.society.platform.pipeline.core.core.Evale;
 import org.software.sphere.society.platform.pipeline.core.core.KeyWords;
 import org.software.sphere.society.platform.pipeline.core.core.Request;
 import org.software.sphere.society.platform.pipeline.core.core.Response;
+import org.software.sphere.society.platform.pipeline.core.core.Root;
 import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
-import org.software.sphere.society.platform.pipeline.core.real.RealNode;
 import org.software.sphere.society.platform.pipeline.exception.core.core.DataDealException;
 
 public class TELNET extends Unit {
@@ -23,16 +24,6 @@ public class TELNET extends Unit {
 			Exception {
 
 //		encodeRequestData(clientSession.getRequest(), this.getFlowNodeContext());
-
-		// System.out.println("run telnet");
-		// if (clientSession != null) {
-		//			
-		// Socket socket = clientSession.getClientSocket();
-		//			
-		// PrintWriter os = new PrintWriter(socket.getOutputStream());
-		// os.println("这是一个telnet服务, 目前还没有实现");
-		// os.flush();
-		// }
 
 		Socket socket = null;
 
@@ -47,10 +38,14 @@ public class TELNET extends Unit {
 		} else { // 使用声明的服务
 			log.info("开始远程服务调用");
 			isClientSocket = false;
-
-			RealNode realNode = (RealNode) this.getFirstNodeInSequencePre1ableNodes();;
-			
-			socket = (Socket) realNode.getGod(new String(service));
+			ServiceNode serviceNode = null;
+			if (service.indexOf('@') > -1) { //使用绝对路径定义服务
+				String[] part = new String(service).split(new String("@"));
+				serviceNode = Root.getServiceNode(part[1], part[0]);
+			} else {						//使用相对路径定义服务
+				serviceNode = this.getDefinedServiceNode(new String(service));	
+			}
+			socket = (Socket) serviceNode.getAvailableGod();
 		}
 
 		if (socket == null) { // 如果没有连接, 抛出异常
