@@ -14,8 +14,8 @@ import org.software.sphere.society.platform.pipeline.core.core.Response;
 import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
-import org.software.sphere.society.platform.pipeline.core.real.Global;
-import org.software.sphere.society.platform.pipeline.exception.core.core.DataException;
+import org.software.sphere.society.platform.pipeline.core.real.RealNode;
+import org.software.sphere.society.platform.pipeline.exception.core.core.DataDealException;
 
 public class TELNET extends Unit {
 
@@ -48,9 +48,9 @@ public class TELNET extends Unit {
 			log.info("开始远程服务调用");
 			isClientSocket = false;
 
-			Global global = (Global) this.getFirstNodeInSequencePre1ableNodes();;
+			RealNode realNode = (RealNode) this.getFirstNodeInSequencePre1ableNodes();;
 			
-			socket = (Socket) global.getGod(new String(service));
+			socket = (Socket) realNode.getGod(new String(service));
 		}
 
 		if (socket == null) { // 如果没有连接, 抛出异常
@@ -88,15 +88,15 @@ public class TELNET extends Unit {
 		}
 	}
 
-	public Object getGod() throws UnknownHostException, IOException, DataException {
+	public Object getGod() throws UnknownHostException, IOException, DataDealException {
 		String host = (String) this.getFlowNodeContext().getNextNodeByName(new String("host"));
 		if (host == null || !host.toJavaString().matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")) {
-			throw new DataException("数据异常, 不存在或不正确host的ip地址, 此ip地址是:" + host + ", 请检查telnet节点[" + this.getName() + "]的参数是否正确");
+			throw new DataDealException("数据异常, 不存在或不正确host的ip地址, 此ip地址是:" + host + ", 请检查telnet节点[" + this.getName() + "]的参数是否正确");
 		}
 		String portString = (String) this.getFlowNodeContext().getNextNodeByName(new String("port"));
 
 		if (portString == null || !portString.toJavaString().matches("\\d{1,5}")) {
-			throw new DataException("数据异常, 不存在或不正确端口号, 此端口号是:" + portString);
+			throw new DataDealException("数据异常, 不存在或不正确端口号, 此端口号是:" + portString);
 		}
 		
 		int port = Integer.parseInt(portString.toJavaString());

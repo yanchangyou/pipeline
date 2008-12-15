@@ -4,6 +4,7 @@ import org.apache.commons.lang.ClassUtils;
 import org.software.sphere.society.platform.pipeline.common.Logable;
 import org.software.sphere.society.platform.pipeline.common.Namable;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 /**
@@ -116,9 +117,9 @@ public abstract class DataNode extends Data implements Namable, Logable {
 //
 	public abstract DataNode getNextNodeByName(String nodeName);
 
-	public abstract DataNode getNextNodeByPath(String pathName) throws PreNodeNotFountException;
+	public abstract DataNode getNextNodeByPath(String pathName) throws NextNodeNotFountException;
 	
-	public abstract DataNode getNextNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException;
+	public abstract DataNode getNextNodeByPath(String[] pathNamesArray) throws NextNodeNotFountException;
 	
 //
 //	public abstract void getPathInNext(String name);

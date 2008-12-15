@@ -5,9 +5,9 @@ import java.util.Iterator;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
-import org.software.sphere.society.platform.pipeline.exception.core.core.DataException;
+import org.software.sphere.society.platform.pipeline.exception.core.core.DataDealException;
 import org.software.sphere.society.platform.pipeline.exception.core.core.NoAvailableGodException;
-import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 
 public class ServiceNode extends DefaultNode1X {
 
@@ -28,27 +28,26 @@ public class ServiceNode extends DefaultNode1X {
 		return (Competitor) this.getNextNodeByName(new String(name));
 	}
 
-	public Object getAvailableGod() throws PreNodeNotFountException, NoAvailableGodException, DataException {
+	public Object getAvailableGod() throws NextNodeNotFountException, NoAvailableGodException, DataDealException {
 
 		Object god = null;
-//		Set set = this.getNextNodesMap().keySet();
 		for (Iterator iter = this.getNextNodesMap().values().iterator(); iter.hasNext();) {
 			Competitor competitor = (Competitor) iter.next();
 			try {
 				god = competitor.getGod();
 				log.info("获取到一个可用的服务 :" + competitor.getName() + ", " + competitor.getRealService());
 				break; //获得了一个可以的God就退出
-			} catch (PreNodeNotFountException e) {
+			} catch (NextNodeNotFountException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				throw e;
-			} catch (DataException e) {
+			} catch (DataDealException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				throw e;
 			} catch (Exception e) {
 				log.info("获取服务失败, 自动寻找下一个服务, 失败的服务是:" + competitor.getName() + ", " + competitor.getRealService());
-//				e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
 		if (god == null) {

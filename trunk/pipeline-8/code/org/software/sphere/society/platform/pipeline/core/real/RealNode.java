@@ -8,6 +8,10 @@ import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.node1X.DefaultNode1X;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
+import org.software.sphere.society.platform.pipeline.exception.core.core.DataDealException;
+import org.software.sphere.society.platform.pipeline.exception.core.core.NoAvailableGodException;
+import org.software.sphere.society.platform.pipeline.exception.core.core.NoFoundDefineServiceException;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 
 /**
  * 所有现实节点的父类<br>
@@ -33,7 +37,7 @@ import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
  * @file : RealNode.java
  * @version : 0.1
  */
-public abstract class RealNode extends DefaultNode1X {
+public class RealNode extends DefaultNode1X {
 
 	/**
 	 * 上下文
@@ -142,6 +146,26 @@ public abstract class RealNode extends DefaultNode1X {
 	public void appendFlow(FlowNode flow) {
 		this.addNextNode(flow);
 		flow.setPreNode(this);
+	}
+	
+	public Object getGod(String godHome) throws NextNodeNotFountException, DataDealException, NoAvailableGodException, NoFoundDefineServiceException {
+		java.lang.String[] part = godHome.toJavaString().split("@");
+		java.lang.String defineServiceName = part[0];
+		RealNode realNode = null;
+		if (part.length == 1) {
+			realNode = this;
+		} else {
+			java.lang.String realPath = part[1];
+			realNode = (RealNode) this.getNextNodeByPath(new String(realPath.substring(realPath.indexOf('.')+1)));	
+		}
+		
+		ServiceNode defineService = realNode.getService(new String(defineServiceName));
+		
+		if (defineService == null) {
+			throw new NoFoundDefineServiceException("没有找到你定义的服务:" + godHome + ", 请检查名字是书写错误");
+		}
+		
+		return defineService.getAvailableGod();
 	}
 	
 	public java.lang.String toString() {

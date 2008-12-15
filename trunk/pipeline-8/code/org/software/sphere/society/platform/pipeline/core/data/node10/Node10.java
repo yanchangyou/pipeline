@@ -3,6 +3,7 @@ package org.software.sphere.society.platform.pipeline.core.data.node10;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.data.pre.Pre1able;
+import org.software.sphere.society.platform.pipeline.exception.core.data.NextNodeNotFountException;
 import org.software.sphere.society.platform.pipeline.exception.core.data.PreNodeNotFountException;
 
 public class Node10 extends DataNode implements Pre1able {
@@ -13,11 +14,11 @@ public class Node10 extends DataNode implements Pre1able {
 		return null;
 	}
 
-	public DataNode getNextNodeByPath(String pathName) throws PreNodeNotFountException {
+	public DataNode getNextNodeByPath(String pathName) throws NextNodeNotFountException {
 		return null;
 	}
 
-	public DataNode getNextNodeByPath(String[] pathNamesArray) throws PreNodeNotFountException {
+	public DataNode getNextNodeByPath(String[] pathNamesArray) throws NextNodeNotFountException {
 		return null;
 	}
 

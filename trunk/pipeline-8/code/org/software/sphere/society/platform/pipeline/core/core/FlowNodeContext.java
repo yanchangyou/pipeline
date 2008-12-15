@@ -122,7 +122,7 @@ public class FlowNodeContext extends DefaultNode1X {
 	}
 
 	/**
-	 * 获取Global节点<br>
+	 * 获取RealNode节点<br>
 	 * 
 	 * 不断的向前遍历
 	 * 
@@ -137,7 +137,7 @@ public class FlowNodeContext extends DefaultNode1X {
 	}
 	
 	/**
-	 * Global的上下文
+	 * RealNode的上下文
 	 * @return
 	 */
 	public FlowNodeContext getSelfFlowNodeContext() {

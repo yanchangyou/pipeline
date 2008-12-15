@@ -45,7 +45,7 @@ public class Test implements Runnable, Logable {
 			log.info(this.getName() + "开始演示");
 			String port = NAME_NUMBER_MAP.get(this.getName()) + StringUtils.leftPad(this.getVersion(), 3, '0');
 			org.software.sphere.society.platform.pipeline.core.data.node0X.String portString = new org.software.sphere.society.platform.pipeline.core.data.node0X.String(port);
-			root.getGlobal().addNextNode(new org.software.sphere.society.platform.pipeline.core.data.node0X.String("port"), portString);
+			root.getRealNode().addNextNode(new org.software.sphere.society.platform.pipeline.core.data.node0X.String("port"), portString);
 			root.execute();
 			log.info(this.getName() + "演示结束");
 		} catch (ConnectException e) {
