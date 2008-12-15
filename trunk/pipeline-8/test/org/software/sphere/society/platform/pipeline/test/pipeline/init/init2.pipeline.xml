@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <root name="root" boot="my-node.self1.my-service">
-	
+
 	<real-node name="my-node">
 		<data-node-define>
 			<string name="var">true</string>
@@ -35,13 +35,22 @@
 						<competitor name="output-service" realService="my-node.self1.self.self.io-server.output-telnet1" priority="2" />
 					</service>
 				</service-node-define>
-		
+
 				<request name="request">
 					<data-node-define>
 						<string name="data">"data"</string>
 					</data-node-define>
 				</request>
-				
+
+				<time name="my-time-flow" maxTimes="10">
+					<telnet name="self" service="hello-service@my-node.self1.self.self.self">
+						<request name="request">
+							<data-node-define>
+								<string name="data">"data"</string>
+							</data-node-define>
+						</request>
+					</telnet>
+				</time>
 				<if name="first-if-flow" condition="1&lt;2">
 					<telnet name="self" service="hello-service@my-node.self1.self.self.self">
 						<request name="request">
@@ -51,7 +60,7 @@
 						</request>
 					</telnet>
 				</if>
-			
+
 			</service>
 
 			<data-node-define>
@@ -76,7 +85,7 @@
 				<supplier name="self">
 					<data-node-define>
 						<string name="var">true</string>
-						<string name="language_name"> pipeline </string>
+						<string name="language_name">pipeline</string>
 					</data-node-define>
 					<service-node-define>
 						<service name="hello-service">
