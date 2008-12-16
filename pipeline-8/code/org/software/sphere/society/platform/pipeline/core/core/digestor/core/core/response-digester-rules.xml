@@ -4,6 +4,7 @@
 	<pattern value="*/response">
 		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.core.Response" />
 		<set-properties-rule />
-		<set-next-rule methodname="setResponse" paramtype="org.software.sphere.society.platform.pipeline.core.core.Response" />
+		<call-method-rule methodname="fromJavaString" paramcount="0" />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
 	</pattern>
 </digester-rules>

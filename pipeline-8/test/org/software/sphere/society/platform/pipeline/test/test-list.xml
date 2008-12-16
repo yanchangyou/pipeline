@@ -4,7 +4,7 @@
 <test-list>
 
 
-<!--	 init  -->
+<!--测试初始化是否正确	 init  -->
 <!--
 	<test name="init" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init1.pipeline.xml">
 		<function>
@@ -12,39 +12,47 @@
 		</function>
 		<inner-flow></inner-flow>
 		<outer-flow>
-			<line>1, 运行CMD.exe等telnet工具</line>
-			<line>2, telnet 127.0.0.1 31001</line>
-			<line>3, 进入调试状态</line>
-			<line>4, 依次查看上下文的初始化是否正确</line>
+			<line>1, 启动OutputServer</line>
+			<line>2, 运行此程序</line>
 		</outer-flow>
 	</test>
- --> <!-- -->
+	 -->
+ <!-- 
 	<test name="init" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/init/init2.pipeline.xml">
 		<function>
 			<line>测试整个上下文的初始化是否正确</line>
 		</function>
 		<inner-flow></inner-flow>
 		<outer-flow>
-			<line>1, 运行CMD.exe等telnet工具</line>
-			<line>2, telnet 127.0.0.1 31001</line>
-			<line>3, 进入调试状态</line>
-			<line>4, 依次查看上下文的初始化是否正确</line>
+			<line>1, 启动OutputServer</line>
+			<line>2, 运行此程序</line>
 		</outer-flow>
 	</test>
-
-<!--
+-->
+<!-- 测试是否能够获取获取整个上下文的变量 
 	<test name="get" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/get/get1.pipeline.xml">
 		<function>
-			<line>获取整个上下文的meta数据</line>
+			<line>测试是否能够获取获取整个上下文的变量</line>
 		</function>
 		<inner-flow></inner-flow>
 		<outer-flow>
-			<line>1, 运行CMD.exe等telnet工具</line>
-			<line>2, telnet 127.0.0.1 32001</line>
-			<line>3, 查看输出结果</line>
+			<line>1, 启动OutputServer</line>
+			<line>2, 运行此程序</line>
 		</outer-flow>
 	</test> 
- 	-->
+-->
+<!-- 
+ 	<test name="get" version="2" path="org/software/sphere/society/platform/pipeline/test/pipeline/get/get2.pipeline.xml">
+		<function>
+			<line>测试是否能够获取获取整个上下文的变量</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 启动OutputServer</line>
+			<line>2, 运行此程序</line>
+		</outer-flow>
+	</test> 
+  -->	
  	<!-- 输出测试  输出 pipeline speak : hello world!
 	<test name="out" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/out/out1.pipeline.xml">
 		<function>
@@ -71,4 +79,16 @@
 		</outer-flow>
 	</test>
 -->
+
+<!--  输入测试 -->	
+ 	<test name="in" version="1" path="org/software/sphere/society/platform/pipeline/test/pipeline/in/in1.pipeline.xml">
+		<function>
+			<line>测试外部输入</line>
+		</function>
+		<inner-flow></inner-flow>
+		<outer-flow>
+			<line>1, 启动InputServer</line>
+			<line>2, 运行此程序</line>
+		</outer-flow>
+	</test> 
 </test-list>

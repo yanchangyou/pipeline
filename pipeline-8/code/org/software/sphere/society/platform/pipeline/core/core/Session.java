@@ -5,7 +5,11 @@ import java.net.Socket;
 public class Session {
 
 	public Session() {
-		
+
+	}
+
+	public Session(Socket clientSocket) {
+		this.clientSocket = clientSocket;
 	}
 
 	public Session(Request request, Response response) {
@@ -18,22 +22,22 @@ public class Session {
 		this.response = response;
 		this.clientSocket = clientSocket;
 	}
-	
+
 	protected Socket clientSocket;
-	
+
 	protected Request request;
 
 	protected Response response;
 
-//	protected Context context;
-//	
-//	public Context getContext() {
-//		return context;
-//	}
-//
-//	public void setContext(Context context) {
-//		this.context = context;
-//	}
+	// protected Context context;
+	//	
+	// public Context getContext() {
+	// return context;
+	// }
+	//
+	// public void setContext(Context context) {
+	// this.context = context;
+	// }
 
 	public Request getRequest() {
 		return request;

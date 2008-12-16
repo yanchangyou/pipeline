@@ -19,6 +19,19 @@ import java.io.InputStreamReader;
 public class RuleReadNetDataByPipeline {
 
 	
+	public static String commonReadData(InputStream inputStream) throws IOException { 
+		BufferedReader is = new BufferedReader(new InputStreamReader(inputStream));
+		StringBuffer requestDatabuf = new StringBuffer();
+		String requestData = is.readLine();
+		do{
+			requestDatabuf.append(requestData).append(System.getProperty("line.separator"));
+			requestData = is.readLine();
+			
+		}while (requestData != null) ;
+		
+		return requestDatabuf.toString();
+	}
+	
 	public static String readData(InputStream inputStream) throws IOException { 
 		BufferedReader is = new BufferedReader(new InputStreamReader(inputStream));
 		StringBuffer requestDatabuf = new StringBuffer();
@@ -47,7 +60,7 @@ public class RuleReadNetDataByPipeline {
 		boolean isLineAppend = false;
 		if (line == null || line.length() < 2) {
 			isLineAppend = false;
-		} else if (line.charAt(line.length()-1) == '&' && line.charAt(line.length()-2) != '&') {
+		} else if (line.charAt(line.length()-1) == '&' && line.charAt(line.length()-2) == '&') {
 			isLineAppend = true;
 		}  else {
 			isLineAppend = false;

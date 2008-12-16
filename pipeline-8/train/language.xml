@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+
+	<保留字>
+		var, this, super,
+	</保留字>
+	<标示符>
+		变量命名规则:(中文变量名有bug)
+		[a-zA-Z\u_$](a-zA-Z0-9_$)*
+		其它的命名规则自由
+		注意在现实节点和流程节点命名时中间时没有限定
+	</标示符>
+</xml-body>

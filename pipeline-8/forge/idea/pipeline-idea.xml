@@ -1044,4 +1044,73 @@
 		原来的定义节点也保留, 可以作为一个参考;
 		在root节点添加boot属性, 此属性指明第一个要执行的Flow,如果此属性为空, 就按照找self的方式查找
 	</idea>
+	
+	<idea name="ware" version="1">
+		<hard-ware>
+			cpu, 内存, 硬盘, 输入输出设备
+		</hard-ware>
+		<soft-ware>
+			操作文件的文件
+		</soft-ware>
+		<data-ware>
+			操作文件的软件
+		</data-ware>
+		<service-ware>
+			操作软件的软件
+			pipeline 就是处理service-ware的语言
+		</service-ware>	
+	</idea>
+	
+	<idea naem="语言" version="1">
+		语言是用来交流的工具, 
+	</idea>
+	
+	<idea name="pipeline改进" version="1">
+		<node>
+			把node独立出来, 其它的形成  real-node, flow-node, data-node
+		</node>
+		<service>
+			把service单独提成一个包, 里面包含:service, connector, session, request, response
+		</service>
+		<执行模式>
+			<指令模式>
+			</指令模式>
+			<运算符模式>
+			</运算符模式>
+			<表达式模式>
+			</表达式模式>
+			<语句模式>
+			</语句模式>
+			<流程模式>
+				<说明>
+					一道流程执行完就over
+				</说明>
+				<顺序>
+				</顺序>
+				<分支>
+				</分支>
+				<循环>
+				</循环>			
+			</流程模式>
+				
+			<服务模式>
+				<连接-请求-响应>
+					就是一系列的请求响应.
+				</连接-请求-响应>
+			</服务模式>
+			<管理模式>
+				可以开启, 停止, 执行服务模式和流程模式
+			</管理模式>
+			<策略模式>
+			</策略模式>
+			<智能模式>
+			</智能模式>
+		</执行模式>
+		把这些模式融为一体
+	</idea>
+	
+	<idea name="pipeline-9" version="1">
+		<代号>深海</代号>
+		<口号>震撼</口号>
+	</idea>
 </pipeline>
