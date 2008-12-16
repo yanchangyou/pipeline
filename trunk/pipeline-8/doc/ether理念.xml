@@ -25,6 +25,21 @@
 		<能力>能力有多强, 驾驭就有多强</能力>
 		<德力>德力有多强, 承受就有多强</德力>
 	</观念>
+	<ware>
+		<hard-ware>
+			操作数据的件
+		</hard-ware>
+		<soft-ware>
+			操作文件的文件
+		</soft-ware>
+		<data-ware>
+			操作文件的软件
+		</data-ware>
+		<service-ware>
+			操作软件的软件
+		</service-ware>	
+	</ware>
+	
 	<接口>
 		<硬件接口>
 		</硬件接口>

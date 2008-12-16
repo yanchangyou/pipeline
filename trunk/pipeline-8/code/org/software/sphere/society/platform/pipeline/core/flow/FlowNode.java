@@ -9,8 +9,6 @@ import org.apache.commons.lang.StringUtils;
 import org.software.sphere.society.platform.pipeline.common.Logable;
 import org.software.sphere.society.platform.pipeline.common.ServiceNode;
 import org.software.sphere.society.platform.pipeline.core.core.FlowNodeContext;
-import org.software.sphere.society.platform.pipeline.core.core.Request;
-import org.software.sphere.society.platform.pipeline.core.core.Response;
 import org.software.sphere.society.platform.pipeline.core.core.Session;
 import org.software.sphere.society.platform.pipeline.core.data.DataNode;
 import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
@@ -38,12 +36,12 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 	/**
 	 * 发出的请求
 	 */
-	protected Request request;
+//	protected Request request;
 
 	/**
 	 * 返回的响应
 	 */
-	protected Response response;
+//	protected Response response;
 
 	
 
@@ -166,21 +164,21 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		return definedServiceNode;
 	}
 
-	public Request getRequest() {
-		return request;
-	}
-
-	public void setRequest(Request request) {
-		this.request = request;
-	}
-
-	public Response getResponse() {
-		return response;
-	}
-
-	public void setResponse(Response response) {
-		this.response = response;
-	}
+//	public Request getRequest() {
+//		return request;
+//	}
+//
+//	public void setRequest(Request request) {
+//		this.request = request;
+//	}
+//
+//	public Response getResponse() {
+//		return response;
+//	}
+//
+//	public void setResponse(Response response) {
+//		this.response = response;
+//	}
 
 	public void appendFlow(FlowNode flow) {
 		flowList.add(flow);
@@ -219,8 +217,6 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		}
 	}
 
-	
-	
 	public FlowNodeContext getFlowNodeContext() {
 		return flowNodeContext;
 	}
@@ -256,14 +252,53 @@ public abstract class FlowNode extends DefaultNode1X implements Logable {
 		return flowNodeLevel;
 	}
 	
+
+	/**
+	 * 缺省的处理请求
+	 * @throws IOException 
+	 * @throws VarNotFountException 
+	 * @throws NextNodeNotFountException 
+	 *
+	 */
+//	public void dealRequest(Socket socket) throws IOException, NextNodeNotFountException, VarNotFountException {
+//		if (request != null && request.toJavaString() != null) {
+//			PrintWriter os = new PrintWriter(socket.getOutputStream());
+//			java.lang.String requestData = request.toJavaString();
+//			log.info("开始向外输出数据 : " + requestData);
+//			java.lang.String result = Evale.eval(requestData, this).toString();
+//			os.println(result);
+//			os.flush();
+//			this.getFlowNodeContext().addNextNode(this.request.getNodeName(), new String(result));
+//			log.info("完毕向外输出数据");
+//		}
+//	}
+	
+	/**
+	 * 缺省处理响应
+	 *
+	 */
+//	public void dealResponse(Socket socket) throws IOException, NextNodeNotFountException, VarNotFountException {
+//		/**
+//		 * 读取数据 采用&续行, && 换行的处理规则
+//		 */
+//		if (response != null) {
+//			log.info("开始向内读取数据");
+//			java.lang.String responseData = RuleReadNetDataByPipeline.readData(socket.getInputStream());
+//			java.lang.String result = Evale.eval(responseData, this).toString();
+//			this.getFlowNodeContext().addNextNode(this.response.getNodeName(), new String(result));
+//			log.info("完毕向内读取数据 : " + result);
+//		}
+//	}
+	
+	
 	public java.lang.String toString() {
 		int flowNodeLevel = this.getNode1XPreLevel();
 		java.lang.String leftPad = StringUtils.leftPad(" ", flowNodeLevel * 4);
 		StringBuffer buf = new StringBuffer();
 		buf.append("\r\n").append(leftPad).append(super.toString());
 		buf.append("\r\n").append(leftPad).append("context = {").append(getFlowNodeContext().getNextNodesMap());
-		buf.append("\r\n").append(leftPad).append("request : ").append(request);
-		buf.append("\r\n").append(leftPad).append("response : ").append(response);
+//		buf.append("\r\n").append(leftPad).append("request : ").append(request);
+//		buf.append("\r\n").append(leftPad).append("response : ").append(response);
 		buf.append("\r\n").append(leftPad).append("next = {").append(this.getNextNodesMap().toString());
 		return buf.toString();
 	}

@@ -16,7 +16,7 @@ import org.software.sphere.society.platform.pipeline.exception.core.data.NextNod
 
 public class Evale {
 
-	public static final java.lang.String PIPELINE_VARIABLE_NAME_PATTERN = "\\b[a-zA-Z\\$\\_\\u0100-\\uffff][\\w\\$\\-\\u0100-\\uffff]*\\b(?!\\()";
+	public static final java.lang.String PIPELINE_VARIABLE_NAME_PATTERN = "\\b[a-zA-Z\\$\\_\\u0100-\\uffff][\\w\\$\\u0100-\\uffff]*\\b(?!\\()";
 
 	public static final java.lang.String PIPELINE_VARIABLE_PATH_PATTERN = PIPELINE_VARIABLE_NAME_PATTERN
 			+ "(\\s*\\.\\s*" + PIPELINE_VARIABLE_NAME_PATTERN + ")*";

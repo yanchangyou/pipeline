@@ -110,8 +110,8 @@ public class Collaborate extends FlowNode {
 		try {
 
 			log.info("服务[" + this.getName() + "]建立socket");
-			Request request = this.getRequest();
-			Response response = this.getResponse();
+			Request request = null;//this.getRequest();
+			Response response = null;//this.getResponse();
 
 			String command = null;
 //			String responseData = null;

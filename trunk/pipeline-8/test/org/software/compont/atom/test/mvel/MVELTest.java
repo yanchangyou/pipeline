@@ -8,19 +8,15 @@ import org.mvel.MVEL;
 public class MVELTest {
 
 	public static void main(String[] args) {
-//		simpleTest();
+		simpleTest();
 //		varDefineTest();
-		flowDefineTest();
+//		flowDefineTest();
 	}
 	
 	public static void simpleTest() {
 		Map map = new HashMap();
-		map.put("language_name", " pipeline ");
-		map.put("b", "2");
-		
-		Object result = MVEL.eval("language_name.trim()", map);
-		
-		
+		map.put("中文变量", "中文变量值");
+		Object result = MVEL.eval("中文变量 + \"end\" ", map);
 		System.out.println(result);
 	}
 	

@@ -1,241 +1,36 @@
 <?xml version="1.0"?>
-<root>
-	<global name="self">
+
+<root boot="my-service">
+
+	<service name="my-service" port="10001">
+	
+		<data-node-define>
+			<string name="my_var">var-value</string>
+		</data-node-define>
+		
 		<service-node-define>
-			<service name="global-init">
-				<competitor name="self.self.self.self.io-server.init1" priority="1" />
-				<competitor name="self.self.self.self.io-server.init2" priority="2" />
+			<service name="hello-service">
+				<competitor name="output-service" realService="real-node.output-telnet1" priority="1" />
 			</service>
 		</service-node-define>
-		<data-node-define>
-			<string name="global">true</string>
-		</data-node-define>
-		<economy name="self">
-			<service-node-define>
-				<service name="economy-init">
-					<competitor name="self.self.self.self.io-server.init1" priority="1" />
-					<competitor name="self.self.self.self.io-server.init2" priority="2" />
-				</service>
-			</service-node-define>
-			<data-node-define>
-				<string name="economy">true</string>
-			</data-node-define>
-			<market name="self">
-				<service-node-define>
-					<service name="market-init">
-						<competitor name="self.self.self.self.io-server.init1" priority="1" />
-						<competitor name="self.self.self.self.io-server.init2" priority="2" />
-					</service>
-				</service-node-define>
+
+		<telnet name="self" service="hello-service">
+			<request name="request">
 				<data-node-define>
-					<string name="market">true</string>
+					<string name="data">my_var</string>
 				</data-node-define>
-				<supplier name="self">
-					<service-node-define>
-						<service name="supplier-init">
-							<competitor name="self.self.self.self.io-server.init1" priority="1" />
-							<competitor name="self.self.self.self.io-server.init2" priority="2" />
-						</service>
-					</service-node-define>
-					<data-node-define>
-						<string name="supplier">true</string>
-					</data-node-define>
+			</request>
+		</telnet>
+	</service>
+	
+	<real-node name="real-node">
+		<telnet name="output-telnet1">
+			<data-node-define>
+				<string name="host">127.0.0.1</string>
+				<string name="port">10001</string>
+			</data-node-define>
+		</telnet>
+	</real-node>
 
-					<server name="self">
-						<data-node-define>
-							<string name="server">true</string>
-						</data-node-define>
-						<service-node-define>
-							<service name="server-init">
-								<competitor name="self.self.self.self.io-server.init1" priority="1" />
-								<competitor name="self.self.self.self.io-server.init2" priority="2" />
-							</service>
-						</service-node-define>
 
-						<http_1.1 name="self" port="31001" times="100">
-								<data-node-define>
-									<string name="thread_self">true</string>
-								</data-node-define>
-								<request name="request">
-									<data>
-										<line>
-											<![CDATA[request data line1&]]>
-										</line>
-										<line>
-											<![CDATA[request data line2]]>
-										</line>
-									</data>
-								</request>
-								<response name="response">
-									<data>
-										<line>
-											<![CDATA[response data line1&]]>
-										</line>
-										<line>
-											<![CDATA[response data line2]]>
-										</line>
-									</data>
-								</response>
-							</http_1.1>
-						
-						
-						<thread name="self1" port="31001" times="100">
-							<data-node-define>
-								<string name="thread_self">true</string>
-							</data-node-define>
-							<request name="request">
-								<data>
-									<line>
-										<![CDATA[request data line1&]]>
-									</line>
-									<line>
-										<![CDATA[request data line2]]>
-									</line>
-								</data>
-							</request>
-							<response name="response">
-								<data>
-									<line>
-										<![CDATA[response data line1&]]>
-									</line>
-									<line>
-										<![CDATA[response data line2]]>
-									</line>
-								</data>
-							</response>
-
-							<http_1.1 name="http" port="31001" times="100">
-								<data-node-define>
-									<string name="thread_self">true</string>
-								</data-node-define>
-								<request name="request">
-									<data>
-										<line>
-											<![CDATA[request data line1&]]>
-										</line>
-										<line>
-											<![CDATA[request data line2]]>
-										</line>
-									</data>
-								</request>
-								<response name="response">
-									<data>
-										<line>
-											<![CDATA[response data line1&]]>
-										</line>
-										<line>
-											<![CDATA[response data line2]]>
-										</line>
-									</data>
-								</response>
-							</http_1.1>
-						
-							<telnet name="telnet-1" service="telnet-1">
-								<data-node-define>
-									<string name="telnet_1_string">true</string>
-								</data-node-define>
-								<request name="request">
-									<data>
-										<line>
-											<![CDATA[request data line1&]]>
-										</line>
-										<line>
-											<![CDATA[request data line2]]>
-										</line>
-									</data>
-								</request>
-								<response name="response">
-									<data>
-										<line>
-											<![CDATA[response data line1&]]>
-										</line>
-										<line>
-											<![CDATA[response data line2]]>
-										</line>
-									</data>
-								</response>
-							</telnet>
-
-							<if condition="1=1" name="if-flow-2">
-								<data-node-define>
-									<string name="if-flow-2-string">true</string>
-								</data-node-define>
-
-								<telnet service="telnet1">
-									<request name="request">
-										<data>
-											<line>
-												<![CDATA[request data line1&]]>
-											</line>
-											<line>
-												<![CDATA[request data line2]]>
-											</line>
-										</data>
-									</request>
-									<response name="response">
-										<data>
-											<line>
-												<![CDATA[response data line1&]]>
-											</line>
-											<line>
-												<![CDATA[response data line2]]>
-											</line>
-										</data>
-									</response>
-								</telnet>
-							</if>
-
-							<if-else condition="1=1" name="if-else-flow-3">
-								<telnet service="">
-									<request name="request">
-										<data-node-define>
-											<string name="if-else-flow-3-string">true</string>
-										</data-node-define>
-										<data>
-											<line>
-												<![CDATA[request data line1&]]>
-											</line>
-											<line>
-												<![CDATA[request data line2]]>
-											</line>
-										</data>
-									</request>
-									<response name="response">
-										<data-node-define>
-											<string name="response">true</string>
-										</data-node-define>
-										<data>
-											<line>
-												<![CDATA[response data line1&]]>
-											</line>
-											<line>
-												<![CDATA[response data line2]]>
-											</line>
-										</data>
-									</response>
-								</telnet>
-							</if-else>
-
-						</thread>
-					</server>
-					<server name="io-server" host="127.0.0.1">
-						<ftp name="input-ftp">
-							<property-define>
-								<property name="host">this.host</property>
-								<property name="port">11001</property>
-								<property name="user.name">cyyan</property>
-								<property name="user.password">cyyan</property>
-							</property-define>
-						</ftp>
-						<telnet name="output-telnet">
-							<property-define>
-								<property name="host">this.host</property>
-								<property name="port">12001</property>
-							</property-define>
-						</telnet>
-					</server>
-				</supplier>
-			</market>
-		</economy>
-	</global>
 </root>

@@ -1,7 +1,6 @@
 package org.software.sphere.society.platform.pipeline.core.flow.thread;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -10,12 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.software.sphere.society.platform.pipeline.common.RuleReadNetDataByPipeline;
-import org.software.sphere.society.platform.pipeline.core.core.Request;
-import org.software.sphere.society.platform.pipeline.core.core.Response;
 import org.software.sphere.society.platform.pipeline.core.core.Session;
-import org.software.sphere.society.platform.pipeline.core.data.DataNode;
-import org.software.sphere.society.platform.pipeline.core.data.node0X.String;
 import org.software.sphere.society.platform.pipeline.core.flow.FlowNode;
 
 public class Thread extends FlowNode {
@@ -116,64 +110,17 @@ public class Thread extends FlowNode {
 			} else {
 				number_times = Integer.parseInt(times);
 			}
-			for (int i=0; i<number_times; i++){
-				log.info("服务[" + this.getName() + "]建立socket");
-				Request request = this.getRequest();
-				Response response = this.getResponse();
-				
-				String requestData = null;
-				String responseData = null;
-				
-				
-				/**
-				 * 读取数据 采用&续行, && 换行的处理规则
-				 */
-				if (request != null) { //接收客户端请求
-					log.info("服务[" + this.getName() + "]接收客户端输入数据");
-					requestData = new String(RuleReadNetDataByPipeline.readData(socket.getInputStream()));
-//					Tree requestTree = PipelineNetCompiler.compile(requestData);
-//					requestTree.execute(this.getContext());
-//					this.getContext().merge(this.request.getName(), requestTree);
-					System.out.println("请求数据是 : " + requestData);
-					log.info("服务[" + this.getName() + "]客户端输入数据完毕");
-				}
-				
-				log.info("服务[" + this.getName() + "]开始处理");
-				
-				log.info("服务[" + this.getName() + "]完成处理");
-				
-				if (response != null) { //响应客户端请求
-					log.info("服务[" + this.getName() + "]向客户端输出结果");
-					PrintWriter os = new PrintWriter(socket.getOutputStream());
-//					responseData = response.getResponseData();
-//					Tree responseTree = PipelineNetCompiler.compile(responseData);
-//					responseTree.execute(this.getContext());
-//					this.getContext().merge(response.getName(), responseTree, DefaultTree3D.class);
-//					this.getContext().getParent().merger(response.getName(), responseTree);
-//					os.print(responseTree.getResult());
-					DataNode node = this.getDataNode(requestData.trim());
-					if (node != null) {
-						responseData = new String(node.toString());
-					} else {
-						responseData = new String("数据节点没有找到");
-					}
-					
-					os.print(responseData + "\r\n");
-					os.flush();
-					log.info("服务[" + this.getName() + "]向客户端输出结果完毕");
-				}
-				
+			
+
+			Session clientSession = new Session(socket);
+			for (int i=1; i<=number_times; i++){
+				super.defaultExecute(clientSession);
 			}
 			
-			socket.close(); // 关闭Socket
 			log.info("服务[" + this.getName() + "]关闭socket");
 		} catch (ConnectException e) {
 			log.error("获取[" + this.getName() + "]服务失败---原因" + e.getMessage());
 		} 
-//		catch (DataNotFoundException e) {
-//			log.error("处理[" + this.getName() + "]服务失败---原因是 :" + e.getMessage());
-////			e.printStackTrace();
-//		} 
 		catch (IOException e) {
 			log.error("处理[" + this.getName() + "]服务失败---io异常");
 			e.printStackTrace();

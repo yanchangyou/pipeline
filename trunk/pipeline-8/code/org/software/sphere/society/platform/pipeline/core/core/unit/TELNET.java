@@ -1,14 +1,11 @@
 package org.software.sphere.society.platform.pipeline.core.core.unit;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import org.software.sphere.society.platform.pipeline.common.RuleReadNetDataByPipeline;
 import org.software.sphere.society.platform.pipeline.common.ServiceNode;
-import org.software.sphere.society.platform.pipeline.core.core.Evale;
 import org.software.sphere.society.platform.pipeline.core.core.KeyWords;
 import org.software.sphere.society.platform.pipeline.core.core.Request;
 import org.software.sphere.society.platform.pipeline.core.core.Response;
@@ -49,35 +46,22 @@ public class TELNET extends Unit {
 		}
 
 		if (socket == null) { // 如果没有连接, 抛出异常
-		// log.error("连接失败");
 			java.lang.String msg = "连接失败 : 在步骤[" + this.getName() + "中]发生连接异常, 请确保服务["
 					+ this.service + "]已经启动";
 			log.error(msg);
 			throw new ConnectException(msg);
 		}
 
-		if (request != null && request.getRequestData() != null) {
-			
-			PrintWriter os = new PrintWriter(socket.getOutputStream());
-			java.lang.String requestData = request.getRequestData();
-			log.info("开始向外输出数据 : " + requestData);
-			java.lang.String result = Evale.eval(requestData, this).toString();
-			os.println(result);
-			os.flush();
-			log.info("完毕向外输出数据");
-		}
-		/**
-		 * 读取数据 采用&续行, && 换行的处理规则
-		 */
-		if (response != null) {
-			log.info("开始向内读取数据");
-			java.lang.String responseData = RuleReadNetDataByPipeline.readData(socket.getInputStream());
-			this.decodeResponseData(response, new String(responseData));
-			log.info("完毕向内读取数据 : " + responseData);
-		}
+//		this.dealRequest(socket);
+//
+//		this.dealResponse(socket);
+		
+		
 		if (isClientSocket) { // 如果是客户端就不关闭
 			log.info("与客户端会话结束");
 		} else {
+			socket.shutdownInput();
+			socket.shutdownOutput();
 			socket.close();
 			log.info("远程服务调用结束");
 		}

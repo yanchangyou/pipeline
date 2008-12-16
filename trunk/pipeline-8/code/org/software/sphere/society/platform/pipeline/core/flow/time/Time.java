@@ -53,23 +53,25 @@ public class Time extends FlowNode {
 
 	public void execute(final Session clientSession) throws ConnectException, Exception {
 
-		Timer timer = new Timer();
+		final Timer timer = new Timer();
 		TimerTask newTimerTask = new TimerTask () {
 			long time = 0;
 			public void run() {
 				try {
 					Time.super.defaultExecute(clientSession);
 				} catch (ConnectException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+//					e.printStackTrace();
+					log.error("连接错误, 自动退出, 错误信息:"  + e.getMessage());
+					timer.cancel();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+//					e.printStackTrace();
+					log.error("异常产生, 自动退出, 错误信息:"  + e.getMessage());
+					timer.cancel();
 				}
 				time ++;
 				
 				if (time > Long.parseLong(Time.this.maxTimes)) {
-					this.cancel();
+					timer.cancel();
 				}
 			}
 			
