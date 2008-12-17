@@ -1,5 +1,5 @@
 #summary 处理connection
-#labels Featured,Phase-Requirements,connection
+#labels Phase-Requirements,connection
 
 ===connection===
   * 连接的建立
