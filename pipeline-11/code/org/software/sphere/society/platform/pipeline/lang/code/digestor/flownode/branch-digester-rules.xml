@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- 流程模型:分支:if -->
+	<pattern value="*/if">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.branch.If" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+	
+	<!-- 流程模型:分支:if-else -->
+	<pattern value="*/if-else">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.branch.IfElse" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+	
+	<!-- 流程模型:分支:switch -->
+	<pattern value="*/switch">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.branch.Switch" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+</digester-rules>

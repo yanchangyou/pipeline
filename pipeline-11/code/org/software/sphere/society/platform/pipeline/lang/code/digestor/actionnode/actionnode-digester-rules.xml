@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- sessionnode的digester -->
+	<include path="org/software/sphere/society/platform/pipeline/lang/code/digestor/actionnode/sessionnode/sessionnode-digester-rules.xml" />
+
+	<pattern value="*/request">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.actionnode.Request" />
+		<set-properties-rule />
+		<set-next-rule methodname="addJustDoIt" paramtype="org.software.sphere.society.platform.pipeline.lang.core.JustDoItable" />
+	</pattern>
+	
+	<pattern value="*/response">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.actionnode.Response" />
+		<set-properties-rule />
+		<set-next-rule methodname="addJustDoIt" paramtype="org.software.sphere.society.platform.pipeline.lang.core.JustDoItable" />
+	</pattern>
+	
+</digester-rules>

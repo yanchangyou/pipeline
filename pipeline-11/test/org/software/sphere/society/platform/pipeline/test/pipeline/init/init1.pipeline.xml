@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<root>
+	<console>
+		<request>
+			<string>hello world!</string>
+		</request>
+		<response>
+		</response>
+	</console>
+</root>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<!-- 数据模型:string -->
+	<pattern value="*/string">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.datanode.program.unit.String" />
+		<set-properties-rule />
+		<call-method-rule methodname="setJavaString" paramcount="0" />
+		<set-next-rule methodname="setData" paramtype="org.software.sphere.society.platform.pipeline.lang.code.datanode.DataNode" />
+	</pattern>
+</digester-rules>
