@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="*/service">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.real.Service" />
+		<set-properties-rule />
+		<set-next-rule methodname="addNextRealNode" paramtype="org.software.sphere.society.platform.pipeline.core.real.RealNode" />
+	</pattern>
+</digester-rules>

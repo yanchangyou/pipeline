@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- 流程模型:循环:while -->
+	<pattern value="*/while">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.loop.While" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+	
+	<!-- 流程模型:循环:for -->
+	<pattern value="*/for">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.loop.For" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+</digester-rules>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<!-- 数据模型:data-node -->
+	<include path="org/software/sphere/society/platform/pipeline/lang/code/digestor/datanode/program/program-digester-rules.xml"/>
+
+</digester-rules>

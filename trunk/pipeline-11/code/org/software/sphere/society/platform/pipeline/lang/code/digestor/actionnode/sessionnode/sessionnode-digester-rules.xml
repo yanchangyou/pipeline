@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+	<pattern value="*/console">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.actionnode.sessionnode.Console" />
+		<set-properties-rule />
+		<set-next-rule methodname="addJustDoIt" paramtype="org.software.sphere.society.platform.pipeline.lang.core.JustDoItable" />
+	</pattern>
+	
+</digester-rules>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<demo-list>
+
+	<hello>
+		<demo version="1">
+			<step>运行程序</step>
+			<step>远程请求</step>
+			<step>在输出控制台显示 : hello world!</step>
+		</demo>
+		<demo version="2">
+			<step>运行程序</step>
+			<step>远程请求</step>
+			<step>在输出控制台显示 : hello world!</step>
+		</demo>
+	</hello>
+
+
+	<demo name="hello" version="1" path="">
+		<function>
+			输出 hello world!
+		</function>
+		<descript>
+			<step>运行程序</step>
+			<step>远程请求</step>
+			<step>在输出控制台显示 : hello world!</step>
+		</descript>
+	</demo>
+
+
+	<demo no="2" name="echo">
+		<function>1, 运行程序 2, 远程请求 3, 在输入控制台输入 : string 4, 在输出控制台输出 : string</function>
+	</demo>
+
+	<demo no="3" name="a+b">
+		<function>1, 运行程序 2, 远程请求 3, 在输入控制台输入 a 4, 在输入控制台输入 b 5, 在输出控制台输出 a + b</function>
+	</demo>
+
+	<demo no="4" name="express">
+		<function>1, 运行程序 2, 远程请求 3, 在输入控制台输入 数学表达式 : (3 + 2) *10 4, 在输出控制台输出 (3 + 2) *10 的值</function>
+	</demo>
+
+	<demo no="5" name="hello world!">
+		<function>1, 运行程序 2, 远程请求 3, 在输出控制台显示 : hello world!</function>
+	</demo>
+
+
+	<demo no="5" name="odd-even" version="1">
+		<description>一个最简单的逻辑判读的例子</description>
+		<function>1, 运行程序 2, 内置 参数 a 3, 判读如果a是奇数 控制台输出 odd 4, 判读如果a是偶数 控制台输出 even</function>
+	</demo>
+
+	<demo no="6" name="odd-even" version="1">
+		<function>1, 运行程序 2, 内置 参数 a 3, 判读如果a是奇数 控制台输出 odd 4, 判读如果a是偶数 控制台输出 even</function>
+	</demo>
+
+	<demo no="4" name="express">
+		<function>1, 运行程序 2, 远程请求 3, 在输入控制台输入 数学表达式 : (3 + 2) *10 4, 在输出控制台输出 (3 + 2) *10 的值</function>
+	</demo>
+</demo-list>
