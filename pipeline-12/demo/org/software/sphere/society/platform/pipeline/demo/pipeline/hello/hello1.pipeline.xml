@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<root>
+	<global name="self">
+		<economy name="self">
+			<market name="self">
+				<supplier name="self">
+					<server name="self">
+						<service name="self" port="21001">
+							<pipeline name="hello1_pipeline">
+								<line name="hello1_line">
+									<step name="hello1_step">
+										<request type="tree-0D" name="request">
+											<data>
+												<line subfix="\n"><![CDATA[<pipeline><data>hello PIPELINE{this.name}! 欢迎您来到全新的服务领域, 这个领域正需要你这样的人才.</data></pipeline>]]></line>
+											</data>
+										</request>
+									</step>
+								</line>
+							</pipeline>
+						</service>
+					</server>
+					<server name="io-server" host="127.0.0.1">
+						<service name="output" port="10001" />
+					</server>
+				</supplier>
+			</market>
+		</economy>
+	</global>
+</root>
