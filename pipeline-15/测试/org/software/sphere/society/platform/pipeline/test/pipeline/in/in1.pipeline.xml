@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root boot="my-service">
+	<service name="my-service" port="10001">
+	
+		<data-node-define>
+			<string name="inner_var">var-value</string>
+		</data-node-define>
+		
+		<thread name="self" port="34001">
+			<request name="request">
+				"欢迎来到合作工作室"
+			</request>
+			<response name="response">
+				
+			</response>
+			<request name="request">
+				response
+			</request>
+		</thread>
+	</service>
+</root>
