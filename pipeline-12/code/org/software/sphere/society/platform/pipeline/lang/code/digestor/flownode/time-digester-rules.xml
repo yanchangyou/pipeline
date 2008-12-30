@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<!-- 流程模型:定时:time-->
+	<pattern value="*/time">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.core.flow.time.Time" />
+		<set-properties-rule />
+		<set-next-rule methodname="appendFlow" paramtype="org.software.sphere.society.platform.pipeline.core.flow.FlowNode" />
+	</pattern>
+</digester-rules>

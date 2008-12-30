@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+
+<!-- 资源模型 -->
+
+<digester-rules>
+
+	<!-- console -->
+	<pattern value="*/console">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.resourcenode.Console" />
+		<set-properties-rule />
+		<set-next-rule methodname="addNextNode" paramtype="org.software.region.molecule.container.net.nodable.Nodable" />
+	</pattern>
+
+</digester-rules>
