@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<root>
+	<console>
+		<speak>
+			<string>hello world!</string>
+		</speak>
+	</console>
+</root>
