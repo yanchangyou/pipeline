@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- 行为模型 -->
+<digester-rules>
+
+	<!-- 说 -->
+	<pattern value="*/speak">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.lang.code.actionnode.Speak" />
+		<set-properties-rule />
+		<set-next-rule methodname="addNextNode" paramtype="org.software.region.molecule.container.net.nodable.Nodable" />
+	</pattern>
+	
+</digester-rules>
