@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<root boot="my-service">
+
+	<service name="my-service" port="10001">
+	
+		<data-node-define>
+			<string name="my_var">var-value</string>
+		</data-node-define>
+		
+		<service-node-define>
+			<service name="hello-service">
+				<competitor name="output-service" realService="real-node.output-telnet1" priority="1" />
+			</service>
+		</service-node-define>
+
+		<telnet name="self" service="hello-service">
+			<request name="request">
+				<data-node-define>
+					<string name="data">my_var</string>
+				</data-node-define>
+			</request>
+		</telnet>
+	</service>
+	
+	<real-node name="real-node">
+		<telnet name="output-telnet1">
+			<data-node-define>
+				<string name="host">127.0.0.1</string>
+				<string name="port">10001</string>
+			</data-node-define>
+		</telnet>
+	</real-node>
+
+
+</root>

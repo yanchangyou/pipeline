@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+	<pattern value="test-list">
+		<object-create-rule classname="org.software.sphere.society.platform.pipeline.test.TestList" />
+		<pattern value="test">
+			<object-create-rule classname="org.software.sphere.society.platform.pipeline.test.Test" />
+			<set-properties-rule />
+			<pattern value="function">
+				<pattern value="line">
+					<call-method-rule methodname="addFunctionLine" paramcount="0" />
+				</pattern>
+			</pattern>
+			<pattern value="inner-flow">
+				<pattern value="line">
+					<call-method-rule methodname="addInnerFlowLine" paramcount="0" />
+				</pattern>
+			</pattern>
+			<pattern value="outer-flow">
+				<pattern value="line">
+					<call-method-rule methodname="addOuterFlowLine" paramcount="0" />
+				</pattern>
+			</pattern>
+			<set-next-rule methodname="addTest" paramtype="org.software.sphere.society.platform.pipeline.test.Test" />
+		</pattern>
+	</pattern>
+</digester-rules>
