@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="核心"/>
+	<classpathentry kind="src" path="框架"/>
 	<classpathentry kind="src" path="库"/>
 	<classpathentry kind="src" path="地神"/>
 	<classpathentry kind="src" path="测试"/>
