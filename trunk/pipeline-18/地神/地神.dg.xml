@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<digester-rules>
+
+	<pattern value="地神">
+		<set-properties-rule/>
+	</pattern>
+	
+	
+</digester-rules>
