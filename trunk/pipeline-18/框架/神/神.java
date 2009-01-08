@@ -2,12 +2,15 @@ package 神;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.xml.sax.SAXException;
 
 import 共用.日志;
+import 共用.有名字的;
 
 /**
  * 全能的神<br>
@@ -24,7 +27,35 @@ import 共用.日志;
  * @file : 神.java
  * @version : 0.1
  */
-public abstract class 神 implements 日志 {
+public abstract class 神 implements 日志, 有名字的 {
+
+	protected String 名字;
+	
+	protected Map 乾坤包 = new HashMap();
+	
+	protected  int count = 0;
+	
+	public String get名字() {
+		return 名字;
+	}
+
+	public void set名字(String 名字) {
+		this.名字 = 名字;
+	}
+	
+	protected void 放入(有名字的 对象) {
+		乾坤包.put(对象.get名字(), 对象);
+		乾坤包.put("" + count , 对象);	
+		count ++;
+	}
+	
+	protected 有名字的 拿出(int 对象的ID) {
+		return (有名字的) 乾坤包.get("" + 对象的ID);
+	}
+	
+	protected 有名字的 拿出(String 对象的名字) {
+		return (有名字的) 乾坤包.get(对象的名字);
+	}
 	
 	/**
 	 * 初始化神
