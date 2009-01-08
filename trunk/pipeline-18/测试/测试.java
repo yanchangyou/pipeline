@@ -1,9 +1,9 @@
 
-public class ²âÊÔ {
+public class æµ‹è¯• {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Éñ ¼Ã¹« = (Éñ) Class.forName("µØÉñ").newInstance();
+		ç¥ž æµŽå…¬ = (ç¥ž) Class.forName("åœ°ç¥ž").newInstance();
 		
-		System.out.println(¼Ã¹«);
+		System.out.println(æµŽå…¬);
 	}
 }

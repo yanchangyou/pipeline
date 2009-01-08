@@ -3,23 +3,23 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 
-public class µØÉñ extends Éñ {
+public class åœ°ç¥ extends ç¥ {
 
-	private String ĞÕÃû;
+	private String å§“å;
 
-	public String getĞÕÃû() {
-		return ĞÕÃû;
+	public String getå§“å() {
+		return å§“å;
 	}
 
-	public void setĞÕÃû(String ĞÕÃû) {
-		this.ĞÕÃû = ĞÕÃû;
+	public void setå§“å(String å§“å) {
+		this.å§“å = å§“å;
 	}
 
 	public String toString() {
-		return this.getĞÕÃû();
+		return this.getå§“å();
 	}
 	
-	public µØÉñ() throws IOException, SAXException {
+	public åœ°ç¥() throws IOException, SAXException {
 		super();
 	}
 }
