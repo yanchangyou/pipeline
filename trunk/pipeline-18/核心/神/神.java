@@ -1,3 +1,4 @@
+package 神;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -5,6 +6,8 @@ import java.net.URL;
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.xml.sax.SAXException;
+
+import 共用.日志;
 
 /**
  * 全能的神<br>
@@ -21,7 +24,7 @@ import org.xml.sax.SAXException;
  * @file : 神.java
  * @version : 0.1
  */
-public abstract class 神 {
+public abstract class 神 implements 日志 {
 	
 	/**
 	 * 初始化神
@@ -33,11 +36,12 @@ public abstract class 神 {
 		 * digester 文件
 		 */
 		URL digesterFileURL = this.getClass().getResource(this.getClass().getName() + ".dg.xml");
-		
+		日志.info(digesterFileURL);
 		/**
 		 * pipeline 文件
 		 */
 		URL pipelineFileURL = this.getClass().getResource(this.getClass().getName() + ".pl.xml");
+		日志.info(pipelineFileURL.getFile());
 		
 		/**
 		 * 生成digester对象用于解析
@@ -52,6 +56,6 @@ public abstract class 神 {
 		/**
 		 * 开始解析pipeline文件构建神的灵魂
 		 */
-		digester.parse(new File(pipelineFileURL.getFile()));
+		digester.parse(new File(java.net.URLDecoder.decode(pipelineFileURL.getFile(), "UTF-8")));
 	}
 }
