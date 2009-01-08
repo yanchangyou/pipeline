@@ -2,7 +2,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public interface 日志 {
+public interface 鏃ュ織 {
 
-	public static Log 日志 = LogFactory.getLog(日志.class);
+	public static Log 鏃ュ織 = LogFactory.getLog(鏃ュ織.class);
 }

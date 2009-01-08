@@ -7,54 +7,50 @@ import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.xml.sax.SAXException;
 
 /**
- * È«ÄÜµÄÉñ<br>
+ * å…¨èƒ½çš„ç¥<br>
  * <br>
- * ±àĞ´ÉñÒª Èı¸ö¶«Î÷<br>
- * 1, Ò»¸öjavaÀà<br>
- * 2, Ò»¸ödigester½âÎöÎÄ¼ş<br>
- * 3, Ò»¸öpipelineÎÄ¼ş<br>
+ * ç¼–å†™ç¥è¦ ä¸‰ä¸ªä¸œè¥¿<br>
+ * 1, ä¸€ä¸ªjavaç±»<br>
+ * 2, ä¸€ä¸ªdigesterè§£ææ–‡ä»¶<br>
+ * 3, ä¸€ä¸ªpipelineæ–‡ä»¶<br>
  * 
- * Éñ»á¸ù¾İÕâÈıÕß×Ô¶¯¹¹½¨³öÉñ<br>
+ * ç¥ä¼šæ ¹æ®è¿™ä¸‰è€…è‡ªåŠ¨æ„å»ºå‡ºç¥<br>
  * <br>
  * @author yanchangyou@gmail.com
- * @date : 2009-1-8 ÏÂÎç09:18:49
- * @file : Éñ.java
+ * @date : 2009-1-8 ä¸‹åˆ09:18:49
+ * @file : ç¥.java
  * @version : 0.1
  */
-public abstract class Éñ implements ÈÕÖ¾ {
+public abstract class ç¥ {
 	
 	/**
-	 * ³õÊ¼»¯Éñ
+	 * åˆå§‹åŒ–ç¥
 	 * @throws IOException
 	 * @throws SAXException
 	 */
-	public Éñ() throws IOException, SAXException {
+	public ç¥() throws IOException, SAXException {
 		/**
-		 * digester ÎÄ¼ş
+		 * digester æ–‡ä»¶
 		 */
 		URL digesterFileURL = this.getClass().getResource(this.getClass().getName() + ".dg.xml");
 		
-		ÈÕÖ¾.info(digesterFileURL);
-		
 		/**
-		 * pipeline ÎÄ¼ş
+		 * pipeline æ–‡ä»¶
 		 */
 		URL pipelineFileURL = this.getClass().getResource(this.getClass().getName() + ".pl.xml");
 		
-		ÈÕÖ¾.info(pipelineFileURL);
-		
 		/**
-		 * Éú³Édigester¶ÔÏóÓÃÓÚ½âÎö
+		 * ç”Ÿæˆdigesterå¯¹è±¡ç”¨äºè§£æ
 		 */
 		Digester digester = DigesterLoader.createDigester(digesterFileURL);
 		
 		/**
-		 * °ÑÉñ×Ô¼º´«Èë, digesterÕ»ÖĞµÚÒ»¸öÔªËØ
+		 * æŠŠç¥è‡ªå·±ä¼ å…¥, digesteræ ˆä¸­ç¬¬ä¸€ä¸ªå…ƒç´ 
 		 */
 		digester.push(this);
 		
 		/**
-		 * ¿ªÊ¼½âÎöpipelineÎÄ¼ş¹¹½¨ÉñµÄÁé»ê
+		 * å¼€å§‹è§£æpipelineæ–‡ä»¶æ„å»ºç¥çš„çµé­‚
 		 */
 		digester.parse(new File(pipelineFileURL.getFile()));
 	}
