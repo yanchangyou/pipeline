@@ -55,7 +55,7 @@ public class 系统 extends 乾坤包节点 {
 		for (int i = 0; i < this.下一个编号.intValue(); i++) {
 			服务 服务 = 获取服务(new Integer(i));
 			if (服务.get运行类型().equals(常量.服务运行类型.主动运行)) {
-				服务.运行(this);
+				服务.开启(this, 0);
 			}
 		}
 	}
