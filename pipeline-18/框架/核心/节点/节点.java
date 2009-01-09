@@ -7,7 +7,6 @@ import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.xmlrules.DigesterLoader;
 import org.xml.sax.SAXException;
 
-import 共用.可日志输出的;
 import 共用.可统一的;
 import 核心.常量;
 
@@ -26,7 +25,7 @@ import 核心.常量;
  * @file : 节点.java
  * @version : 0.1
  */
-public abstract class 节点 implements 可日志输出的, 可统一的 {
+public abstract class 节点 implements 可统一的 {
 
 	public int 获取被引用次数() {
 		return this.get被引用次数();
@@ -101,6 +100,9 @@ public abstract class 节点 implements 可日志输出的, 可统一的 {
 
 	protected Integer 顺序编号 = new Integer(0);
 	
+	public String toString() {
+		return "名字 : " + this.名字 + ", 状态 :" + 状态 + ",  被引用次数 : " + 被引用次数 ;
+	}
 	
 	/**
 	 * 初始化节点
@@ -112,12 +114,15 @@ public abstract class 节点 implements 可日志输出的, 可统一的 {
 		 * digester 文件
 		 */
 		URL digesterFileURL = this.getClass().getResource(this.getClass().getName() + ".dg.xml");
-		日志.info(digesterFileURL);
+		
 		/**
 		 * pipeline 文件
 		 */
 		URL pipelineFileURL = this.getClass().getResource(this.getClass().getName() + ".pl.xml");
-		日志.info(pipelineFileURL.getFile());
+		
+		
+		日志.info(java.net.URLDecoder.decode(digesterFileURL.toString(), "UTF-8"));
+		日志.info(java.net.URLDecoder.decode(pipelineFileURL.getFile(), "UTF-8"));
 		
 		/**
 		 * 生成digester对象用于解析

@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="库/commons-validator-1.3.1.jar"/>
 	<classpathentry kind="lib" path="库/log4j-1.2.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="太极牌电脑"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
