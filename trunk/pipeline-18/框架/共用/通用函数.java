@@ -3,7 +3,7 @@ package 共用;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 
-public class 通用 {
+public class 通用函数 {
 
 	public static String 转换为本地编码(String 字符串) {
 		byte[] 字节数组 = null;

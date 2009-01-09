@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import org.xml.sax.SAXException;
 
-import 神.神;
+import 核心.节点.乾坤包节点;
 
 
-public abstract class 功能包 extends 神 {
+public abstract class 功能包 extends 乾坤包节点 {
 
 	public 功能包() throws IOException, SAXException {
 		super();

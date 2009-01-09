@@ -7,10 +7,10 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 import 核心.接口.可流程化的;
-import 神.神;
+import 核心.节点.乾坤包节点;
 
 
-public abstract class 服务 extends 神 {
+public abstract class 服务 extends 乾坤包节点 {
 
 	protected String 运行类型;
 	
@@ -45,8 +45,8 @@ public abstract class 服务 extends 神 {
 	}
 	
 	public void 运行(系统 系统) {
-		for (int i = 0; i < count; i++) {
-			可流程化的 流程 = (可流程化的) 乾坤包.get("" + i);
+		for (int i = 0; i < this.当前编号.intValue(); i++) {
+			可流程化的 流程 = (可流程化的) 乾坤包.get(new Integer(i));
 			流程.执行(系统);
 		}
 	}
@@ -56,12 +56,12 @@ public abstract class 服务 extends 神 {
 		this.放入(流程);
 	}
 	
-	public 可流程化的 获取流程(int 流程的ID) {
-		return (可流程化的) this.拿出(流程的ID);
+	public 可流程化的 获取流程(Integer 流程的ID) {
+		return (可流程化的) this.查看(流程的ID);
 	}
 	
 	public 可流程化的 获取流程(String 流程的名称) {
-		return (可流程化的) this.拿出(流程的名称);
+		return (可流程化的) this.查看(流程的名称);
 	}
 	
 	

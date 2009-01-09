@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 
 import 核心.接口.可写的;
 import 核心.接口.可流程化的;
-import 神.神;
+import 核心.节点.乾坤包节点;
 
 
-public abstract class 写 extends 神 implements 可写的, 可流程化的 {
+public abstract class 写 extends 乾坤包节点 implements 可写的, 可流程化的 {
 
 	public 写() throws IOException, SAXException {
 		super();
