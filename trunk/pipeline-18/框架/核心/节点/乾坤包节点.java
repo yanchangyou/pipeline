@@ -117,6 +117,10 @@ public abstract class 乾坤包节点 extends 节点 {
 		return 对象的编号;
 	}
 	
+	public String toString() {
+		return super.toString() + ", \n" + this.乾坤包;
+	}
+	
 	/**
 	 * 初始化节点
 	 * @throws IOException

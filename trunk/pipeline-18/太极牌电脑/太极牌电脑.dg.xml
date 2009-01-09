@@ -4,7 +4,12 @@
 
 	<pattern value="太极牌电脑">
 		<set-properties-rule/>
+		
+		<pattern value="太极系统">
+			<object-create-rule classname="太极.太极系统" />
+			<set-properties-rule/>
+			<set-next-rule methodname="添加系统" />
+		</pattern>
 	</pattern>
-	
 	
 </digester-rules>

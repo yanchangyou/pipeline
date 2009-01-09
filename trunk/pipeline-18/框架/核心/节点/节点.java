@@ -109,7 +109,11 @@ public abstract class 节点 implements 可统一的 {
 	 * @throws IOException
 	 * @throws SAXException
 	 */
-	public 节点() throws IOException, SAXException {
+	public 节点() {
+		this.set状态(常量.节点状态.已初始化);
+	}
+	
+	public void 构建() throws IOException, SAXException {
 		/**
 		 * digester 文件
 		 */
@@ -139,6 +143,5 @@ public abstract class 节点 implements 可统一的 {
 		 */
 		digester.parse(new File(java.net.URLDecoder.decode(pipelineFileURL.getFile(), "UTF-8")));
 		
-		this.set状态(常量.节点状态.已初始化);
 	}
 }

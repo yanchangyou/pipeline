@@ -1,11 +1,15 @@
+import java.io.IOException;
+
+import org.xml.sax.SAXException;
+
 import 核心.抽象类.电脑;
 import 核心.节点.乾坤包节点;
 
 
 public class 测试 {
 
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		单点测试();
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SAXException {
+//		单点测试();
 		太极牌电脑测试();
 	}
 
@@ -17,9 +21,11 @@ public class 测试 {
 	}
 	
 	public static void 太极牌电脑测试() throws InstantiationException,
-		IllegalAccessException, ClassNotFoundException {
+		IllegalAccessException, ClassNotFoundException, IOException, SAXException {
 		电脑 太极牌电脑 = (电脑) Class.forName("太极牌电脑").newInstance();
 	
+		太极牌电脑.构建();
+		
 		System.out.println(太极牌电脑);
 	}
 }
