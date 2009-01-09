@@ -2,7 +2,7 @@
 
 <digester-rules>
 
-	<pattern value="太极牌电脑">
+	<pattern value="地神">
 		<set-properties-rule/>
 	</pattern>
 	
