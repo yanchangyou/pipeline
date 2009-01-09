@@ -9,10 +9,22 @@
 			<object-create-rule classname="太极.太极系统" />
 			<set-properties-rule/>
 			
-			<pattern value="太极服务">
-				<object-create-rule classname="太极.太极服务" />
+			<pattern value="服务">
+				<object-create-rule classname="核心.类.服务" />
 				<set-properties-rule/>
 				
+				<pattern value="写">
+					<object-create-rule classname="核心.类.写" />
+					<set-properties-rule/>
+					
+					<pattern value="字符串">
+						<object-create-rule classname="核心.类.字符串" />
+						<set-properties-rule/>
+						<call-method-rule methodname="设置字符串" paramcount="0" />
+						<set-next-rule methodname="设置内容" />
+					</pattern>
+					<set-next-rule methodname="编排流程" />
+				</pattern>
 				<set-next-rule methodname="添加服务" />
 			</pattern>
 			<set-next-rule methodname="安装系统" />

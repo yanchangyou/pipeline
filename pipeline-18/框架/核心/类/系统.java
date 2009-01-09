@@ -1,4 +1,4 @@
-package 核心.抽象类;
+package 核心.类;
 
 
 
@@ -10,7 +10,7 @@ import 核心.常量;
 import 核心.节点.乾坤包节点;
 
 
-public abstract class 系统 extends 乾坤包节点 {
+public class 系统 extends 乾坤包节点 {
 
 	protected int 端口;
 	
@@ -52,7 +52,7 @@ public abstract class 系统 extends 乾坤包节点 {
 
 	
 	public void 启动主动服务() {
-		for (int i = 0; i < this.当前编号.intValue(); i++) {
+		for (int i = 0; i < this.下一个编号.intValue(); i++) {
 			服务 服务 = 获取服务(new Integer(i));
 			if (服务.get运行类型().equals(常量.服务运行类型.主动运行)) {
 				服务.运行(this);

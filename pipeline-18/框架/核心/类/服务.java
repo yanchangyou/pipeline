@@ -1,5 +1,4 @@
-package 核心.抽象类;
-
+package 核心.类;
 
 
 import java.io.IOException;
@@ -45,14 +44,14 @@ public class 服务 extends 乾坤包节点 {
 	}
 	
 	public void 运行(系统 系统) {
-		for (int i = 0; i < this.当前编号.intValue(); i++) {
-			可流程化的 流程 = (可流程化的) 乾坤包.get(new Integer(i));
+		for (int i = 0; i < this.下一个编号.intValue(); i++) {
+			可流程化的 流程 = 获取流程(new Integer(i));
 			流程.执行(系统);
 		}
 	}
 	
 
-	public void 添加流程(可流程化的 流程) {
+	public void 编排流程(可流程化的 流程) {
 		this.放入(流程);
 	}
 	
@@ -63,6 +62,5 @@ public class 服务 extends 乾坤包节点 {
 	public 可流程化的 获取流程(String 流程的名称) {
 		return (可流程化的) this.查看(流程的名称);
 	}
-	
 	
 }

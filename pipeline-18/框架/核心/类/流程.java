@@ -1,4 +1,4 @@
-package 核心.抽象类;
+package 核心.类;
 
 
 import java.io.IOException;
