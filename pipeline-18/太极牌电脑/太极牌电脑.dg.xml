@@ -8,7 +8,14 @@
 		<pattern value="太极系统">
 			<object-create-rule classname="太极.太极系统" />
 			<set-properties-rule/>
-			<set-next-rule methodname="添加系统" />
+			
+			<pattern value="太极服务">
+				<object-create-rule classname="太极.太极服务" />
+				<set-properties-rule/>
+				
+				<set-next-rule methodname="添加服务" />
+			</pattern>
+			<set-next-rule methodname="安装系统" />
 		</pattern>
 	</pattern>
 	

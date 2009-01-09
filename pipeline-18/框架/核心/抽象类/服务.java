@@ -10,7 +10,7 @@ import 核心.接口.可流程化的;
 import 核心.节点.乾坤包节点;
 
 
-public abstract class 服务 extends 乾坤包节点 {
+public class 服务 extends 乾坤包节点 {
 
 	protected String 运行类型;
 	
