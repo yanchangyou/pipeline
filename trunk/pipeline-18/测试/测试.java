@@ -2,7 +2,7 @@ import java.io.IOException;
 
 import org.xml.sax.SAXException;
 
-import 核心.抽象类.电脑;
+import 核心.类.电脑;
 import 核心.节点.乾坤包节点;
 
 
@@ -26,6 +26,8 @@ public class 测试 {
 	
 		太极牌电脑.构建();
 		
-		System.out.println(太极牌电脑);
+//		System.out.println(太极牌电脑);
+		
+		太极牌电脑.启动();
 	}
 }

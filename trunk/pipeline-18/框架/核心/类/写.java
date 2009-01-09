@@ -1,4 +1,4 @@
-package 核心.抽象类;
+package 核心.类;
 
 
 
@@ -32,5 +32,9 @@ public class 写 extends 乾坤包节点 implements 可流程化的 {
 
 	public void 执行(系统 系统) {
 		写出((可写的) 系统);
+	}
+	
+	public String toString() {
+		return super.toString() + this.内容;
 	}
 }

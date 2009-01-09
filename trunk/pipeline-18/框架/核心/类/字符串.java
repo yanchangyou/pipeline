@@ -1,4 +1,4 @@
-package 核心.抽象类;
+package 核心.类;
 
 import java.io.IOException;
 
@@ -18,6 +18,10 @@ public class 字符串 extends 内容 {
 
 	public void 设置字符串(String string) {
 		this.string = string;
+	}
+	
+	public String toString() {
+		return this.string;
 	}
 	
 }

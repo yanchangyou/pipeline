@@ -25,7 +25,7 @@ public abstract class 乾坤包节点 extends 节点 {
 	/**
 	 * id从0开始编号
 	 */
-	protected Integer 当前编号 = new Integer(-1);
+	protected Integer 下一个编号 = new Integer(0);
 	
 	public Map get乾坤包() {
 		return 乾坤包;
@@ -35,25 +35,25 @@ public abstract class 乾坤包节点 extends 节点 {
 		this.乾坤包 = 乾坤包;
 	}
 
-	public Integer get当前编号() {
-		return 当前编号;
+	public Integer get下一个编号() {
+		return 下一个编号;
 	}
 
-	public void set当前编号(Integer 当前编号) {
-		this.当前编号 = 当前编号;
+	public void set下一个编号(Integer 下一个编号) {
+		this.下一个编号 = 下一个编号;
 	}
 
 	protected void 放入(可统一的 对象) {
 		
-		当前编号 = new Integer(当前编号.intValue() + 1);
-		
 		乾坤包.put(对象.获取名字(), 对象);
 		
-		乾坤包.put(this.当前编号 , 对象);
+		乾坤包.put(this.下一个编号 , 对象);
 		
 		对象.设置被引用次数(对象.获取被引用次数() + 1);
 		
 		对象.设置父节点(this);
+		
+		下一个编号 = new Integer(下一个编号.intValue() + 1);
 	}
 	
 	protected 可统一的 拿出(Integer 对象的编号) {
