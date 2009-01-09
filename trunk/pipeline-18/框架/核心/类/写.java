@@ -3,6 +3,7 @@ package 核心.类;
 
 
 import java.io.IOException;
+import java.net.Socket;
 
 import org.xml.sax.SAXException;
 
@@ -26,15 +27,20 @@ public class 写 extends 乾坤包节点 implements 可流程化的 {
 		return this.内容;
 	}
 	
-	public void 写出(可写的 可写的) {
-		可写的.写出(this.获取内容());
+	public void 写出(可写的 可写的, Socket socket) {
+		可写的.写出(this.获取内容(), socket);
 	}
 
-	public void 执行(系统 系统) {
-		写出((可写的) 系统);
+	public void 执行(系统 系统, Socket socket) {
+		写出((可写的) 系统, socket);
 	}
 	
 	public String toString() {
 		return super.toString() + this.内容;
 	}
+
+	public void 执行(系统 系统) {
+		
+	}
+
 }

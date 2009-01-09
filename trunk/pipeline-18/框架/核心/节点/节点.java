@@ -1,5 +1,4 @@
 package 核心.节点;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -124,6 +123,10 @@ public abstract class 节点 implements 可统一的 {
 	}
 	
 	public void 构建() throws IOException, SAXException {
+		构建(this.getClass().getClassLoader());
+	}
+	
+	public void 构建(ClassLoader classLoader) throws IOException, SAXException {
 		/**
 		 * digester 文件
 		 */
@@ -132,17 +135,18 @@ public abstract class 节点 implements 可统一的 {
 		/**
 		 * pipeline 文件
 		 */
-		URL pipelineFileURL = this.getClass().getResource(this.getClass().getName() + ".pl.xml");
+		String pipelinePath = this.getClass().getName() + ".pl.xml";
 		
 		
 		日志.info(java.net.URLDecoder.decode(digesterFileURL.toString(), "UTF-8"));
-		日志.info(java.net.URLDecoder.decode(pipelineFileURL.getFile(), "UTF-8"));
+		日志.info(pipelinePath);
 		
 		/**
 		 * 生成digester对象用于解析
 		 */
 		Digester digester = DigesterLoader.createDigester(digesterFileURL);
 		
+		digester.setClassLoader(classLoader);
 		/**
 		 * 把节点自己传入, digester栈中第一个元素
 		 */
@@ -151,7 +155,8 @@ public abstract class 节点 implements 可统一的 {
 		/**
 		 * 开始解析pipeline文件构建节点的灵魂
 		 */
-		digester.parse(new File(java.net.URLDecoder.decode(pipelineFileURL.getFile(), "UTF-8")));
+//		System.out.println(new File(".").getAbsolutePath());
+		digester.parse(this.getClass().getClassLoader().getResourceAsStream(java.net.URLDecoder.decode(pipelinePath, "UTF-8")));
 		
 	}
 }
