@@ -47,13 +47,13 @@ public abstract class 乾坤包节点 extends 节点 {
 		
 		当前编号 = new Integer(当前编号.intValue() + 1);
 		
-		
 		乾坤包.put(对象.获取名字(), 对象);
 		
 		乾坤包.put(this.当前编号 , 对象);
 		
 		对象.设置被引用次数(对象.获取被引用次数() + 1);
 		
+		对象.设置父节点(this);
 	}
 	
 	protected 可统一的 拿出(Integer 对象的编号) {
@@ -62,6 +62,7 @@ public abstract class 乾坤包节点 extends 节点 {
 		乾坤包.remove(对象.获取名字());
 		
 		对象.设置被引用次数(对象.获取被引用次数() - 1);
+		对象.设置父节点(null);
 		
 		return 对象;
 	}

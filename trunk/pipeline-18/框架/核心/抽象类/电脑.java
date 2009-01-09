@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.xml.sax.SAXException;
 
+import 核心.常量;
 import 核心.节点.乾坤包节点;
 
 
@@ -14,7 +15,7 @@ public abstract class 电脑 extends 乾坤包节点 {
 		super();
 	}
 
-	public void 添加系统(系统 系统) {
+	public void 安装系统(系统 系统) {
 		this.放入(系统);
 	}
 	
@@ -26,17 +27,12 @@ public abstract class 电脑 extends 乾坤包节点 {
 		return (系统) this.查看(系统的名称);
 	}
 	
-	protected 启动系统 启动;
-
-	public 启动系统 get启动() {
-		return 启动;
-	}
-
-	public void set启动(启动系统 启动) {
-		this.启动 = 启动;
-	}
-
 	public void 启动() {
-		启动.启动();
+		for (int i = 0; i < this.当前编号.intValue(); i++) {
+			系统 系统 = 获取系统(new Integer(i));
+			if (系统.get启动类型().equals(常量.系统启动类型.自动启动)) {
+				系统.启动主动服务();
+			}
+		}
 	}
 }

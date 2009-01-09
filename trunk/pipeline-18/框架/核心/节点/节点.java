@@ -100,10 +100,20 @@ public abstract class 节点 implements 可统一的 {
 
 	protected Integer 顺序编号 = new Integer(0);
 	
+	protected 可统一的 父节点;
+	
 	public String toString() {
 		return "名字 : " + this.名字 + ", 状态 :" + 状态 + ",  被引用次数 : " + 被引用次数 ;
 	}
 	
+	public 可统一的 获取父节点() {
+		return 父节点;
+	}
+
+	public void 设置父节点(可统一的 父节点) {
+		this.父节点 = 父节点;
+	}
+
 	/**
 	 * 初始化节点
 	 * @throws IOException
