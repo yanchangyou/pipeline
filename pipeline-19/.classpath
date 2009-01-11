@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="框架"/>
+	<classpathentry kind="src" path="第一个应用实体"/>
+	<classpathentry kind="src" path="测试"/>
+	<classpathentry kind="lib" path="库/commons-beanutils-1.6.jar"/>
+	<classpathentry kind="lib" path="库/commons-digester-1.5.jar"/>
+	<classpathentry kind="lib" path="库/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="库/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="库/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="库/log4j-1.2.8.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
