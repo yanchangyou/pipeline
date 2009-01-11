@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<digester-rules>
+
+	<pattern value="第一个应用实体">
+
+		<set-properties-rule/>
+		
+		<pattern value="名单">
+			<object-create-rule classname="通用.类.名单" />
+			<set-properties-rule/>
+			<pattern value="活动项目">
+				<object-create-rule classname="扩展.活动.类.活动项目" />
+				<pattern value="名单">
+					<object-create-rule classname="通用.类.名单" />
+					<set-properties-rule/>
+					<pattern value="参与者">
+						<object-create-rule classname="扩展.实体.类.参与者" />
+						<set-properties-rule/>
+						<set-next-rule methodname="填入" />
+					</pattern>
+					<set-next-rule methodname="设置名单" />
+				</pattern>
+				<set-properties-rule/>
+		
+				<set-next-rule methodname="填入" />
+			</pattern>
+			<set-next-rule methodname="设置名单" />
+		</pattern>
+		
+		<pattern value="记忆区">
+			<object-create-rule classname="扩展.系统.类.记忆区" />
+			<set-properties-rule/>
+			<pattern value="记忆块">
+				<object-create-rule classname="扩展.系统.类.记忆块" />
+				<set-properties-rule/>
+				<call-method-rule methodname="设置内容" paramcount="0" />
+				<set-next-rule methodname="添加记忆块" />
+			</pattern>
+			<set-next-rule methodname="设置记忆区" />
+		</pattern>
+		
+		<pattern value="活动">
+			<object-create-rule classname="基本.类.活动" />
+			<set-properties-rule/>
+			
+			<pattern value="流程">
+				<object-create-rule classname="扩展.流程.类.有子流程的流程" />
+				<set-properties-rule/>
+				
+				<set-next-rule methodname="设置流程" />
+			</pattern>
+			<set-next-rule methodname="添加活动" />
+		</pattern>
+	</pattern>
+
+	<pattern value="*/记">
+		<object-create-rule classname="扩展.动作.类.记" />
+		<set-properties-rule/>
+		<call-method-rule methodname="设置内容" paramcount="0" />
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/忆">
+		<object-create-rule classname="扩展.动作.类.忆" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/听">
+		<object-create-rule classname="扩展.动作.类.听" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/说">
+		<object-create-rule classname="扩展.动作.类.说" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/读">
+		<object-create-rule classname="扩展.动作.类.读" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程"/>
+	</pattern>
+	
+	<pattern value="*/写">
+		<object-create-rule classname="扩展.动作.类.写" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/登记">
+		<object-create-rule classname="扩展.动作.类.登记" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/群说">
+		<object-create-rule classname="扩展.动作.类.群说" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>
+	
+	<pattern value="*/重复">
+		<object-create-rule classname="扩展.流程.类.重复" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>	
+	
+	<pattern value="*/无限重复">
+		<object-create-rule classname="扩展.流程.类.无限重复" />
+		<set-properties-rule/>
+		<set-next-rule methodname="添加子流程" />
+	</pattern>	
+</digester-rules>
+
