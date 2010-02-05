@@ -38,6 +38,6 @@ public class 有子流程的流程 extends 流程 implements 有子流程的 {
 	}
 	
 	public String toString() {
-		return super.toString() + ", 乾坤包 : \n" + this.乾坤包.toString().replace(", ", "\r\n");
+		return super.toString() + ", 乾坤包 : \n" + this.乾坤包.toString().replaceAll(", ", "\r\n");
 	}
 }
